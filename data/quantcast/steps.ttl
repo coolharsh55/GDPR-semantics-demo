@@ -1,0 +1,106 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@base <http://example.com/Quantcast> .
+
+# user interaction activities
+# not part of any process
+:visitWebsite a gdprov:UserInteractionStep, gdprov:DataCollectionStep ;
+	rdfs:label "visit Quantcast website"@en ;
+	rdfs:comment "The activity that takes place when an user visits the Quantcast.com website"@en ;
+	gdprov:generatesData :Cookie, :Tag, :LogData , :PrivacyNotices, :PrivacyChoices .
+
+:visitPartnerWebsite a gdprov:DataStep, gdprov:DataCollectionStep ;
+	rdfs:label "visit Quantcast Partner website"@en ;
+	rdfs:comment "The activity that takes place when an user visits Quantcast Partner's website"@en ;
+	gdprov:generatesData :Cookie, :Tag, :LogData ;
+	gdprov:generatesData :WebsiteHistory, :AppsUsedByUser , :PrivacyChoices, :PrivacyNotices .
+
+:receiveEmailQuery a gdprov:DataStep, gdprov:DataCollectionStep, gdprov:UserInputStep ;
+	rdfs:label "receive Email query"@en ;
+	rdfs:comment "If you contact us by email, we keep a record of your contact information and correspondence for as long as necessary to deal with your correspondence and the issues you raised. If you provide contact information to us, we may use that information to contact you with Quantcast newsletters, marketing, or promotional materials. If you decide at any time that you no longer wish to receive such communications from us, please follow the unsubscribe instructions provided in any of the communications."@en ;
+	gdprov:generatesData :Email .
+
+# marketting process
+:sendMarkettingMaterial a gdprov:DataStep, gdprov:UserOutputStep, gdprov:DataUsageStep ;
+	rdfs:label "send marketting material"@en ;
+	rdfs:comment "sends marketting material to available addresses";
+	gdprov:isPartOfProcess :Marketting ;
+	gdprov:usesData :Email .
+
+# MonitorAnalyseImproveServices process
+:MonitorServices a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Monitor Services"@en ;
+	gdprov:isPartOfProcess :MonitorAnalyseImproveServices ;
+	gdprov:usesData :LogData .
+:AnalyseServices a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Analyse Services"@en ;
+	gdprov:isPartOfProcess :MonitorAnalyseImproveServices ;
+	gdprov:usesData :LogData .
+:ImproveServices a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Improve Services"@en ;
+	gdprov:isPartOfProcess :MonitorAnalyseImproveServices ;
+	gdprov:usesData :LogData .
+:ImproveAccuracyOfProducts a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Improve accuracy of products"@en ;
+	gdprov:isPartOfProcess :MonitorAnalyseImproveServices ;
+	gdprov:usesData :LogData, :WebsiteHistory, :AppsUsedByUser .
+
+
+:extractIdentifierFromLogData a gdprov:DataStep, gdprov:DataUsageStep, gdprov:DataStorageStep ;
+	rdfs:label "extract identifier from Log Data";
+	gdprov:usesData :LogData ;
+	gdprov:generatesData :UserID .
+
+# QAdvertise process
+:DetermineAdvertisements a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Determines ads"@en ;
+	gdprov:isPartOfProcess :QAdvertise ;
+	gdprov:usesData :LogData, :WebsiteHistory, :AppsUsedByUser .
+
+:ImproveAccuracyOfAdvertisements a gdprov:DataStep, gdprov:DataUsageStep ;
+	rdfs:label "Improve accuracy of advertisements"@en ;
+	gdprov:isPartOfProcess :QAdvertise ;
+	gdprov:usesData :LogData, :WebsiteHistory, :AppsUsedByUser .
+
+:GuessAssociationBetweenPlatforms a gdprov:DataStep ;
+	rdfs:label "Guess association between platforms and devices" ;
+	rdfs:comment "guesses association between different platforms and devices for the same user";
+	gdprov:isPartOfProcess :QAdvertise .
+
+:CollectDataFromThirdParties a gdprov:DataCollectionStep ;
+	rdfs:label "Collect Data from Third Parties" ;
+	rdfs:comment "Collects data from partners and third parties" ;
+	gdprov:collectsDataFromAgent :Experian, :MasterCard, :DLX, :TiVO, :Netwise ;
+	gdprov:collectsData :BuyingHistory, :MediaHistory .
+
+# QMeasure + QAdvertise process
+:QuantcastAudienceGrid a gdprov:DataStep, gdprov:DataStorageStep, gdprov:DataUsageStep ;
+	rdfs:label "Quantcast Audience Grid" ;
+	rdfs:comment "combine data from multiple third-parties to create user profiles" ;
+	# input data from third parties
+	# generates profiles
+	# gdprov:isPartOfProcess :QMeasure ;
+	# https://www.quantcast.com/products/measurement/ Demographics
+	gdprov:usesData :WebsiteHistory, :Cookie, :AppsUsedByUser ;
+	gdprov:usesData :BuyingHistory, :MediaHistory ;
+	gdprov:generatesData :GenderProfile, :AgeProfile, :FamilyProfile, :EducationProfile, :EthnicityProfile, :HouseholdIncomeProfile, :PoliticalAffiliationProfile ;
+	# https://www.quantcast.com/products/measurement/ Audience Interests
+	gdprov:generatesData :BuyingInterestsProfile, :ShoppingInterestsProfile, :DrivingProfile, :MediaInterestsProfile ;
+	gdprov:isPartOfProcess :QMeasure, :QAdvertise .
+
+# QChoice process
+:GetConsent a gdprov:DataStep, gdprov:DataStorageStep, gdprov:UserInteractionStep ;
+	rdfs:label "Get Consent" ;
+	rdfs:comment "Shows a dialog to the user, and gets consent. Analyses presented privacy notices and choices." ;
+	gdprov:isPartOfProcess :QChoice ;
+	gdprov:generatesData :PrivacyNotices, :PrivacyChoices .

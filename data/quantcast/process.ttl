@@ -1,0 +1,34 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@base <http://example.com/Quantcast> .
+
+:Marketting a gdprov:Process ;
+	rdfs:label "Marketting"@en ;
+	rdfs:comment "Quantcast newsletters, marketing, or promotional materials"@en .
+
+:MonitorAnalyseImproveServices a gdprov:Process ;
+	rdfs:label "Monitor, Analyse, and Improve Services" ;
+	gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QAdvertise a gdprov:Process ;
+	rdfs:label "Quantcast Advertise Services" ;
+	gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QMeasure a gdprov:Process ;
+	rdfs:leabel "Quantcast Measure Services" ;
+	gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QChoice a gdprov:Process ;
+	rdfs:label "Quantcast Choice" ;
+	rdfs:comment "Consent Management Framework following IAB consent framework" ;
+	gdprov:hasLegalBasis gdprtext:LegitimateInterest .
