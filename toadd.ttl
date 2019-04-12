@@ -1,0 +1,15 @@
+GDPRov
+Class
+gdprov:ConsentAgreementTemplateBundle
+Property
+gdprov:usesConsentAgreementTemplateBundle
+	domain:ConsentStep
+	range:ConsentAgreementTemplateBundle
+
+
+GConsent
+gconsent:changeBy
+	domain:Consent
+gconsent:withdrawBy
+	domain:Consent
+	subPropertyOf: gconsent:changeBy

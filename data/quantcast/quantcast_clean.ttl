@@ -26,6 +26,8 @@
 	rdfs:comment "Data Protection Officer for Quantcast International Limited" ;
 	rdfs:seeAlso <https://www.quantcast.com/privacy/#contact-legal> .
 
+#TODO: rights
+
 ############ PERSONAL DATA ############
 
 :Cookie a gdprov:Data ;
@@ -246,9 +248,6 @@
 :QuantcastAudienceGrid a gdprov:DataStep, gdprov:DataStorageStep, gdprov:DataUsageStep ;
 	rdfs:label "Quantcast Audience Grid" ;
 	rdfs:comment "combine data from multiple third-parties to create user profiles" ;
-	# input data from third parties
-	# generates profiles
-	# gdprov:isPartOfProcess :QMeasure ;
 	# https://www.quantcast.com/products/measurement/ Demographics
 	gdprov:usesData :WebsiteHistory, :Cookie, :AppsUsedByUser ;
 	gdprov:usesData :BuyingHistory, :MediaHistory ;
@@ -270,11 +269,80 @@
 :Netwise a gdprov:ThirdParty ;
 	rdfs:label "Netwise" .
 
+############ THIRD PARTY INIT ############
+
+# Information storage and access
+:InformationStorageAccess a gdprov:Process, gc:Purpose ;
+	rdfs:label "Information, Storage, and Access";
+	rdfs:comment "The storage of information, or access to information that is already stored, on your device such as advertising identifiers, device identifiers, cookies, and similar technologies." .
+# TODO: add consent properties
+# processing - collect, storage, usage
+# personal data - advertising identifiers, device identifiers, cookies
+# legal basis - consent
+
+:ShareDataWithInfoPartners a gdprov:DataSharingStep, gc:DataSharing ;
+	rdfs:label "Share data for info, storage, access with specified partners" ;
+	gc:sharesDataWithThirdParty ;
+	gdprov:isPartOfProcess :InformationStorageAccess ;
+
+:Personalisation a gdprov:Process, gc:Purpose ;
+	rdfs:label "Personalisation" ;
+	rdfs:comment "The collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as on other websites or apps, over time. Typically, the content of the site or app is used to make inferences about your interests, which inform future selection of advertising and/or content." .
+# TODO: add consent properties
+# processing - collection, storage, usage
+# personal data - N/A
+# legal basis - consent
+
+:AdSelectionDeliveryReporting a gdprov:Process, gc:Purpose ;
+	rdfs:label "Ad selection, delivery, reporting" ;
+	rdfs:comment "The collection of information, and combination with previously collected information, to select and deliver advertisements for you, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what advertisements were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. This does not include personalisation, which is the collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as websites or apps, over time." .
+# TODO: add consent properties
+# processing - collection, storage, usage, combine
+# personal data - interests, ads shown, actions on ads, purchase history
+# legal basis - consent
+
+:Measurement a gdprov:Process, gc:Purpose ;
+	rdfs:label "Measurement" ;
+	rdfs:comment "The collection of information about your use of the content, and combination with previously collected information, used to measure, understand, and report on your usage of the service. This does not include personalisation, the collection of information about your use of this service to subsequently personalise content and/or advertising for you in other contexts, i.e. on other service, such as websites or apps, over time." .
+# TODO: add consent properties
+# processing - collect, combine, store, use, analyse
+# personal data - N/A
+# legal basis - consent
+
+
 ############ CONSENT ############
 
+
+:ConsentRequestDialog a gdprov:ConsentAgreementTemplateBundle
+	rdfs:label "Consent Dialog shown to the user" ;
+	rdfs:comment "Dialog that shows - We value your privacy. We and our partners use technology such as cookies on our site to personalise content and ads, provide social media features, and analyse our traffic. Click below to consent to the use of this technology across the web. You can change your mind and change your consent choices at anytime by returning to this site. If the user clicks on 'I Agree' then the dialog is closed, and all choices are considered as having agreed to. Alternatively, the user can customise their choice by clicking on 'Show Purposes'." ;
+	# TODO: Generate these consentagreements using GC
+	gdprov:usesConsentAgreementTemplate :CATQInfoStorageAccess, :CATQPersonalise, CATQAds, CATQMeasure, CATTPInfoStorageAccess, CATTPPersonalise, CATTPAds, CATTPContentSelection, CATTPMeasure, CATTPGoogle .
+	# TODO: specify right to withdraw or change
+
+
+:GivenConsent a gc:Consent, gdprov:ConsentAgreement ;
+	rdfs:label "Given consent of the user" ;
+	rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." .
+
+:ChangedConsent a gc:Consent, gdprov:ConsentAgreement ;
+	rdfs:label "Changed consent of the user" ;
+	rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." .
+
 # QChoice process
-:GetConsent a gdprov:DataStep, gdprov:DataStorageStep, gdprov:UserInteractionStep ;
+:GetConsent a gdprov:DataStep, gdprov:DataStorageStep, gdprov:ConsentAcquisitionStep, gdprov:UserInteractionStep ;
 	rdfs:label "Get Consent" ;
 	rdfs:comment "Shows a dialog to the user, and gets consent. Analyses presented privacy notices and choices." ;
 	gdprov:isPartOfProcess :QChoice ;
-	gdprov:generatesData :PrivacyNotices, :PrivacyChoices .
+	gdprov:usesConsentAgreementTemplateBundle :ConsentRequestDialog ;
+	gdprov:generatesData :PrivacyNotices, :PrivacyChoices ;
+	gdprov:generatesConsentAgreement :GivenConsent .
+
+:ChangeConsent a gdprov:DataStep, gdprov:ConsentModificationStep, gdprov:UserInteractionStep ;
+	rdfs:label "Change Consent" ;
+	rdfs:comment "Consent choices can be changed by clicking on the 'Change Consent' button at the bottom of the page." ;
+	gdprov:isPartOfProcess :QChoice ;
+	gdprov:usesConsentAgreementTemplateBundle :ConsentRequestDialog ;
+	gdprov:generatesData :PrivacyNotices, :PrivacyChoices ;
+	gdprov:usesConsentAgreement :GivenConsent .
+	gdprov:generatesConsentAgreement :ChangedConsent .
