@@ -1,0 +1,146 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@base <http://example.com/Quantcast> .
+
+############ CONSENT ############
+
+:ConsentRequestDialog a gdprov:ConsentAgreementTemplateBundle ;
+    rdfs:label "Consent Dialog shown to the user" ;
+    rdfs:comment "Dialog that shows - We value your privacy. We and our partners use technology such as cookies on our site to personalise content and ads, provide social media features, and analyse our traffic. Click below to consent to the use of this technology across the web. You can change your mind and change your consent choices at anytime by returning to this site. If the user clicks on 'I Agree' then the dialog is closed, and all choices are considered as having agreed to. Alternatively, the user can customise their choice by clicking on 'Show Purposes'." ;
+    gdprov:usesConsentAgreementTemplate :CATQInfoStorageAccess, :CATQPersonalise, :CATQAds, :CATQMeasure, :CATTPInfoStorageAccess, :CATTPPersonalise, :CATTPAds, :CATTPContentSelection, :CATTPMeasure, :CATTPGoogle .
+
+:CATQInfoStorageAccess a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATQInfoStorageAccess" ;
+    gc:forPurpose :InformationStorageAccess ;
+    gc:forProcessing :StoreIdentifiers, :UseIdentifiers ;
+    gc:forPersonalData :Cookie, :AdIdentifier, :DeviceIdentifier ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATQPersonalise a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATQPersonalise" ;
+    gc:forPurpose :Personalisation ;
+    gc:forProcessing :GenerateInterestProfile, :UseInterestProfile, :CollectServiceUsage ;
+    gc:forPersonalData :Interests, :ServiceUsage ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATQAds a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATQAds" ;
+    gc:forPurpose :AdSelectionDeliveryReporting ;
+    gc:forProcessing :GenerateInterestProfile, :UseInterestProfile, :CollectAdInteraction, :UseBuyingHistory ;
+    gc:forPersonalData :Interests, :AdInteraction, :BuyingHistory ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATQMeasure a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATQMeasure" ;
+    gc:forPurpose :Measurement ;
+    gc:forProcessing :CollectContentUsage ;
+    gc:forPersonalData :ContentUsage ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATTPInfoStorageAccess a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPInfoStorageAccess" ;
+    gc:forPurpose :InformationStorageAccessWithPartners ;
+    gc:forProcessing :StoreIdentifiers, :UseIdentifiers, :ShareDataWithInfoPartners ;
+    gc:forPersonalData :Cookie, :AdIdentifier, :DeviceIdentifier ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATTPPersonalise a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPPersonalise" ;
+    gc:forPurpose :PersonalisationWithPartners ;
+    gc:forProcessing :CollectServiceUsage, :GenerateInterestProfile, :UseInterestProfile, :ShareDataWithPersonalisationPartners ;
+    gc:forPersonalData :Interests, :ServiceUsage ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATTPAds a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPAds" ;
+    gc:forPurpose :AdSelectionDeliveryReportingWithPartners ;
+    gc:forProcessing :GenerateInterestProfile, :UseInterestProfile, :CollectAdInteraction, :UseBuyingHistory, :ShareDataWithAdPartners ;
+    gc:forPersonalData :Interests, :AdInteraction, :BuyingHistory ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATTPContentSelection a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPContentSelection" ;
+    gc:forPurpose :ContentSelectionDeliveryReportingWithPartners ;
+    gc:forProcessing :GenerateInterestProfile, :UseInterestProfile, :CollectContentUsage, :ShareDataWithContentPartners ;
+    gc:forPersonalData :Interests, :ContentUsage ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:CATTPMeasure a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPMeasure" ;
+    gc:forPurpose :MeasurementWithPartners ;
+    gc:forProcessing :CollectContentUsage, :ShareDataWithMeasurementPartners ;
+    gc:forPersonalData :ContentUsage ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+    
+:CATTPGoogle a gdprov:ConsentAgreementTemplate, gc:Consent ;
+    rdfs:label "consent for CATTPGoogle" ;
+    gc:forPurpose :AllowGooglePartners ;
+    gc:forProcessing :CollectDataAndCookies, :ShareDataWithGooglePartners ;
+    gc:forPersonalData :Cookie, :DataGooglePartners ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusRequested .
+
+:GivenConsent a gc:Consent, gdprov:ConsentAgreement ;
+    rdfs:label "Given consent of the user" ;
+    rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." .
+
+:ChangedConsent a gc:Consent, gdprov:ConsentAgreement ;
+    rdfs:label "Changed consent of the user" ;
+    rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." .
+
+# QChoice process
+:GetConsent a gdprov:DataStep, gdprov:DataStorageStep, gdprov:ConsentAcquisitionStep, gdprov:UserInteractionStep ;
+    rdfs:label "Get Consent" ;
+    rdfs:comment "Shows a dialog to the user, and gets consent. Analyses presented privacy notices and choices." ;
+    gdprov:isPartOfProcess :QChoice ;
+    gdprov:usesConsentAgreementTemplateBundle :ConsentRequestDialog ;
+    gdprov:generatesData :PrivacyNotices, :PrivacyChoices ;
+    gdprov:generatesConsentAgreement :GivenConsent .
+
+:ChangeConsent a gdprov:DataStep, gdprov:ConsentModificationStep, gdprov:UserInteractionStep ;
+    rdfs:label "Change Consent" ;
+    rdfs:comment "Consent choices can be changed by clicking on the 'Change Consent' button at the bottom of the page." ;
+    gdprov:isPartOfProcess :QChoice ;
+    gdprov:usesConsentAgreementTemplateBundle :ConsentRequestDialog ;
+    gdprov:generatesData :PrivacyNotices, :PrivacyChoices ;
+    gdprov:usesConsentAgreement :GivenConsent ;
+    gdprov:generatesConsentAgreement :ChangedConsent .

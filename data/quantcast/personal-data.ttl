@@ -12,127 +12,137 @@
 @prefix gconsent: <https://w3id.org/GConsent#> .
 @base <http://example.com/Quantcast> .
 
+############ PERSONAL DATA ############
+
 :Cookie a gdprov:Data ;
-	rdfs:label "Cookie"@en ;
-	rdfs:comment "A cookie is a small file containing a string of characters that is sent to your computer when you visit a website. Cookies typically are used to store user preferences or IDs. See our FAQ for more information about cookies and how they work. The user does not have to use cookies, but if the user does not accept cookies, they may not be able to use all portions of Quantcast.com or all functionality of the Services (as defined below)."@en ;
-	rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> .
+    rdfs:label "Cookie"@en ;
+    rdfs:comment "A cookie is a small file containing a string of characters that is sent to your computer when you visit a website. Cookies typically are used to store user preferences or IDs. See our FAQ for more information about cookies and how they work. The user does not have to use cookies, but if the user does not accept cookies, they may not be able to use all portions of Quantcast.com or all functionality of the Services (as defined below)."@en ;
+    rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> .
 
 :Tag a gdprov:Data ;
-	rdfs:label "Tag"@en ;
-	rdfs:comment "A tag is a tiny snippet of code inserted into a Partner’s website content that is used to collect data related to a website visit. Similar functionality is enabled in a Partner’s mobile app through the use of an SDK (Software Development Kit). When a user views a Partner’s site or uses a Partner’s app, our servers are notified, and we are able to collect information from the browser or application. See our FAQ for more information about our Tags and SDKs."@en ;
-	rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> .
+    rdfs:label "Tag"@en ;
+    rdfs:comment "A tag is a tiny snippet of code inserted into a Partner’s website content that is used to collect data related to a website visit. Similar functionality is enabled in a Partner’s mobile app through the use of an SDK (Software Development Kit). When a user views a Partner’s site or uses a Partner’s app, our servers are notified, and we are able to collect information from the browser or application. See our FAQ for more information about our Tags and SDKs."@en ;
+    rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> .
 
 :LogData a gdprov:PersonalData ;
-	rdfs:label "Log Data"@en ;
-	rdfs:comment "Log Data includes (1) information sent to us by browsers that encounter our Tags, including, for example, browser type, browser time, time of access, screen resolution, IP address, referring site URL, current site URL, and search strings; (2) information sent to us by advertising exchanges in the form of bid requests, which may include the information above as well as information like auction identifiers, for the purpose of soliciting bids to place online ads; and (3) information received from the Quantcast SDK embedded in mobile apps, which may include the above as well as information like device identifier, location information, application data and usage information, and unique application and installation identifiers."@en ;
-	rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> ;
-	rdfs:seeAlso :Tag .
+    rdfs:label "Log Data"@en ;
+    rdfs:comment "Log Data includes (1) information sent to us by browsers that encounter our Tags, including, for example, browser type, browser time, time of access, screen resolution, IP address, referring site URL, current site URL, and search strings; (2) information sent to us by advertising exchanges in the form of bid requests, which may include the information above as well as information like auction identifiers, for the purpose of soliciting bids to place online ads; and (3) information received from the Quantcast SDK embedded in mobile apps, which may include the above as well as information like device identifier, location information, application data and usage information, and unique application and installation identifiers."@en ;
+    gdprov:hasStorageDuration [ a time:DurationDescription; time:months "6"^^xsd:decimal ] ;
+    rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> ;
+    rdfs:seeAlso :Tag .
 
 :Email a gdprov:PersonalData ;
-	rdfs:label "email"@en .
+    rdfs:label "email"@en .
 
 :UserID a gdprov:UserIdentifier, gdprov:PersonalData ;
-	rdfs:label "User ID (cookie ID)" ;
-	rdfs:comment "Is the unique ID set for users based on cookies" .
+    rdfs:label "User ID (cookie ID)" ;
+    rdfs:comment "Is the unique ID set for users based on cookies" .
 
 :WebsiteHistory a gdprov:PersonalData ;
-	rdfs:label "website history of user" .
+    rdfs:label "website history of user" .
 :AppsUsedByUser a gdprov:PersonalData ;
-	rdfs:label "apps used by user" .
+    rdfs:label "apps used by user" .
+
+:DeviceIdentifier a gdprov:PersonalData, gdprov:UserIdentifier ;
+    rdfs:label "device identifier" .
+:AdIdentifier a gdprov:PersonalData, gdprov:UserIdentifier ;
+    rdfs:label "advertising identifier" .
+:ServiceUsage a gdprov:PersonalData ;
+    rdfs:label "service usage" ;
+    rdfs:comment "information about service usage by user" .
+:Interests a gdprov:PersonalData ;
+    rdfs:label "Interests" .
+:AdInteraction a gdprov:PersonalData ;
+    rdfs:label "interaction with ads" ;
+    rdfs:comment "processing data about what advertisements were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. " .
+:ContentUsage a gdprov:PersonalData ;
+    rdfs:label "content usage" ;
+    rdfs:comment "information about your interests to select content, processing data about what content was shown, how often or how long it was shown, when and where it was shown, and whether the you took any action related to the content, including for example clicking on content" .
+:DataGooglePartners a gdprov:PersonalData ;
+    rdfs:label "data used by Google Partners" ;
+    rdfs:comment "Allow Google and their technology partners to collect data and use cookies for ad personalisation and measurement." .
 
 :PrivacyNotices a gdprov:PersonalData ;
-	rdfs:label "Privacy Notices" ;
-	rdfs:comment "Privacy Notices generated or shown to the user" .
+    rdfs:label "Privacy Notices" ;
+    rdfs:comment "Privacy Notices generated or shown to the user" .
 
 :PrivacyChoices a gdprov:PersonalData ;
-	rdfs:label "Privacy Choices" ;
-	rdfs:comment "Privacy Choices made by the user in the consent dialog" .
+    rdfs:label "Privacy Choices" ;
+    rdfs:comment "Privacy Choices made by the user in the consent dialog" .
 
 
 :Demographics rdfs:subClassOf gdprov:PersonalData ;
-	rdfs:label "Demographics" .
+    rdfs:label "Demographics" .
 
 # QMeasure uses these
 #Age
 :AgeProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Age Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Age Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Gender
 :GenderProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Gender Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Gender Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Family
 :FamilyProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Family Profile" ;
-	rdfs:comment "derived from analysed data" .
-# #Location
-# :LocationProfile a :Demographics, gdprov:PersonalData ;
-# 	rdfs:label "Location Profile" ;
-# 	rdfs:comment "derived from analysed data" .
-# #Income
-# :IncomeProfile a :Demographics, gdprov:PersonalData ;
-# 	rdfs:label "Income Profile" ;
-# 	rdfs:comment "derived from analysed data" .
+    rdfs:label "Family Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Education
 :EducationProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Education Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Education Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Occupation
 :OccupationProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Occupation Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Occupation Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Ethnicity
 :EthnicityProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "Ethnicity Profile";
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Ethnicity Profile";
+    rdfs:comment "derived from analysed data" .
 #HouseholdIncome
 :HouseholdIncomeProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "HouseholdIncomeProfile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "HouseholdIncomeProfile" ;
+    rdfs:comment "derived from analysed data" .
 #PoliticalAffiliation
 :PoliticalAffiliationProfile a :Demographics, gdprov:PersonalData ;
-	rdfs:label "PoliticalAffiliationProfile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "PoliticalAffiliationProfile" ;
+    rdfs:comment "derived from analysed data" .
 #What they drive
 :DrivingProfile a gdprov:PersonalData ;
-	rdfs:label "Driving Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Driving Profile" ;
+    rdfs:comment "derived from analysed data" .
 
 # QMeasure uses these
 :Psychographics rdfs:subClassOf gdprov:PersonalData ;
-	rdfs:label "Demographics" .
+    rdfs:label "Psychographics" .
 #Shopping Interests
 :ShoppingInterestsProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Shopping Interests Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Shopping Interests Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Media Interests
 :MediaInterestsProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Media Interests Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Media Interests Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Business & Occupation
 :BusinessOccupationProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Business & Occupation Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Business & Occupation Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Geography
 :GeographyProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Geography Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Geography Profile" ;
+    rdfs:comment "derived from analysed data" .
 #Political Interests
 :PoliticalInterestsProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Political Interests Profile" ;
-	rdfs:comment "derived from analysed data" .
+    rdfs:label "Political Interests Profile" ;
+    rdfs:comment "derived from analysed data" .
 #BuyingInterests
 :BuyingInterestsProfile a :Psychographics, gdprov:PersonalData ;
-	rdfs:label "Political Interests Profile" ;
-	rdfs:comment "derived from analysed data" .
-
-:UserProfile a gdprov:UserProfile ;
-	rdfs:label "User Profile" ;
-	rdfs:comment "a profile of the user consisting of various attributes" .
+    rdfs:label "Political Interests Profile" ;
+    rdfs:comment "derived from analysed data" .
 
 :BuyingHistory a gdprov:PersonalData ;
-	rdfs:label "Buying History" ;
-	rdfs:comment "buying history of users" .
+    rdfs:label "Buying History" ;
+    rdfs:comment "buying history of users" .
 :MediaHistory a gdprov:PersonalData ;
-	rdfs:label "Media History" ;
-	rdfs:comment "media consumption history of users" .
+    rdfs:label "Media History" ;
+    rdfs:comment "media consumption history of users" .

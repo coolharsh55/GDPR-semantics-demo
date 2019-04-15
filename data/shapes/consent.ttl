@@ -1,0 +1,68 @@
+@prefix : <http://example.com/Quantcast/shapes#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix q: <http://example.com/Quantcast#> .
+@prefix data: <http://example.com/Quantcast/data#> .
+
+# constraints for Consent class
+:ConsentShape a sh:NodeShape ;
+	sh:targetClass gc:Consent ;
+
+	# should be linked to data subject
+	sh:property [
+		sh:path gc:isConsentForDataSubject ;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:or ( [ sh:class gc:DataSubject ] [ sh:class gdprov:DataSubject ] ) ;
+	] ;
+
+	# should have associated personal data
+	sh:property [
+		sh:path gc:forPersonalData ;
+		sh:minCount 1;
+		# sh:class gdprov:PersonalData ;
+		sh:or ( [ sh:class gc:PersonalData ] [ sh:class gdprov:PersonalData ] ) ;
+	] ;
+
+	# should have associated purposes
+	sh:property [
+		sh:path gc:forPurpose ;
+		sh:minCount 1;
+		sh:or ( [ sh:class gc:Purpose ; ] [ sh:class gdprov:Process ] ) ;
+	] ;
+
+	# should have associated processing
+	sh:property [
+		sh:path gc:forProcessing ;
+		sh:minCount 1;
+		sh:or ( [ sh:class gc:Processing ; ] [ sh:class gdprov:DataStep ] ) ;
+	] ;
+
+	# should have information on who provided it
+	sh:property [
+		sh:path gc:isProvidedBy ;
+		sh:severity sh:Info ;
+		sh:minCount 0;
+		sh:maxCount 1;
+		sh:or ( [ sh:class gc:DataSubject ] [ sh:class gc:Person ] [ sh:class gdprov:DataSubject ] [ sh:class prov:Person ] ) ;
+	] ;
+
+	# should have status
+	sh:property [
+		sh:path gc:hasStatus ;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:class gc:Status ;
+	] ;

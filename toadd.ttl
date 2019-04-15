@@ -1,15 +1,23 @@
 GDPRov
 Class
 gdprov:ConsentAgreementTemplateBundle
+gdprov:ConsentAgreementBundle
 Property
 gdprov:usesConsentAgreementTemplateBundle
 	domain:ConsentStep
 	range:ConsentAgreementTemplateBundle
+gdprov:generatesConsentAgreementBundle
+	domain:ConsentStep
+	range:ConsentAgreementBundle
+gdprov:hasStep
+	domain:Process
+	range:Step
+gdprov:hasWithdrawalStep
+	domain:ConsentAgreementTemplate or :ConsentAgreement
+	range:ConsentWithdrawalStep
 
 
 GConsent
-gconsent:changeBy
-	domain:Consent
 gconsent:withdrawBy
 	domain:Consent
 	subPropertyOf: gconsent:changeBy
