@@ -15,6 +15,9 @@ gdprov:hasStep
 gdprov:hasWithdrawalStep
 	domain:ConsentAgreementTemplate or :ConsentAgreement
 	range:ConsentWithdrawalStep
+gdprov:hasStorageTime
+	domain:DataStorageStep
+	range:time:Instant or time:Duration
 
 
 GConsent

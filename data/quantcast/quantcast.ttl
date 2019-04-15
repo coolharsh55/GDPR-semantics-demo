@@ -8,15 +8,18 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix data: <http://example.com/Quantcast/data#> .
 @prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gdprov: <https://w3id.org/GDPRov#> .
-@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
 @base <http://example.com/Quantcast> .
 
 <http://example.com/Quantcast> rdf:type owl:Ontology ;
+                                owl:imports <https://openscience.adaptcentre.ie/ontologies/GDPRtEXT/v/gdpr_v0.7.owl> ,
+                                            <https://openscience.adaptcentre.ie/ontologies/gdprov/v/gdprov_v0.7.owl> ,
+                                            <https://w3id.org/GConsent/versions/v0.5> ;
                                 rdfs:comment "Ontology and Data for Quantcast GDPR use-case"@en ;
                                 rdfs:label "Quantcast Use-Case"@en .
 
@@ -45,7 +48,7 @@ gc:forPurpose rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/GConsent#hasLocation
-gc:hasLocation rdf:type owl:AnnotationProperty .
+gc:atLocation rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/GConsent#hasStatus
@@ -2229,7 +2232,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                           :UseBuyingHistory ,
                           :UseInterestProfile ;
          gc:forPurpose :AdSelectionDeliveryReporting ;
-         gc:hasLocation <https://quantcast.com/> ;
+         gc:atLocation <https://quantcast.com/> ;
          gc:hasStatus gc:ConsentStatusRequested ;
          gc:inMedium "dialog box on website" ;
          gc:isConsentForDataSubject :User ;
@@ -2247,7 +2250,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                        gc:forProcessing :StoreIdentifiers ,
                                         :UseIdentifiers ;
                        gc:forPurpose :InformationStorageAccess ;
-                       gc:hasLocation <https://quantcast.com/> ;
+                       gc:atLocation <https://quantcast.com/> ;
                        gc:hasStatus gc:ConsentStatusRequested ;
                        gc:inMedium "dialog box on website" ;
                        gc:isConsentForDataSubject :User ;
@@ -2262,7 +2265,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
              gc:forPersonalData :ContentUsage ;
              gc:forProcessing :CollectContentUsage ;
              gc:forPurpose :Measurement ;
-             gc:hasLocation <https://quantcast.com/> ;
+             gc:atLocation <https://quantcast.com/> ;
              gc:hasStatus gc:ConsentStatusRequested ;
              gc:inMedium "dialog box on website" ;
              gc:isConsentForDataSubject :User ;
@@ -2280,7 +2283,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                                   :GenerateInterestProfile ,
                                   :UseInterestProfile ;
                  gc:forPurpose :Personalisation ;
-                 gc:hasLocation <https://quantcast.com/> ;
+                 gc:atLocation <https://quantcast.com/> ;
                  gc:hasStatus gc:ConsentStatusRequested ;
                  gc:inMedium "dialog box on website" ;
                  gc:isConsentForDataSubject :User ;
@@ -2301,7 +2304,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                            :UseBuyingHistory ,
                            :UseInterestProfile ;
           gc:forPurpose :AdSelectionDeliveryReportingWithPartners ;
-          gc:hasLocation <https://quantcast.com/> ;
+          gc:atLocation <https://quantcast.com/> ;
           gc:hasStatus gc:ConsentStatusRequested ;
           gc:inMedium "dialog box on website" ;
           gc:isConsentForDataSubject :User ;
@@ -2320,7 +2323,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                                         :ShareDataWithContentPartners ,
                                         :UseInterestProfile ;
                        gc:forPurpose :ContentSelectionDeliveryReportingWithPartners ;
-                       gc:hasLocation <https://quantcast.com/> ;
+                       gc:atLocation <https://quantcast.com/> ;
                        gc:hasStatus gc:ConsentStatusRequested ;
                        gc:inMedium "dialog box on website" ;
                        gc:isConsentForDataSubject :User ;
@@ -2337,7 +2340,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
              gc:forProcessing :CollectDataAndCookies ,
                               :ShareDataWithGooglePartners ;
              gc:forPurpose :AllowGooglePartners ;
-             gc:hasLocation <https://quantcast.com/> ;
+             gc:atLocation <https://quantcast.com/> ;
              gc:hasStatus gc:ConsentStatusRequested ;
              gc:inMedium "dialog box on website" ;
              gc:isConsentForDataSubject :User ;
@@ -2356,7 +2359,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                                          :StoreIdentifiers ,
                                          :UseIdentifiers ;
                         gc:forPurpose :InformationStorageAccessWithPartners ;
-                        gc:hasLocation <https://quantcast.com/> ;
+                        gc:atLocation <https://quantcast.com/> ;
                         gc:hasStatus gc:ConsentStatusRequested ;
                         gc:inMedium "dialog box on website" ;
                         gc:isConsentForDataSubject :User ;
@@ -2372,7 +2375,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
               gc:forProcessing :CollectContentUsage ,
                                :ShareDataWithMeasurementPartners ;
               gc:forPurpose :MeasurementWithPartners ;
-              gc:hasLocation <https://quantcast.com/> ;
+              gc:atLocation <https://quantcast.com/> ;
               gc:hasStatus gc:ConsentStatusRequested ;
               gc:inMedium "dialog box on website" ;
               gc:isConsentForDataSubject :User ;
@@ -2391,7 +2394,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                                    :ShareDataWithPersonalisationPartners ,
                                    :UseInterestProfile ;
                   gc:forPurpose :PersonalisationWithPartners ;
-                  gc:hasLocation <https://quantcast.com/> ;
+                  gc:atLocation <https://quantcast.com/> ;
                   gc:hasStatus gc:ConsentStatusRequested ;
                   gc:inMedium "dialog box on website" ;
                   gc:isConsentForDataSubject :User ;
@@ -2902,6 +2905,43 @@ gdprov:UserOutputStep rdf:type owl:Class .
         rdfs:seeAlso <https://www.conrad.de/de/ueber-conrad/rechtliches/datenschutz> .
 
 
+###  http://example.com/Quantcast#Consent20190415120753
+:Consent20190415120753 rdf:type owl:NamedIndividual ,
+                                gc:Consent ;
+                        p-plan:correspondsToVariable :GivenConsent ;
+                       gc:forPersonalData :AdIdentifier ,
+                                          :Cookie ,
+                                          :DeviceIdentifier ;
+                       gc:forProcessing :StoreIdentifiers ,
+                                        :UseIdentifiers ;
+                       gc:forPurpose :InformationStorageAccess ;
+                       gc:atLocation <https://quantcast.com/> ;
+                       gc:hasStatus gc:ConsentStatusExplicitlyGiven ;
+                       gc:inMedium "dialog box on website" ;
+                       gc:isConsentForDataSubject :DS1 ;
+                       gc:isProvidedBy :DS1 ;
+                       gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> .
+
+
+###  http://example.com/Quantcast#Consent20190415140000
+:Consent20190415140000 rdf:type owl:NamedIndividual ,
+                                gc:Consent ;
+                      p-plan:correspondsToVariable :ChangedConsent ;
+                       gc:forPersonalData :AdIdentifier ,
+                                          :Cookie ,
+                                          :DeviceIdentifier ;
+                       gc:forProcessing :StoreIdentifiers ,
+                                        :UseIdentifiers ;
+                       gc:forPurpose :InformationStorageAccess ;
+                       gc:atLocation <https://quantcast.com/> ;
+                       gc:hasStatus gc:ConsentStatusWithdrawn ;
+                       gc:inMedium "dialog box on website" ;
+                       gc:isConsentForDataSubject :DS1 ;
+                       gc:isProvidedBy :DS1 ;
+                       gc:isUpdatedConsentFor :Consent20190415120753 ;
+                       gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> .
+
+
 ###  http://example.com/Quantcast#ConsentRequestDialog
 :ConsentRequestDialog rdf:type owl:NamedIndividual ,
                                gdprov:ConsentAgreementTemplateBundle ;
@@ -3000,7 +3040,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
 
 ###  http://example.com/Quantcast#Cookie
 :Cookie rdf:type owl:NamedIndividual ,
-                 gdprov:Data ;
+                 gdprov:PersonalData ;
         rdfs:comment "A cookie is a small file containing a string of characters that is sent to your computer when you visit a website. Cookies typically are used to store user preferences or IDs. See our FAQ for more information about cookies and how they work. The user does not have to use cookies, but if the user does not accept cookies, they may not be able to use all portions of Quantcast.com or all functionality of the Services (as defined below)."@en ;
         rdfs:label "Cookie"@en ;
         rdfs:seeAlso <https://www.quantcast.com/faq/quantcast-services/> .
@@ -3163,6 +3203,20 @@ gdprov:UserOutputStep rdf:type owl:Class .
      rdfs:comment "Data Protection Officer for Quantcast International Limited" ;
      rdfs:label "DPO" ;
      rdfs:seeAlso <https://www.quantcast.com/privacy/#contact-legal> .
+
+
+###  http://example.com/Quantcast#DS1
+:DS1 rdf:type owl:NamedIndividual ,
+              gc:DataSubject ,
+              gdprov:DataSubject ;
+     rdfs:label "John Doe" .
+
+
+###  http://example.com/Quantcast#DS2
+:DS2 rdf:type owl:NamedIndividual ,
+              gc:DataSubject ,
+              gdprov:DataSubject ;
+     rdfs:label "Jane Doe" .
 
 
 ###  http://example.com/Quantcast#Dac
@@ -13381,55 +13435,6 @@ However, as outlined above, although we make predictions about consumers’ inte
                                                               gdprov:ThirdParty ;
                                                      rdfs:label "7Hops.com Inc. (ZergNet)" ;
                                                      rdfs:seeAlso <http://example.com/zergnet.com/privacy> .
-
-
-###  http://example.com/Quantcast/data#Consent20190415120753
-data:Consent20190415120753 rdf:type owl:NamedIndividual ,
-                                    gc:Consent ;
-                           gc:forPersonalData :AdIdentifier ,
-                                              :Cookie ,
-                                              :DeviceIdentifier ;
-                           gc:forProcessing :StoreIdentifiers ,
-                                            :UseIdentifiers ;
-                           gc:forPurpose :InformationStorageAccess ;
-                           gc:hasLocation <https://quantcast.com/> ;
-                           gc:hasStatus gc:ConsentStatusGiven ;
-                           gc:inMedium "dialog box on website" ;
-                           gc:isConsentForDataSubject :DS1 ;
-                           gc:isProvidedBy :DS1 ;
-                           gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> .
-
-
-###  http://example.com/Quantcast/data#Consent20190415140000
-data:Consent20190415140000 rdf:type owl:NamedIndividual ,
-                                    gc:Consent ;
-                           gc:forPersonalData :AdIdentifier ,
-                                              :Cookie ,
-                                              :DeviceIdentifier ;
-                           gc:forProcessing :StoreIdentifiers ,
-                                            :UseIdentifiers ;
-                           gc:forPurpose :InformationStorageAccess ;
-                           gc:hasLocation <https://quantcast.com/> ;
-                           gc:hasStatus gc:Withdrawn ;
-                           gc:inMedium "dialog box on website" ;
-                           gc:isConsentForDataSubject :DS1 ;
-                           gc:isProvidedBy :DS1 ;
-                           gc:isUpdatedConsentFor :Consent20190415120753 ;
-                           gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> .
-
-
-###  http://example.com/Quantcast/data#DS1
-data:DS1 rdf:type owl:NamedIndividual ,
-                  gc:DataSubject ,
-                  gdprov:DataSubject ;
-         rdfs:label "John Doe" .
-
-
-###  http://example.com/Quantcast/data#DS2
-data:DS2 rdf:type owl:NamedIndividual ,
-                  gc:DataSubject ,
-                  gdprov:DataSubject ;
-         rdfs:label "Jane Doe" .
 
 
 ###  https://quantcast.com

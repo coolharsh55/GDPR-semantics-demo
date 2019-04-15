@@ -16,53 +16,183 @@
 @prefix q: <http://example.com/Quantcast#> .
 @prefix data: <http://example.com/Quantcast/data#> .
 
+:Shape a owl:Ontology ;
+	sh:declare [ sh:prefix "gc"; sh:namespace "https://w3id.org/GConsent#"^^xsd:anyURI ; ] ;
+	sh:declare [ sh:prefix "gdprov"; sh:namespace "https://w3id.org/GDPRov#"^^xsd:anyURI ; ] ;
+	sh:declare [ sh:prefix "gdprtext"; sh:namespace "https://w3id.org/GDPRtEXT#"^^xsd:anyURI ; ] ;
+	sh:declare [ sh:prefix "p-plan"; sh:namespace "http://purl.org/net/p-plan#"^^xsd:anyURI ; ] ;
+	sh:declare [ sh:prefix "prov"; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ; ] ;
+	rdfs:label "Shape declarations" .
+
+
+###################### AUTOMATICALLY CHECKED CONSTRAINTS ######################
+
+
 # constraints for Consent class
-:ConsentShape a sh:NodeShape ;
+:ConsentCoreConstraints a sh:NodeShape ;
 	sh:targetClass gc:Consent ;
 
-	# should be linked to data subject
+	# Data Subject
 	sh:property [
 		sh:path gc:isConsentForDataSubject ;
 		sh:minCount 1;
 		sh:maxCount 1;
 		sh:or ( [ sh:class gc:DataSubject ] [ sh:class gdprov:DataSubject ] ) ;
+		sh:message "Consent should be linked to Data Subject" ;
 	] ;
 
-	# should have associated personal data
+	# Personal Data
 	sh:property [
 		sh:path gc:forPersonalData ;
 		sh:minCount 1;
 		# sh:class gdprov:PersonalData ;
 		sh:or ( [ sh:class gc:PersonalData ] [ sh:class gdprov:PersonalData ] ) ;
+		sh:message "Consent should be linked to Personal Data" ;
 	] ;
 
-	# should have associated purposes
+	# Purpose
 	sh:property [
 		sh:path gc:forPurpose ;
 		sh:minCount 1;
 		sh:or ( [ sh:class gc:Purpose ; ] [ sh:class gdprov:Process ] ) ;
+		sh:message "Consent should be linked to Purpose" ;
 	] ;
 
-	# should have associated processing
+	# Processing 
 	sh:property [
 		sh:path gc:forProcessing ;
 		sh:minCount 1;
 		sh:or ( [ sh:class gc:Processing ; ] [ sh:class gdprov:DataStep ] ) ;
+		sh:message "Consent should be linked to Processing" ;
 	] ;
 
-	# should have information on who provided it
+	# Provided By
 	sh:property [
 		sh:path gc:isProvidedBy ;
 		sh:severity sh:Info ;
 		sh:minCount 0;
 		sh:maxCount 1;
 		sh:or ( [ sh:class gc:DataSubject ] [ sh:class gc:Person ] [ sh:class gdprov:DataSubject ] [ sh:class prov:Person ] ) ;
+		sh:message "Consent should be linked to who provided it" ;
 	] ;
 
-	# should have status
+	# Status
 	sh:property [
 		sh:path gc:hasStatus ;
 		sh:minCount 1;
 		sh:maxCount 1;
 		sh:class gc:Status ;
+		sh:message "Consent should have a status" ;
 	] ;
+
+	# Given To
+	sh:property [
+		sh:path gc:isProvidedTo ;
+		sh:class prov:Agent ;
+		sh:message "Consent should state who it was given to" ;
+	] ;
+
+	# Right to Withdraw
+	sh:property [
+		sh:path gc:withdrawBy ;
+		sh:minCount 1;
+		sh:message "Consent should provide a link to withdraw" ;
+	] ;
+
+	# Location
+	sh:property [
+		sh:path gc:atLocation ;
+		sh:minCount 1;
+		sh:or ( [ sh:class gc:Location ] [ sh:class prov:Location ] [ sh:nodeKind sh:IRI ] ) ;
+		sh:message "Consent should state location" ;
+	] ;
+
+	# Medium
+	sh:property [
+		sh:path gc:inMedium ;
+		sh:minCount 1;
+		sh:message "Consent should state medium" ;
+	] ;
+
+	# Timestamp
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:prefixes :Shape ;
+		sh:select """
+			SELECT $this WHERE {
+				FILTER NOT EXISTS { $this gc:atTime ?time } .
+				FILTER NOT EXISTS { $this prov:generatedAtTime ?time } .
+				FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
+			}
+			""" ;
+		sh:message "Consent should have a timestamp" ;
+	] ;
+
+	rdfs:label "Consent Core constraints" .
+
+:ConsentActivityConstraints a sh:NodeShape ;
+	# Obtained via Activity
+	sh:targetClass gc:Consent ;
+	sh:or (
+		[ sh:path p-plan:correspondsToVariable ; sh:minCount 1 ; ]
+		[ sh:path prov:wasGeneratedBy ; sh:minCount 1 ; ]
+		[ sh:class gdprov:ConsentAgreementTemplate ; ]
+	) ;
+	sh:message "Consent should state how it was obtained" ;
+	rdfs:label "Consent Activity Constraints" .
+
+:ConsentArtefactsShape a sh:NodeShape ;
+	# Artefacts associated with Consent
+	sh:targetClass gc:Consent ;
+	sh:or (
+		[
+			sh:sparql [
+				a sh:SPARQLConstraint ;
+				sh:prefixes :Shape ;
+				sh:select """
+					SELECT $this WHERE {
+					    $this p-plan:correspondsToVariable ?agreement .
+					    ?step gdprov:generatesConsentAgreement ?agreement .	
+					    FILTER NOT EXISTS {?step gdprov:usesConsentAgreementTemplate ?template .}
+					}
+					""" ;
+			]
+		]
+		[
+			sh:sparql [
+				a sh:SPARQLConstraint ;
+				sh:prefixes :Shape ;
+				sh:select """
+					SELECT $this WHERE {
+					    $this p-plan:correspondsToVariable ?agreement .
+					    ?step gdprov:generatesConsentAgreementBundle ?agreement .	
+					    FILTER NOT EXISTS {?step gdprov:usesConsentAgreementTemplateBundle ?template .}
+					}
+					""" ;
+			]
+		]
+	);
+	sh:message "Consent should be linked to relevant artefacts" ;
+	rdfs:label "Consent Artefact Constraints" .
+	
+:DataStorageConstraints a sh:NodeShape ;
+	# Data Storage durations
+	sh:targetClass gc:Consent ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:prefixes :Shape ;
+		sh:select """
+			SELECT $this WHERE {
+			    $this gc:forProcessing ?processing .
+			    { ?processing a gc:DataStorage } UNION { ?processing a gdprov:DataStorageStep } .
+			    FILTER NOT EXISTS {?processing gdprov:hasStorageTime ?time}
+			}
+			""" ;
+		sh:message "Consent should state data storage periods" ;
+	] ;
+	rdfs:label "Consent Data Storage Constraints" .
+
+
+######################## MANUALLY CHECKED CONSTRAINTS ########################
+
+
