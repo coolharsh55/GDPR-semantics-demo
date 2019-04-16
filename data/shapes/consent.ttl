@@ -25,11 +25,20 @@
 	rdfs:label "Shape declarations" .
 
 
+:Constraint rdfs:subClassOf sh:NodeShape ;
+	rdfs:label "Constraint" .
+
+:AutomaticallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+	rdfs:label "Automatically Checked Constraint" .
+
+:ManuallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+	rdfs:label "Manually Checked Constraint" .
+
 ###################### AUTOMATICALLY CHECKED CONSTRAINTS ######################
 
 
 # constraints for Consent class
-:ConsentCoreConstraints a sh:NodeShape ;
+:ConsentCoreConstraints a :AutomaticallyCheckedConstraint ;
 	sh:targetClass gc:Consent ;
 
 	# Data Subject
@@ -128,9 +137,12 @@
 		sh:message "Consent should have a timestamp" ;
 	] ;
 
+	# TODO: R32 Consent should cover all processing activities carried out for the same purpose or purposes.
+	# TODO: R32 When the processing has multiple purposes, consent should be given for all of them.
+
 	rdfs:label "Consent Core constraints" .
 
-:ConsentActivityConstraints a sh:NodeShape ;
+:ConsentActivityConstraints a :AutomaticallyCheckedConstraint ;
 	# Obtained via Activity
 	sh:targetClass gc:Consent ;
 	sh:or (
@@ -141,7 +153,7 @@
 	sh:message "Consent should state how it was obtained" ;
 	rdfs:label "Consent Activity Constraints" .
 
-:ConsentArtefactsShape a sh:NodeShape ;
+:ConsentArtefactsConstraints a :AutomaticallyCheckedConstraint ;
 	# Artefacts associated with Consent
 	sh:targetClass gc:Consent ;
 	sh:or (
@@ -175,7 +187,7 @@
 	sh:message "Consent should be linked to relevant artefacts" ;
 	rdfs:label "Consent Artefact Constraints" .
 	
-:DataStorageConstraints a sh:NodeShape ;
+:DataStorageConstraints a :AutomaticallyCheckedConstraint ;
 	# Data Storage durations
 	sh:targetClass gc:Consent ;
 	sh:sparql [
@@ -192,7 +204,66 @@
 	] ;
 	rdfs:label "Consent Data Storage Constraints" .
 
+:ThirdPartySharingConstraints a :AutomaticallyCheckedConstraint ;
+	# If data is shared, what are the categories of recipients to whom the personal data is or will be disclosed?
+	# If data is shared, what are the identities of the recipients to whom the data is or will be disclosed?
+	# If data is shared, are the recipients to whom the data is or will be disclosed based in a Third Country or International Organisation?
+	# If data is shared, and the recipients are in a Third Country or International Organisation, what are the safeguards associated with data transfer? 
+	rdfs:label "Third Party Sharing Constraints" .
+
+# TODO: Right to Object Processing
+# TODO: Right to Rectify Personal Data
+# TODO: Right to Data Portability
+# TODO: Right to Access Personal Data
+# TODO: Right of Erasure
+
+# TODO: DPO
+# TODO: What are the technical and organisational security measures w.r.t to the processing of personal data?
+# TODO: Handling Data Breach - Process, report to Supervisory Authority, inform Data Subjects
+# Legal basis - for every Process and Step
+# Sources of ALL Data
+# Sources of Data not collected from Data Subject
+
 
 ######################## MANUALLY CHECKED CONSTRAINTS ########################
 
 
+:ValidConsentConstraints a :ManuallyCheckedConstraint ;
+	sh:targetClass ;
+	# R42 freely given - Consent should not be regarded as freely given if the data subject has no genuine or free choice or is unable to refuse or withdraw consent without detriment.
+	# specific
+	# R42 informed - For consent to be informed, the data subject should be aware at least of the identity of the controller and the purposes of the processing for which the personal data are intended. 
+	# unambigious
+	# statement of clear action
+	# R32 Silence, pre-ticked boxes or inactivity should not therefore constitute consent.
+	# consent is not a choice
+	# R43 freely given - Consent is presumed not to be freely given if it does not allow separate consent to be given to different personal data processing operations despite it being appropriate in the individual case, or if the performance of a contract, including the provision of a service, is dependent on the consent despite such consent not being necessary for such performance.
+	# R32 If the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.
+
+:WithdrawConsentConstraints a :ManuallyCheckedConstraint ;
+	# A7(3) consent is not as easy to withdraw as to give
+	# A7(3) The data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal. Prior to giving consent, the data subject shall be informed thereof.
+
+:SpecialCategoriesOfPersonalDataContraints a :ManuallyCheckedConstraint ;
+	# Check if any of the use categories of personal data fall under special categories of personal data
+	# A9(1) Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation shall be prohibited.
+	# A9(2) Paragraph 1 shall not apply if one of the following applies:
+	# A9(2)(a) the data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject;
+
+:RightToInformationConstraints a :ManuallyCheckedConstraint ;
+	# Before or After data is collected - When was the information relevant to right to be informed was provided to the data subject?
+	# Was the name and contact details of the controller’s representative provided to the data subject under the right to be informed?
+	# Was the purposes for processing provided to the data subject under the right to be informed?
+	# Was the legal basis for processing provided to the data subject under the right to be informed?
+	# Where the legal basis for processing was legitimate interest, was this communicated to the data subject under the right to be informed?
+	# If personal data is not obtained from the data subject, were the categories of personal data obtained communicated to the data subject under the right to be informed?
+	# If personal data is not obtained from the data subject, were the sources of data communicated to the data subject under the right to be informed?
+	# Where personal data is shared, were the recipients or categories of recipients communicated to the data subject under the right to be informed?
+	# If personal data is transferred to a third country or international organisation, were the identity of the third country or international organisation communicated to the data subject under the right to be informed?
+	# Where personal data is stored, were the retention period communicated to the data subject under the right to be informed?
+	# Were the rights available communicated to the data subject under the right to be informed?
+	# If the data subject provided consent, was the right to withdraw consent provided under the right to be informed?
+	# Was the right to lodge a complaint with a supervisory authority provided to the data subject under the right to be informed?
+	# Where personal data needs to be provided under statutory or contractual obligation, was this communicated to the data subject under the right to be informed?
+	# Where personal data needs to be provided under statutory or contractual obligation, and if this data needs to be obtained from the data subject, was this communicated to the data subject under the right to be informed?
+	# Where automated-decision making, including profiling is used, was this communicated to the data subject under the right to be informed?
