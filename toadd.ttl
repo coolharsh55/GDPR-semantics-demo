@@ -2,6 +2,7 @@ GDPRov
 Class
 gdprov:ConsentAgreementTemplateBundle
 gdprov:ConsentAgreementBundle
+gdprov:ThirdCountry rdfs:subClassOf prov:Location
 Property
 gdprov:usesConsentAgreementTemplateBundle
 	domain:ConsentStep
@@ -18,6 +19,8 @@ gdprov:hasWithdrawalStep
 gdprov:hasStorageTime
 	domain:DataStorageStep
 	range:time:Instant or time:Duration
+gdprov:hasDataTransferSafeguard
+	domain:DataSharingStep
 
 
 GConsent

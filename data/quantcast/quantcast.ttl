@@ -2527,7 +2527,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
 
 
 ###  http://example.com/Quantcast#ChangedConsentBundle
-:ChangedConsentBundle rdf:type owl:NamedIndividual ,
+:ChangedConsent rdf:type owl:NamedIndividual ,
                                gdprov:ConsentAgreement ;
                       rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
                       rdfs:label "Changed consent of the user" .
@@ -4377,7 +4377,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
 
 
 ###  http://example.com/Quantcast#GivenConsentBundle
-:GivenConsentBundle rdf:type owl:NamedIndividual ,
+:GivenConsent rdf:type owl:NamedIndividual ,
                              gdprov:ConsentAgreement ;
                     rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
                     rdfs:label "Given consent of the user" .
@@ -5870,6 +5870,7 @@ gdprov:UserOutputStep rdf:type owl:Class .
                      gc:Purpose ,
                      gdprov:Process ;
             rdfs:comment "Quantcast newsletters, marketing, or promotional materials"@en ;
+            gdprov:hasLegalBasis gdprtext:GivenConsent ;
             rdfs:label "Marketting"@en .
 
 
@@ -13304,16 +13305,6 @@ However, as outlined above, although we make predictions about consumers’ inte
           rdfs:seeAlso <http://www.zypmedia.com/privacy-policy> .
 
 
-###  http://example.com/Quantcast#extractIdentifierFromLogData
-:extractIdentifierFromLogData rdf:type owl:NamedIndividual ,
-                                       gdprov:DataStep ,
-                                       gdprov:DataStorageStep ,
-                                       gdprov:DataUsageStep ;
-                              rdfs:label "extract identifier from Log Data" ;
-                              gdprov:generatesData :UserID ;
-                              gdprov:usesData :LogData .
-
-
 ###  http://example.com/Quantcast#receiveEmailQuery
 :receiveEmailQuery rdf:type owl:NamedIndividual ,
                             gdprov:DataCollectionStep ,
@@ -13321,6 +13312,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                             gdprov:UserInputStep ;
                    rdfs:comment "If you contact us by email, we keep a record of your contact information and correspondence for as long as necessary to deal with your correspondence and the issues you raised. If you provide contact information to us, we may use that information to contact you with Quantcast newsletters, marketing, or promotional materials. If you decide at any time that you no longer wish to receive such communications from us, please follow the unsubscribe instructions provided in any of the communications."@en ;
                    rdfs:label "receive Email query"@en ;
+                   gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
                    gdprov:generatesData :Email .
 
 
@@ -13340,6 +13332,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                               gdprov:DataCollectionStep ,
                               gdprov:DataStep ;
                      rdfs:comment "The activity that takes place when an user visits Quantcast Partner's website"@en ;
+                     gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
                      rdfs:label "visit Quantcast Partner website"@en ;
                      gdprov:generatesData :AppsUsedByUser ,
                                           :Cookie ,
@@ -13355,6 +13348,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                        gdprov:DataCollectionStep ,
                        gdprov:UserInteractionStep ;
               rdfs:comment "The activity that takes place when an user visits the Quantcast.com website"@en ;
+              gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
               rdfs:label "visit Quantcast website"@en ;
               gdprov:generatesData :Cookie ,
                                    :LogData ,

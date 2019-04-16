@@ -7392,15 +7392,11 @@ gdprtext:WithdrawingConsent rdf:type owl:Class ;
 
 
 ###  http://example.com/Quantcast#ChangedConsent
-:ChangedConsent rdf:type owl:NamedIndividual .
-
-
-###  http://example.com/Quantcast#ChangedConsentBundle
-:ChangedConsentBundle rdf:type owl:NamedIndividual ,
-                               p-plan:Variable ,
-                               gdprov:ConsentAgreement ;
-                      rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
-                      rdfs:label "Changed consent of the user" .
+:ChangedConsent rdf:type owl:NamedIndividual ,
+                         p-plan:Variable ,
+                         gdprov:ConsentAgreement ;
+                rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
+                rdfs:label "Changed consent of the user" .
 
 
 ###  http://example.com/Quantcast#Channeladvisor
@@ -9650,15 +9646,11 @@ gdprtext:WithdrawingConsent rdf:type owl:Class ;
 
 
 ###  http://example.com/Quantcast#GivenConsent
-:GivenConsent rdf:type owl:NamedIndividual .
-
-
-###  http://example.com/Quantcast#GivenConsentBundle
-:GivenConsentBundle rdf:type owl:NamedIndividual ,
-                             p-plan:Variable ,
-                             gdprov:ConsentAgreement ;
-                    rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
-                    rdfs:label "Given consent of the user" .
+:GivenConsent rdf:type owl:NamedIndividual ,
+                       p-plan:Variable ,
+                       gdprov:ConsentAgreement ;
+              rdfs:comment "This consent only indicates the consent choices of the data subject, and does not indicate that the data subject has 'consented' or 'accepted' the choices offered." ;
+              rdfs:label "Given consent of the user" .
 
 
 ###  http://example.com/Quantcast#Glassdoor
@@ -20324,11 +20316,11 @@ gdprtext:LegitimateInterest rdf:type owl:NamedIndividual .
                "TEST2"^^xsd:string
 ] .
 
-[ rdfs:comment "TEST"^^xsd:string ,
-                "TEST2"^^xsd:string
+[ rdfs:comment "An ontology for representing provenance traces pertainining to GDPR compliance. It uses concepts from GDPRtEXT along with extending PROV and P-Plan."@en
  ] .
 
-[ rdfs:comment "An ontology for representing provenance traces pertainining to GDPR compliance. It uses concepts from GDPRtEXT along with extending PROV and P-Plan."@en
+[ rdfs:comment "TEST"^^xsd:string ,
+                "TEST2"^^xsd:string
  ] .
 
 #################################################################
