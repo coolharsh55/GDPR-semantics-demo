@@ -1,4 +1,3 @@
-@prefix : <http://example.com/Quantcast/data/manualtests#> .
 @prefix ex: <http://example.com/> .
 @prefix gc: <https://w3id.org/GConsent#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -16,26 +15,87 @@
 @prefix q: <http://example.com/Quantcast#> .
 @prefix data: <http://example.com/Quantcast/data#> .
 
-:ManualTest a owl:Class ;
+############################ MANUAL TEST DATA ############################
+
+@prefix m: <http://example.com/Quantcast/data/manualtests#> .
+
+m:ManualTest a owl:Class ;
         rdfs:label "Manual Checks for Constraints" .
+m:consentIsFreelyGiven a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsFreelyGiven" .
+m:consentIsSpecific a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsSpecific" .
+m:consentIsUnambigious a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsUnambigious" .
+m:consentHasStatementOfClearAction a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentHasStatementOfClearAction" .
+m:consentIsBySilence a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsBySilence" .
+m:consentIsByPreTickedBoxes a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsByPreTickedBoxes" .
+m:consentIsByInactivity a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsByInactivity" .
+m:consentIsNotByChoice a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentIsNotByChoice" .
+m:consentRequestIsClear a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentRequestIsClear" .
+m:consentRequestIsConcise a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentRequestIsConcise" .
+m:consentRequestIsNotDisruptive a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentRequestIsNotDisruptive" .
+m:consentHasSeparationOfProcessing a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "consentHasSeparationOfProcessing" .
+m:withdrawingConsentIsAsEasyAsGivingConsent a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "withdrawingConsentIsAsEasyAsGivingConsent" .
+m:withdrawingConsentInformationBeforeGivingConsent a rdfs:Property ;
+		rdfs:domain m:ManualTest ;
+		rdfs:range xsd:boolean ;
+		rdfs:label "withdrawingConsentInformationBeforeGivingConsent" .
 
 
-############################ DATA ############################
 
-:TestConsentMechanism a :ManualTest ;
+m:TestConsentMechanism a m:ManualTest ;
 	# valid
-	:consentIsFreelyGiven true ;
-	:consentIsSpecific true ;
-	:consentIsUnambigious true ;
-	:consentHasStatementOfClearAction true ;
-	:consentIsBySilence false ;
-	:consentIsByPreTickedBoxes false ;
-	:consentIsByInactivity false ;
-	:consentIsNotByChoice false ;
-	:consentRequestIsClear true ;
-	:consentRequestIsConcise true ;
-	:consentRequestIsNotDisruptive true ;
-	:consentHasSeparationOfProcessing true ;
+	m:consentIsFreelyGiven true ;
+	m:consentIsSpecific true ;
+	m:consentIsUnambigious true ;
+	m:consentHasStatementOfClearAction true ;
+	m:consentIsBySilence false ;
+	m:consentIsByPreTickedBoxes false ;
+	m:consentIsByInactivity false ;
+	m:consentIsNotByChoice false ;
+	m:consentRequestIsClear true ;
+	m:consentRequestIsConcise true ;
+	m:consentRequestIsNotDisruptive true ;
+	m:consentHasSeparationOfProcessing true ;
+	m:withdrawingConsentIsAsEasyAsGivingConsent true ;
 	# invalid
+	m:withdrawingConsentInformationBeforeGivingConsent false ;
 
 	rdfs:label "manual test results for consent mechanism" .

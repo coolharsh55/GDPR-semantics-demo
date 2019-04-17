@@ -1,4 +1,5 @@
 @prefix : <http://example.com/Quantcast#> .
+@prefix m: <http://example.com/Quantcast/data/manualtests#> .
 @prefix ex: <http://example.com/> .
 @prefix gc: <https://w3id.org/GConsent#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -1053,6 +1054,94 @@ gdprtext:isPartOfSection rdf:type owl:ObjectProperty ;
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/Quantcast/data/manualtests#consentHasSeparationOfProcessing
+m:consentHasSeparationOfProcessing rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain m:ManualTest ;
+                                   rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentHasStatementOfClearAction
+m:consentHasStatementOfClearAction rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain m:ManualTest ;
+                                   rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsByInactivity
+m:consentIsByInactivity rdf:type owl:DatatypeProperty ;
+                        rdfs:domain m:ManualTest ;
+                        rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsByPreTickedBoxes
+m:consentIsByPreTickedBoxes rdf:type owl:DatatypeProperty ;
+                            rdfs:domain m:ManualTest ;
+                            rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsBySilence
+m:consentIsBySilence rdf:type owl:DatatypeProperty ;
+                     rdfs:domain m:ManualTest ;
+                     rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsFreelyGiven
+m:consentIsFreelyGiven rdf:type owl:DatatypeProperty ;
+                       rdfs:domain m:ManualTest ;
+                       rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsNotByChoice
+m:consentIsNotByChoice rdf:type owl:DatatypeProperty ;
+                       rdfs:domain m:ManualTest ;
+                       rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsSpecific
+m:consentIsSpecific rdf:type owl:DatatypeProperty ;
+                    rdfs:domain m:ManualTest ;
+                    rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsUnambigious
+m:consentIsUnambigious rdf:type owl:DatatypeProperty ;
+                       rdfs:domain m:ManualTest ;
+                       rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsClear
+m:consentRequestIsClear rdf:type owl:DatatypeProperty ;
+                        rdfs:domain m:ManualTest ;
+                        rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsConcise
+m:consentRequestIsConcise rdf:type owl:DatatypeProperty ;
+                          rdfs:domain m:ManualTest ;
+                          rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsNotDisruptive
+m:consentRequestIsNotDisruptive rdf:type owl:DatatypeProperty ;
+                                rdfs:domain m:ManualTest ;
+                                rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#withdrawingConsentInformationBeforeGivingConsent
+m:withdrawingConsentInformationBeforeGivingConsent rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain m:ManualTest ;
+                                                   rdfs:range xsd:boolean .
+
+
+###  http://example.com/Quantcast/data/manualtests#withdrawingConsentIsAsEasyAsGivingConsent
+m:withdrawingConsentIsAsEasyAsGivingConsent rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain m:ManualTest ;
+                                            rdfs:range xsd:boolean .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -1076,6 +1165,11 @@ gdprtext:isPartOfSection rdf:type owl:ObjectProperty ;
                 rdfs:label "Psychographics" .
 
 
+###  http://example.com/Quantcast/data/manualtests#ManualTest
+m:ManualTest rdf:type owl:Class ;
+             rdfs:label "Manual Checks for Constraints" .
+
+
 ###  http://purl.org/net/p-plan#Activity
 p-plan:Activity rdf:type owl:Class .
 
@@ -1094,6 +1188,10 @@ p-plan:Step rdf:type owl:Class .
 
 ###  http://purl.org/net/p-plan#Variable
 p-plan:Variable rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Property
+rdfs:Property rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -11457,6 +11555,7 @@ gdprtext:WithdrawingConsent rdf:type owl:Class ;
                      p-plan:Plan ,
                      gc:Purpose ,
                      gdprov:Process ;
+            gdprov:hasLegalBasis gdprtext:GivenConsent ;
             rdfs:comment "Quantcast newsletters, marketing, or promotional materials"@en ;
             rdfs:label "Marketting"@en .
 
@@ -19893,17 +19992,6 @@ However, as outlined above, although we make predictions about consumers’ inte
           rdfs:seeAlso <http://www.zypmedia.com/privacy-policy> .
 
 
-###  http://example.com/Quantcast#extractIdentifierFromLogData
-:extractIdentifierFromLogData rdf:type owl:NamedIndividual ,
-                                       p-plan:Step ,
-                                       gdprov:DataStep ,
-                                       gdprov:DataStorageStep ,
-                                       gdprov:DataUsageStep ;
-                              gdprov:generatesData :UserID ;
-                              gdprov:usesData :LogData ;
-                              rdfs:label "extract identifier from Log Data" .
-
-
 ###  http://example.com/Quantcast#receiveEmailQuery
 :receiveEmailQuery rdf:type owl:NamedIndividual ,
                             p-plan:Step ,
@@ -19912,6 +20000,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                             gdprov:UserInputStep ,
                             gdprov:UserInteractionStep ;
                    gdprov:generatesData :Email ;
+                   gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
                    rdfs:comment "If you contact us by email, we keep a record of your contact information and correspondence for as long as necessary to deal with your correspondence and the issues you raised. If you provide contact information to us, we may use that information to contact you with Quantcast newsletters, marketing, or promotional materials. If you decide at any time that you no longer wish to receive such communications from us, please follow the unsubscribe instructions provided in any of the communications."@en ;
                    rdfs:label "receive Email query"@en .
 
@@ -19941,6 +20030,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                                           :PrivacyNotices ,
                                           :Tag ,
                                           :WebsiteHistory ;
+                     gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
                      rdfs:comment "The activity that takes place when an user visits Quantcast Partner's website"@en ;
                      rdfs:label "visit Quantcast Partner website"@en .
 
@@ -19956,6 +20046,7 @@ However, as outlined above, although we make predictions about consumers’ inte
                                    :PrivacyChoices ,
                                    :PrivacyNotices ,
                                    :Tag ;
+              gdprov:hasLegalBasis gdprtext:LegitimateInterest ;
               rdfs:comment "The activity that takes place when an user visits the Quantcast.com website"@en ;
               rdfs:label "visit Quantcast website"@en .
 
@@ -20047,6 +20138,96 @@ However, as outlined above, although we make predictions about consumers’ inte
                                                               gdprov:ThirdParty ;
                                                      rdfs:label "7Hops.com Inc. (ZergNet)" ;
                                                      rdfs:seeAlso <http://example.com/zergnet.com/privacy> .
+
+
+###  http://example.com/Quantcast/data/manualtests#TestConsentMechanism
+m:TestConsentMechanism rdf:type owl:NamedIndividual ,
+                                m:ManualTest ;
+                       m:consentHasSeparationOfProcessing "true"^^xsd:boolean ;
+                       m:consentHasStatementOfClearAction "true"^^xsd:boolean ;
+                       m:consentIsByInactivity "false"^^xsd:boolean ;
+                       m:consentIsByPreTickedBoxes "false"^^xsd:boolean ;
+                       m:consentIsBySilence "false"^^xsd:boolean ;
+                       m:consentIsFreelyGiven "true"^^xsd:boolean ;
+                       m:consentIsNotByChoice "false"^^xsd:boolean ;
+                       m:consentIsSpecific "true"^^xsd:boolean ;
+                       m:consentIsUnambigious "true"^^xsd:boolean ;
+                       m:consentRequestIsClear "true"^^xsd:boolean ;
+                       m:consentRequestIsConcise "true"^^xsd:boolean ;
+                       m:consentRequestIsNotDisruptive "true"^^xsd:boolean ;
+                       m:withdrawingConsentInformationBeforeGivingConsent "false"^^xsd:boolean ;
+                       m:withdrawingConsentIsAsEasyAsGivingConsent "true"^^xsd:boolean ;
+                       rdfs:label "manual test results for consent mechanism" .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentHasSeparationOfProcessing
+m:consentHasSeparationOfProcessing rdf:type owl:NamedIndividual ,
+                                            rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentHasStatementOfClearAction
+m:consentHasStatementOfClearAction rdf:type owl:NamedIndividual ,
+                                            rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsByInactivity
+m:consentIsByInactivity rdf:type owl:NamedIndividual ,
+                                 rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsByPreTickedBoxes
+m:consentIsByPreTickedBoxes rdf:type owl:NamedIndividual ,
+                                     rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsBySilence
+m:consentIsBySilence rdf:type owl:NamedIndividual ,
+                              rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsFreelyGiven
+m:consentIsFreelyGiven rdf:type owl:NamedIndividual ,
+                                rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsNotByChoice
+m:consentIsNotByChoice rdf:type owl:NamedIndividual ,
+                                rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsSpecific
+m:consentIsSpecific rdf:type owl:NamedIndividual ,
+                             rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentIsUnambigious
+m:consentIsUnambigious rdf:type owl:NamedIndividual ,
+                                rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsClear
+m:consentRequestIsClear rdf:type owl:NamedIndividual ,
+                                 rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsConcise
+m:consentRequestIsConcise rdf:type owl:NamedIndividual ,
+                                   rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#consentRequestIsNotDisruptive
+m:consentRequestIsNotDisruptive rdf:type owl:NamedIndividual ,
+                                         rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#withdrawingConsentInformationBeforeGivingConsent
+m:withdrawingConsentInformationBeforeGivingConsent rdf:type owl:NamedIndividual ,
+                                                            rdfs:Property .
+
+
+###  http://example.com/Quantcast/data/manualtests#withdrawingConsentIsAsEasyAsGivingConsent
+m:withdrawingConsentIsAsEasyAsGivingConsent rdf:type owl:NamedIndividual ,
+                                                     rdfs:Property .
 
 
 ###  https://quantcast.com
@@ -20312,11 +20493,11 @@ gdprtext:GivenConsent rdf:type owl:NamedIndividual .
 gdprtext:LegitimateInterest rdf:type owl:NamedIndividual .
 
 
-[ rdfs:comment "TEST"^^xsd:string ,
-               "TEST2"^^xsd:string
+[ rdfs:comment "An ontology for representing provenance traces pertainining to GDPR compliance. It uses concepts from GDPRtEXT along with extending PROV and P-Plan."@en
 ] .
 
-[ rdfs:comment "An ontology for representing provenance traces pertainining to GDPR compliance. It uses concepts from GDPRtEXT along with extending PROV and P-Plan."@en
+[ rdfs:comment "TEST"^^xsd:string ,
+                "TEST2"^^xsd:string
  ] .
 
 [ rdfs:comment "TEST"^^xsd:string ,
@@ -20327,8 +20508,50 @@ gdprtext:LegitimateInterest rdf:type owl:NamedIndividual .
 #    Annotations
 #################################################################
 
+m:consentHasSeparationOfProcessing rdfs:label "consentHasSeparationOfProcessing" .
+
+
+m:consentHasStatementOfClearAction rdfs:label "consentHasStatementOfClearAction" .
+
+
+m:consentIsByInactivity rdfs:label "consentIsByInactivity" .
+
+
+m:consentIsByPreTickedBoxes rdfs:label "consentIsByPreTickedBoxes" .
+
+
+m:consentIsBySilence rdfs:label "consentIsBySilence" .
+
+
+m:consentIsFreelyGiven rdfs:label "consentIsFreelyGiven" .
+
+
+m:consentIsNotByChoice rdfs:label "consentIsNotByChoice" .
+
+
+m:consentIsSpecific rdfs:label "consentIsSpecific" .
+
+
+m:consentIsUnambigious rdfs:label "consentIsUnambigious" .
+
+
+m:consentRequestIsClear rdfs:label "consentRequestIsClear" .
+
+
+m:consentRequestIsConcise rdfs:label "consentRequestIsConcise" .
+
+
+m:consentRequestIsNotDisruptive rdfs:label "consentRequestIsNotDisruptive" .
+
+
+m:withdrawingConsentInformationBeforeGivingConsent rdfs:label "withdrawingConsentInformationBeforeGivingConsent" .
+
+
+m:withdrawingConsentIsAsEasyAsGivingConsent rdfs:label "withdrawingConsentIsAsEasyAsGivingConsent" .
+
+
 gc:inMedium rdfs:comment "Specifies the medium through which the consent was given. Examples are web forms, paper documents."@en ;
-             rdfs:label "in medium"@en .
+            rdfs:label "in medium"@en .
 
 
 gdprov:Anonymised rdfs:label "Anonymised"@en ;
@@ -20352,10 +20575,10 @@ gdprtext:GivenConsent rdfs:isDefinedBy gdpr:recital42 ;
                       rdfs:isDefinedBy gdpr:recital32 ,
                                        gdpr:recital43 ;
                       rdfs:label "Given Consent"^^xsd:string ;
-                      rdfs:isDefinedBy gdpr:article6-1-a ;
-                      gdprtext:involves gdprtext:PersonalData ;
-                      rdfs:isDefinedBy gdpr:article9-2-a ;
-                      gdprtext:involves gdprtext:Processing ,
+                      rdfs:isDefinedBy gdpr:article6-1-a ,
+                                       gdpr:article9-2-a ;
+                      gdprtext:involves gdprtext:PersonalData ,
+                                        gdprtext:Processing ,
                                         gdprtext:DataSubject .
 
 

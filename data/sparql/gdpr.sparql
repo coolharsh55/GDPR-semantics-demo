@@ -1,0 +1,16 @@
+PREFIX gdprov: <https://w3id.org/GDPRov#>
+PREFIX gc: <https://w3id.org/GConsent#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+select DISTINCT ?gdpr ?result ?msg
+where {
+    GRAPH <http://example.com/R> {
+        ?test <http://example.com/Quantcast/shapes#linkToGDPR> ?gdpr .
+        BIND(NOT EXISTS {
+                ?x sh:sourceConstraint ?test .
+            } as ?result )
+        OPTIONAL {
+            ?x sh:sourceConstraint ?test .
+            ?x sh:resultMessage ?msg .
+        }
+    }
+} ORDER BY ?gdpr

@@ -1,0 +1,17 @@
+PREFIX c: <http://example.com/Quantcast/shapes#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select DISTINCT ?name ?test ?gdpr ?result ?node ?msg
+where {
+    ?x a c:Constraint .
+    ?x sh:name ?name .
+    BIND(IF(EXISTS{?x a c:AutomaticallyCheckedConstraint}, "Automatic"^^xsd:string, "Manual"^^xsd:string) as ?test)
+    OPTIONAL { ?x c:linkToGDPR ?gdpr }
+    BIND(IF(EXISTS{?y sh:sourceConstraint ?x}, "FAIL"^^xsd:string, "PASS"^^xsd:string) as ?result)
+    OPTIONAL {
+        FILTER EXISTS { ?y sh:sourceConstraint ?x }
+        ?y sh:focusNode ?node .
+        ?y sh:resultMessage ?msg .
+    }
+} ORDER BY ?name

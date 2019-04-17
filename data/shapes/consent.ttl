@@ -15,6 +15,7 @@
 @prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
 @prefix q: <http://example.com/Quantcast#> .
 @prefix m: <http://example.com/Quantcast/data/manualtests#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
 @prefix data: <http://example.com/Quantcast/data#> .
 
 :Shape a owl:Ontology ;
@@ -25,6 +26,10 @@
         sh:declare [ sh:prefix "p-plan"; sh:namespace "http://purl.org/net/p-plan#"^^xsd:anyURI ; ] ;
         sh:declare [ sh:prefix "prov"; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ; ] ;
         rdfs:label "Shape declarations" .
+
+:linkToGDPR a rdfs:Property ;
+    rdfs:range eli:LegalResourceSubdivision ;
+    rdfs:label "linkToGDPR" .
 
 
 :Constraint rdfs:subClassOf sh:NodeShape ;
@@ -40,78 +45,78 @@
 ###################### AUTOMATICALLY CHECKED CONSTRAINTS ######################
 
 
-# :ConsentCoreConstraints a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass gc:Consent ;
-#     # Data Subject
-#     sh:property :ConsentHasDataSubject ;
-#     # Personal Data
-#     sh:property :ConsentHasPersonalData ;
-#     # Purpose
-#     sh:property :ConsentHasPurpose ;
-#     # Processing 
-#     sh:property :ConsentHasProcessing ;
-#     # Provided By
-#     sh:property :ConsentProvidedBy ;
-#     # Status
-#     sh:property :ConsentHasStatus ;
-#     # Given To
-#     sh:property :ConsentGivenTo ;
-#     # Right to Withdraw
-#     sh:property :RightToWithdraw ;
-#     # Location
-#     sh:property :ConsentHasLocation ;
-#     # Medium
-#     sh:property :ConsentHasMedium ;
-#     # Timestamp
-#     sh:sparql :ConsentHasTimestamp ;
-#     # Storage Period
-#     sh:sparql :ConsentHasStoragePeriod ;
-#     # R32 Consent should cover all processing activities carried out for the same purpose or purposes.
-#     sh:sparql :ConsentAllProcessingForSamePurpose ;
-#     # R32 When the processing has multiple purposes, consent should be given for all of them.
-#     sh:sparql :ConsentAllPurposesForSameProcessing ;
+:ConsentCoreConstraints a :NodeShape ;
+    sh:targetClass gc:Consent ;
+    # Data Subject
+    sh:property :ConsentHasDataSubject ;
+    # Personal Data
+    sh:property :ConsentHasPersonalData ;
+    # Purpose
+    sh:property :ConsentHasPurpose ;
+    # Processing 
+    sh:property :ConsentHasProcessing ;
+    # Provided By
+    sh:property :ConsentProvidedBy ;
+    # Status
+    sh:property :ConsentHasStatus ;
+    # Given To
+    sh:property :ConsentGivenTo ;
+    # Right to Withdraw
+    sh:property :RightToWithdraw ;
+    # Location
+    sh:property :ConsentHasLocation ;
+    # Medium
+    sh:property :ConsentHasMedium ;
+    # Timestamp
+    sh:sparql :ConsentHasTimestamp ;
+    # Storage Period
+    sh:sparql :ConsentHasStoragePeriod ;
+    # R32 Consent should cover all processing activities carried out for the same purpose or purposes.
+    sh:sparql :ConsentAllProcessingForSamePurpose ;
+    # R32 When the processing has multiple purposes, consent should be given for all of them.
+    sh:sparql :ConsentAllPurposesForSameProcessing ;
 
-#     rdfs:label "Consent Core constraints" .
+    rdfs:label "Consent Core constraints" .
 
-# :ConsentActivityConstraints a :AutomaticallyCheckedConstraint ;
-#     # Obtained via Activity
-#     sh:targetClass gc:Consent ;
-#     sh:or (
-#         [ sh:path p-plan:correspondsToVariable ; sh:minCount 1 ; ]
-#         [ sh:path prov:wasGeneratedBy ; sh:minCount 1 ; ]
-#         [ sh:class gdprov:ConsentAgreementTemplate ; ]
-#     ) ;
-#     sh:message "Consent should state how it was obtained" ;
-#     rdfs:label "Consent Activity Constraints" .
+:ConsentActivityConstraints a :AutomaticallyCheckedConstraint ;
+    # Obtained via Activity
+    sh:targetClass gc:Consent ;
+    sh:or (
+        [ sh:path p-plan:correspondsToVariable ; sh:minCount 1 ; ]
+        [ sh:path prov:wasGeneratedBy ; sh:minCount 1 ; ]
+        [ sh:class gdprov:ConsentAgreementTemplate ; ]
+    ) ;
+    sh:name "Consent Generating Activity" ;
+    sh:message "Consent should state how it was obtained" ;
+    rdfs:label "Consent Activity Constraints" .
 
-# :ConsentArtefactsConstraints a :AutomaticallyCheckedConstraint ;
-#     # Artefacts associated with Consent
-#     sh:targetClass gc:Consent ;
-#     sh:or (
-#         [ sh:sparql :ConsentUsingTemplate1 ; ]
-#         [ sh:sparql :ConsentUsingTemplate2 ; ]
-#         [ sh:sparql :ConsentUsingTemplateBundle1 ; ]
-#         [ sh:sparql :ConsentUsingTemplateBundle2 ; ]
-#         [ sh:sparql :ConsentUsingArtefact ; ]
-#         # [ sh:sparql :ConsentUsingTemplateBundle ]
-#     );
-#     sh:message "Consent should be linked to relevant artefacts" ;
-#     rdfs:label "Consent Artefact Constraints" .
+:ConsentArtefactsConstraints a :NodeShape ;
+    # Artefacts associated with Consent
+    sh:targetClass gc:Consent ;
+    sh:or (
+        [ sh:sparql :ConsentUsingTemplate1 ; ]
+        [ sh:sparql :ConsentUsingTemplate2 ; ]
+        [ sh:sparql :ConsentUsingTemplateBundle1 ; ]
+        [ sh:sparql :ConsentUsingTemplateBundle2 ; ]
+        [ sh:sparql :ConsentUsingArtefact ; ]
+        # [ sh:sparql :ConsentUsingTemplateBundle ]
+    );
+    rdfs:label "Consent Artefact Constraints" .
         
-# :ThirdPartySharingConstraints a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass gc:Consent ;
-#     sh:or (
-#         # If data is shared, what are the categories of recipients to whom the personal data is or will be disclosed?
-#         [ sh:sparql :ThirdPartyRecipientCategories ; ]
-#         # If data is shared, what are the identities of the recipients to whom the data is or will be disclosed?
-#         [ sh:sparql :ThirdPartyRecipientIdentities ; ]
-#     ) ;
-#     # If data is shared, and the recipients are in a Third Country or International Organisation, what are the safeguards associated with data transfer? 
-#     sh:sparql :ThirdPartyRecipientsSafeguards ;
+:ThirdPartySharingConstraints a :NodeShape ;
+    sh:targetClass gc:Consent ;
+    sh:or (
+        # If data is shared, what are the categories of recipients to whom the personal data is or will be disclosed?
+        [ sh:sparql :ThirdPartyRecipientCategories ; ]
+        # If data is shared, what are the identities of the recipients to whom the data is or will be disclosed?
+        [ sh:sparql :ThirdPartyRecipientIdentities ; ]
+    ) ;
+    # If data is shared, and the recipients are in a Third Country or International Organisation, what are the safeguards associated with data transfer? 
+    sh:sparql :ThirdPartyRecipientsSafeguards ;
         
-#     rdfs:label "Third Party Sharing Constraints" .
+    rdfs:label "Third Party Sharing Constraints" .
 
-:RightsConstraints a :AutomaticallyCheckedConstraint ;
+:RightsConstraints a :NodeShape ;
         # HACK to target entire graph
         sh:targetClass owl:Ontology ;
         sh:sparql :RightToObjectConstraint ;
@@ -120,7 +125,9 @@
         sh:sparql :RightToAccessConstraint ;
         sh:sparql :RightToErasureConstraint ;
         rdfs:label "Rights Constraints" .
-:RightToObjectConstraint a sh:SPARQLConstraint ;
+:RightToObjectConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article21 ;
+        sh:name "Right to Object" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -128,7 +135,9 @@
                 }
         """ ;
         sh:message "There should be a process to handle the Right to Object to Processing" .
-:RightToAccessConstraint a sh:SPARQLConstraint ;
+:RightToAccessConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article15 ;
+        sh:name "Right to Access" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -136,7 +145,9 @@
                 }
         """ ;
         sh:message "There should be a process to handle the Right to Access Personal Data" .
-:RightToDataPortabilityConstraint a sh:SPARQLConstraint ;
+:RightToDataPortabilityConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article20 ;
+        sh:name "Right to Data Portability" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -144,7 +155,9 @@
                 }
         """ ;
         sh:message "There should be a process to handle the Right to Data Portability" .
-:RightToErasureConstraint a sh:SPARQLConstraint ;
+:RightToErasureConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article17 ;
+        sh:name "Right to Erasure" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -152,7 +165,9 @@
                 }
         """ ;
         sh:message "There should be a process to handle the Right to Erasure" .
-:RightToRectifyConstraint a sh:SPARQLConstraint ;
+:RightToRectifyConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article16 ;
+        sh:name "Right to Rectify" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -161,11 +176,13 @@
         """ ;
         sh:message "There should be a process to handle the Right to Rectification" .
 
-:DPOConstraint a :AutomaticallyCheckedConstraint ;
+:DPOConstraint a :NodeShape ;
         sh:targetClass owl:Ontology ;
-        sh:sparql :CheckDPOConstraint ;
-        sh:message "A DPO should be listed" .
-:CheckDPOConstraint a sh:SPARQLConstraint ;
+        sh:sparql :CheckDPOConstraint .
+:CheckDPOConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article37 ;
+        sh:name "DPO" ;
+        sh:message "A DPO should be listed" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this {
@@ -173,95 +190,108 @@
                         }
         """ .
 
-# :HandleDataBreachConstraint a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass owl:Ontology ;
-#     sh:sparql :CheckHandleDataBreachConstraint ;
-#     sh:sparql :CheckHandleDataBreachNotifyDPAConstraint ;
-#     sh:sparql :CheckHandleDataBreachNotifyDSConstraint ;
-#     rdfs:label "Handle Data Breach Constraints" .
-# :CheckHandleDataBreachConstraint a sh:SPARQLConstraint ;
-#     sh:prefixes :Shape ;
-#     sh:select """
-#         SELECT $this {
-#             FILTER NOT EXISTS { ?X a gdprov:HandleDataBreachProcess }
-#         }
-#     """ ;
-#     sh:message "Procedure to handle Data Breach not specified" .
-# :CheckHandleDataBreachNotifyDPAConstraint a sh:SPARQLConstraint ;
-#     sh:prefixes :Shape ;
-#     sh:select """
-#         SELECT $this {
-#             FILTER NOT EXISTS { 
-#                 ?D a gdprov:HandleDataBreachProcess .
-#                 ?N a gdprov:NotifyDPA .
-#                 ?N gdprov:isPartOfProcess ?D .
-#             }
-#         }
-#     """ ;
-#     sh:message "Procedure to notify DPA about Data Breach not specified" .
-# :CheckHandleDataBreachNotifyDSConstraint a sh:SPARQLConstraint ;
-#     sh:prefixes :Shape ;
-#     sh:select """
-#         SELECT $this {
-#             FILTER NOT EXISTS { 
-#                 ?D a gdprov:HandleDataBreachProcess .
-#                 ?N a gdprov:NotifyDataSubject .
-#                 ?N gdprov:isPartOfProcess ?D .
-#             }
-#         }
-#     """ ;
-#     sh:message "Procedure to notify Data Subject about Data Breach not specified" .
+:HandleDataBreachConstraint a :NodeShape ;
+    sh:targetClass owl:Ontology ;
+    sh:sparql :CheckHandleDataBreachConstraint ;
+    sh:sparql :CheckHandleDataBreachNotifyDPAConstraint ;
+    sh:sparql :CheckHandleDataBreachNotifyDSConstraint ;
+    rdfs:label "Handle Data Breach Constraints" .
+:CheckHandleDataBreachConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article33 ;
+    :linkToGDPR gdpr:article34 ;
+    sh:name "Handle Data Breach" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { ?X a gdprov:HandleDataBreachProcess }
+        }
+    """ ;
+    sh:message "Procedure to handle Data Breach not specified" .
+:CheckHandleDataBreachNotifyDPAConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article33 ;
+    sh:name "Notify Data Breach to DPA" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { 
+                ?D a gdprov:HandleDataBreachProcess .
+                ?N a gdprov:NotifyDPA .
+                ?N gdprov:isPartOfProcess ?D .
+            }
+        }
+    """ ;
+    sh:message "Procedure to notify DPA about Data Breach not specified" .
+:CheckHandleDataBreachNotifyDSConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article34 ;
+    sh:name "Notify Data Breach to Data Subject" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { 
+                ?D a gdprov:HandleDataBreachProcess .
+                ?N a gdprov:NotifyDataSubject .
+                ?N gdprov:isPartOfProcess ?D .
+            }
+        }
+    """ ;
+    sh:message "Procedure to notify Data Subject about Data Breach not specified" .
 
-# :PurposeHasLegalBasisConstraint a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass gc:Purpose ;
-#     sh:name "Purpose --> Legal Basis" ;
-#     sh:property [
-#         sh:path gdprov:hasLegalBasis ;
-#         sh:minCount 1;
-#         sh:message "Every Purpose should have a Legal Basis" ;
-#     ] .
-# :StepHasLegalBasisConstraint a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass gdprov:DataStep ;
-#     sh:name "Step --> Legal Basis" ;
-#     sh:sparql :StepProcessHasLegalBasis ;
-#     sh:message "Every Data Step should be associated with a legal basis" .
-# :StepProcessHasLegalBasis a sh:SPARQLConstraint ;
-#     sh:prefixes :Shape ;
-#     sh:select """
-#         SELECT $this WHERE {
-#             FILTER NOT EXISTS { $this gdprov:hasLegalBasis ?L }
-#             FILTER NOT EXISTS {
-#                 ?P gdprov:hasStep $this .
-#                 ?P gdprov:hasLegalBasis ?L .
-#             }
-#             FILTER NOT EXISTS {
-#                 $this gdprov:isPartOfProcess ?P .
-#                 ?P gdprov:hasLegalBasis ?L .
-#             }
-#         }
-#     """ ;
-#     sh:message "Every Data Step should be associated with a legal basis" .
+:PurposeHasLegalBasisConstraint a :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article6 ;
+    sh:targetClass gc:Purpose ;
+    sh:name "Purpose --> Legal Basis" ;
+    sh:message "Every Purpose should have a Legal Basis" ;
+    sh:property [
+        sh:path gdprov:hasLegalBasis ;
+        sh:minCount 1;
+    ] .
+:StepHasLegalBasisConstraint a :NodeShape ;
+    sh:targetClass gdprov:DataStep ;
+    sh:sparql :StepProcessHasLegalBasis ;
+    sh:message "Every Data Step should be associated with a legal basis" .
+:StepProcessHasLegalBasis a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article6 ;
+    sh:name "Step --> Legal Basis" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this WHERE {
+            FILTER NOT EXISTS { $this gdprov:hasLegalBasis ?L }
+            FILTER NOT EXISTS {
+                ?P gdprov:hasStep $this .
+                ?P gdprov:hasLegalBasis ?L .
+            }
+            FILTER NOT EXISTS {
+                $this gdprov:isPartOfProcess ?P .
+                ?P gdprov:hasLegalBasis ?L .
+            }
+        }
+    """ ;
+    sh:message "Every Data Step should be associated with a legal basis" .
 
 # Sources of ALL Data
-# :DataSourceConstraint a :AutomaticallyCheckedConstraint ;
-#     sh:targetClass gdprov:PersonalData ;
-#     sh:name "Personal Data --> Source" ;
-#     sh:sparql :DataSourceCollectionConstraint ;
-#     sh:message "Every Personal Data should be attributed to a source" .
-# :DataSourceCollectionConstraint a sh:SPARQLConstraint ;
-#     sh:prefixes :Shape ;
-#     sh:select """
-#         SELECT $this WHERE {
-#             FILTER NOT EXISTS { ?step gdprov:collectsData $this }
-#             FILTER NOT EXISTS { ?step gdprov:generatesData $this }
-#         }
-#     """ .
+:DataSourceConstraint a :NodeShape ;
+    sh:targetClass gdprov:PersonalData ;
+    sh:sparql :DataSourceCollectionConstraint .
+:DataSourceCollectionConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:recital60 ;
+    :linkToGDPR gdpr:recital61 ;
+    :linkToGDPR gdpr:article13 ;
+    :linkToGDPR gdpr:article14 ;
+    sh:name "Personal Data --> Source" ;
+    sh:message "Every Personal Data should be attributed to a source" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this WHERE {
+            FILTER NOT EXISTS { ?step gdprov:collectsData $this }
+            FILTER NOT EXISTS { ?step gdprov:generatesData $this }
+        }
+    """ .
 
 
 ######################## MANUALLY CHECKED CONSTRAINTS ########################
 
 
-:ValidConsentConstraints a :ManuallyCheckedConstraint ;
+:ValidConsentConstraints a :NodeShape ;
     sh:targetClass m:ManualTest ;
     sh:property :ValidconsentIsSpecific ;
     sh:property :ValidconsentIsUnambigious ;
@@ -276,83 +306,121 @@
     sh:property :ValidconsentHasSeparationOfProcessing ;
     rdfs:label "Valid Consent Constraints" .
 
-:ValidconsentIsFreelyGiven a sh:PropertyShape ;
+:ValidconsentIsFreelyGiven a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R42 freely given - Consent should not be regarded as freely given if the data subject has no genuine or free choice or is unable to refuse or withdraw consent without detriment.
+        :linkToGDPR gdpr:article4-11 ;
+        sh:name "Consent == Freely Given" ;
         sh:path m:consentIsFreelyGiven ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should be freely given" .
         
-:ValidconsentIsSpecific a sh:PropertyShape ;
+:ValidconsentIsSpecific a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # specific
+        :linkToGDPR gdpr:article4-11 ;
+        sh:name "Consent == Specific" ;
         sh:path m:consentIsSpecific ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should be specific" .
         
-:ValidconsentIsUnambigious a sh:PropertyShape ;
+:ValidconsentIsUnambigious a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # unambigious
+        :linkToGDPR gdpr:article4-11 ;
+        sh:name "Consent == Unambigious" ;
         sh:path m:consentIsUnambigious ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should be unambigious" .
         
-:ValidconsentHasStatementOfClearAction a sh:PropertyShape ;
+:ValidconsentHasStatementOfClearAction a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # statement of clear action
+        :linkToGDPR gdpr:article4-11 ;
+        sh:name "Consent == Statement of Clear Action" ;
         sh:path m:consentHasStatementOfClearAction ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have statement of clear action" .
         
-:ValidconsentIsBySilence a sh:PropertyShape ;
+:ValidconsentIsBySilence a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 Silence, pre-ticked boxes or inactivity should not therefore constitute consent.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent != Silence" ;
         sh:path m:consentIsBySilence ;
         sh:hasValue false ;
         sh:message "(MANUAL-TEST) Consent should not be by silence" .
         
-:ValidconsentIsByPreTickedBoxes a sh:PropertyShape ;
+:ValidconsentIsByPreTickedBoxes a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 Silence, pre-ticked boxes or inactivity should not therefore constitute consent.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent != Pre-ticked Boxes" ;
         sh:path m:consentIsByPreTickedBoxes ;
         sh:hasValue false ;
         sh:message "(MANUAL-TEST) Consent should not be by pre-ticked boxes" .
         
-:ValidconsentIsByInactivity a sh:PropertyShape ;
+:ValidconsentIsByInactivity a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 Silence, pre-ticked boxes or inactivity should not therefore constitute consent.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent != Inactivity" ;
         sh:path m:consentIsByInactivity ;
         sh:hasValue false ;
         sh:message "(MANUAL-TEST) Consent should not be by inactivity" .
         
-:ValidconsentIsNotByChoice a sh:PropertyShape ;
+:ValidconsentIsNotByChoice a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # consent is not a choice
+        sh:name "Consent == Choice" ;
         sh:path m:consentIsNotByChoice ;
         sh:hasValue false ;
         sh:message "(MANUAL-TEST) Consent should be by choice" .
         
-:ValidconsentRequestIsClear a sh:PropertyShape ;
+:ValidconsentRequestIsClear a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 If the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent Request == Clear" ;
         sh:path m:consentRequestIsClear ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have a clear request" .
         
-:ValidconsentRequestIsConcise a sh:PropertyShape ;
+:ValidconsentRequestIsConcise a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 If the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent Request == Concise" ;
         sh:path m:consentRequestIsConcise ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have a concise request" .
         
-:ValidconsentRequestIsNotDisruptive a sh:PropertyShape ;
+:ValidconsentRequestIsNotDisruptive a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R32 If the data subject’s consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided.
+        :linkToGDPR gdpr:recital32 ;
+        sh:name "Consent Request == Not Disruptive" ;
         sh:path m:consentRequestIsNotDisruptive ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have a non-disruptive request" .
         
-:ValidconsentHasSeparationOfProcessing a sh:PropertyShape ;
+:ValidconsentHasSeparationOfProcessing a sh:PropertyShape, :ManuallyCheckedConstraint ;
         # R43 freely given - Consent is presumed not to be freely given if it does not allow separate consent to be given to different personal data processing operations despite it being appropriate in the individual case, or if the performance of a contract, including the provision of a service, is dependent on the consent despite such consent not being necessary for such performance.
+        :linkToGDPR gdpr:recital43 ;
+        sh:name "Separation of Processing" ;
         sh:path m:consentHasSeparationOfProcessing ;
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have separation of processing" .
         
 
-
-# :WithdrawConsentConstraints a :ManuallyCheckedConstraint ;
+:WithdrawConsentConstraints a :NodeShape ;
+    sh:targetClass m:ManualTest ;
+    sh:property :WithdrawConsentEase ;
+    sh:property :WithdrawConsentInformation ;
+    rdfs:label "Withdraw Consent Constraints" .
+:WithdrawConsentEase a sh:PropertyShape, :ManuallyCheckedConstraint ;
     # A7(3) consent is not as easy to withdraw as to give
+    :linkToGDPR gdpr:article7-3 ;
+    sh:name "Ease of Withdraw Consent" ;
+    sh:path m:withdrawingConsentIsAsEasyAsGivingConsent ;
+    sh:hasValue true ;
+    sh:message "(MANUAL-TEST) Consent should be as easy to withdraw as it is to give" .
+:WithdrawConsentInformation a sh:PropertyShape, :ManuallyCheckedConstraint ;
     # A7(3) The data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal. Prior to giving consent, the data subject shall be informed thereof.
+    :linkToGDPR gdpr:article7-3 ;
+    sh:name "Withdraw Consent Information" ;
+    sh:path m:withdrawingConsentInformationBeforeGivingConsent ;
+    sh:hasValue true ;
+    sh:message "(MANUAL-TEST) Information about withdrawal of consent should be provided before giving consent" .
 
 # :SpecialCategoriesOfPersonalDataContraints a :ManuallyCheckedConstraint ;
     # Check if any of the use categories of personal data fall under special categories of personal data
@@ -382,37 +450,46 @@
 
 ############################ COMPONENTS ############################
 
-:ConsentHasDataSubject a sh:PropertyShape ;
+:ConsentHasDataSubject a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
         sh:name "Consent --> Data Subject" ;
+        :linkToGDPR gdpr:article4-11 ;
         sh:path gc:isConsentForDataSubject ;
         sh:minCount 1;
         sh:maxCount 1;
         sh:or ( [ sh:class gc:DataSubject ] [ sh:class gdprov:DataSubject ] ) ;
         sh:message "Consent should be linked to Data Subject" .
 
-:ConsentHasPersonalData a sh:PropertyShape ;
+:ConsentHasPersonalData a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
         sh:name "Consent --> Personal Data" ;
+        :linkToGDPR gdpr:article4-11 ;
+        :linkToGDPR gdpr:recital32 ;
         sh:path gc:forPersonalData ;
         sh:minCount 1;
         # sh:class gdprov:PersonalData ;
         sh:or ( [ sh:class gc:PersonalData ] [ sh:class gdprov:PersonalData ] ) ;
         sh:message "Consent should be linked to Personal Data" .
 
-:ConsentHasPurpose a sh:PropertyShape ;
+:ConsentHasPurpose a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
         sh:name "Consent --> Purpose" ;
+        :linkToGDPR gdpr:recital32 ;
+        :linkToGDPR gdpr:recital42 ;
         sh:path gc:forPurpose ;
         sh:minCount 1;
         sh:or ( [ sh:class gc:Purpose ; ] [ sh:class gdprov:Process ] ) ;
         sh:message "Consent should be linked to Purpose" .
 
-:ConsentHasProcessing a sh:PropertyShape ;
+:ConsentHasProcessing a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
         sh:name "Consent --> Processing" ;
+        :linkToGDPR gdpr:recital32 ;
+        :linkToGDPR gdpr:article4-11 ;
         sh:path gc:forProcessing ;
         sh:minCount 1;
         sh:or ( [ sh:class gc:Processing ; ] [ sh:class gdprov:DataStep ] ) ;
         sh:message "Consent should be linked to Processing" .
 
-:ConsentProvidedBy a sh:PropertyShape ;
+:ConsentProvidedBy a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Provided By" ;
+        :linkToGDPR gdpr:article7-2 ;
         sh:path gc:isProvidedBy ;
         sh:severity sh:Info ;
         sh:minCount 0;
@@ -420,35 +497,44 @@
         sh:or ( [ sh:class gc:DataSubject ] [ sh:class gc:Person ] [ sh:class gdprov:DataSubject ] [ sh:class prov:Person ] ) ;
         sh:message "Consent should be linked to who provided it" .
 
-:ConsentHasStatus a sh:PropertyShape ;
+:ConsentHasStatus a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Status" ;
         sh:path gc:hasStatus ;
         sh:minCount 1;
         sh:maxCount 1;
         sh:class gc:Status ;
         sh:message "Consent should have a status" .
 
-:ConsentGivenTo a sh:PropertyShape ;
+:ConsentGivenTo a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Given To" ;
         sh:path gc:isProvidedTo ;
         sh:class prov:Agent ;
         sh:message "Consent should state who it was given to" .
 
-:RightToWithdraw a sh:PropertyShape ;
+:RightToWithdraw a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article7-3 ;
+        sh:name "Right to Withdraw" ;
         sh:path gc:withdrawBy ;
         sh:minCount 1;
         sh:message "Consent should provide a link to withdraw" .
 
-:ConsentHasLocation a sh:PropertyShape ;
+:ConsentHasLocation a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Location" ;
         sh:path gc:atLocation ;
         sh:minCount 1;
         sh:or ( [ sh:class gc:Location ] [ sh:class prov:Location ] [ sh:nodeKind sh:IRI ] ) ;
         sh:message "Consent should state location" .
 
-:ConsentHasMedium a sh:PropertyShape ;
+:ConsentHasMedium a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Medium" ;
+        :linkToGDPR gdpr:recital32 ;
+        :linkToGDPR gdpr:article7-2 ;
         sh:path gc:inMedium ;
         sh:minCount 1;
         sh:message "Consent should state medium" .
 
-:ConsentHasTimestamp a sh:SPARQLConstraint ;
+:ConsentHasTimestamp a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Timestamp" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
@@ -459,7 +545,12 @@
                 """ ;
         sh:message "Consent should have a timestamp" .
 
-:ConsentHasStoragePeriod a sh:SPARQLConstraint ;
+:ConsentHasStoragePeriod a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Personal Data --> Storage Period" ;
+        :linkToGDPR gdpr:article13-2-a ;
+        :linkToGDPR gdpr:article14-2-a ;
+        :linkToGDPR gdpr:article5-1-e ;
+        :linkToGDPR gdpr:recital39 ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
@@ -470,7 +561,9 @@
                 """ ;
         sh:message "Consent should state data storage periods" .
 
-:ConsentAllProcessingForSamePurpose a sh:SPARQLConstraint ;
+:ConsentAllProcessingForSamePurpose a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Many Processing x One Purpose" ;
+        :linkToGDPR gdpr:recital32 ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
@@ -485,7 +578,9 @@
                 """;
         sh:message "Consent should cover all processing activities carried out for the same purpose or purposes" .
 
-:ConsentAllPurposesForSameProcessing a sh:SPARQLConstraint ;
+:ConsentAllPurposesForSameProcessing a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "One Processing x Many Purposes" ;
+        :linkToGDPR gdpr:recital32 ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this ?PR ?P WHERE {
@@ -500,9 +595,11 @@
                 """;
         sh:message "Consent should cover all purposes {?P} for same processing activities {?PR}" .
 
-:ConsentUsingTemplate1 a sh:SPARQLConstraint ;
+:ConsentUsingTemplate1 a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
         sh:prefixes :Shape ;
         sh:description "consent linked to template using p-plan" ;
+        sh:name "Consent Template" ;
+        sh:message "Consent should be linked to relevant artefacts" ;
         sh:select """
                 SELECT $this WHERE {
                         FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate }
@@ -514,9 +611,11 @@
                         }
                 }
                 """ .
-:ConsentUsingTemplate2 a sh:SPARQLConstraint ;
+:ConsentUsingTemplate2 a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
         sh:prefixes :Shape ;
         sh:description "consent linked to template via step using p-plan" ;
+        sh:name "Consent Template" ;
+        sh:message "Consent should be linked to relevant artefacts" ;
         sh:select """
                 SELECT $this WHERE {
                         FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate }
@@ -528,9 +627,11 @@
                         }
                 }
                 """ .
-:ConsentUsingTemplateBundle1 a sh:SPARQLConstraint ;
+:ConsentUsingTemplateBundle1 a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
         sh:prefixes :Shape ;
         sh:description "consent linked to template using p-plan" ;
+        sh:name "Consent Template" ;
+        sh:message "Consent should be linked to relevant artefacts" ;
         sh:select """
                 SELECT $this WHERE {
                         FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate }
@@ -542,9 +643,11 @@
                         }
                 }
                 """ .
-:ConsentUsingTemplateBundle2 a sh:SPARQLConstraint ;
+:ConsentUsingTemplateBundle2 a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
         sh:prefixes :Shape ;
         sh:description "consent linked to template via step using p-plan" ;
+        sh:name "Consent Template" ;
+        sh:message "Consent should be linked to relevant artefacts" ;
         sh:select """
                 SELECT $this WHERE {
                         FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate }
@@ -556,9 +659,11 @@
                         }
                 }
                 """ .
-:ConsentUsingArtefact a sh:SPARQLConstraint ;
+:ConsentUsingArtefact a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
         sh:prefixes :Shape ;
         sh:description "consent linked to artefact using prov" ;
+        sh:name "Consent Template" ;
+        sh:message "Consent should be linked to relevant artefacts" ;
         sh:select """
                 SELECT $this WHERE {
                         FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate }
@@ -569,7 +674,9 @@
                 }
                 """ .
 
-:ThirdPartyRecipientCategories a sh:SPARQLConstraint ;
+:ThirdPartyRecipientCategories a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Third Party Categories" ;
+        :linkToGDPR gdpr:article44 ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
@@ -582,7 +689,12 @@
                 }
         """ ;
         sh:message "Where data is shared, categories or identities of recipients should be stated" .
-:ThirdPartyRecipientIdentities a sh:SPARQLConstraint ;
+:ThirdPartyRecipientIdentities a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Third Party Identities" ;
+        :linkToGDPR gdpr:article44 ;
+        :linkToGDPR gdpr:article13-1-e ;
+        :linkToGDPR gdpr:article14-1-e ;
+        :linkToGDPR gdpr:article30-1-d ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
@@ -595,7 +707,8 @@
                 }
         """ ;
         sh:message "Where data is shared, categories or identities of recipients should be stated" .
-:ThirdPartyRecipientsSafeguards a sh:SPARQLConstraint ;
+:ThirdPartyRecipientsSafeguards a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Third Party Safeguards" ;
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
