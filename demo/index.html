@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script src="http://rdf.js.org/comunica-browser/versions/1/packages/actor-init-sparql/comunica-browser.js"></script>
+<script language="JavaScript">
+  Comunica.newEngine().query(`
+PREFIX c: <http://example.com/Quantcast/shapes#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select DISTINCT ?x
+# ?name 
+# ?test ?gdpr ?result ?node ?msg
+where {
+    ?x ?y ?z .
+} ORDER BY ?z
+`,
+// data.ttl does not load in memeory or some other issue prevents running sparql queries from running over it; there are no errors shown
+// therefore, it's best to run the reasoner over the shape and test result file, and use them for the report generation querying
+    { sources: [ { type: 'file', value: 'http://localhost:8000/data/shapes/consent.ttl' }, { type: 'file', value: 'http://localhost:8000/data/test-results.ttl' } ] })
+    .then(function (result) {
+      result.bindingsStream.on('data', function (data) {
+        // Each variable binding is an RDFJS term
+        console.log(data.get('?x').value);
+        // console.log(data.get('?s').value + ' ' + data.get('?p').value + ' ' + data.get('?o').value);
+      });
+    });
+</script>
+</head>
+<body>
+
+</body>
+</html>
