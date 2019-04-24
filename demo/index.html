@@ -2,33 +2,103 @@
 <html>
 <head>
 	<title></title>
-<script src="http://rdf.js.org/comunica-browser/versions/1/packages/actor-init-sparql/comunica-browser.js"></script>
-<script language="JavaScript">
-  Comunica.newEngine().query(`
-PREFIX c: <http://example.com/Quantcast/shapes#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sh: <http://www.w3.org/ns/shacl#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-select DISTINCT ?x
-# ?name 
-# ?test ?gdpr ?result ?node ?msg
-where {
-    ?x ?y ?z .
-} ORDER BY ?z
-`,
-// data.ttl does not load in memeory or some other issue prevents running sparql queries from running over it; there are no errors shown
-// therefore, it's best to run the reasoner over the shape and test result file, and use them for the report generation querying
-    { sources: [ { type: 'file', value: 'http://localhost:8000/data/shapes/consent.ttl' }, { type: 'file', value: 'http://localhost:8000/data/test-results.ttl' } ] })
-    .then(function (result) {
-      result.bindingsStream.on('data', function (data) {
-        // Each variable binding is an RDFJS term
-        console.log(data.get('?x').value);
-        // console.log(data.get('?s').value + ' ' + data.get('?p').value + ' ' + data.get('?o').value);
-      });
-    });
-</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link href='http://cdn.jsdelivr.net/g/yasqe@2.2(yasqe.min.css),yasr@2.4(yasr.min.css)' rel='stylesheet' type='text/css'/>
+    <link href='https://codemirror.net/lib/codemirror.css' rel='stylesheet' type='text/css'/>
+    <link href='https://codemirror.net/theme/solarized.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
+    <div class="container">
+        <h1>Test-driven GDPR Compliance</h1>
+        <p>SEMANTiCS 2019 demo</p>
+        <span id="msg-loading">loading data...</span>
+    </div>
 
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='http://cdn.jsdelivr.net/yasr/2.4/yasr.bundled.min.js'></script>
+    <script src='http://cdn.jsdelivr.net/yasqe/2.2/yasqe.bundled.min.js'></script>
+    <script src="https://codemirror.net/lib/codemirror.js"></script>
+    <script src='https://codemirror.net/mode/sparql/sparql.js'></script>
+    <script src='https://codemirror.net/addon/runmode/runmode.js'></script>
+    <script src='https://codemirror.net/addon/runmode/colorize.js'></script>
+    <script src="http://localhost:8000/demo/n3-browser.min.js"></script>
+    <script src="http://rdf.js.org/comunica-browser/versions/1/packages/actor-init-sparql/comunica-browser.js"></script>
+    <script language="JavaScript">
+// global vars
+var DATA_LOADED = false;
+// var DATASTORE = $rdf.graph();
+var DATASTORE = new N3.Store();
+var change = 0;
+var DATAENGINE = Comunica.newEngine();
+
+$(document).ready(function() {
+    // load_document('/data/results-given-consent.ttl');
+    load_document('/data/constraints-given-consent.ttl');
+});
+
+function load_document(URL) {
+    $.ajax({
+        url: URL,
+        dataType: "text",
+        success: parse_triples
+    });
+}
+
+function parse_triples(text) {
+    // var contentType = 'text/turtle';
+    // var uri ="http://example.com/semantics-demo";
+    // try{
+    //     $rdf.parse(text, DATASTORE, uri, contentType);
+    //     console.log("parsed");
+    //     // execute_comunica();
+    //     var data = DATASTORE.each(undefined, undefined, undefined);
+    //     for (var i=0; i<data.length; i++) {
+    //         console.log(data[i].subject, data[i].predicate, data[i].object);
+    //     }
+    // } catch(err){
+    //     console.log(err);
+    // }
+
+    var parser = new N3.Parser({ format: 'Turtle' });
+    var quads = parser.parse(text);
+    console.log(quads);
+};
+
+function execute_comunica() {
+    console.log('executing Comunica');
+    DATAENGINE.query(
+        `
+        PREFIX c: <http://example.com/Quantcast/shapes#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX sh: <http://www.w3.org/ns/shacl#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        select (count(*) as ?x) where { ?x ?y ?z }
+        `,
+        { sources: [ { 'type': 'rdfsSource', value: DATASTORE} ] })
+        .then(function(result) {
+            console.log("R");
+            // result.bindingsStream.on('data', function (data) {
+            // Each variable binding is an RDFJS term
+            // console.log(data);
+            // if (!DATA_LOADED) {
+            //     document.getElementById('msg-loading').innerHTML = 'data loaded';
+            //     change++;
+            //     DATA_LOADED = true;
+            // }
+            // console.log(data.get('?s').value + ' ' + data.get('?p').value + ' ' + data.get('?o').value);
+            // });
+        }).catch(function(err) {
+            console.error(err);
+        });
+};
+
+
+  </script>
 </body>
 </html>

@@ -44,7 +44,7 @@
 
 ###################### MANUALLY CHECKED CONSTRAINTS ######################
 
-:ValidConsentConstraints a :NodeShape ;
+:ValidConsentConstraints a sh:NodeShape ;
     sh:targetClass m:ManualTest ;
     sh:property :ValidconsentIsSpecific ;
     sh:property :ValidconsentIsUnambigious ;
@@ -154,7 +154,7 @@
         sh:hasValue true ;
         sh:message "(MANUAL-TEST) Consent should have separation of processing" .
         
-:WithdrawConsentConstraints a :NodeShape ;
+:WithdrawConsentConstraints a sh:NodeShape ;
     sh:targetClass m:ManualTest ;
     sh:property :WithdrawConsentEase ;
     sh:property :WithdrawConsentInformation ;
@@ -174,7 +174,7 @@
     sh:hasValue true ;
     sh:message "(MANUAL-TEST) Information about withdrawal of consent should be provided before giving consent" .
 
-:SpecialCategoriesOfPersonalDataContraints a :ManuallyCheckedConstraint ;
+:SpecialCategoriesOfPersonalDataContraints a sh:PropertyShape, :ManuallyCheckedConstraint ;
     # Check if any of the use categories of personal data fall under special categories of personal data
     # A9(1) Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation shall be prohibited.
     # A9(2) Paragraph 1 shall not apply if one of the following applies:
@@ -188,7 +188,7 @@
 
 ##################### AUTOMATICALLY CHECKED CONSTRAINTS #####################
 
-:ConsentCoreConstraints a :NodeShape ;
+:ConsentCoreConstraints a sh:NodeShape ;
     sh:targetClass gdprov:ConsentAgreementTemplate ;
     # Personal Data
     sh:property :ConsentHasPersonalData ;

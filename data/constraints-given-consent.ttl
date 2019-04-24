@@ -45,7 +45,7 @@
 ###################### AUTOMATICALLY CHECKED CONSTRAINTS ######################
 
 
-:ConsentCoreConstraints a :Constraint ;
+:ConsentCoreConstraints a :Constraint, sh:NodeShape ;
     sh:targetClass gc:Consent ;
     # Data Subject
     sh:property :ConsentHasDataSubject ;
@@ -78,7 +78,7 @@
 
     rdfs:label "Consent Core constraints" .
 
-:ConsentActivityConstraints a :AutomaticallyCheckedConstraint ;
+:ConsentActivityConstraints a :AutomaticallyCheckedConstraint, sh:NodeShape ;
     # Obtained via Activity
     sh:targetClass gc:Consent ;
     sh:or (
@@ -90,7 +90,7 @@
     sh:message "Consent should state how it was obtained" ;
     rdfs:label "Consent Activity Constraints" .
 
-:ConsentArtefactsConstraints a :NodeShape ;
+:ConsentArtefactsConstraints a :Constraint, sh:NodeShape ;
     # Artefacts associated with Consent
     sh:targetClass gc:Consent ;
     sh:or (
@@ -103,7 +103,7 @@
     );
     rdfs:label "Consent Artefact Constraints" .
         
-:ThirdPartySharingConstraints a :NodeShape ;
+:ThirdPartySharingConstraints a sh:NodeShape ;
     sh:targetClass gc:Consent ;
     sh:or (
         # If data is shared, what are the categories of recipients to whom the personal data is or will be disclosed?
@@ -116,7 +116,7 @@
         
     rdfs:label "Third Party Sharing Constraints" .
 
-:RightsConstraints a :NodeShape ;
+:RightsConstraints a sh:NodeShape ;
         # HACK to target entire graph
         sh:targetClass owl:Ontology ;
         sh:sparql :RightToObjectConstraint ;
@@ -176,7 +176,7 @@
         """ ;
         sh:message "There should be a process to handle the Right to Rectification" .
 
-:DPOConstraint a :NodeShape ;
+:DPOConstraint a sh:NodeShape ;
         sh:targetClass owl:Ontology ;
         sh:sparql :CheckDPOConstraint .
 :CheckDPOConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
@@ -190,7 +190,7 @@
                         }
         """ .
 
-:HandleDataBreachConstraint a :NodeShape ;
+:HandleDataBreachConstraint a sh:NodeShape ;
     sh:targetClass owl:Ontology ;
     sh:sparql :CheckHandleDataBreachConstraint ;
     sh:sparql :CheckHandleDataBreachNotifyDPAConstraint ;
@@ -245,7 +245,7 @@
         sh:path gdprov:hasLegalBasis ;
         sh:minCount 1;
     ] .
-:StepHasLegalBasisConstraint a :NodeShape ;
+:StepHasLegalBasisConstraint a sh:NodeShape ;
     sh:targetClass gdprov:DataStep ;
     sh:sparql :StepProcessHasLegalBasis ;
     sh:message "Every Data Step should be associated with a legal basis" .
@@ -269,7 +269,7 @@
     sh:message "Every Data Step should be associated with a legal basis" .
 
 # Sources of ALL Data
-:DataSourceConstraint a :NodeShape ;
+:DataSourceConstraint a sh:NodeShape ;
     sh:targetClass gdprov:PersonalData ;
     sh:sparql :DataSourceCollectionConstraint .
 :DataSourceCollectionConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
@@ -291,7 +291,7 @@
 ######################## MANUALLY CHECKED CONSTRAINTS ########################
 
 
-:ValidConsentConstraints a :NodeShape ;
+:ValidConsentConstraints a sh:NodeShape ;
     sh:targetClass m:ManualTest ;
     sh:property :ValidconsentIsSpecific ;
     sh:property :ValidconsentIsUnambigious ;
@@ -402,7 +402,7 @@
         sh:message "(MANUAL-TEST) Consent should have separation of processing" .
         
 
-:WithdrawConsentConstraints a :NodeShape ;
+:WithdrawConsentConstraints a sh:NodeShape ;
     sh:targetClass m:ManualTest ;
     sh:property :WithdrawConsentEase ;
     sh:property :WithdrawConsentInformation ;
