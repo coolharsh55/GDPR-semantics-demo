@@ -1,0 +1,245 @@
+@prefix :      <http://example.com/Quantcast#> .
+@prefix data:  <http://example.com/Quantcast/data#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix m:     <http://example.com/Quantcast/data/manualtests#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr:  <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix ex:    <http://example.com/> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix gc:    <https://w3id.org/GConsent#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  m:TestConsentMechanism ;
+                 sh:resultMessage              "(MANUAL-TEST) Information about withdrawal of consent should be provided before giving consent" ;
+                 sh:resultPath                 m:withdrawingConsentInformationBeforeGivingConsent ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:HasValueConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#WithdrawConsentInformation>
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :PoliticalInterestsProfile ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :PoliticalInterestsProfile
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :DataGooglePartners ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :DataGooglePartners
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should have a timestamp" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should have a timestamp" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#StoreIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :BusinessOccupationProfile ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :BusinessOccupationProfile
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#StoreIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CollectDataFromThirdParties ;
+                 sh:resultMessage              "Every Data Step should be associated with a legal basis" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#StepProcessHasLegalBasis> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#StepHasLegalBasisConstraint> ;
+                 sh:value                      :CollectDataFromThirdParties
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :UserID ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :UserID
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :OccupationProfile ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :OccupationProfile
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Quantcast ;
+                 sh:resultMessage              "Procedure to notify Data Subject about Data Breach not specified" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#CheckHandleDataBreachNotifyDSConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#HandleDataBreachConstraint> ;
+                 sh:value                      ex:Quantcast
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Quantcast ;
+                 sh:resultMessage              "Procedure to notify DPA about Data Breach not specified" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#CheckHandleDataBreachNotifyDPAConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#HandleDataBreachConstraint> ;
+                 sh:value                      ex:Quantcast
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Quantcast ;
+                 sh:resultMessage              "Procedure to handle Data Breach not specified" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#CheckHandleDataBreachConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#HandleDataBreachConstraint> ;
+                 sh:value                      ex:Quantcast
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :GeographyProfile ;
+                 sh:resultMessage              "Every Personal Data should be attributed to a source" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#DataSourceCollectionConstraint> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#DataSourceConstraint> ;
+                 sh:value                      :GeographyProfile
+               ]
+] .

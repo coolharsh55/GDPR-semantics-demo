@@ -1,0 +1,147 @@
+@prefix : <http://example.com/Quantcast/shapes#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix q: <http://example.com/Quantcast#> .
+@prefix m: <http://example.com/Quantcast/data/manualtests#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix data: <http://example.com/Quantcast/data#> .
+@prefix c: <http://example.com/Quantcast/compliance#> .
+
+:Shape a owl:Ontology ;
+        sh:declare [ sh:prefix "rdfs"; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gc"; sh:namespace "https://w3id.org/GConsent#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gdprov"; sh:namespace "https://w3id.org/GDPRov#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gdprtext"; sh:namespace "https://w3id.org/GDPRtEXT#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "p-plan"; sh:namespace "http://purl.org/net/p-plan#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "prov"; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ; ] ;
+        rdfs:label "Shape declarations" .
+
+:linkToGDPR a rdfs:Property ;
+    rdfs:range eli:LegalResourceSubdivision ;
+    rdfs:label "linkToGDPR" .
+
+
+:Constraint rdfs:subClassOf sh:NodeShape ;
+        rdfs:label "Constraint" ;
+        :forGDPR gdprtext:LegalResourceSubDivision .
+
+:AutomaticallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+        rdfs:label "Automatically Checked Constraint" .
+
+:ManuallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+        rdfs:label "Manually Checked Constraint" . 
+
+###################### CONSTRAINTS ON GIVEN CONSENT ######################
+
+:GivenConsentConstraints a sh:NodeShape ;
+    sh:targetClass gc:Consent ;
+    # Data Subject
+    sh:property :ConsentHasDataSubject ;
+    # Provided By
+    sh:property :ConsentProvidedBy ;
+    # Status
+    sh:property :ConsentHasStatus ;
+    # Timestamp
+    sh:sparql :ConsentHasTimestamp ;
+    # # R32 Consent should cover all processing activities carried out for the same purpose or purposes.
+    # sh:sparql :ConsentAllProcessingForSamePurpose ;
+    # # R32 When the processing has multiple purposes, consent should be given for all of them.
+    # sh:sparql :ConsentAllPurposesForSameProcessing ;
+    rdfs:label "Given Consent constraints" .
+
+:ConsentModelConstraints a sh:NodeShape ;
+    sh:targetClass sh:ValidationReport ; 
+    sh:property :ValidationReportConforms ;
+    rdfs:label "Given Consent following Consent Model constraints" .
+
+:ValidationReportConforms a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+    sh:path sh:conforms ;
+    sh:hasValue true ; 
+    sh:message "Consent Model should be compliant for given consent to be valid" ; 
+    sh:name "Check validation report says data conforms" .
+
+:ConsentHasDataSubject a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Data Subject" ;
+        :linkToGDPR gdpr:article4-11 ;
+        sh:path gc:isConsentForDataSubject ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:or ( [ sh:class gc:DataSubject ] [ sh:class gdprov:DataSubject ] ) ;
+        sh:message "Consent should be linked to Data Subject" .
+
+:ConsentProvidedBy a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Provided By" ;
+        :linkToGDPR gdpr:article7-2 ;
+        sh:path gc:isProvidedBy ;
+        sh:severity sh:Info ;
+        sh:minCount 0;
+        sh:maxCount 1;
+        sh:or ( [ sh:class gc:DataSubject ] [ sh:class gc:Person ] [ sh:class gdprov:DataSubject ] [ sh:class prov:Person ] ) ;
+        sh:message "Consent should be linked to who provided it" .
+
+:ConsentHasStatus a sh:PropertyShape, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Status" ;
+        sh:path gc:hasStatus ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:class gc:Status ;
+        sh:message "Consent should have a status" .
+
+:ConsentHasTimestamp a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Consent --> Timestamp" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this WHERE {
+                        FILTER NOT EXISTS { $this gc:atTime ?time } .
+                        FILTER NOT EXISTS { $this prov:generatedAtTime ?time } .
+                        FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
+                }
+                """ ;
+        sh:message "Consent should have a timestamp" .
+
+
+:ConsentAllProcessingForSamePurpose a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "Many Processing x One Purpose" ;
+        :linkToGDPR gdpr:recital32 ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this WHERE {
+                        FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
+                        # If we want to restrict the constraint only to valid states of consent
+                        # $this gc:hasStatus [ a gc:StatusValidForProcessing ] .
+                        $this gc:forPurpose ?PR .
+                        ?PR gdprov:hasStep ?Step .
+                        ?Step a gc:Processing .
+                        FILTER NOT EXISTS { $this gc:forProcessing ?Step } .
+                }
+                """;
+        sh:message "Consent should cover all processing activities carried out for the same purpose or purposes" .
+
+:ConsentAllPurposesForSameProcessing a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        sh:name "One Processing x Many Purposes" ;
+        :linkToGDPR gdpr:recital32 ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this ?PR ?P WHERE {
+                        FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
+                        # If we want to restrict the constraint only to valid states of consent
+                        # $this gc:hasStatus [ a gc:StatusValidForProcessing ] .
+                        $this gc:forProcessing ?PR .
+                        ?PR gdprov:isPartOfProcess ?P .
+                        ?P a gc:Purpose .
+                        FILTER NOT EXISTS { $this gc:forPurpose ?P } .
+                }
+                """;
+        sh:message "Consent should cover all purposes {?P} for same processing activities {?PR}" .

@@ -45,7 +45,7 @@
 ###################### AUTOMATICALLY CHECKED CONSTRAINTS ######################
 
 
-:ConsentCoreConstraints a :NodeShape ;
+:ConsentCoreConstraints a :Constraint ;
     sh:targetClass gc:Consent ;
     # Data Subject
     sh:property :ConsentHasDataSubject ;
