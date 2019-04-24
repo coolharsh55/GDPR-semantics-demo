@@ -1,3 +1,6 @@
+# Check constraints on CONSENT MODEL
+# validate against data graph
+
 @prefix : <http://example.com/Quantcast/shapes#> .
 @prefix ex: <http://example.com/> .
 @prefix gc: <https://w3id.org/GConsent#> .
@@ -301,7 +304,6 @@
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this WHERE {
-                        FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
                         # If we want to restrict the constraint only to valid states of consent
                         # $this gc:hasStatus [ a gc:StatusValidForProcessing ] .
                         $this gc:forPurpose ?PR .
@@ -318,7 +320,6 @@
         sh:prefixes :Shape ;
         sh:select """
                 SELECT $this ?PR ?P WHERE {
-                        FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .
                         # If we want to restrict the constraint only to valid states of consent
                         # $this gc:hasStatus [ a gc:StatusValidForProcessing ] .
                         $this gc:forProcessing ?PR .

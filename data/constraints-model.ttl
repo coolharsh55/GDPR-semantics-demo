@@ -1,0 +1,218 @@
+# Check constraints on MODEL OF SYSTEM
+# validate against data graph
+
+@prefix : <http://example.com/Quantcast/shapes#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix q: <http://example.com/Quantcast#> .
+@prefix m: <http://example.com/Quantcast/data/manualtests#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix data: <http://example.com/Quantcast/data#> .
+
+:Shape a owl:Ontology ;
+        sh:declare [ sh:prefix "rdfs"; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gc"; sh:namespace "https://w3id.org/GConsent#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gdprov"; sh:namespace "https://w3id.org/GDPRov#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "gdprtext"; sh:namespace "https://w3id.org/GDPRtEXT#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "p-plan"; sh:namespace "http://purl.org/net/p-plan#"^^xsd:anyURI ; ] ;
+        sh:declare [ sh:prefix "prov"; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ; ] ;
+        rdfs:label "Shape declarations" .
+
+:linkToGDPR a rdfs:Property ;
+    rdfs:range eli:LegalResourceSubdivision ;
+    rdfs:label "linkToGDPR" .
+
+
+:Constraint rdfs:subClassOf sh:NodeShape ;
+        rdfs:label "Constraint" ;
+        :forGDPR gdprtext:LegalResourceSubDivision .
+
+:AutomaticallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+        rdfs:label "Automatically Checked Constraint" .
+
+:ManuallyCheckedConstraint rdfs:subClassOf :Constraint, sh:NodeShape ;
+        rdfs:label "Manually Checked Constraint" .
+
+:RightsConstraints a sh:NodeShape ;
+        # HACK to target entire graph
+        sh:targetClass owl:Ontology ;
+        sh:sparql :RightToObjectConstraint ;
+        sh:sparql :RightToRectifyConstraint ;
+        sh:sparql :RightToDataPortabilityConstraint ;
+        sh:sparql :RightToAccessConstraint ;
+        sh:sparql :RightToErasureConstraint ;
+        rdfs:label "Rights Constraints" .
+:RightToObjectConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article21 ;
+        sh:name "Right to Object" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                        FILTER NOT EXISTS { ?X a gdprov:HandleRightToObjectProcessing }
+                }
+        """ ;
+        sh:message "There should be a process to handle the Right to Object to Processing" .
+:RightToAccessConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article15 ;
+        sh:name "Right to Access" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                        FILTER NOT EXISTS { ?X a gdprov:HandleRightToAccessPersonalData }
+                }
+        """ ;
+        sh:message "There should be a process to handle the Right to Access Personal Data" .
+:RightToDataPortabilityConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article20 ;
+        sh:name "Right to Data Portability" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                        FILTER NOT EXISTS { ?X a gdprov:HandleRightToDataPortability }
+                }
+        """ ;
+        sh:message "There should be a process to handle the Right to Data Portability" .
+:RightToErasureConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article17 ;
+        sh:name "Right to Erasure" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                        FILTER NOT EXISTS { ?X a gdprov:HandleRightOfErasure }
+                }
+        """ ;
+        sh:message "There should be a process to handle the Right to Erasure" .
+:RightToRectifyConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article16 ;
+        sh:name "Right to Rectify" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                        FILTER NOT EXISTS { ?X a gdprov:HandleRightToRectification }
+                }
+        """ ;
+        sh:message "There should be a process to handle the Right to Rectification" .
+
+:DPOConstraint a sh:NodeShape ;
+        sh:targetClass owl:Ontology ;
+        sh:sparql :CheckDPOConstraint .
+:CheckDPOConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+        :linkToGDPR gdpr:article37 ;
+        sh:name "DPO" ;
+        sh:message "A DPO should be listed" ;
+        sh:prefixes :Shape ;
+        sh:select """
+                SELECT $this {
+                                FILTER NOT EXISTS { ?X a gdprov:DPO }
+                        }
+        """ .
+
+:HandleDataBreachConstraint a sh:NodeShape ;
+    sh:targetClass owl:Ontology ;
+    sh:sparql :CheckHandleDataBreachConstraint ;
+    sh:sparql :CheckHandleDataBreachNotifyDPAConstraint ;
+    sh:sparql :CheckHandleDataBreachNotifyDSConstraint ;
+    rdfs:label "Handle Data Breach Constraints" .
+:CheckHandleDataBreachConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article33 ;
+    :linkToGDPR gdpr:article34 ;
+    sh:name "Handle Data Breach" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { ?X a gdprov:HandleDataBreachProcess }
+        }
+    """ ;
+    sh:message "Procedure to handle Data Breach not specified" .
+:CheckHandleDataBreachNotifyDPAConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article33 ;
+    sh:name "Notify Data Breach to DPA" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { 
+                ?D a gdprov:HandleDataBreachProcess .
+                ?N a gdprov:NotifyDPA .
+                ?N gdprov:isPartOfProcess ?D .
+            }
+        }
+    """ ;
+    sh:message "Procedure to notify DPA about Data Breach not specified" .
+:CheckHandleDataBreachNotifyDSConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article34 ;
+    sh:name "Notify Data Breach to Data Subject" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this {
+            FILTER NOT EXISTS { 
+                ?D a gdprov:HandleDataBreachProcess .
+                ?N a gdprov:NotifyDataSubject .
+                ?N gdprov:isPartOfProcess ?D .
+            }
+        }
+    """ ;
+    sh:message "Procedure to notify Data Subject about Data Breach not specified" .
+
+:PurposeHasLegalBasisConstraint a :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article6 ;
+    sh:targetClass gc:Purpose ;
+    sh:name "Purpose --> Legal Basis" ;
+    sh:message "Every Purpose should have a Legal Basis" ;
+    sh:property [
+        sh:path gdprov:hasLegalBasis ;
+        sh:minCount 1;
+    ] .
+:StepHasLegalBasisConstraint a sh:NodeShape ;
+    sh:targetClass gdprov:DataStep ;
+    sh:sparql :StepProcessHasLegalBasis ;
+    sh:message "Every Data Step should be associated with a legal basis" .
+:StepProcessHasLegalBasis a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:article6 ;
+    sh:name "Step --> Legal Basis" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this WHERE {
+            FILTER NOT EXISTS { $this gdprov:hasLegalBasis ?L }
+            FILTER NOT EXISTS {
+                ?P gdprov:hasStep $this .
+                ?P gdprov:hasLegalBasis ?L .
+            }
+            FILTER NOT EXISTS {
+                $this gdprov:isPartOfProcess ?P .
+                ?P gdprov:hasLegalBasis ?L .
+            }
+        }
+    """ ;
+    sh:message "Every Data Step should be associated with a legal basis" .
+
+# Sources of ALL Data
+:DataSourceConstraint a sh:NodeShape ;
+    sh:targetClass gdprov:PersonalData ;
+    sh:sparql :DataSourceCollectionConstraint .
+:DataSourceCollectionConstraint a sh:SPARQLConstraint, :AutomaticallyCheckedConstraint ;
+    :linkToGDPR gdpr:recital60 ;
+    :linkToGDPR gdpr:recital61 ;
+    :linkToGDPR gdpr:article13 ;
+    :linkToGDPR gdpr:article14 ;
+    sh:name "Personal Data --> Source" ;
+    sh:message "Every Personal Data should be attributed to a source" ;
+    sh:prefixes :Shape ;
+    sh:select """
+        SELECT $this WHERE {
+            FILTER NOT EXISTS { ?step gdprov:collectsData $this }
+            FILTER NOT EXISTS { ?step gdprov:generatesData $this }
+        }
+    """ .
+

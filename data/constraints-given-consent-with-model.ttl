@@ -1,3 +1,6 @@
+# Check constraints on GIVEN CONSENT using CONSENT MODEL
+# validate against data graph + results of checking model
+
 @prefix : <http://example.com/Quantcast/shapes#> .
 @prefix ex: <http://example.com/> .
 @prefix gc: <https://w3id.org/GConsent#> .
