@@ -19,28 +19,28 @@
 [ a            sh:ValidationReport ;
   sh:conforms  false ;
   sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:focusNode                  :Consent20190415120753 ;
                  sh:resultMessage              "Consent should state data storage periods" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPInfoStorageAccess ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPInfoStorageAccess
+                 sh:value                      :Consent20190415120753
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :Consent20190415140000 ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#StoreIdentifiers" ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
                  sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should have a timestamp" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
                  sh:value                      :Consent20190415140000
@@ -55,22 +55,13 @@
                  sh:value                      :Consent20190415120753
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
                  sh:resultMessage              "Consent should state data storage periods" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :Consent20190415120753 ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :Consent20190415120753
+                 sh:value                      :CATTPInfoStorageAccess
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :Consent20190415140000 ;
@@ -91,10 +82,37 @@
                  sh:value                      :Consent20190415140000
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :Consent20190415120753 ;
-                 sh:resultMessage              "Consent should have a timestamp" ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
                  sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
                  sh:value                      :Consent20190415120753
@@ -108,33 +126,6 @@
                  sh:sourceShape                <http://example.com/Quantcast/shapes#WithdrawConsentInformation>
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :Consent20190415140000 ;
-                 sh:resultMessage              "Consent should have a timestamp" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :Consent20190415140000
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :Consent20190415140000 ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :Consent20190415140000
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :Consent20190415120753 ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :Consent20190415120753
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :Consent20190415120753 ;
                  sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
                  sh:resultSeverity             sh:Violation ;
@@ -144,12 +135,21 @@
                  sh:value                      :Consent20190415120753
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPInfoStorageAccess ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:focusNode                  :Consent20190415120753 ;
+                 sh:resultMessage              "Consent should have a timestamp" ;
                  sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasTimestamp> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPInfoStorageAccess
+                 sh:value                      :Consent20190415120753
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :Consent20190415140000 ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#StoreIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :Consent20190415140000
                ]
 ] .

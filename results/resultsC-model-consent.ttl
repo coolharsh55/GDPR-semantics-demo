@@ -19,8 +19,106 @@
 [ a            sh:ValidationReport ;
   sh:conforms  false ;
   sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPMeasure ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Measurement for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPMeasure
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPContentSelection ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPContentSelection
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectAdInteraction" ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseBuyingHistory" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPContentSelection ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Measurement for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPContentSelection
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccess for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  m:TestConsentMechanism ;
+                 sh:resultMessage              "(MANUAL-TEST) Information about withdrawal of consent should be provided before giving consent" ;
+                 sh:resultPath                 m:withdrawingConsentInformationBeforeGivingConsent ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:HasValueConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#WithdrawConsentInformation>
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
@@ -29,7 +127,7 @@
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATTPPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
@@ -38,7 +136,7 @@
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATTPPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#CollectServiceUsage" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
@@ -55,13 +153,202 @@
                  sh:value                      :CATTPInfoStorageAccess
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPContentSelection ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#MeasurementWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPContentSelection
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
                  sh:value                      :CATQAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#CollectServiceUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPContentSelection ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPContentSelection
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectAdInteraction" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPMeasure ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPMeasure
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQMeasure ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#MeasurementWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQMeasure
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPContentSelection ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPContentSelection
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQMeasure ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQMeasure
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPInfoStorageAccess ;
+                 sh:resultMessage              "Consent should state data storage periods" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPInfoStorageAccess
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseBuyingHistory" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATQPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATQPersonalise
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPAds ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#CollectAdInteraction" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPAds
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  :CATTPPersonalise ;
+                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
+                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
+                 sh:value                      :CATTPPersonalise
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATQInfoStorageAccess ;
@@ -83,263 +370,12 @@
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATTPContentSelection ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Measurement for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQMeasure ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQMeasure
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPInfoStorageAccess ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#CollectAdInteraction" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPContentSelection ;
                  sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
                  sh:resultSeverity             sh:Violation ;
                  sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
                  sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPMeasure ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Measurement for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPMeasure
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPInfoStorageAccess ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccess for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPContentSelection ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPContentSelection ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseBuyingHistory" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#CollectServiceUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#PersonalisationWithPartners for same processing activities http://example.com/Quantcast#CollectServiceUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseBuyingHistory" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPMeasure ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPMeasure
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  m:TestConsentMechanism ;
-                 sh:resultMessage              "(MANUAL-TEST) Information about withdrawal of consent should be provided before giving consent" ;
-                 sh:resultPath                 m:withdrawingConsentInformationBeforeGivingConsent ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraintComponent  sh:HasValueConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#WithdrawConsentInformation>
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#AdSelectionDeliveryReporting for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQInfoStorageAccess ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPContentSelection ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#MeasurementWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPContentSelection ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#Personalisation for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPContentSelection
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPAds
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPInfoStorageAccess ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPInfoStorageAccess
                ] ;
   sh:result    [ a                             sh:ValidationResult ;
                  sh:focusNode                  :CATQPersonalise ;
@@ -349,41 +385,5 @@
                  sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
                  sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
                  sh:value                      :CATQPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQInfoStorageAccess ;
-                 sh:resultMessage              "Consent should state data storage periods" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentHasStoragePeriod> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQInfoStorageAccess
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQMeasure ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#MeasurementWithPartners for same processing activities http://example.com/Quantcast#CollectContentUsage" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQMeasure
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATTPPersonalise ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATTPPersonalise
-               ] ;
-  sh:result    [ a                             sh:ValidationResult ;
-                 sh:focusNode                  :CATQAds ;
-                 sh:resultMessage              "Consent should cover all purposes http://example.com/Quantcast#ContentSelectionDeliveryReportingWithPartners for same processing activities http://example.com/Quantcast#UseInterestProfile" ;
-                 sh:resultSeverity             sh:Violation ;
-                 sh:sourceConstraint           <http://example.com/Quantcast/shapes#ConsentAllPurposesForSameProcessing> ;
-                 sh:sourceConstraintComponent  sh:SPARQLConstraintComponent ;
-                 sh:sourceShape                <http://example.com/Quantcast/shapes#ConsentCoreConstraints> ;
-                 sh:value                      :CATQAds
                ]
 ] .
