@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" /> -->
+  <title>Exploring GDPR Compliance Over Provenance Graphs Using SHACL</title>
+  
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>Exploring GDPR Compliance Over Provenance Graphs Using SHACL</h1>
+
+    </header>
+      
+<section>
+    <h2>Abstract</h2>
+    <p>Semantic web technologies provide an open and adaptable framework for compliance regarding the General Data Protection Regulation (GDPR).
+    Our previous work in this regard demonstrates the use of SPARQL for querying provenance of consent and personal data lifecycles for compliance.</p>
+    <p>We extend this work through our model for evaluation of GDPR compliance using SHACL to validate the correctness and completeness of information.
+    The model describes the creation of a compliance graph consisting of information required to document and demonstrate compliance linked to specific articles and obligations within the GDPR using the GDPRtEXT vocabulary.</p>
+    <h2>Publication(s)</h2>
+    <p><b>Exploring GDPR Compliance Over Provenance Graphs Using SHACL</b><br/>
+        <i>Poster Paper</i><br/>
+        Harshvardhan J. Pandit, Declan O'Sullivan, Dave Lewis.<br/>
+        <i>SEMANTiCS 2018 – 14th International Conference on Semantic Systems, Vienna, Austria. 2018</i><br/>
+        <a href="http://ceur-ws.org/Vol-1951/PrivOn2017_paper_6.pdf">proceedings PDF</a>;  
+        <a href="https://s3-eu-west-1.amazonaws.com/harshp-media/research/publications/2018_poster_exploring_GDPR_compliance_over_provenance_graphs_using_SHACL.pdf">preprint PDF</a>;</p>
+    <h2>Validation Model</h2>
+    <img src="model.png">
+    <h3>Part 0: Data Graph</h3>
+    <p>The data graph consists of information regarding the processes and artefacts involved in the working of the system. This is an abstract representation of the model of the system (as opposed to instance level information about specific events and activities associated with individual data subjects) and represents the organisations data practices. This is represented using the <a href="http://openscience.adaptcentre.ie/projects/CDMM/GDPRov/">GDPRov</a> which is an extension of <a href="https://www.w3.org/TR/prov-o/">PROV-O</a> and <a href="http://purl.org/net/p-plan">P-Plan</a> vocabularies, and is used to define provenance of consent and personal data lifecycles.</p>
+    <p>While the data graph is constructed, it is essential all the information contained within it be validated for correctness and completeness. This is done using SHACL shapes that test whether the information is valid with respect to properties defined within GDPRov as well as for correctness.</p>
+    <h3>Part 1: Querying</h3>
+    <p>Once the data graph has been created, it can then be queried using SPARQL. The queries are constructed based on the requirements of GDPR obligations or information required to answer their compliance. This can be seen in the work presented based on adapting the GDPR readiness checklist provided by Ireland's Data Protection Commissioner's office. An online demo of this is available <a href="http://openscience.adaptcentre.ie/GDPR-checklist-demo/demo/">here</a>. The queries do not directly evaluate compliance, but retrieve information associated with it. An analysis of the queries presented in this work is also presented online and distinguishes between the different categories of queries.</p>
+    <p>The queries expressed need to be linked to the specific concepts within GDPR that they are related to or are relevant for answering with respect to the compliance obligations. This is achieved using the <a href="http://openscience.adaptcentre.ie/projects/GDPRtEXT/">GDPRtEXT</a> vocabulary that allows linking SPARQL queries with concepts within GDPR as well as linking them with specific points and articles within GDPR. However, to persist the queries themselves, an appropriate method like <a href="http://spinrdf.org/">SPIN</a> needs to be used.</p>
+    <p>The information retrieved by the queries is relevant to the evaluation of compliance and therefore is saved in to a separate graph called compliance graph using SPARQL <code>CONSTRUCT</code> queries. The information within the compliance graph is linked to relevant obligations within the text of the GDPR using the GDPRtEXT ontology. Compliance validation is then performed using SHACL and the assessment is added to the graph. The purpose of this graph is to represent information relevant to compliance, to keep it separate from the data graph which may change with time, to capture a snapshot of the state of compliance, and to assist in the generation of compliance documentation.</p>
+    <h3>Part 2: Validation</h3>
+    <p>After the compliance graph is created from queries, it needs to be validated for evaluating compliance. This is done in two stages - the first tests for conformance to specific obligations, while the second evaluates compliance with respect to specific GDPR articles. After each stage of validation, the results are inserted back into the compliance graph to persist them.</p>
+    <h4>Part 2.1: Validation for Compliance Obligations</h4>
+    <p>In this part of validation, the compliance graph is checked for conformance to specific obligations from GDPR. An example of this is the necessity of declaring the source of personal data, which is an obligation but does not conform to a specific GDPR article. The SHACL shape testing the obligation tests for a path going from the personal data to some property that declares the source of data. The output of the obligation is written back to the compliance graph to persist whether each personal data type/category has a declared source. This is essential in checking the compliance of GDPR in a broader sense. Other obligations can be identified from the GDPR readiness checklist.</p>
+    <h4>Part 2.2: Validation for GDPR Articles</h4>
+    <p>Once the obligations have been validated, it is possible to validate the compliance for GDPR articles. This can involve obligations as well as additional validations that test directly for the specific constraints and conditions stipulated by the article. The results of these are linked directly back to the article using GDPRtEXT and are persisted as the outcome of validation - essentially depicting whether compliance to the article was achieved or not. At the end of this stage, the compliance graph consists of results to validations against all articles.</p>
+    <h3>Part 3: Documentation</h3>
+    <p>The documentation aspect of this work is part of immediate planned future work. We describe it here in brief to outline the approach towards its generation and representation.</p>
+    <p>The documentation is generated from the compliance graph using the EARL vocabulary to represent articles as tests and its results (validation reports). Since each validation is linked to the specific GDPR article as well as the obligations it involves, and the obligations are linked to the compliance queries, which in turn retrieve the relevant information from the compliance graph; all this makes it possible to construct a top-down interactive/explorative documentation using the following approach (described further).</p>
+    <p>Each level of report contains links to those that come under/below/after it. For example, conformance report to a GDPR article will contain links to the constraints/conditions/obligations that were validated along with their results. In turn, each of those obligations or constraints and their validation tests will contain links to the queries used to validate as well as information related with the query (and its result) to further explore the compliance.</p>
+    <p>Report for compliance with GDPR articles: This is a report that list each GDPR article and its compliance status.</p>
+    <p>Report for compliance with obligations: This is a report that lists each GDPR obligation and its compliance status, as well as related information such as why the compliance status was achieved.</p>
+    <p>Report for information associated with compliance queries: This report lists a compliance query, its result, and the information associated with the result.</p>
+</div>
+
+    </main>
+    <footer>
+      <p>Funded by <a href="http://www.sfi.ie/">Science Foundation Ireland</a></p>
+    </footer>
+  </body>
+</html>

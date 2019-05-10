@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title property="dcterms:title">Test-driven Approach Towards GDPR Compliance</title>
+    <link href="media/css/lncs.css" media="all" rel="stylesheet" title="LNCS" />
+    <link href="media/css/acm.css" media="all" rel="stylesheet alternate" title="ACM" disabled />
+    <link href="media/css/dokieli.css" rel="stylesheet" media="all" />
+    <script type="text/javascript" src="media/scripts/dokieli.js"></script>
+    <script type="text/javascript" src="media/scripts/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="media/scripts/reference-manager.js"></script>
+    <style type="text/css">
+        .diagram {
+            border: 1px solid black;
+        }
+        figcaption {
+            text-align: center;
+        }
+        aside.note {
+            font-size: 0.75em;
+        }
+        @media print {
+            a {
+                text-decoration: underline;
+            }
+        }
+        .failed {
+            background-color: #FDD;
+        }
+    </style>
+</head>
+<body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# mem: http://mementoweb.org/ns# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# bibo: http://purl.org/ontology/bibo/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# rel: https://www.w3.org/ns/iana/link-relations/relation#" typeof="schema:CreativeWork sioc:Post prov:Entity">
+    <main>
+        <article about="" typeof="schema:ScholarlyArticle" data-medium-editor-element="true" class="medium-editor-element" role="textbox" aria-multiline="true" data-medium-editor-editor-index="1" medium-editor-index="ca3a6f3e-6cc9-482e-83e7-400189a9f694" data-placeholder="Type your text" data-medium-focused="true">
+            <h1 property="schema:name">Test-driven Approach Towards GDPR Compliance</h1>
+
+            <div id="authors">
+                <dl id="author-name">
+                    <dt>Authors</dt>
+                    <dd id="author-1"><span about="" rel="schema:creator schema:publisher schema:author"><a about="#HJP" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://harshp.com/">Harshvardhan J. Pandit</a></span><span about="#HJP" rel="schema:memberOf" resource="#TCD"></span><sup><a href="#TCD">1</a></sup><sup><a href="#author-email-hjp">a</a></sup></dd>
+                    <dd id="author-2"><span about="" rel="schema:creator schema:publisher schema:author"><a about="#DoS" typeof="schema:Person" rel="schema:url" property="schema:name" href="">Declan O'Sullivan</a></span><span about="#DoS" rel="schema:memberOf" resource="#TCD"></span><sup><a href="#TCD">1</a></sup><sup><a href="#author-email-dos">b</a></sup></dd>
+                    <dd id="author-3"><span about="" rel="schema:creator schema:publisher schema:author"><a about="#DL" typeof="schema:Person" rel="schema:url" property="schema:name" href="">Dave Lewis</a></span><span about="#DL" rel="schema:memberOf" resource="#TCD"></span><sup><a href="#TCD">1</a></sup><sup><a href="#author-email-dl">c</a></sup></dd>
+                </dl>
+
+                <ul id="author-org">
+                    <li id="author-org-1"><sup>1</sup><a href="https://adaptcentre.ie/">ADAPT Centre</a>, <a about="#TCD" typeof="schema:Organization" property="schema:name" rel="schema:url" href="https://tcd.ie/">Trinity College Dublin</a>, <span class="adr"><span class="region">Dublin</span>, <span class="country-name">Ireland</span></span></li>
+                </ul>
+
+                <ul id="author-email">
+                    <li id="author-email-hjp"><sup>a</sup><a about="#HJP" rel="schema:email" href="mailto:pandith@tcd.ie">pandith@tcd.ie</a></li>
+                    <li id="author-email-dos"><sup>b</sup><a about="#DoS" rel="schema:email" href="mailto:declan.osullivan@adaptcentre.ie">declan.osullivan@adaptcentre.ie</a></li>
+                    <li id="author-email-dl"><sup>c</sup><a about="#DL" rel="schema:email" href="mailto:dave.lewis@adaptcentre.ie">dave.lewis@adaptcentre.ie</a></li>
+                </ul>
+            </div>
+
+            <div id="content">
+                <section id="abstract">
+                    <h2>Abstract</h2>
+                    <div datatype="rdf:HTML" property="schema:abstract">
+                        <p>
+                            An organisation using personal data should document its data governance processes to maintain and demonstrate compliance with the General Data Protection Regulation (GDPR). As processes evolve, their documentation should reflect these changes with an assessment showing ongoing compliance. Through this paper, we show how semantic representations of processes are useful towards maintaining ongoing GDPR compliance by using a test-driven approach that generates and checks constraints for adherence to GDPR requirements. We first check whether all required information has been documented, and then whether it is compliant. We prototype our testing approach using a real-world website’s consent mechanism for GDPR compliance, and persist results towards generating documentation. We use previously-published ontologies to represent processes (GDPRov), consent (GConsent), and GDPR (GDPRtEXT), with SHACL used to test requirement constraints. <br/>
+
+                            Paper and Resources: <a href="https://w3id.org/GDPRep/semantic-tests">https://w3id.org/GDPRep/semantic-tests</a> <br/>
+                            <u>status:</u> under-review
+
+                        </p>
+                    </div>
+                </section>
+
+                <section id="keywords">
+                    <h2>Keywords</h2>
+                    <div>
+                        <ul>
+                            <li><a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR Compliance</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/Consent"></a>Consent</li>
+                            <li><a href="https://www.w3.org/TR/shacl/">SHACL</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="introduction" rel="schema:hasPart" resource="#introduction">
+                    <h2 property="schema:name">Introduction</h2>
+                    <div datatype="rdf:HTML" property="schema:description">
+                        <p>
+                            Demonstrating compliance towards the General Data Protection Regulation (GDPR) [<a class="citation" href="GDPR"></a>] requires documenting information regarding how its various obligations and requirements were met. GDPR explicitly requires documentation of information for records of processing activities (R82, A30), consent (R42, A7-1), and impact assessment (DPIA (A35)). It also requires controllers to implement and periodically review appropriate measures regarding processing (A5-1, A24). Therefore the process of assessing, maintaining, and demonstrating compliance with the GDPR is tightly coupled with operational workflows involving personal data.
+                        </p>
+                        <p>
+                            Processes change and evolve over time - such as the purpose may change, or the same process is used for other additional purposes, or the assigned processor changes. For GDPR compliance, each such change needs to be documented as a temporally versioned record of processing to demonstrate compliance regarding processing activities at that period in time. It would be considered prudence or good practice to show that the specific change was assessed and verified to be compliant before proceeding with it. This is mandatory under GDPR for certain situations requiring a DPIA (A35).
+                        </p>
+                        <p>
+                            Semantics, and by extension the semantic-web, has been demonstrated to be of assistance in the management of GDPR compliance. Existing work addresses modelling machine-readable metadata for compliance [<a class="citation" href="special-eswc-demo"></a>,<a class="citation" href="pronto"></a>,<a class="citation" href="gdprtext"></a>,<a class="citation" href="gdprov"></a>], querying for compliance-related information [<a class="citation" href="gdpr-queryable"></a>], and maintaining compliant processing logs [<a class="citation" href="special-eswc-demo"></a>]. Interoperable semantics are beneficial when information is shared between stakeholders such as - controllers and processors, or controllers and certification bodies or supervisory authorities. The interoperability is also helpful towards transparency regarding processing activities to address the discrepancy between requirements of an organisation and compliance [<a class="citation" href="gdpr-roadmap"></a>].  A discussion of four areas where automation can be applied [<a class="citation" href="gdpr-ai"></a>], one of which is compliance using checklists, shows possible avenues for further incorporating semantics into the compliance process.
+                        </p>
+                        <p>
+                            In this paper, we show how semantic representation of processes are useful in a test-driven approach for documenting ongoing compliance with the GDPR. We describe our approach towards generating and testing constraints based on requirements gathered from GDPR and the use of semantics to generate documentation linked with the GDPR. The paper also presents an application of this approach by testing a website’s consent mechanism for GDPR compliance and generating compliance documentation. For this, we build on our previous work including ontologies to represent processes (GDPRov [<a class="citation" href="gdprov"></a>]), consent (GConsent [<a class="citation" href="gconsent"></a>]), and GDPR (GDPRtEXT [<a class="citation" href="gdprtext"></a>]), and an approach to turn compliance questions into semantic queries [<a class="citation" href="gdpr-queryable"></a>]. An overview of this was presented in a prior publication [<a class="citation" href="gdpr-shacl"></a>]. 
+                        </p>
+                    </div>
+                </section>
+
+                <section id="approach" resource="#approach">
+                    <h2 property="schema:name">Approach</h2>
+                    <div datatype="rdf:HTML" property="schema:description">
+                        <section id="approach-generating-constraints" resource="#approach-generating-constraints">
+                            <h3 property="schema:name">Generating constraints from requirements</h3>
+                            <div datatype="rdf:HTML" property="schema:description">
+                                <p>
+                                    The first step towards compliance is selecting applicable clauses from the GDPR and converting them into tangible requirements. Resources useful for this include information and guidance provided by Data Protection Authorities and professional institutes. Information pertaining to the fulfilment of these requirements is required for compliance documentation.
+                                </p>
+                                <p>
+                                    The next step is to identify information required to assess whether requirements have been met, and then generate constraints that check a) presence of that information, and b) verify its correctness. For the purposes of this paper, we focus on the legal basis of given consent, with a subset of the requirements and constraints presented in <a href="#table-constraints">Table 1</a>. Checking for presence of information before verification of correctness follows a closed-world assumption where absence of information indicates non-compliance.
+                                </p>
+                                <table id="table-constraints">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>GDPR</strong></td>
+                                            <td><strong>Constraint</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>A4-11</td>
+                                            <td>Consent must be associated with only one Data Subject</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R32,A4-11</td>
+                                            <td>Consent must have one or more categories or types of personal data associated with it</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R32,R42</td>
+                                            <td>Consent must have one or more purposes associated with it</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R32,A4-11</td>
+                                            <td>Consent must have one or more processing associated with it</td>
+                                        </tr>
+                                        <tr>
+                                            <td>A7-3</td>
+                                            <td>Consent must have one and only one state/status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>A7-2</td>
+                                            <td>Consent is given by exactly one Person</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Given consent must have information on how it was obtained</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Consent must have artefacts associated with how it was obtained</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Consent must have information on what choices provided</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Consent must have statement or affirmative action</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Consent must have information about right to withdraw</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R32,A7-2</td>
+                                            <td>Consent must not have more than one medium it was provided</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Consent must have a timestamp indicating when it was given</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Purpose or processing associated with Third Party must specify role played by the Third Party</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>If data is being stored, it must have information on how long it will be stored for</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Storage of data must have information on its storage location</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R71,A9-2c,A22-2</td>
+                                            <td>Automated processing of personal data must be clearly indicated</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R111,A49-1a</td>
+                                            <td>Data transfer to third country or international organisation must specify identity of recipient</td>
+                                        </tr>
+                                        <tr>
+                                            <td>R51,A8-2a</td>
+                                            <td>Personal data belonging to a special category must be clearly indicated</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Constraints that verify correctness, or rather conformance, to requirements are required to be implemented based on underlying information representations (e.g. ontology). Some constraint assessments can be automated whereas others require human intervention, particularly where qualitative requirements are involved. For example, informed consent requires the request to be clear and unambiguous - which needs to be evaluated manually<span class="footnote">While it may be possible to use NLP-based approaches to evaluate the complexity of language to determine whether it is clear and unambiguous, such approaches cannot be assumed to be universally applicable, and therefore require a manual assessment.</span>.</p>
+                                <p>A test for compliance contains verification of (one or more) constraints where results indicate compliance with identified requirements. By linking the constraint with relevant points or concepts within GDPR, it is possible to generate and document ‘coverage’ of compliance. For example, for constraints generated from identified requirements, by having their results linked to the GDPR, the number of tests passed indicates compliance with set of linked GDPR points or articles.</p>
+                                <p>Constraints can be linked to each other to formulate dependency relationships. This can make testing for compliance more efficient by identifying common dependencies. It also allows creating logical groupings of related constraints. Such groupings can be based on functionality or relation to GDPR such as association with one concept or one specific article. For example, requirements for validity of consent are grouped from individual constraints for each requirement (e.g. clear, unambiguous), with requirements for explicit consent containing only additional constraints along with the group for valid consent.</p>
+                            </div>
+                        </section>
+                        <section id="approach-model-processes" resource="#approach-model-processes">
+                            <h3 property="schema:name">Model of processes</h3>
+                            <div datatype="rdf:HTML" property="schema:description">
+                                <p>Representing a model or template of processes as machine-readable metadata has advantages in terms of ex-ante verification of compliance. This allows creating constraints that specifically check whether the model of processes follows the requirements gathered from GDPR. This is distinct from verification of compliance using records or logs of processing which constitute as ex-post compliance. For example, verifying whether the consent collection mechanism follows requirements for valid consent is done by representing the mechanism as a model and checking constraints associated with validity of given consent.</p>
+                                <p>The model also allows testing for existence of internal processes regarding handling of data subject rights and data breaches. The metadata representation of model enables creating a persistent snapshot of processes for planning, conducting an impact assessment (DPIA), and inspecting past compliance. Additionally, creating and testing a model allows abstraction of information common to instances such as notice or dialogue for consent - which is common to all or a significant number of data subjects. By abstracting such common information into the model of the process, actual instances of given consent need to be linked only with the relevant attributes and can refer to the model for more information regarding compliance.</p>
+                                <p>Using models also makes the testing process more efficient in terms of reducing the number of tests to be conducted. If a model is verified to be compliant using prior testing, then its instances can be verified to be compliant using only the constraints specific to the instance. For example, when verifying compliance for processing using given consent as a legal basis, the validity of given consent also needs to be evaluated. By abstracting the model of collecting consent and verifying it to be compliant, the given consent used in processing is assumed to be valid. The only constraint that needs to be tested is therefore whether the processing is permitted based on the interpretation of given consent.</p>
+                            </div>
+                        </section>
+                        <section id="approach-testing-documentation" resource="#approach-testing-documentation">
+                            <h3 property="schema:name">Testing and Documentation</h3>
+                            <div datatype="rdf:HTML" property="schema:description">
+                                <p>The requirements and constraints by themselves are universal in that they can be expressed without dependence on any technology or information representation. Adapting constraints into an testing framework requires basing it on the underlying models and information representations. For example, where information is defined using RDF+OWL, the testing framework is created using relevant technologies that can query and validate RDF+OWL - such as using SPARQL [<a class="citation" href="sparql"></a>] and SHACL [<a class="citation" href="shacl"></a>] respectively. In this case, the information format (RDF) itself enables the use of semantics which assists in linking the information, constraints, and results with points of relevance within the GDPR. Where the underlying information format does not inherently supporting semantics, these can be added as metadata to the test results to link them with GDPR.</p>
+                                <p>Having the information or metadata format be machine-readable and interoperable allows taking advantage of querying and validation. The testing framework needs to be aware of the vocabularies and technologies used to represent the information and should persist results using machine-readable metadata. Tests should be defined at a granular level to enable actionable constraints such as “personal data (category) should have a source”. These are then combined to create larger and more complex tests, which is similar to the creation of ‘unit’ tests and combining them into modules to test complex functionality. For example, testing whether personal data collected from users and shared with a third party with legal basis of consent adheres to given consent requires verification using constraints that test - a) source of personal data (user) b) third party identity c) legal basis, and d) matching processing with given consent.</p>
+                                <p>The results of tests are associated with articles or concepts within GDPR based on the requirements used to generate constraints. Depending on the extent of machine-readable information used, it is possible to also include information such as a) representation of processes b) testing constraints c) results of internal evaluations d) text of GDPR. The end result of the testing process is a report that lists compliance with GDPR in the form of requirements (un-)fulfilled.</p>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+                <section id="demo" resource="#demo">
+                    <h2 property="schema:name">Demonstration using Use-Case</h2>
+                    <div datatype="rdf:HTML" property="schema:description">
+
+                        <section id="demo-data-graph" resource="#demo-data-graph">
+                            <h3 property="schema:name">Creating the data graph</h3>
+                            <div datatype="rdf:HTML" property="schema:description">
+                                <p>For the use-case, we chose the consent mechanism on <a href="quantcast.com" class="uri">quantcast.com</a> website, depicted in <a href="#fig-quantcast">Fig. 1</a>, and modelled the data graph based on information presented in the consent dialogue and the website. The choice of website was made based on Quantcast being a provider of GDPR consent collection mechanism using the IAB consent framework<span class="footnote">IAB Transparency and Consent Framework<a href="https://advertisingconsent.eu/" class="uri">https://advertisingconsent.eu/</a></span>. The website was also one of the few (to the authors’ knowledge) that allows changing/withdrawing consent using the same dialogue. We chose to include information from the website about analytics services provided by Quantcast as it uses personal data. More information on the creation of data graph is available online<span class="footnote">Paper and Resources <a href="https://w3id.org/GDPRep/semantics-demo" class="uri">https://w3id.org/GDPRep/semantics-demo</a></span>.</p>
+                                <figure id="fig-quantcast">
+                                    <img
+                                    src="media/diagrams/quancast_grid.png"
+                                    alt="Consent dialogues on quantcast.com (clockwise from top-left) (a) first screen (b) default options on selecting I Accept (c) default options on selecting Show Purposes (c) Third parties listed for purpose Personalisation" />
+                                    <figcaption>Consent dialogues on quantcast.com (clockwise from top-left) (a) first screen (b) default options on selecting I Accept (c) default options on selecting Show Purposes (c) Third parties listed for purpose Personalisation</figcaption>
+                                </figure>
+
+                                <p>We used GDPRov<span class="footnote">GDPRov Ontology <a href="https://w3id.org/GDPRov" class="uri">https://w3id.org/GDPRov</a></span> (which extends PROV-O [<a class="citation" href="prov-o"></a>]  and P-Plan [<a class="citation" href="p-plan"></a>] ) to model personal data and consent workflows, and GConsent<span class="footnote">GConsent Ontology <a href="https://w3id.org/GConsent" class="uri">https://w3id.org/GConsent</a></span> to model consent attributes and given consent. GDPRov allowed representing processes and personal data mentioned in the consent dialogue as models. GConsent allowed expressing consent using attributes such as medium and status. Where there was an overlap, such as for personal data and purpose, we used both to define the instance.</p>
+                                <p>We collected personal data categories from the descriptions in the consent dialogue as well as other pages on the website describing various products and services offered by Quantcast. We defined the source of personal data as ‘user’ where data collection was mentioned in the consent dialogue, and ‘third party’ where explicitly defined. We defined processes for addressing the rights provided by GDPR using descriptions provided in the privacy policy. Where a URL or email address was provided regarding rights, we defined it as the IRI of the process for handling that right. We defined the IRI for DPO using the contact point provided in the policy.</p>
+                                <p>We represented the consent collection mechanism on the website as an instance of <code>gdprov:ConsentAcquisitionStep</code>. This was defined as a step in the process <code>QChoice</code> representing the product Quantcast Choice. Similar processes were defined for Marketing, Advertisement, and Measurement identified from the information on the website. Each top-level description in the consent dialogue, e.g. Personalisation, was modeled as <code>gdprov:Purpose</code> and <code>gc:Purpose</code> with processing and personal data modeled from its description. The legal basis was defined using GDPRtEXT<span class="footnote">GDPRtEXT Ontology and Resource <a href="https://w3id.org/GDPRtEXT" class="uri">https://w3id.org/GDPRtEXT</a></span> and was associated at the process (purpose) or step (processing) level. We used given consent as the legal basis for purposes mentioned in the consent dialogue and legitimate interest otherwise.</p>
+                                <p>In the consent dialogue, the use of independent radio buttons was interpreted as allowing the user to consent and withdraw for each individual purpose, which was represented by creating separate instances of consent for each choice. We modelled the dialogue as an instance of <code>gdprov:ConsentAgreementTemplateBundle</code> consisting of several <code>gdprov:ConsentAgreementTemplate</code> instances to represent multiple individual consent entities. We had difficulty in interpreting the language used for third parties as it suggests the user is giving consent directly to third parties rather than to Quantcast. Pending clarification from legal experts, we chose to represent these as data recipients rather than as Controllers or Joint-Controllers for ease of testing. This allowed us to represent the data sharing processes in a concise manner with each purpose being associated with the hundreds of third parties listed in the consent dialogue rather than defining a separate consent representation for every third party. For testing, we defined an instance of given consent (see <a href="#fig-consent-node">Fig. 2</a>) which was then later withdrawn. All resources associated with the data, constraints, and queries are available online[footnote:resources].</p>
+                                <figure id="fig-consent-node">
+                                    <img
+                                    src="media/diagrams/data_consent.png" alt="Visualisation of Given Consent in the data graph (using GraphDB)"/>
+                                    <figcaption>Visualisation of Given Consent in the data graph (using GraphDB)</figcaption>
+                                </figure>
+                            </div>
+                        </section>
+                        <section id="demo-testing" resource="#demo-testing">
+                            <h3 property="schema:name">Testing data graph for compliance</h3>
+                            <div datatype="rdf:HTML" property="schema:description">
+                                <p>We defined constraints over the data graph using SHACL and its extension SHACL-SPARQL [<a class="citation" href="shacl"></a>] . For testing, we used the SHACL validator binary provided by TopBraid<span class="footnote">TopBraid SHACL <a href="https://github.com/TopQuadrant/shacl/" class="uri">https://github.com/TopQuadrant/shacl/</a></span>. To distinguish between constraints that could be verified automatically and those that required manual consideration, we subclassed <code>sh:NodeShape</code> as <code>AutomaticallyCheckedConstraint</code> and <code>ManuallyCheckedConstraint</code> where manual tests checked the value of boolean properties. For example, the value of <code>consentIsBySilence</code> indicates whether consent is given by silence with valid value being <code>xsd:false</code>. The consent collection dialogue was considered as the input for manual tests regarding validity of consent. Appropriate result messages were associated with each constraint using <code>sh:message</code>. The property <code>linkToGDPR</code> was defined to linking constraints with GDPR using GDPRtEXT. An example constraint is provided in <a href="#listing-shacl">Listing 1</a>.</p>
+                                <figure>
+<pre id="#listing-shacl"><code>:WithdrawConsentConstraints a sh:NodeShape ;
+    sh:targetClass m:ManualTest ;
+    sh:property :WithdrawConsentEase ;
+    sh:property :WithdrawConsentInformation ;
+    rdfs:label "Withdraw Consent Constraints" .
+    :WithdrawConsentEase a sh:PropertyShape, :ManuallyCheckedConstraint ;
+    :linkToGDPR gdpr:article7-3 ;
+    sh:name "Ease of Withdraw Consent" ;
+    sh:path m:withdrawingConsentIsAsEasyAsGivingConsent ;
+    sh:hasValue true ;
+    sh:message "(M) Consent should be as easy to withdraw as it is to give" .
+    :WithdrawConsentInformation
+    a sh:PropertyShape, :ManuallyCheckedConstraint ;
+    :linkToGDPR gdpr:article7-3 ;
+    sh:name "Withdraw Consent Information" ;
+    sh:path m:withdrawingConsentInformationBeforeGivingConsent ;
+    sh:hasValue true ;
+    sh:message "(M) Information about withdrawal should be provided before giving consent" .
+</code></pre>
+                                    <caption><b>Listing 1.</b> SHACL constraints for manual tests regarding consent withdrawal</caption>
+                                </figure>
+                                <p>For evaluation, we defined two sets of constraints following the outline provided in the approach described in Section [sec:approach]. The first set validated instances of given consent against defined constraints, whereas the second set first validated the model of consent and then validated the instances of given consent using the validated model. For the second set, results from validating the model were persisted in data graph in order to use them as input to validate given consent. A simple bash script was used to construct a pipeline that executed constraints and stored results as a <code>rdf/turtle</code> file.</p>
+                                <p>For ease of evaluation, we generated a combined data graph consisting of data from Quantcast and ontologies used (GDPRov, GConsent, GDPRtEXT). We added this data graph along with results of SHACL validation to a triple-store (GraphDB Free Edition<span class="footnote">GraphDB Triple-Store <a href="http://graphdb.ontotext.com/" class="uri">http://graphdb.ontotext.com/</a></span>) under separate graphs. We then executed SPARQL queries to query the data graph and generate reports.</p>
+                                <p>We used three separate queries to facilitate different actions associated with compliance. The first query listed the distinct messages from failing tests as actionable items. The second query listed the compliance of applicable GDPR articles using links from constraints and their verification. The third query, shown in <a href="#listing-sparql">Listing 2.</a>, generated a test report, depicted in <a href="#table-report">Table 2.</a>, containing the constraint description, type - automatic (A) or manual (M), link to GDPR, result - pass (P) or fail (F), node (instance in data graph), and failure message (not shown in table). The results from these queries were then used to generate a compliance report to document the state of maintaining compliance and actions required. The report contains results of queries related to compliance [<a class="citation" href="gdpr-queryable"></a>] . The documentation regarding creating the data graph, constraints, and testing, along with the SPARQL queries and generated report is available online<sup><a href="#footnote3">3</a></sup>. </p>
+                                <figure>
+<pre id="listing-sparql"><code>PREFIX c: <http://example.com/Quantcast/shapes#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?name ?test ?gdpr ?result ?node ?msg
+WHERE {
+    ?x a c:Constraint .
+    ?x sh:name ?name .
+    BIND(IF(EXISTS{
+        ?x a c:AutomaticallyCheckedConstraint},
+        "Automatic"^^xsd:string, "Manual"^^xsd:string)
+        as ?test)
+    OPTIONAL { ?x c:linkToGDPR ?gdpr }
+    BIND(IF(EXISTS{
+        ?y sh:sourceConstraint ?x},
+        "FAIL"^^xsd:string, "PASS"^^xsd:string)
+        as ?result)
+    OPTIONAL {
+        FILTER EXISTS { ?y sh:sourceConstraint ?x }
+        ?y sh:focusNode ?node .
+        ?y sh:resultMessage ?msg .
+    }
+} ORDER BY ?name</code></pre>
+                                <caption><b>Listing 2.</b> SPARQL query for report listing validation results linked with GDPR</caption>
+                            </figure>
+
+
+                            <table>
+                                <caption>Report showing constraints, validation results, and link to GDPR<span data-label="table:report"></span></caption>
+                                <thead>
+                                    <tr class="header">
+                                        <th align="left">Name</th>
+                                        <th align="center">Type</th>
+                                        <th align="center">GDPR</th>
+                                        <th align="center">Result</th>
+                                        <th align="center">Node</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">≠</span> Inactivity</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">≠</span> Pre-ticked Boxes</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">≠</span> Silence</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">→</span> Data Subject</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A4-11</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">→</span> Given To</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">→</span> Location</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">→</span> Medium</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A7-2</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">→</span> Personal Data</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A4-11,R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">→</span> Processing</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A4-11,R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">→</span> Provided By</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A7-2</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">→</span> Purpose</td>
+                                        <td align="center">A</td>
+                                        <td align="center">R32,R42</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">→</span> Status</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd failed">
+                                        <td align="left">Consent <span class="math inline">→</span> Timestamp</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415120753</td>
+                                    </tr>
+                                    <tr class="even failed">
+                                        <td align="left">Consent <span class="math inline">→</span> Timestamp</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415140000</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">≡</span> Choice</td>
+                                        <td align="center">M</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">≡</span> Freely Given</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A4-11</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">≡</span> Specific</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A4-11</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent <span class="math inline">≡</span> Statement of Clear Action</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A4-11</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent <span class="math inline">≡</span> Unambigious</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A4-11</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent Generating Activity</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent Request <span class="math inline">≡</span> Clear</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent Request <span class="math inline">≡</span> Concise</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Consent Request <span class="math inline">≡</span> Not Disruptive</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Consent Template</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Ease of Withdraw Consent</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A7-3</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Many Processing x One Purpose</td>
+                                        <td align="center">A</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd failed">
+                                        <td align="left">One Processing x Many Purposes</td>
+                                        <td align="center">A</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415120753</td>
+                                    </tr>
+                                    <tr class="even failed">
+                                        <td align="left">One Processing x Many Purposes</td>
+                                        <td align="center">A</td>
+                                        <td align="center">R32</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415140000</td>
+                                    </tr>
+                                    <tr class="odd failed">
+                                        <td align="left">Personal Data <span class="math inline">→</span> Storage Period</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A13-2-a</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:CATQInfoStorageAccess</td>
+                                    </tr>
+                                    <tr class="even failed">
+                                        <td align="left">Personal Data <span class="math inline">→</span> Storage Period</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A13-2-a</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:CATTPInfoStorageAccess</td>
+                                    </tr>
+                                    <tr class="odd failed">
+                                        <td align="left">Personal Data <span class="math inline">→</span> Storage Period</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A13-2-a,R39</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415120753</td>
+                                    </tr>
+                                    <tr class="even failed">
+                                        <td align="left">Personal Data <span class="math inline">→</span> Storage Period</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A13-2-a,R39</td>
+                                        <td align="center">F</td>
+                                        <td align="center">Q:Consent20190415140000</td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Right to Withdraw</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A7-3</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Separation of Processing</td>
+                                        <td align="center">M</td>
+                                        <td align="center">R43</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Third Party Categories</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A44</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Third Party Identities</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A13-1-e</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Third Party Identities</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A30-1-d</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Third Party Identities</td>
+                                        <td align="center">A</td>
+                                        <td align="center">A44</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td align="left">Third Party Safeguards</td>
+                                        <td align="center">A</td>
+                                        <td align="center"></td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td align="left">Withdraw Consent Information</td>
+                                        <td align="center">M</td>
+                                        <td align="center">A7-3</td>
+                                        <td align="center">P</td>
+                                        <td align="center"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <figure>
+                                <img
+                                src="media/diagrams/test-driven-gdpr-compliance-model.png"
+                                alt="Overview of testing process" />
+                                <figcaption>Overview of testing process</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="related-work" resource="#related-work">
+                <h2 property="schema:name">Related Work</h2>
+                <div datatype="rdf:HTML" property="schema:description">
+                    <p>The approach presented in this paper acts on machine-readable metadata representation of processes and workflows associated with personal data and consent. An alternative to this is an approach that uses ODRL policies [<a class="citation" href="odrl"></a>]  for assessment of compliance using questions constructed from GDPR [<a class="citation" href="sushant-model"></a>] . The ODRL policy consists of constraints classified as <code>Feature</code>, <code>Discretional</code>, and <code>Dispensation</code> with <code>Rule</code> used to specify them as <code>Permission</code>, <code>Prohibition</code>, or <code>Duty</code>. The policies are linked to the relevant text in GDPR using RDF properties similar to the use of GDPRtEXT in this paper. The questions are used in a tool that incorporates human feedback and generates an assessment report. This is useful to incorporate the manual testing requirements from our approach, as well as to present the results from validation as a feedback process.</p>
+                    <p>The Scalable Policy-aware Linked Data Architecture For Privacy, Transparency and Compliance (SPECIAL) is an European H2020 project that provides a semantic-web framework for the generation of logs that enable ex-post GDPR compliance verification [<a class="citation" href="special-eswc-demo"></a>] . Their compliance engine can also be used to perform ex-ante compliance checks [<a class="citation" href="special-widgets"></a>]  using a model-based approach similar to the one advocated by GDPRov. The compliance assessment in SPECIAL focuses on determining whether the specified use of purposes, processes, and personal data is allowed by the specified legal basis such as consent. This can be incorporated in our approach to determine the validity of constraints related to use of given consent for data processing operations.</p>
+                    <p>Other related work includes PrOnto [<a class="citation" href="pronto"></a>]  - a legal ontology of concepts related to privacy agents, personal data types, processing operations, rights and obligations. Based on the examples shown in its associated publications, PrOnto can be used to define the underlying data graph and the constraints for compliance validation. The W3C Community Group for Data Protection Vocabularies and Controls<span class="footnote">DPVCG <a href="https://www.w3.org/community/dpvcg/" class="uri">https://www.w3.org/community/dpvcg/</a></span> (DPVCG) is currently working on taxonomies for purposes, data processing, consent, personal data, technical and organisational measures, and legal basis which will provide a vocabulary for the representation and documentation of such processes. Layered Privacy Language (LPL) [<a class="citation" href="LPL"></a>]  can be used to model privacy properties such as personal privacy, user consent, data provenance, and retention management for the GDPR, and can be used to define the constraints using its authorisation-based modeling.</p>
+                </div></section>
+                <section id="discussion" resource="#discussion">
+                    <h2 property="schema:name">Discussion</h2>
+                    <div datatype="rdf:HTML" property="schema:description">
+                        <p>In this section, we provide a broad discussion of how our test-driven approach can be used as a practical tool by stakeholders and the challenges in its adoption for real-world cases. Considering that processes and activities in an organisations are traditionally documented without semantics, it could be tedious and cumbersome to adopt the semantic-web based framework described in this paper. However, as mentioned earlier, the test-based approach can also be used with existing representations by adding semantics to the test results and reports to link them with relevant information such as the articles in GDPR. This is also applicable towards persisting outputs of reports generated from tools [<a class="citation" href="sushant-model"></a>]  and conformity assessments (CAP) [<a class="citation" href="gdpr-certification"></a>] .</p>
+                        <p>The advantages of representing processes with semantics goes beyond testing for compliance as representation of processes are also useful for planning of operations and internal documentation. Semantic representations of processes can assist in automating the generation of documentation such as privacy policies where processes are listed along with their purpose, legal basis, and use of personal data. Privacy policy generators that generate boilerplate policies exist online, but do not incorporate semantics. The use of semantics allows queryable machine-readable metadata that can be used in tools towards understanding and evaluating complex policies for users and authorities.</p>
+                        <p>The modeling of third parties as data recipients in Section [sec:demo-data] shows the challenges in representing complexities when it comes to GDPR compliance. A report of cases regarding data protection [<a class="citation" href="gdpr-legitimate-interests"></a>]  further shows instances where individual use-cases differ significantly, which could indicate that an universal ontology to represent such processes may not be feasible. A more practical approach could be to create taxonomies and use them in ontology design patterns for compliance. The DPVCG taxonomies could be used alongside existing ontologies to create compliance design patterns to address GDPR requirements. This follows open technological solutions such as the SPECIAL project that drive adoption of semantics in the regulatory compliance space.</p>
+                    </div>
+                </section>
+                <section id="conclusion" resource="#conclusion">
+                    <h2 property="schema:name">Conclusion</h2>
+                    <div datatype="rdf:HTML" property="schema:description">
+                        <p>This paper demonstrates the benefits of using a test-driven approach towards maintaining ongoing GDPR compliance by using semantic representations of processes. The approach generates and checks constraints for adherence to GDPR requirements and persists the results towards compliance documentation. The prototype demonstration provides an example of testing using a real-world website’s consent mechanism using previously-published ontologies to represent processes (GDPRov), consent (GConsent), and GDPR (GDPRtEXT), with SHACL used to test requirement constraints.</p>
+                        <p>In conclusion, the generation of compliance reports by incorporating semantics into the testing process is useful to maintain and document the state of compliance at a given time as well as to demonstrate the ongoing compliance for changes to the data processes within an organisation. While the demonstration in this paper only covers a small set of requirements for GDPR, namely those associated with given consent, it is sufficient to demonstrate the value of the approach and the use of semantics for compliance.</p>
+                    </div>
+                </section>
+
+
+                <section id="references">
+                    <h2>Footnotes</h2>
+                    <aside class="note" id="footnotes"></aside>
+                    <h2>References</h2>
+                    <div>
+                        <ol>
+                            <li id="sushant-model" property="schema:citation">
+                             Agarwal, S. et al.: Legislative Compliance Assessment: Framework, Model and GDPR Instantiation. In: Medina, M. et al. (eds.) Privacy Technologies and Policy. pp. 131–149 Springer International Publishing (2018).
+                         </li>
+                         <li id="special-widgets" property="schema:citation">
+                             Fernández, J.D. et al.: Privacy-aware Linked Widgets. Presented at the 1st Workshop on Fairness, Accountability, Transparency, Ethics, and Society on the Web. In conjunction with The Web Conference 2019 (2019).
+                         </li>
+                         <li id="p-plan" property="schema:citation">
+                             Garijo, D., Gil, Y.: The P-Plan Ontology, http://vocab.linkeddata.es/p-plan/.
+                         </li>
+                         <li id="LPL" property="schema:citation">
+                             Gerl, A. et al.: LPL, Towards a GDPR-Compliant Privacy Language: Formal Definition and Usage. In: Hameurlain, A. and Wagner, R. (eds.) Transactions on Large-Scale Data- and Knowledge-Centered Systems XXXVII. pp. 41–80 Springer Berlin Heidelberg, Berlin, Heidelberg (2018). https://doi.org/10.1007/978-3-662-57932-9_2.
+                         </li>
+                         <li id="ODRL" property="schema:citation">
+                             Iannella, R., Villata, S.: ODRL Information Model 2.2, https://www.w3.org/TR/odrl-model/.
+                         </li>
+                         <li id="gdpr-certification" property="schema:citation">
+                             Kamara, I. et al.: Data protection certification mechanisms: Study on Articles 42 and 43 of the Regulation (EU) 2016/679. European Commission - DG Justice & Consumers (2019).
+                         </li>
+                         <li id="gdpr-ai" property="schema:citation">
+                             Kingston, J.: Using artificial intelligence to support compliance with the general data protection regulation. Artif Intell Law. 25, 4, 429–443 (2017). https://doi.org/10/gfxvtc.
+                         </li>
+                         <li id="special-eswc-demo" property="schema:citation">
+                             Kirrane, S. et al.: A Scalable Consent, Transparency and Compliance Architecture. In: Proceedings of the Posters and Demos Track of the Extended Semantic Web Conference (ESWC 2018). (2018). https://doi.org/10/gfxvsf.
+                         </li>
+                         <li id="shacl" property="schema:citation">
+                             Knublauch, H., Kontokostas, D.: Shapes Constraint Language (SHACL), https://www.w3.org/TR/shacl/.
+                         </li>
+                         <li id="prov-o" property="schema:citation">
+                             Lebo, T. et al.: PROV-O: The PROV Ontology.
+                         </li>
+                         <li id="pronto" property="schema:citation">
+                             Palmirani, M. et al.: PrOnto: Privacy Ontology for Legal Reasoning. In: Kő, A. and Francesconi, E. (eds.) Electronic Government and the Information Systems Perspective. pp. 139–152 Springer International Publishing (2018).
+                         </li>
+                         <li id="gdpr-shacl" property="schema:citation">
+                             Pandit, H.J. et al.: Exploring GDPR Compliance Over Provenance Graphs Using SHACL. In: Proceedings of the Posters and Demos Track of the 14th International Conference on Semantic Systems co-located with the 14th International Conference on Semantic Systems (SEMANTiCS 2018). , Vienna, Austria (2018).
+                         </li>
+                         <li id="gconsent" property="schema:citation">
+                             Pandit, H.J. et al.: GConsent - A Consent Ontology based on the GDPR (in-press,to-appear). Presented at the 16th European Semantic Web Conference (ESWC 2019) , Porotoz, Slovenia (2019).
+                         </li>
+                         <li id="gdprtext" property="schema:citation">
+                             Pandit, H.J. et al.: GDPRtEXT - GDPR as a Linked Data Resource. In: The Semantic Web - European Semantic Web Conference. pp. 481–495 Springer, Cham (2018). https://doi.org/10/c3n4.
+                         </li>
+                         <li id="gdpr-queryable" property="schema:citation">
+                             Pandit, H.J. et al.: Queryable Provenance Metadata For GDPR Compliance. In: Procedia Computer Science. pp. 262–268 (2018). https://doi.org/10/gfdc6r.
+                         </li>
+                         <li id="gdprov" property="schema:citation">
+                             Pandit, H.J., Lewis, D.: Modelling Provenance for GDPR Compliance using Linked Open Data Vocabularies. In: Proceedings of the 5th Workshop on Society, Privacy and the Semantic Web - Policy and Technology (PrivOn2017) (PrivOn). (2017).
+                         </li>
+                         <li id="gdpr-roadmap" property="schema:citation">
+                             Schiffner, S. et al.: Towards a Roadmap for Privacy Technologies and the General Data Protection Regulation: A Transatlantic Initiative. In: Privacy Technologies and Policy - 6th Annual Privacy Forum, APF 2018, Barcelona, Spain, June 13-14, 2018, Revised Selected Papers. pp. 24–42 (2018). https://doi.org/10/gfxk7t.
+                         </li>
+                         <li id="gdpr-legitimate-interests" property="schema:citation">
+                             Zanfir-Fortuna, G.: Processing personal data on the basis of legitimate interests under the GDPR: Practical Cases. Nymity (2018).
+                         </li>
+                         <li id="GDPR" property="schema:citation">
+                             Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union. L119, 1–88 (2016).
+                         </li>
+                         <li id="sparql" property="schema:citation">
+                             SPARQL 1.1 Query Language, https://www.w3.org/TR/sparql11-query/.
+                         </li>
+                     </ol>
+                 </div>
+             </section>
+
+             <section id="acknowledgements">
+                <h2>Acknowledgements</h2>
+                <p>This paper is supported by the <a href="https://adaptcentre.ie/">ADAPT Centre for Digital Content Technology</a>, which is funded under the <a href="https://www.sfi.ie/">SFI Research Centres Programme</a> (Grant 13/RC/2106) and is co-funded under the <a href="https://ec.europa.eu/regional_policy/en/funding/erdf/">European Regional Development Fund</a>.</p>
+                <p>The authors wish to thank the members of <a href="https://www.w3.org/community/dpvcg/">Data Protection Vocabularies and Controls Community Group (DPVCG)</a> for their inputs in the discussion of consent and its related research. The authors also wish to thank Pat McBennett for their help in this work.</p>
+            </section>
+
+        </div>
+    </article>
+</main>
+</body>
+</html>

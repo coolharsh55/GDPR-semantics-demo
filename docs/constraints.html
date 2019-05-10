@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" /> -->
+  <title>Creating constraints for given consent</title>
+  
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>Creating constraints for given consent</h1>
+
+    </header>
+      
+<style type="text/css">
+    hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
+    code {
+      font-size: 0.75em;
+  }
+  blockquote {
+      font-family: monospace;
+      font-size: 0.75em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      padding: 5px;
+      padding-left: 15px;
+      border-left: 3px solid #ccc;
+      background-color: #EEE;
+  } 
+  .btn-collapse {
+      font-size: 0.75em;
+      padding: 2px;
+      margin-right: 5px; 
+      background-color: lightgray;
+  }
+  table.large-table {
+      display: none;
+      overflow: visible;
+      margin: auto;
+  }
+</style>
+<section>
+    <p>We used the competency-questions for consent (see Table 1.) from <a href="https://w3id.org/GConsent/">GConsent</a> as the starting point for creating constraints that test the validity of consent.</p>
+    <caption><center><span class="btn-collapse" onclick="collapse('table-consent-cq');">show/hide</span>Table 1: Competency Questions for Consent from GConsent</center></caption>
+    <table id="table-consent-cq" class="gridtable large-table">
+      <thead><tr><th title="Field #1">ID</th>
+         <th title="Field #2">Question</th>
+         <th title="Field #3">Concepts</th>
+         <th title="Field #4">Properties</th>
+         <th title="Field #5">Comment</th>
+     </tr></thead>
+     <tbody>
+      <tr><td colspan="5"><b>Questions about consent</b></td></tr>
+      <tr>
+         <td>C1</td>
+         <td>Who is the consent about?</td>
+         <td>DataSubject</td>
+         <td>isConsentForDataSubject</td>
+         <td>Specifies the Data Subject.</td>
+     </tr>
+     <tr>
+         <td>C2</td>
+         <td>What type of Personal Data are associated with the Consent?</td>
+         <td>PersonalData</td>
+         <td>forPersonalData</td>
+         <td>Relates to the set of Personal Data.</td>
+     </tr>
+     <tr>
+         <td>C3</td>
+         <td>What type of Purposes are associated with the Consent?</td>
+         <td>Purpose</td>
+         <td>forPurpose</td>
+         <td>Specifies the set of Purposes.</td>
+     </tr>
+     <tr>
+         <td>C4</td>
+         <td>What type of Processing are associated with the Consent?</td>
+         <td>Processing</td>
+         <td>forProcessing</td>
+         <td>Specifies the set of Processing (actions or activities).</td>
+     </tr>
+     <tr>
+         <td>C5</td>
+         <td>What is the Status of Consent?</td>
+         <td>Status</td>
+         <td>hasStatus</td>
+         <td>Specifies the status of consent.</td>
+     </tr>
+     <tr>
+         <td>C6</td>
+         <td>Is the current status valid for processing?</td>
+         <td>StatusValidForProcessing, StatusInvalidForProcessing</td>
+         <td>hasStatus</td>
+         <td>Specifies whether the current status is valid for use in processing.</td>
+     </tr>
+     <tr>
+         <td>C7</td>
+         <td>Who is the consent given to?</td>
+         <td>prov:Person, DataController</td>
+         <td>isProvidedTo</td>
+         <td>Specifies the entity that was provided consent.</td>
+     </tr>
+     <tr>
+     </tr><tr><td colspan="5"><b>Questions about how the consent was created/given/acquired/changed/invalidated</b></td></tr>  
+
+     <tr>
+         <td>P1</td>
+         <td>Who created/gave/acquired/invalidated the consent?</td>
+         <td>DataSubject, Delegation</td>
+         <td>isProvidedBy</td>
+         <td>Specifies the Data Subject or Delegation that gave consent.</td>
+     </tr>
+     <tr>
+         <td>P2</td>
+         <td>If consent was created/gave/acquired/invalidated through Delegation, who acted as the Delegate?</td>
+         <td>prov:Person, Delegation</td>
+         <td>prov:agent</td>
+         <td>Specifies the entity that provided consent in a delegation.</td>
+     </tr>
+     <tr>
+         <td>P3</td>
+         <td>If consent was created/gave/acquired/invalidated through Delegation, what was the role played by Delegate?</td>
+         <td>prov:Role</td>
+         <td>prov:hadRole</td>
+         <td>Specifies the role played by the entity that gave consent in a delegation.</td>
+     </tr>
+     <tr>
+         <td>P4</td>
+         <td>If consent was created/gave/acquired/invalidated through Delegation, how was the delegation executed?</td>
+         <td>prov:Activity</td>
+         <td>prov:hadActivity</td>
+         <td>Specifies the activity that provided consent in a delegation.</td>
+     </tr>
+     <tr><td colspan="5"><b>Questions about the context of how consent was created/gave/acquired/invalidated</b></td></tr>
+     <tr>
+         <td>T1</td>
+         <td>What is the location of associated with consent?</td>
+         <td>prov:Location</td>
+         <td>atLocation</td>
+         <td>Specifies the location where consent was created/generated/given/collected.</td>
+     </tr>
+     <tr>
+         <td>T2</td>
+         <td>What is the medium associated with consent?</td>
+         <td>Medium</td>
+         <td>inMedium</td>
+         <td>Specifies the medium through which consent was created/generated/given/collected.</td>
+     </tr>
+     <tr>
+         <td>T3</td>
+         <td>What is the timestamp associated with the consent?</td>
+         <td>time:Instant</td>
+         <td>atTime</td>
+         <td>Specifies the instant in time when consent was created/generated/given/collected.</td>
+     </tr>
+     <tr>
+         <td>T4</td>
+         <td>What is the expiry of the consent?</td>
+         <td>time:TemporalEntity</td>
+         <td>hasExpiry</td>
+         <td>Specifies the expiry of consent as an instant or duration or time period.</td>
+     </tr>
+     <tr>
+         <td>T5</td>
+         <td>How was the consent acquired/changed/created/invalidated?</td>
+         <td>prov:Activity</td>
+         <td>prov:generated, prov:invalidated</td>
+         <td>Specifies the activity that was responsible for the consent instance.</td>
+     </tr>
+     <tr>
+         <td>T6</td>
+         <td>What artefacts were shown when consent was acquired/changed/created/invalidated?</td>
+         <td>prov:Entity</td>
+         <td>prov:used</td>
+         <td>Specifies artefacts or entities associated with the consent.</td>
+     </tr>
+     <tr><td colspan="5"><b>Questions related to Third Party associated with the consent</b></td></tr>
+     <tr>
+         <td>D1</td>
+         <td>Is the purpose or processing associated with a third party?</td>
+         <td>Association, ThirdParty</td>
+         <td>hasAssociation, prov:agent</td>
+         <td>Specifies any third parties associated with the purposes or processing for the consent.</td>
+     </tr>
+     <tr>
+         <td>D2</td>
+         <td>What is the role played by the third party in the purpose or processing?</td>
+         <td>Role</td>
+         <td>prov:hadRole</td>
+         <td>Specifies roles played by the third parties associated with the purposes or processing for the consent.</td>
+     </tr>
+ </tbody></table>
+
+ <p>We then constructed the constraints and assumptions listed in Table 2.</p>
+ <caption><center><span class="btn-collapse" onclick="collapse('table-constraints');">show/hide</span>Table 2: Constraints and Assumptions for Given Consent</center></caption>
+ <table id="table-constraints" class="large-table">
+    <thead><tr><th title="Field #1">Competency Question</th>
+        <th title="Field #2">GDPR Ref.</th>
+        <th title="Field #3">Comment</th>
+        <th title="Field #4">Type</th>
+        <th title="Field #5">Assumption/Constraints</th>
+        <th title="Field #6">Failing Test Cases</th>
+    </tr></thead>
+    <tbody><tr>
+        <td>Who is the Data Subject associated with consent?</td>
+        <td>A4-11</td>
+        <td>Data Subject</td>
+        <td>Constraint</td>
+        <td>Every consent must be associated with only one Data Subject</td>
+        <td>Consent is not associated with any Data Subject</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent is associated with more than one Data Subject</td>
+    </tr>
+    <tr>
+        <td>What are the Personal Data associated with consent?</td>
+        <td>R32,A4-11</td>
+        <td>Personal Data</td>
+        <td>Constraint</td>
+        <td>Every consent must have one or more categories or types of personal data associated with it</td>
+        <td>Consent has no personal data associated with it</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>If there are multiple categories of personal data, consent is granted for all (union) of them</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>What are the Purposes associated with consent?</td>
+        <td>R32,R42</td>
+        <td>Purpose</td>
+        <td>Constraint</td>
+        <td>Every consent must have one or more purposes associated with it</td>
+        <td>Consent has no purposes associated with it</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>If a consent is given for multiple purposes, consent is considered given for all (union) of them</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>What are the Data Processing associated with consent?</td>
+        <td>R32,A4-11</td>
+        <td>Processing</td>
+        <td>Constraint</td>
+        <td>Every consent must have one or more processing associated with it</td>
+        <td>Consent has no processing associated with it</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>If a consent is given for multiple processing, consent is considered given for all (union) of them</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>What is the current Status of consent?</td>
+        <td>A7-3</td>
+        <td>status</td>
+        <td>Constraint</td>
+        <td>Every consent must have one and only one state/status</td>
+        <td>Consent does not have state/status</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent has multiple states/statuses</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>Valid status of consent are when it is given (explicitly or implicitly) by the data subject, or by delegation</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>Invalid status of consent are when it its status is unknown, refused, not offerred, withdrawn, invalidated, terminated, or expired.</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>The status of consent indicates whether it can be used as a legal basis for processing</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Who are the Data Controllers associated with consent?</td>
+        <td> </td>
+        <td>Agent/Controller</td>
+        <td>Constraint</td>
+        <td>Every consent must be associated with one or more Controllers</td>
+        <td>Consent is not associated with any Controllers</td>
+    </tr>
+    <tr>
+        <td>Who provided consent?</td>
+        <td>A7-2</td>
+        <td>Agent</td>
+        <td>Constraint</td>
+        <td>Consent is given by exactly one Person</td>
+        <td>Consent has no information on who provided it</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent was provided by more than one person</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td>such as in case of delegation</td>
+        <td>Assumption</td>
+        <td>Consent provided by a Person that is not the Data Subject is consent by Delegation</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Was consent provided by Delegation?</td>
+        <td>A8-c</td>
+        <td>Person/DataSubject/Delegate (covers parent-&gt;child)</td>
+        <td>Constraint</td>
+        <td>Consent provided by delegation must be clearly specified as such</td>
+        <td>Consent provided by delegation is not clearly specified as such (person providing consent is different from data subject)</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>A delegation can involve another delegation for the provision of consent</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Consent provided by delegation must have a single chain of delegation</td>
+        <td>Consent or delegation has multiple delegations associated (directly) with it</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent or delegation has no delegates (person who provided consent)</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent or delegation has multiple delegates (person who provided consent)</td>
+    </tr>
+    <tr>
+        <td>If consent was provided by Delegation, what was the role played by Delegate with respect to the Data Subject?</td>
+        <td> </td>
+        <td>Delegate -- role --&gt; Data Subject</td>
+        <td>Constraint</td>
+        <td>Delegate in a consent has to play one or more roles that are associated with the Data Subject</td>
+        <td>Delegate has no specified role</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Delegate has multiple roles</td>
+    </tr>
+    <tr>
+        <td>If consent was provided by Delegation, how was the delegation executed?</td>
+        <td> </td>
+        <td>Activity</td>
+        <td>Constraint</td>
+        <td>Every delegation must have information on how it was executed</td>
+        <td>Delegation has no information on how it was executed</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Delegation has multiple executions associated with it</td>
+    </tr>
+    <tr>
+        <td>If consent was provided by Delegation, how was the delegate authenticated?</td>
+        <td>A8-2</td>
+        <td>Activity</td>
+        <td>Constraint</td>
+        <td>A delegate must be authenticated to act on behalf of the data subject in a delegation</td>
+        <td>The delegation has no information on how the delegate was authenticated to act on behalf of the data subject</td>
+    </tr>
+    <tr>
+        <td>Who was the consent given to?</td>
+        <td> </td>
+        <td>Agent</td>
+        <td>Constraint</td>
+        <td>Every consent must have information on who it was provided to</td>
+        <td>Consent has no information on who it was provided to</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>If consent is provided to an actor not the data controller associated with consent, the actor is considered as acting on behalf of the controller</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>If consent was not given to the Data Controller, what is the relationship between the entity it was provided to and the Data Controller?</td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>An entity collecting consent on behalf of the Data Controller must have information on the relationship</td>
+        <td>There is no information on the relationship between the entity collecting consent and the Data Controller</td>
+    </tr>
+    <tr>
+        <td>How was the consent given/obtained?</td>
+        <td> </td>
+        <td>Activity</td>
+        <td>Constraint</td>
+        <td>Every given consent must have information on how it was obtained</td>
+        <td>Consent has no information on how it was obtained</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent has multiple activities for how it was obtained</td>
+    </tr>
+    <tr>
+        <td>What artefacts were involved in the giving/obtaining of consent?</td>
+        <td> </td>
+        <td>Entity</td>
+        <td>Constraint</td>
+        <td>Every consent must have some artefacts associated with how it was given/obtained</td>
+        <td>Consent has no artefacts associated with how it was given/obtained</td>
+    </tr>
+    <tr>
+        <td>What were the choices provided for consent?</td>
+        <td> </td>
+        <td>Entity</td>
+        <td>Constraint</td>
+        <td>Every consent must have information on what choices were provided to the data subject</td>
+        <td>Consent has no information on what choices were provided to the data subject</td>
+    </tr>
+    <tr>
+        <td>What was the statement or affirmative action indicating given consent?</td>
+        <td> </td>
+        <td>Entity</td>
+        <td>Constraint</td>
+        <td>Every consent must have a statement or affirmative action indicating given consent</td>
+        <td>Consent does not have a statement or affirmative action indicating given consent</td>
+    </tr>
+    <tr>
+        <td>How was the right to withdraw consent communicated to the data subject?</td>
+        <td> </td>
+        <td>Entity or Activity</td>
+        <td>Constraint</td>
+        <td>Every consent must have information on how the right to withdraw was communicated</td>
+        <td>Consent does not have information on how the right to withdraw was communicated</td>
+    </tr>
+    <tr>
+        <td>At what location was the consent given?</td>
+        <td> </td>
+        <td>Location</td>
+        <td>Assumption</td>
+        <td>Specifying location for obtained consent is optional</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Consent must not have more than one location it was provided at</td>
+        <td>Consent has multiple locations associated with it</td>
+    </tr>
+    <tr>
+        <td>What is the medium associated with consent?</td>
+        <td>R32,A7-2</td>
+        <td>Medium</td>
+        <td>Assumption</td>
+        <td>Specifying medium for obtained consent is optional</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Consent must not have more than one medium it was provided in</td>
+        <td>Consent has multiple mediums associated with it</td>
+    </tr>
+    <tr>
+        <td>What is the timestamp associated with the consent?</td>
+        <td> </td>
+        <td>Timestamp</td>
+        <td>Constraint</td>
+        <td>Every consent must have a timestamp indicating when it was given/obtained</td>
+        <td>Consent has no timestamps for when it was given/obtained</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Consent has multiple timestamps for when it was given/obtained</td>
+    </tr>
+    <tr>
+        <td>What is the expiry of the consent?</td>
+        <td> </td>
+        <td>Timestamp or Duration or Event or Condition</td>
+        <td>Assumption</td>
+        <td>Consent may not have a tangible expiry</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>Consent may have multiple forms of expiry depending on conditions or events</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Is the purpose or processing associated with a third party?</td>
+        <td> </td>
+        <td>Third Party</td>
+        <td>Assumption</td>
+        <td>A purpose or processing may be associated with zero or more third parties</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>What is the role played by the third party in the purpose or processing?</td>
+        <td> </td>
+        <td>Third Party --role--&gt; Processing/Purpose</td>
+        <td>Constraint</td>
+        <td>Every purpose or processing associated with Third Party must have information on the role played by the Third Party</td>
+        <td>Purpose of Processing associated with Third Party has no information on the role played by the Third Party</td>
+    </tr>
+    <tr>
+        <td>Does the processing of data involve storage of data?</td>
+        <td> </td>
+        <td>storage</td>
+        <td>Assumption</td>
+        <td>Processing of data may involve storage of data</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>If personal data is being stored, what is the duration of storage for Personal Data?</td>
+        <td> </td>
+        <td>storage duration</td>
+        <td>Assumption</td>
+        <td>Different personal data, processing, or purpose may have different storage of data</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>If data is being stored, it must have information on how long it will be stored for</td>
+        <td>Storage of data has no information about how long it will be stored for</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>Storage duration may not be a tangible instance in time, it can depend on conditions or event</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>If personal data is being stored, what is the location of storage?</td>
+        <td> </td>
+        <td>location</td>
+        <td>Constraint</td>
+        <td>Every storage of data must have information on its storage location</td>
+        <td>Storage of data has no information about storage location</td>
+    </tr>
+    <tr>
+        <td>Are processing associated with consent of automated nature?</td>
+        <td>R71,A9-2c,A22-2c</td>
+        <td>boolean (yes/no)</td>
+        <td>Constraint</td>
+        <td>Processing of personal data which is of automated nature must be clearly indicated as such</td>
+        <td>Processing of personal data of automated nature are not indicated as such</td>
+    </tr>
+    <tr>
+        <td>Does the processing of data involve transfer to a Third Country or International Organisation?</td>
+        <td>R111,A49-1a</td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>Processing may involve transfer of data to a third country or international organisation</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>If processing of data involves transfer to a Third Country or International Organisation, what is the identity of the Third Country or International Organisation?</td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Every processing of data involving transfer to a third country or international organisation must have the identity of the third country or international organisation specified</td>
+        <td>Processing of personal data involving transfer to third country or international organisation does not have the identity of the third country or international organisation specified</td>
+    </tr>
+    <tr>
+        <td>Do the personal data associated with consent belong to a special category?</td>
+        <td>R51,A8-2a</td>
+        <td>Special Category of Personal Data</td>
+        <td>Assumption</td>
+        <td>Personal data associated with consent may belong to a special category</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Every personal data belonging to a special category must be clearly indicated as such</td>
+        <td>Personal data belonging to special category are not indicated as such</td>
+    </tr>
+    <tr>
+        <td>How is personal data associated or linked to the data subject?</td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>Every personal data must have information on one or more identifiers that link it to a particular data subject</td>
+        <td>There is no information on how personal data is linked to the data subject</td>
+    </tr>
+    <tr>
+        <td>Is the Data Subject of legal age to provide their own consent?</td>
+        <td>A8</td>
+        <td>Minor</td>
+        <td>Assumption</td>
+        <td>A data subject may be a minor or a child</td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Constraint</td>
+        <td>A data subject who is not of legal age to provide their own consent must be clearly indicated as such</td>
+        <td>A data subject who is not of legal age to provide their own consent is not clearly indicated as such</td>
+    </tr>
+    <tr>
+        <td>What are the specific laws that determine the legal age to provide consent?</td>
+        <td>A8-1</td>
+        <td>(i) age (ii) relevant law</td>
+        <td>Constraint</td>
+        <td>There must be information on the relevant laws that determine the legal age of consent</td>
+        <td>There is no information on the relevant laws that determine the age of consent</td>
+    </tr>
+    <tr>
+        <td>Does the Data Subject have a specific relationship with the Data Controller?</td>
+        <td>R43</td>
+        <td> </td>
+        <td>Assumption</td>
+        <td>The data subject may have a relationship of relevance with the Data Controller</td>
+        <td> </td>
+    </tr>
+</tbody></table>
+<p>We added additional qualitative constraints for validity of consent, as listed in Table 3.</p>
+<caption><center><span class="btn-collapse" onclick="collapse('table-constraints-manual');">show/hide</span>Table 3: Qualitative constraints on given consent</center></caption>
+<table id="table-constraints-manual" class="large-table">
+    <thead>
+        <th>Criteria</th><th>GDPR</th>
+    </thead>
+    <tr>
+        <td>Consent should be by choice</td>
+        <td></td>
+    </tr>
+    <tbody><tr>
+        <td>Consent should have statement of clear action</td>
+        <td>A4-11</td>
+    </tr>
+    <tr>
+        <td>Consent should be freely given</td>
+        <td>A4-11</td>
+    </tr>
+    <tr>
+        <td>Consent should be specific</td>
+        <td>A4-11</td>
+    </tr>
+    <tr>
+        <td>Consent should be unambigious</td>
+        <td>A4-11</td>
+    </tr>
+    <tr>
+        <td>Consent should be as easy to withdraw as it is to give</td>
+        <td>A7-3</td>
+    </tr>
+    <tr>
+        <td>Information about withdrawal of consent should be provided before giving consent</td>
+        <td>A7-3</td>
+    </tr>
+    <tr>
+        <td>Consent should not be by inactivity</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should not be by pre-ticked boxes</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should not be by silence</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should have a clear request</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should have a concise request</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should have a non-disruptive request</td>
+        <td>R32</td>
+    </tr>
+    <tr>
+        <td>Consent should have separation of processing</td>
+        <td>R43</td>
+    </tr>
+</tbody></table>
+</section>
+<script type="text/javascript">
+    function collapse(ele) {
+      var e = document.getElementById(ele);
+      console.log(e);
+      if (e.classList.contains('open')) {
+        e.classList.remove('open');
+        e.style.display = 'none'; 
+    } else {
+        e.classList.add('open');
+        e.style.display = 'block';  
+    }
+}
+</script>
+
+    </main>
+    <footer>
+      <p>Funded by <a href="http://www.sfi.ie/">Science Foundation Ireland</a></p>
+    </footer>
+  </body>
+</html>

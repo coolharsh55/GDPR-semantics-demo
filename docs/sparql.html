@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" /> -->
+  <title>Generating reports using SPARQL</title>
+  
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>Generating reports using SPARQL</h1>
+      
+    </header>
+      
+<link rel="stylesheet" type="text/css" href="/static/emacs.css">
+<style type="text/css">
+  hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
+  code {
+    font-size: 0.75em;
+  }
+  blockquote {
+    font-family: monospace;
+    font-size: 0.75em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+    background-color: #EEE;
+  } 
+  .btn-collapse {
+    font-size: 0.75em;
+    padding: 2px;
+    margin-right: 5px; 
+    background-color: lightgray;
+  }
+  table.large-table {
+    display: none;
+    overflow: visible;
+    margin: auto;
+  }
+</style>
+<section>
+  <p>We use a triple-store (<a href="http://graphdb.ontotext.com/">GraphDB Free Edition</a>) to store the data graph and the test results for querying. We used three graphs to store - data, constraints, and test-results. We show simplified queries here without reference to specific graphs. We used a reasoner (<a href="http://www.hermit-reasoner.com/">HermiT</a>) to identify inferences. GraphDB also provides <a href="http://graphdb.ontotext.com/free/devhub/inference.html">some reasoning/inferencing capabilities</a> in role as a triple-store.</p>
+  <p>The first query, listed in Listing 1., identifies messages from the tests as actionable items, shown in Table 1.</p>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="k">PREFIX</span> <span class="nn">sh</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/shacl#&gt;</span>
+<span class="lineno">2 </span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?msg</span> <span class="nv">?test</span> <span class="k">WHERE</span> <span class="p">{</span>
+<span class="lineno">3 </span>  <span class="nv">?x</span> <span class="k">a</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">ValidationResult</span> <span class="p">.</span>
+<span class="lineno">4 </span>  <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">resultMessage</span> <span class="nv">?msg</span> <span class="p">.</span>
+<span class="lineno">5 </span>  <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">sourceConstraint</span> <span class="nv">?test</span> <span class="p">.</span>
+<span class="lineno">6 </span><span class="p">}</span>
+</pre></div>
+
+<caption><center>Listing 1: SPARQL query for retrieving test messages as actionable items</center></caption>
+<caption><center><span class="btn-collapse" onclick="collapse('table-messages');">show/hide</span>Table 1: Messages from tests as actionable items</center></caption>
+<table id="table-messages" class="large-table">
+  <thead><tr><th title="Field #1">msg</th>
+    <th title="Field #2">test</th>
+  </tr></thead>
+  <tbody><tr>
+    <td>Consent should state data storage periods</td>
+    <td>Q:ConsentHasStoragePeriod</td>
+  </tr>
+  <tr>
+    <td>Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#StoreIdentifiers</td>
+    <td>Q:ConsentAllPurposesForSameProcessing</td>
+  </tr>
+  <tr>
+    <td>Consent should cover all purposes http://example.com/Quantcast#InformationStorageAccessWithPartners for same processing activities http://example.com/Quantcast#UseIdentifiers</td>
+    <td>Q:ConsentAllPurposesForSameProcessing</td>
+  </tr>
+  <tr>
+    <td>Consent should have a timestamp</td>
+    <td>Q:ConsentHasTimestamp</td>
+  </tr>
+</tbody></table>
+<p>The second query, shown in Listing 2. lists the GDPR articles being tested and their status. It helps assess the coverage of GDPR and to see which items have failing tests, as shown in Table 2.</p>
+<caption><center>Listing 2: SPARQL query to retrieve GDPR articles and their test results</center></caption>
+<div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="k">PREFIX</span> <span class="nn">sh</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/shacl#&gt;</span>
+<span class="lineno"> 2 </span><span class="k">PREFIX</span> <span class="nn">s</span><span class="p">:</span> <span class="nl">&lt;http://example.com/Quantcast/shapes#&gt;</span>
+<span class="lineno"> 3 </span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?gdpr</span> <span class="nv">?result</span> <span class="nv">?msg</span> <span class="k">WHERE</span> <span class="p">{</span>
+<span class="lineno"> 4 </span>  <span class="nv">?test</span> <span class="nn">s</span><span class="p">:</span><span class="nt">linkToGDPR</span> <span class="nv">?gdpr</span> <span class="p">.</span>
+<span class="lineno"> 5 </span>  <span class="k">BIND</span><span class="p">(</span><span class="nf">NOT EXISTS</span> <span class="p">{</span>
+<span class="lineno"> 6 </span>    <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">sourceConstraint</span> <span class="nv">?test</span> <span class="p">.</span>
+<span class="lineno"> 7 </span>    <span class="p">}</span> <span class="k">as</span> <span class="nv">?result</span> <span class="p">)</span>
+<span class="lineno"> 8 </span>  <span class="k">OPTIONAL</span> <span class="p">{</span>
+<span class="lineno"> 9 </span>    <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">sourceConstraint</span> <span class="nv">?test</span> <span class="p">.</span>
+<span class="lineno">10 </span>    <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">resultMessage</span> <span class="nv">?msg</span> <span class="p">.</span>
+<span class="lineno">11 </span>    <span class="p">}</span>
+<span class="lineno">12 </span><span class="p">}</span> <span class="k">ORDER BY</span> <span class="nv">?gdpr</span>
+</pre></div>
+
+<caption><center><span class="btn-collapse" onclick="collapse('table-gdpr');">show/hide</span>Table 2: GDPR articles and their test results</center></caption>
+<table id="table-gdpr" class="large-table">
+  <thead><tr><th title="Field #1">gdpr</th>
+    <th title="Field #2">result</th>
+    <th title="Field #3">msg</th>
+  </tr></thead>
+  <tbody><tr>
+    <td>gdpr:article13-1-e</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article13-2-a</td>
+    <td>false</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>gdpr:article14-1-e</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article14-2-a</td>
+    <td>false</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>gdpr:article30-1-d</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article4-11</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article44</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article5-1-e</td>
+    <td>false</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>gdpr:article7-2</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:article7-3</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:recital32</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:recital39</td>
+    <td>false</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>gdpr:recital42</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>gdpr:recital43</td>
+    <td>true</td>
+    <td> </td>
+  </tr>
+</tbody></table>
+<p>The third query, shown in Listing 3., generates a 'report', as in Table 3., showing the constraints (test), their type (automatic or manual), link to GDPR, result (pass or fail), the failing node, and message.</p>
+<caption><center>Listing 3. SPARQL query to generate a testing report</center></caption>
+<div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="k">PREFIX</span> <span class="nn">c</span><span class="p">:</span> <span class="nl">&lt;http://example.com/Quantcast/shapes#&gt;</span>
+<span class="lineno"> 2 </span><span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="lineno"> 3 </span><span class="k">PREFIX</span> <span class="nn">sh</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/ns/shacl#&gt;</span>
+<span class="lineno"> 4 </span><span class="k">PREFIX</span> <span class="nn">xsd</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span>
+<span class="lineno"> 5 </span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?name</span> <span class="nv">?test</span> <span class="nv">?gdpr</span> <span class="nv">?result</span> <span class="nv">?node</span> <span class="nv">?msg</span>
+<span class="lineno"> 6 </span><span class="k">WHERE</span> <span class="p">{</span>
+<span class="lineno"> 7 </span>  <span class="nv">?x</span> <span class="k">a</span> <span class="nn">c</span><span class="p">:</span><span class="nt">Constraint</span> <span class="p">.</span>
+<span class="lineno"> 8 </span>  <span class="nv">?x</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">name</span> <span class="nv">?name</span> <span class="p">.</span>
+<span class="lineno"> 9 </span>  <span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nf">EXISTS</span><span class="p">{</span>
+<span class="lineno">10 </span>    <span class="nv">?x</span> <span class="k">a</span> <span class="nn">c</span><span class="p">:</span><span class="nt">AutomaticallyCheckedConstraint</span><span class="p">},</span> 
+<span class="lineno">11 </span>    <span class="s">&quot;Automatic&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span><span class="p">,</span> <span class="s">&quot;Manual&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span><span class="p">)</span>
+<span class="lineno">12 </span>    <span class="k">as</span> <span class="nv">?test</span><span class="p">)</span>
+<span class="lineno">13 </span>  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?x</span> <span class="nn">c</span><span class="p">:</span><span class="nt">linkToGDPR</span> <span class="nv">?gdpr</span> <span class="p">}</span>
+<span class="lineno">14 </span>  <span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nf">EXISTS</span><span class="p">{</span>
+<span class="lineno">15 </span>    <span class="nv">?y</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">sourceConstraint</span> <span class="nv">?x</span><span class="p">},</span>
+<span class="lineno">16 </span>    <span class="s">&quot;FAIL&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span><span class="p">,</span> <span class="s">&quot;PASS&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">string</span><span class="p">)</span>
+<span class="lineno">17 </span>    <span class="k">as</span> <span class="nv">?result</span><span class="p">)</span>
+<span class="lineno">18 </span>  <span class="k">OPTIONAL</span> <span class="p">{</span>
+<span class="lineno">19 </span>    <span class="k">FILTER</span> <span class="nf">EXISTS</span> <span class="p">{</span> <span class="nv">?y</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">sourceConstraint</span> <span class="nv">?x</span> <span class="p">}</span>
+<span class="lineno">20 </span>    <span class="nv">?y</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">focusNode</span> <span class="nv">?node</span> <span class="p">.</span>
+<span class="lineno">21 </span>    <span class="nv">?y</span> <span class="nn">sh</span><span class="p">:</span><span class="nt">resultMessage</span> <span class="nv">?msg</span> <span class="p">.</span>
+<span class="lineno">22 </span>  <span class="p">}</span>
+<span class="lineno">23 </span><span class="p">}</span> <span class="k">ORDER BY</span> <span class="nv">?name</span>
+</pre></div>
+
+<caption><center><span class="btn-collapse" onclick="collapse('table-report');">show/hide</span>Table 3: Testing Report generated from results</center></caption>
+<table id="table-report" class="large-table">
+  <thead><tr><th title="Field #1">name</th>
+    <th title="Field #2">test</th>
+    <th title="Field #3">gdpr</th>
+    <th title="Field #4">result</th>
+    <th title="Field #5">node</th>
+    <th title="Field #6">msg</th>
+  </tr></thead>
+  <tbody><tr>
+    <td>Consent != Inactivity</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent != Pre-ticked Boxes</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent != Silence</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Data Subject</td>
+    <td>Automatic</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Given To</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Location</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Medium</td>
+    <td>Automatic</td>
+    <td>gdpr:article7-2</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Medium</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Personal Data</td>
+    <td>Automatic</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Personal Data</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Processing</td>
+    <td>Automatic</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Processing</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Provided By</td>
+    <td>Automatic</td>
+    <td>gdpr:article7-2</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Purpose</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Purpose</td>
+    <td>Automatic</td>
+    <td>gdpr:recital42</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Status</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Timestamp</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should have a timestamp</td>
+  </tr>
+  <tr>
+    <td>Consent --&gt; Timestamp</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should have a timestamp</td>
+  </tr>
+  <tr>
+    <td>Consent == Choice</td>
+    <td>Manual</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent == Freely Given</td>
+    <td>Manual</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent == Specific</td>
+    <td>Manual</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent == Statement of Clear Action</td>
+    <td>Manual</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent == Unambigious</td>
+    <td>Manual</td>
+    <td>gdpr:article4-11</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent Generating Activity</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent Request == Clear</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent Request == Concise</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent Request == Not Disruptive</td>
+    <td>Manual</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Consent Template</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Ease of Withdraw Consent</td>
+    <td>Manual</td>
+    <td>gdpr:article7-3</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Many Processing x One Purpose</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>One Processing x Many Purposes</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should cover all purposes Q:InformationStorageAccessWithPartners for same processing activities Q:StoreIdentifiers</td>
+  </tr>
+  <tr>
+    <td>One Processing x Many Purposes</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should cover all purposes Q:InformationStorageAccessWithPartners for same processing activities Q:StoreIdentifiers</td>
+  </tr>
+  <tr>
+    <td>One Processing x Many Purposes</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should cover all purposes Q:InformationStorageAccessWithPartners for same processing activities Q:UseIdentifiers</td>
+  </tr>
+  <tr>
+    <td>One Processing x Many Purposes</td>
+    <td>Automatic</td>
+    <td>gdpr:recital32</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should cover all purposes Q:InformationStorageAccessWithPartners for same processing activities Q:UseIdentifiers</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article13-2-a</td>
+    <td>FAIL</td>
+    <td>Q:CATQInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article13-2-a</td>
+    <td>FAIL</td>
+    <td>Q:CATTPInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article13-2-a</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article13-2-a</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article14-2-a</td>
+    <td>FAIL</td>
+    <td>Q:CATQInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article14-2-a</td>
+    <td>FAIL</td>
+    <td>Q:CATTPInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article14-2-a</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article14-2-a</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article5-1-e</td>
+    <td>FAIL</td>
+    <td>Q:CATQInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article5-1-e</td>
+    <td>FAIL</td>
+    <td>Q:CATTPInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article5-1-e</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:article5-1-e</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:recital39</td>
+    <td>FAIL</td>
+    <td>Q:CATQInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:recital39</td>
+    <td>FAIL</td>
+    <td>Q:CATTPInfoStorageAccess</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:recital39</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415120753</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Personal Data --&gt; Storage Period</td>
+    <td>Automatic</td>
+    <td>gdpr:recital39</td>
+    <td>FAIL</td>
+    <td>Q:Consent20190415140000</td>
+    <td>Consent should state data storage periods</td>
+  </tr>
+  <tr>
+    <td>Right to Withdraw</td>
+    <td>Automatic</td>
+    <td>gdpr:article7-3</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Separation of Processing</td>
+    <td>Manual</td>
+    <td>gdpr:recital43</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Categories</td>
+    <td>Automatic</td>
+    <td>gdpr:article44</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Identities</td>
+    <td>Automatic</td>
+    <td>gdpr:article13-1-e</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Identities</td>
+    <td>Automatic</td>
+    <td>gdpr:article14-1-e</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Identities</td>
+    <td>Automatic</td>
+    <td>gdpr:article30-1-d</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Identities</td>
+    <td>Automatic</td>
+    <td>gdpr:article44</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Third Party Safeguards</td>
+    <td>Automatic</td>
+    <td> </td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Withdraw Consent Information</td>
+    <td>Manual</td>
+    <td>gdpr:article7-3</td>
+    <td>PASS</td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</tbody></table>
+</section>
+<script type="text/javascript">
+  function collapse(ele) {
+    var e = document.getElementById(ele);
+    console.log(e);
+    if (e.classList.contains('open')) {
+      e.classList.remove('open');
+      e.style.display = 'none'; 
+    } else {
+      e.classList.add('open');
+      e.style.display = 'block';  
+    }
+  }
+</script>
+
+    </main>
+    <footer>
+      <p>Funded by <a href="http://www.sfi.ie/">Science Foundation Ireland</a></p>
+    </footer>
+  </body>
+</html>

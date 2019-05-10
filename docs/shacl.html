@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.4/tufte.min.css" /> -->
+  <title>Validating requirements using SHACL</title>
+  
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>Validating requirements using SHACL</h1>
+    </header>
+      
+<link rel="stylesheet" type="text/css" href="/static/emacs.css">
+<section>
+<p>Using the constraints gathered, we convert them to SHACL shapes to validate the underlying data graph. For this, we need to use the same representations in the SHACL shapes as used in the underlying data graph i.e. the same ontology and design patterns.</p>
+<p>To distinguish between constraints that will be checked automatically or manually on the data graph, we define the classes -
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">Constraint</span><span class="w"> </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">NodeShape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">  </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Constraint&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="lineno">3 </span><span class="nn">:</span><span class="nt">AutomaticallyCheckedConstraint</span><span class="w"> </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">Constraint</span><span class="p">,</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">NodeShape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">4 </span><span class="w">  </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Automatically Checked Constraint&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="lineno">5 </span><span class="nn">:</span><span class="nt">ManuallyCheckedConstraint</span><span class="w"> </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">Constraint</span><span class="p">,</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">NodeShape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">6 </span><span class="w">  </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Manually Checked Constraint&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+<p>To link a constraint with the GDPR, we link it to a resource using <a href="https://w3id.org/GDPRtEXT/">GDPRtEXT</a></p>
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">linkToGDPR</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">rdfs:</span><span class="nt">Property</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">    </span><span class="nn">rdfs:</span><span class="nt">range</span><span class="w"> </span><span class="nn">eli:</span><span class="nt">LegalResourceSubdivision</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">3 </span><span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;linkToGDPR&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+<p>We then define constraints using either property shapes or sparql queries, depending on the complexity required. For example, to check the requirement that consent can only be associated with one (and only one) data subject, we define a property shape as follows -
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">ConsentHasDataSubject</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">PropertyShape</span><span class="p">,</span><span class="w"> </span><span class="nn">:</span><span class="nt">AutomaticallyCheckedConstraint</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">name</span><span class="w"> </span><span class="s">&quot;Consent --&gt; Data Subject&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">3 </span><span class="w">  </span><span class="nn">:</span><span class="nt">linkToGDPR</span><span class="w"> </span><span class="nn">gdpr:</span><span class="nt">article4-11</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">4 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">path</span><span class="w"> </span><span class="nn">gc:</span><span class="nt">isConsentForDataSubject</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">5 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">minCount</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="lineno">6 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">maxCount</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="lineno">7 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">or</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">class</span><span class="w"> </span><span class="nn">gc:</span><span class="nt">DataSubject</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">class</span><span class="w"> </span><span class="nn">gdprov:</span><span class="nt">DataSubject</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">8 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">message</span><span class="w"> </span><span class="s">&quot;Consent should be linked to Data Subject&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</p>
+<p>To check whether a consent has timestamp, we use the SPARQL constraint as follows -
+<div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="nn">:</span><span class="nt">ConsentHasTimestamp</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">SPARQLConstraint</span><span class="p">,</span><span class="w"> </span><span class="nn">:</span><span class="nt">AutomaticallyCheckedConstraint</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 2 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">name</span><span class="w"> </span><span class="s">&quot;Consent --&gt; Timestamp&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 3 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">prefixes</span><span class="w"> </span><span class="nn">:</span><span class="nt">Shape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 4 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">select</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+<span class="lineno"> 5 </span><span class="s">    SELECT $this WHERE {</span>
+<span class="lineno"> 6 </span><span class="s">            FILTER NOT EXISTS { $this gc:atTime ?time } .</span>
+<span class="lineno"> 7 </span><span class="s">            FILTER NOT EXISTS { $this prov:generatedAtTime ?time } .</span>
+<span class="lineno"> 8 </span><span class="s">            FILTER NOT EXISTS { $this a gdprov:ConsentAgreementTemplate } .</span>
+<span class="lineno"> 9 </span><span class="s">    }</span>
+<span class="lineno">10 </span><span class="s">    &quot;&quot;&quot; ;</span>
+<span class="lineno">11 </span><span class="s">  sh:message &quot;Consent should have a timestamp&quot; .</span>
+</pre></div>
+</p>
+<p>We could use a property shape for the same by using the <code>sh:or</code> facility, though it then becomes a matter of preference. The property shape would be as follows -
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">ConsentHasTimestamp</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">PropertyShape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">or</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="lineno">3 </span><span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">path</span><span class="w"> </span><span class="nn">gc:</span><span class="nt">AtTime</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">minCount</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">maxCount</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">4 </span><span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">path</span><span class="w"> </span><span class="nn">prov:</span><span class="nt">generatedAtTime</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">minCount</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">maxCount</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">5 </span><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</p>
+<p>For the Manual Test constraints, we define a class <code>ManualTest</code>, and associate it with properties that signify the validation in the form of a boolean value. We then define a SHACL shape that verifies the boolean value as a representation of validating that requirement. For example, verifying whether consent is freely given is tested as follows -
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">ValidconsentIsFreelyGiven</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">PropertyShape</span><span class="p">,</span><span class="w"> </span><span class="nn">:</span><span class="nt">ManuallyCheckedConstraint</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">  </span><span class="c"># R42 freely given - Consent should not be regarded as freely given if the data subject has no genuine or free choice or is unable to refuse or withdraw consent without detriment.</span><span class="w"></span>
+<span class="lineno">3 </span><span class="w">  </span><span class="nn">:</span><span class="nt">linkToGDPR</span><span class="w"> </span><span class="nn">gdpr:</span><span class="nt">article4-11</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">4 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">name</span><span class="w"> </span><span class="s">&quot;Consent == Freely Given&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">5 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">path</span><span class="w"> </span><span class="nn">m:</span><span class="nt">consentIsFreelyGiven</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">6 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">hasValue</span><span class="w"> </span><span class="l">true</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">7 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">message</span><span class="w"> </span><span class="s">&quot;(MANUAL-TEST) Consent should be freely given&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</p>
+<p>To associate prefixes with SPARQL queries within the SHACL shape, we define an ontology at the base with the required prefixes using <code>sh:declare</code> and associate it with the SPARQL queries in shape using <code>sh:prefixes</code> as follows:
+<div class="highlight"><pre><span></span><span class="lineno"> 1 </span><span class="nn">:</span><span class="nt">Shape</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Ontology</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 2 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;rdfs&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;http://www.w3.org/2000/01/rdf-schema#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 3 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;gc&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;https://w3id.org/GConsent#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 4 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;gdprov&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;https://w3id.org/GDPRov#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 5 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;gdprtext&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;https://w3id.org/GDPRtEXT#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 6 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;p-plan&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;http://purl.org/net/p-plan#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 7 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">declare</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">prefix</span><span class="w"> </span><span class="s">&quot;prov&quot;</span><span class="p">;</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">namespace</span><span class="w"> </span><span class="s">&quot;http://www.w3.org/ns/prov#&quot;</span><span class="o">^^</span><span class="ge">xsd:anyURI</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno"> 8 </span><span class="w">  </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Shape declarations&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="lineno"> 9 </span><span class="nn">:</span><span class="nt">CheckHandleDataBreachConstraint</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">SPARQLConstraint</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">10 </span><span class="w">  </span><span class="nn">:</span><span class="nt">linkToGDPR</span><span class="w"> </span><span class="nn">gdpr:</span><span class="nt">article33</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">11 </span><span class="w">  </span><span class="nn">:</span><span class="nt">linkToGDPR</span><span class="w"> </span><span class="nn">gdpr:</span><span class="nt">article34</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">12 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">name</span><span class="w"> </span><span class="s">&quot;Handle Data Breach&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">13 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">prefixes</span><span class="w"> </span><span class="nn">:</span><span class="nt">Shape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">14 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">select</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+<span class="lineno">15 </span><span class="s">      SELECT $this {</span>
+<span class="lineno">16 </span><span class="s">          FILTER NOT EXISTS { ?X a gdprov:HandleDataBreachProcess }</span>
+<span class="lineno">17 </span><span class="s">      }</span>
+<span class="lineno">18 </span><span class="s">  &quot;&quot;&quot; ;</span>
+</pre></div>
+</p>
+<p>In using the model of consent, to check whether the model has been found compliant, we use the <code>sh:ValidationReport</code> itself as a predicate of the <code>sh:targetClass</code> property, and use this to validate the constraint against the validation report of the consent model.
+<div class="highlight"><pre><span></span><span class="lineno">1 </span><span class="nn">:</span><span class="nt">ConsentModelConstraints</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">NodeShape</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">2 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">targetClass</span><span class="w"> </span><span class="nn">sh:</span><span class="nt">ValidationReport</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
+<span class="lineno">3 </span><span class="w">  </span><span class="nn">sh:</span><span class="nt">property</span><span class="w"> </span><span class="nn">:</span><span class="nt">ValidationReportConforms</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="lineno">4 </span><span class="w">  </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Given Consent following Consent Model constraints&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</p>
+</section>
+<section>
+<p>We divide the constraints into 3 parts as follows:
+  <ol>
+    <li>Part A: constraints related to the model of the system</li>
+    <li>Part B: constraints related to instances of given consent</li>
+    <li>Part C: constraints related to model of consent + instances of given consent</li>
+  </ol></p>
+<p>Part A test requirements such as the presence of DPO and procedures to handle the various rights. Part B checks ofr requirements directly associated with an instance of given consent. These constraints have to be executed for every instance of given consent. Part C splits the requirements (from Part B) into two parts - one common to all consent and validated against a 'model' or 'template' of consent, and the other validated against the instance of given consent. As most constraints are abstracted away to the model and only need to be checked once, this makes the validation of given consent more efficient.</p>
+<p>To execute the SHACL constraints, we used the <a href="https://github.com/TopQuadrant/shacl">TopBraid SHACL</a> binary and bash script. The script executed the constraints in various parts in the correct order and persisted the results in files.</p>
+</section>
+
+    </main>
+    <footer>
+      <p>Funded by <a href="http://www.sfi.ie/">Science Foundation Ireland</a></p>
+    </footer>
+  </body>
+</html>
