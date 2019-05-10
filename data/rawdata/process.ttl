@@ -1,0 +1,102 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@base <http://example.com/Quantcast> .
+
+############ PROCESS ############
+
+:Marketting a gdprov:Process, gc:Purpose ;
+    rdfs:label "Marketting"@en ;
+    rdfs:comment "Quantcast newsletters, marketing, or promotional materials"@en .
+
+:MonitorAnalyseImproveServices a gdprov:Process, gc:Purpose ;
+    rdfs:label "Monitor, Analyse, and Improve Services" ;
+    gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QAdvertise a gdprov:Process ;
+    rdfs:label "Quantcast Advertise Services" ;
+    gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QMeasure a gdprov:Process ;
+    rdfs:leabel "Quantcast Measure Services" ;
+    gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+:QChoice a gdprov:Process ;
+    rdfs:label "Quantcast Choice" ;
+    rdfs:comment "Consent Management Framework following IAB consent framework" ;
+    gdprov:hasLegalBasis gdprtext:LegitimateInterest .
+
+############ Q Purposes ############
+
+# Information storage and access
+:InformationStorageAccess a gdprov:Process, gc:Purpose ;
+    rdfs:label "Information, Storage, and Access";
+    rdfs:comment "The storage of information, or access to information that is already stored, on your device such as advertising identifiers, device identifiers, cookies, and similar technologies." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :StoreIdentifiers, :UseIdentifiers .
+
+:Personalisation a gdprov:Process, gc:Purpose ;
+    rdfs:label "Personalisation" ;
+    rdfs:comment "The collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as on other websites or apps, over time. Typically, the content of the site or app is used to make inferences about your interests, which inform future selection of advertising and/or content." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :GenerateInterestProfile, :UseInterestProfile, :CollectServiceUsage .
+
+:AdSelectionDeliveryReporting a gdprov:Process, gc:Purpose ;
+    rdfs:label "Ad selection, delivery, reporting" ;
+    rdfs:comment "The collection of information, and combination with previously collected information, to select and deliver advertisements for you, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what advertisements were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. This does not include personalisation, which is the collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as websites or apps, over time." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :GenerateInterestProfile, :UseInterestProfile, :CollectAdInteraction, :UseBuyingHistory .
+
+:Measurement a gdprov:Process, gc:Purpose ;
+    rdfs:label "Measurement" ;
+    rdfs:comment "The collection of information about your use of the content, and combination with previously collected information, used to measure, understand, and report on your usage of the service. This does not include personalisation, the collection of information about your use of this service to subsequently personalise content and/or advertising for you in other contexts, i.e. on other service, such as websites or apps, over time." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :CollectContentUsage .
+
+############ THIRD PARTY INIT ############
+
+# Information storage and access
+:InformationStorageAccessWithPartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Information, Storage, and Access with Partners";
+    rdfs:comment "The storage of information, or access to information that is already stored, on your device such as advertising identifiers, device identifiers, cookies, and similar technologies." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :StoreIdentifiers, :UseIdentifiers, :ShareDataWithInfoPartners .
+
+:PersonalisationWithPartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Personalisation with Partners" ;
+    rdfs:comment "The collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as on other websites or apps, over time. Typically, the content of the site or app is used to make inferences about your interests, which inform future selection of advertising and/or content." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :CollectServiceUsage, :GenerateInterestProfile, :UseInterestProfile, :ShareDataWithPersonalisationPartners .
+    
+:AdSelectionDeliveryReportingWithPartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Ad selection, delivery, reporting with Partners" ;
+    rdfs:comment "The collection of information, and combination with previously collected information, to select and deliver advertisements for you, and to measure the delivery and effectiveness of such advertisements. This includes using previously collected information about your interests to select ads, processing data about what advertisements were shown, how often they were shown, when and where they were shown, and whether you took any action related to the advertisement, including for example clicking an ad or making a purchase. This does not include personalisation, which is the collection and processing of information about your use of this service to subsequently personalise advertising and/or content for you in other contexts, such as websites or apps, over time." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :GenerateInterestProfile, :UseInterestProfile, :CollectAdInteraction, :UseBuyingHistory, :ShareDataWithAdPartners .
+
+:MeasurementWithPartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Measurement with Partners" ;
+    rdfs:comment "The collection of information about your use of the content, and combination with previously collected information, used to measure, understand, and report on your usage of the service. This does not include personalisation, the collection of information about your use of this service to subsequently personalise content and/or advertising for you in other contexts, i.e. on other service, such as websites or apps, over time." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :CollectContentUsage, :ShareDataWithMeasurementPartners .
+
+:ContentSelectionDeliveryReportingWithPartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Content selection, delivery, reporting with Partners" ;
+    rdfs:comment "The collection of information, and combination with previously collected information, to select and deliver content for you, and to measure the delivery and effectiveness of such content. This includes using previously collected information about your interests to select content, processing data about what content was shown, how often or how long it was shown, when and where it was shown, and whether the you took any action related to the content, including for example clicking on content. This does not include personalisation, which is the collection and processing of information about your use of this service to subsequently personalise content and/or advertising for you in other contexts, such as websites or apps, over time." ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :GenerateInterestProfile, :UseInterestProfile, :CollectContentUsage, :ShareDataWithContentPartners .
+
+:AllowGooglePartners a gdprov:Process, gc:Purpose ;
+    rdfs:label "Google" ;
+    rdfs:comment "Allow Google and their technology partners to collect data and use cookies for ad personalisation and measurement" ;
+    gdprov:hasLegalBasis gdprtext:GivenConsent ;
+    gdprov:hasStep :CollectDataAndCookies, :ShareDataWithGooglePartners .

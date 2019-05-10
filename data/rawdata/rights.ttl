@@ -1,0 +1,44 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@base <http://example.com/Quantcast> .
+
+:RightToDataAccess a gdprov:HandleRightToAccessPersonalData ;
+    rdfs:label "handle right to access" ;
+    rdfs:comment "If you are located in the EEA and we can properly identify you, you have a number of rights with regard to your personal information. For example, you have the right to access your information and to have inaccuracies in your personal information corrected. In many cases where we process your information, you may also have a right to restrict or limit the ways in which we use your information. You also have the right to object to the processing of your personal information and to have it deleted in certain circumstances. You also have a right to obtain a copy of your personal information in an easily accessible format. For these purposes, go here.
+
+However, as outlined above, although we make predictions about consumers’ interests based on the information collected in accordance with this Privacy Policy, we don’t know who you are. Accordingly, if we receive a request from you and we cannot identify you (even if you provide us with additional information), we may not be able to assist you in exercising these rights. " ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/data-subject-rights/> .
+:RightToRectification a gdprov:HandleRightToRectification ;
+    rdfs:label "handle right to rectify" ;
+    rdfs:comment "If you are located in the EEA and we can properly identify you, you have a number of rights with regard to your personal information. For example, you have the right to access your information and to have inaccuracies in your personal information corrected. In many cases where we process your information, you may also have a right to restrict or limit the ways in which we use your information. You also have the right to object to the processing of your personal information and to have it deleted in certain circumstances. You also have a right to obtain a copy of your personal information in an easily accessible format. For these purposes, go here.
+
+However, as outlined above, although we make predictions about consumers’ interests based on the information collected in accordance with this Privacy Policy, we don’t know who you are. Accordingly, if we receive a request from you and we cannot identify you (even if you provide us with additional information), we may not be able to assist you in exercising these rights. " ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/data-subject-rights/> .
+:RightToObjectProcessing a gdprov:HandleRightToObjectProcessing ;
+    rdfs:label "handle right to object" ;
+    rdfs:comment "If you are located in the EEA and we can properly identify you, you have a number of rights with regard to your personal information. For example, you have the right to access your information and to have inaccuracies in your personal information corrected. In many cases where we process your information, you may also have a right to restrict or limit the ways in which we use your information. You also have the right to object to the processing of your personal information and to have it deleted in certain circumstances. You also have a right to obtain a copy of your personal information in an easily accessible format. For these purposes, go here.
+
+However, as outlined above, although we make predictions about consumers’ interests based on the information collected in accordance with this Privacy Policy, we don’t know who you are. Accordingly, if we receive a request from you and we cannot identify you (even if you provide us with additional information), we may not be able to assist you in exercising these rights. " ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/data-subject-rights/> .
+:RightToErasure a gdprov:HandleRightOfErasure ;
+    rdfs:label "handle right to erasure" ;
+    rdfs:comment "If you are located in the EEA and we can properly identify you, you have a number of rights with regard to your personal information. For example, you have the right to access your information and to have inaccuracies in your personal information corrected. In many cases where we process your information, you may also have a right to restrict or limit the ways in which we use your information. You also have the right to object to the processing of your personal information and to have it deleted in certain circumstances. You also have a right to obtain a copy of your personal information in an easily accessible format. For these purposes, go here.
+
+However, as outlined above, although we make predictions about consumers’ interests based on the information collected in accordance with this Privacy Policy, we don’t know who you are. Accordingly, if we receive a request from you and we cannot identify you (even if you provide us with additional information), we may not be able to assist you in exercising these rights. " ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/data-subject-rights/> .
+:RightToDataPortability a gdprov:HandleRightToDataPortability ;
+    rdfs:label "handle right to data portability" ;
+    rdfs:comment "If you are located in the EEA and we can properly identify you, you have a number of rights with regard to your personal information. For example, you have the right to access your information and to have inaccuracies in your personal information corrected. In many cases where we process your information, you may also have a right to restrict or limit the ways in which we use your information. You also have the right to object to the processing of your personal information and to have it deleted in certain circumstances. You also have a right to obtain a copy of your personal information in an easily accessible format. For these purposes, go here.
+
+However, as outlined above, although we make predictions about consumers’ interests based on the information collected in accordance with this Privacy Policy, we don’t know who you are. Accordingly, if we receive a request from you and we cannot identify you (even if you provide us with additional information), we may not be able to assist you in exercising these rights. " ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/data-subject-rights/> .

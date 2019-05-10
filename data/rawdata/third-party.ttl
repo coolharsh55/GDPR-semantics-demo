@@ -1,0 +1,3825 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@base <http://example.com/Quantcast> .
+
+############ THIRD PARTY ############
+
+:Experian a gdprov:ThirdParty ;
+    rdfs:label "Experian" .
+:MasterCard a gdprov:ThirdParty ;
+    rdfs:label "MasterCard" .
+:DLX a gdprov:ThirdParty ;
+    rdfs:label "DLX" .
+:TiVO a gdprov:ThirdParty ;
+    rdfs:label "TiVO" .
+:Netwise a gdprov:ThirdParty ;
+    rdfs:label "Netwise" .
+:1020-Inc-Dba-Placecast-And-Ericsson-Emodo a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "1020, Inc. dba Placecast and Ericsson Emodo" ;
+    rdfs:seeAlso <www.ericsson-emodo.com/privacy-policy/> .
+:1Plusx-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "1plusX AG" ;
+    rdfs:seeAlso <www.1plusx.com/privacy-policy/> .
+:2Kdirect-Inc-Dba-Ipromote a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "2KDirect, Inc. (dba iPromote)" ;
+    rdfs:seeAlso <www.ipromote.com/privacy-policy/> .
+:33Across a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "33Across" ;
+    rdfs:seeAlso <www.33across.com/privacy-policy> .
+:7Hops-Com-Inc-Zergnet a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "7Hops.com Inc. (ZergNet)" ;
+    rdfs:seeAlso <zergnet.com/privacy> .
+:A-Million-Ads-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "A Million Ads Limited" ;
+    rdfs:seeAlso <www.amillionads.com/privacy-policy> .
+:A-Mob a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "A.Mob" ;
+    rdfs:seeAlso <www.we-are-adot.com/privacy-policy/> .
+:Accelerize-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Accelerize Inc." ;
+    rdfs:seeAlso <getcake.com/privacy-policy/> .
+:Accorp-Sp-Z-O-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Accorp Sp. z o.o." ;
+    rdfs:seeAlso <www.instytut-pollster.pl/privacy-policy/> .
+:Active-Agent-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Active Agent AG" ;
+    rdfs:seeAlso <www.active-agent.com/de/unternehmen/datenschutzerklaerung/> .
+:Acuityads-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Acuityads Inc." ;
+    rdfs:seeAlso <www.acuityads.com/privacy-policy/> .
+:Ad-Unity-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ad Unity Ltd" ;
+    rdfs:seeAlso <www.adunity.com/privacy-policy.html> .
+:Ad6Media a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ad6media" ;
+    rdfs:seeAlso <www.ad6media.fr/privacy> .
+:Adara-Media-Unlimited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADARA MEDIA UNLIMITED" ;
+    rdfs:seeAlso <adara.com/privacy-promise/> .
+:Adclear-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdClear GmbH" ;
+    rdfs:seeAlso <www.adclear.de/datenschutzerklaerung/> .
+:Adcolony-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdColony, Inc." ;
+    rdfs:seeAlso <www.adcolony.com/privacy-policy> .
+:Addapptr-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AddApptr GmbH" ;
+    rdfs:seeAlso <www.addapptr.com/data-privacy> .
+:Addefend-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdDefend GmbH" ;
+    rdfs:seeAlso <www.addefend.com/en/privacy-policy/> .
+:Adelement-Media-Solutions-Pvt-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdElement Media Solutions Pvt Ltd" ;
+    rdfs:seeAlso <adelement.com/privacy-policy.html> .
+:Adello-Group-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adello Group AG" ;
+    rdfs:seeAlso <www.adello.com/privacy-policy/> .
+:Adelphic-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adelphic LLC" ;
+    rdfs:seeAlso <adelphic.com/platform/privacy/> .
+:Adform-A-S a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adform A/S" ;
+    rdfs:seeAlso <site.adform.com/privacy-policy-opt-out/> .
+:Adhese a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adhese" ;
+    rdfs:seeAlso <adhese.com/privacy-and-cookie-policy> .
+:Adhood-Com a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "adhood.com" ;
+    rdfs:seeAlso <v3.adhood.com/en/site/politikavekurallar/gizlilik.php?lang=en> .
+:Adikteev-Emoteev a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adikteev / Emoteev" ;
+    rdfs:seeAlso <www.adikteev.com/eu/privacy/> .
+:Adimo a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adimo" ;
+    rdfs:seeAlso <adimo.co/privacy-policy/> .
+:Adition-Technologies-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADITION technologies AG" ;
+    rdfs:seeAlso <www.adition.com/datenschutz> .
+:Adkernel-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adkernel LLC" ;
+    rdfs:seeAlso <adkernel.com/privacy-policy/> .
+:Adledge a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adledge" ;
+    rdfs:seeAlso <adledge.com/data-privacy/> .
+:Adloox-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adloox SA" ;
+    rdfs:seeAlso <adloox.com/disclaimer> .
+:Adludio-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adludio Ltd" ;
+    rdfs:seeAlso <adludio.com/privacypolicy> .
+:Adman-Phaistos-Networks-S-A a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADMAN - Phaistos Networks, S.A." ;
+    rdfs:seeAlso <www.adman.gr/privacy> .
+:Adman-Interactive-Sl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADman Interactive SL" ;
+    rdfs:seeAlso <admanmedia.com/politica> .
+:Admaxim-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdMaxim Inc." ;
+    rdfs:seeAlso <www.admaxim.com/privacy/> .
+:Admedo-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Admedo Ltd" ;
+    rdfs:seeAlso <www.admedo.com/privacy-policy> .
+:Admetrics-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "admetrics GmbH" ;
+    rdfs:seeAlso <admetrics.io/en/privacy_policy/> .
+:Admixer-Eu-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Admixer EU GmbH" ;
+    rdfs:seeAlso <admixer.net/privacy> .
+:Admotion-Srl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Admotion SRL" ;
+    rdfs:seeAlso <www.admotion.com/policy/> .
+:Adnami-Aps a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adnami Aps" ;
+    rdfs:seeAlso <www.adnami.io/adnami_privacy> .
+:Adobe-Advertising-Cloud a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adobe Advertising Cloud" ;
+    rdfs:seeAlso <www.adobe.com/nz/privacy/marketing-cloud.html> .
+:Adobe-Audience-Manager a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adobe Audience Manager" ;
+    rdfs:seeAlso <www.adobe.com/privacy/policy.html> .
+:Adrino-Sp-Z-O-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADRINO Sp. z o.o." ;
+    rdfs:seeAlso <www.adrino.pl/ciasteczkowa-polityka/> .
+:Adroll-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdRoll Inc" ;
+    rdfs:seeAlso <www.adrollgroup.com/privacy> .
+:Adrule-Mobile-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "adrule mobile GmbH" ;
+    rdfs:seeAlso <www.adrule.net/de/datenschutz/> .
+:Adsolutions-Bv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adsolutions BV" ;
+    rdfs:seeAlso <www.adsolutions.com/privacy-policy/> .
+:Adspirit-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdSpirit GmbH" ;
+    rdfs:seeAlso <www.adspirit.de/privacy> .
+:Adsquare-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "adsquare GmbH" ;
+    rdfs:seeAlso <www.adsquare.com/privacy> .
+:Adssets-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adssets AB" ;
+    rdfs:seeAlso <adssets.com/policy/> .
+:Adswizz-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdsWizz Inc." ;
+    rdfs:seeAlso <www.adswizz.com/our-privacy-policy/> .
+:Adtelligent-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adtelligent Inc." ;
+    rdfs:seeAlso <adtelligent.com/privacy-policy/> .
+:Adtheorent-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdTheorent, Inc" ;
+    rdfs:seeAlso <adtheorent.com/privacy-policy> .
+:Adtiming-Technology-Company-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AdTiming Technology Company Limited" ;
+    rdfs:seeAlso <www.adtiming.com/en/privacypolicy.html> .
+:Adux a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADUX" ;
+    rdfs:seeAlso <www.adux.com/donnees-personelles/> .
+:Advanced-Store-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "advanced store GmbH" ;
+    rdfs:seeAlso <www.advanced-store.com/de/datenschutz/> .
+:Adventori-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADventori SAS" ;
+    rdfs:seeAlso <www.adventori.com/with-us/legal-notice/> .
+:Adverline a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Adverline" ;
+    rdfs:seeAlso <www.adverline.com/privacy/> .
+:Adyoulike-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ADYOULIKE SA" ;
+    rdfs:seeAlso <www.adyoulike.com/privacy_policy.php> .
+:Aerserv-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Aerserv LLC" ;
+    rdfs:seeAlso <www.aerserv.com/privacy-policy/> .
+:Affectv-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Affectv Ltd" ;
+    rdfs:seeAlso <affectv.com/privacy-policy> .
+:Affilinet a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "affilinet" ;
+    rdfs:seeAlso <www.affili.net/de/footeritem/datenschutz> .
+:Alliance-Gravity-Data-Media a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Alliance Gravity Data Media" ;
+    rdfs:seeAlso <www.alliancegravity.com/politiquedeprotectiondesdonneespersonnelles> .
+:Amobee-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Amobee, Inc. " ;
+    rdfs:seeAlso <www.amobee.com/trust/privacy-guidelines> .
+:Antvoice a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AntVoice" ;
+    rdfs:seeAlso <www.antvoice.com/en/privacypolicy/> .
+:Apester-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Apester Ltd" ;
+    rdfs:seeAlso <apester.com/privacy-policy/> .
+:Applift-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AppLift GmbH " ;
+    rdfs:seeAlso <www.applift.com/privacy-notice> .
+:Appnexus-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AppNexus Inc." ;
+    rdfs:seeAlso <www.appnexus.com/en/company/platform-privacy-policy> .
+:Arcspire-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Arcspire Limited" ;
+    rdfs:seeAlso <s3.eu-west-2.amazonaws.com/public.arcspire.io/docs/ARCSPIRE-PrivacyPolicy_v1.0.pdf> .
+:Armis-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ARMIS SAS" ;
+    rdfs:seeAlso <armis.tech/en/armis-personal-data-privacy-policy/> .
+:Arrivalist-Co a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Arrivalist Co." ;
+    rdfs:seeAlso <www.arrivalist.com/privacy> .
+:Atg-Ad-Tech-Group-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ATG Ad Tech Group GmbH" ;
+    rdfs:seeAlso <advandeo.com/privacy-policy/> .
+:Audience-Trading-Platform-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Audience Trading Platform Ltd." ;
+    rdfs:seeAlso <atp.io/privacy-policy> .
+:Audienceproject-Aps a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "AudienceProject Aps" ;
+    rdfs:seeAlso <privacy.audienceproject.com> .
+:Audiens-S-R-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Audiens S.r.l." ;
+    rdfs:seeAlso <www.audiens.com/privacy> .
+:Audio-Content-Control-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "audio content &amp; control GmbH" ;
+    rdfs:seeAlso <www.audio-cc.com/audiocc_privacy_policy.pdf> .
+:Automattic-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Automattic Inc." ;
+    rdfs:seeAlso <en.blog.wordpress.com/2017/12/04/updated-privacy-policy/> .
+:Avazu-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Avazu Inc." ;
+    rdfs:seeAlso <avazuinc.com/opt-out/> .
+:Avid-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Avid Media Ltd" ;
+    rdfs:seeAlso <www.avidglobalmedia.eu/privacy-policy.html> .
+:Avocet-Systems-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Avocet Systems Limited" ;
+    rdfs:seeAlso <www.avocet.io/privacy-policy> .
+:B2B-Media-Group-Emea-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "B2B Media Group EMEA GmbH" ;
+    rdfs:seeAlso <www.selfcampaign.com/static/privacy> .
+:Bandsintown-Amplified-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bandsintown Amplified LLC" ;
+    rdfs:seeAlso <corp.bandsintown.com/privacy> .
+:Bannerflow-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bannerflow AB" ;
+    rdfs:seeAlso <www.bannerflow.com/privacy> .
+:Beachfront-Media-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Beachfront Media LLC" ;
+    rdfs:seeAlso <beachfront.com/privacy-policy/> .
+:Beemray-Oy a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Beemray Oy" ;
+    rdfs:seeAlso <www.beemray.com/privacy-policy/> .
+:Beeswaxio-Corporation a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "BeeswaxIO Corporation" ;
+    rdfs:seeAlso <www.beeswax.com/privacy.html> .
+:Better-Banners-A-S a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Better Banners A/S" ;
+    rdfs:seeAlso <betterbanners.com/en/privacy> .
+:Bidmanagement-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bidmanagement GmbH" ;
+    rdfs:seeAlso <www.adspert.net/en/privacy/> .
+:Bidstack-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "bidstack ltd" ;
+    rdfs:seeAlso <bidstack.com/policy/> .
+:Bidswitch-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "BIDSWITCH GmbH" ;
+    rdfs:seeAlso <www.bidswitch.com/privacy-policy/> .
+:Bidtellect-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bidtellect, Inc" ;
+    rdfs:seeAlso <www.bidtellect.com/privacy-policy/> .
+:Bidtheatre-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "BidTheatre AB" ;
+    rdfs:seeAlso <www.bidtheatre.com/privacy-policy> .
+:Bigabid-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bigabid Media Ltd" ;
+    rdfs:seeAlso <www.bigabid.com/data-protection/gdpr> .
+:Bit-Q-Holdings-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bit Q Holdings Limited" ;
+    rdfs:seeAlso <bitqueen.com/privacy> .
+:Blis-Media-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Blis Media Limited" ;
+    rdfs:seeAlso <www.blis.com/privacy/> .
+:Bmind-A-Sales-Maker-Company-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bmind a Sales Maker Company, S.L." ;
+    rdfs:seeAlso <www.bmind.es/legal-notice/> .
+:Bombora-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bombora Inc." ;
+    rdfs:seeAlso <bombora.com/privacy> .
+:Bounce-Exchange-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bounce Exchange, Inc" ;
+    rdfs:seeAlso <www.bouncex.com/privacy/> .
+:Brand-Metrics-Sweden-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Brand Metrics Sweden AB" ;
+    rdfs:seeAlso <collector.brandmetrics.com/brandmetrics_privacypolicy.pdf> .
+:Browsi-Mobile-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Browsi Mobile Ltd" ;
+    rdfs:seeAlso <gobrowsi.com/browsi-privacy-policy/> .
+:Bucksense-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Bucksense Inc" ;
+    rdfs:seeAlso <www.bucksense.com/platform-privacy-policy/> .
+:Cablato-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cablato Limited" ;
+    rdfs:seeAlso <cablato.com/privacy> .
+:Captify-Technologies-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Captify Technologies Limited" ;
+    rdfs:seeAlso <www.captify.co.uk/privacy-policy/> .
+:Celtra-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Celtra, Inc." ;
+    rdfs:seeAlso <www.celtra.com/privacy-policy/> .
+:Centro-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Centro, Inc." ;
+    rdfs:seeAlso <www.centro.net/privacy-policy/> .
+:Cerebroad-Com-S-R-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "CerebroAd.com s.r.o." ;
+    rdfs:seeAlso <www.cerebroad.com/privacy-policy> .
+:Channelsight a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ChannelSight " ;
+    rdfs:seeAlso <www.channelsight.com/privacypolicy/> .
+:Chargeads a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Chargeads" ;
+    rdfs:seeAlso <www.chargeplatform.com/privacy> .
+:Cheq-Ai-Technologies-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "CHEQ AI TECHNOLOGIES LTD." ;
+    rdfs:seeAlso <www.cheq.ai/privacy> .
+:Clicksco-Digital-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Clicksco Digital Limited" ;
+    rdfs:seeAlso <carbondmp.com/privacy.html> .
+:Clipcentric-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Clipcentric, Inc." ;
+    rdfs:seeAlso <clipcentric.com/privacy.bhtml> .
+:Cloud-Technologies-S-A a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cloud Technologies S.A." ;
+    rdfs:seeAlso <onaudience.com/privacy-policy> .
+:Codewise-Sp-Z-O-O-Sp-K a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Codewise Sp. z o.o. Sp. k" ;
+    rdfs:seeAlso <voluumdsp.com/end-user-privacy-policy/> .
+:Collective-Europe-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Collective Europe Ltd." ;
+    rdfs:seeAlso <www.timeincuk.com/privacy/> .
+:Collective-Inc-Dba-Visto a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Collective, Inc. dba Visto" ;
+    rdfs:seeAlso <www.vistohub.com/privacy-policy/> .
+:Colpirio-Com a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Colpirio.com" ;
+    rdfs:seeAlso <privacy-policy.colpirio.com/en/> .
+:Comcast-International-France-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Comcast International France SAS" ;
+    rdfs:seeAlso <freewheel.tv/privacy-policy> .
+:Commanders-Act a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Commanders Act" ;
+    rdfs:seeAlso <www.commandersact.com/en/privacy/> .
+:Communicationads-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "communicationAds GmbH &amp; Co. KG" ;
+    rdfs:seeAlso <www.communicationads.net/aboutus/privacy/> .
+:Comscore-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "comScore, Inc." ;
+    rdfs:seeAlso <www.comscore.com/About-comScore/Privacy-Policy> .
+:Confiant-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Confiant Inc." ;
+    rdfs:seeAlso <www.confiant.com/privacy> .
+:Connatix-Native-Exchange-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Connatix Native Exchange Inc." ;
+    rdfs:seeAlso <connatix.com/privacy-policy/> .
+:Connectad-Realtime-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ConnectAd Realtime GmbH" ;
+    rdfs:seeAlso <connectadrealtime.com/privacy/> .
+:Consumable-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Consumable, Inc." ;
+    rdfs:seeAlso <consumable.com/privacy-policy.html> .
+:Converge-Digital a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Converge-Digital" ;
+    rdfs:seeAlso <converge-digital.com/privacy-policy/> .
+:Conversant-Europe-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Conversant Europe Ltd." ;
+    rdfs:seeAlso <www.conversantmedia.eu/legal/privacy-policy> .
+:Crimtan-Holdings-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Crimtan Holdings Limited" ;
+    rdfs:seeAlso <crimtan.com/privacy/> .
+:Criteo-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Criteo SA" ;
+    rdfs:seeAlso <www.criteo.com/privacy/> .
+:Cuebiq-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cuebiq Inc." ;
+    rdfs:seeAlso <www.cuebiq.com/privacypolicy/> .
+:Cxense-Asa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cxense ASA" ;
+    rdfs:seeAlso <www.cxense.com/about-us/privacy-policy> .
+:Cybba-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cybba, Inc." ;
+    rdfs:seeAlso <cybba.com/about/legal/data-processing-agreement/> .
+:Cydersoft a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Cydersoft" ;
+    rdfs:seeAlso <www.videmob.com/privacy.html> .
+:Czech-Publisher-Exchange-Z-S-P-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Czech Publisher Exchange z.s.p.o." ;
+    rdfs:seeAlso <www.cpex.cz/pro-uzivatele/ochrana-soukromi/> .
+:Dataxu-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Dataxu, Inc. " ;
+    rdfs:seeAlso <www.dataxu.com/about-us/privacy/data-collection-platform/> .
+:Deepintent-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DeepIntent, Inc." ;
+    rdfs:seeAlso <www.deepintent.com/platform-privacy-policy/> .
+:Define-Media-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DEFINE MEDIA GMBH" ;
+    rdfs:seeAlso <www.definemedia.de/datenschutz-conative/> .
+:Delta-Projects-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Delta Projects AB" ;
+    rdfs:seeAlso <www.deltaprojects.com/data-collection-policy/> .
+:Demandbase-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Demandbase, Inc. " ;
+    rdfs:seeAlso <www.demandbase.com/privacy-policy/> .
+:Densou-Trading-Desk-Aps a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Densou Trading Desk ApS" ;
+    rdfs:seeAlso <densou.dk/Policy.html> .
+:Digilant-Spain-Slu a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Digilant Spain, SLU" ;
+    rdfs:seeAlso <www.digilant.com/es/politica-privacidad/> .
+:Digital-Control-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Digital Control GmbH &amp; Co. KG" ;
+    rdfs:seeAlso <advolution.de/privacy.php> .
+:Digitalaudience a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "digitalAudience" ;
+    rdfs:seeAlso <digitalaudience.io/legal/privacy-cookies/> .
+:Digiteka-Technologies a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DIGITEKA Technologies" ;
+    rdfs:seeAlso <www.ultimedia.com/POLICY.html> .
+:Digitize-New-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Digitize New Media Ltd" ;
+    rdfs:seeAlso <www.digitize.ie/online-privacy> .
+:Digitrust-Iab-Tech-Lab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DigiTrust / IAB Tech Lab" ;
+    rdfs:seeAlso <www.digitru.st/privacy-policy/> .
+:District-M-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "district m inc." ;
+    rdfs:seeAlso <districtm.net/en/page/platforms-data-and-privacy-policy/> .
+:Doubleverify-Inc-Aeur a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DoubleVerify Inc.â€‹" ;
+    rdfs:seeAlso <www.doubleverify.com/privacy/> .
+:Dr-Banner a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Dr. Banner" ;
+    rdfs:seeAlso <drbanner.com/privacypolicy_en/> .
+:Drawbridge-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Drawbridge, Inc." ;
+    rdfs:seeAlso <www.drawbridge.com/privacy/> .
+:Dts-Filiale-De-Solocal-Group a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DTS (Filiale de Solocal Group)" ;
+    rdfs:seeAlso <client.adhslx.com/privacy.html> .
+:Dunnhumby-Germany-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "dunnhumby Germany GmbH" ;
+    rdfs:seeAlso <www.sociomantic.com/privacy/en/> .
+:Duplo-Media-As a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Duplo Media AS" ;
+    rdfs:seeAlso <www.easy-ads.com/privacypolicy.htm> .
+:Dynadmic a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "DynAdmic" ;
+    rdfs:seeAlso <eu.dynadmic.com/privacy-policy/> .
+:Dynamic-1001-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Dynamic 1001 GmbH" ;
+    rdfs:seeAlso <dynamic-tracking.com/Datenschutz.aspx> .
+:Easymedia-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "EASYmedia GmbH" ;
+    rdfs:seeAlso <login.rtbmarket.com/gdpr> .
+:Effiliation a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Effiliation" ;
+    rdfs:seeAlso <inter.effiliation.com/politique-confidentialite.html> .
+:Emerse-Sverige-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Emerse Sverige AB" ;
+    rdfs:seeAlso <www.emerse.com/privacy-policy/> .
+:Emetriq-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "emetriq GmbH" ;
+    rdfs:seeAlso <www.emetriq.com/datenschutz/> .
+:Emx-Digital-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "EMX Digital LLC" ;
+    rdfs:seeAlso <emxdigital.com/privacy/> .
+:Etarget-Se a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Etarget SE" ;
+    rdfs:seeAlso <www.etarget.sk/privacy.php> .
+:Eulerian-Technologies a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Eulerian Technologies" ;
+    rdfs:seeAlso <www.eulerian.com/en/privacy/> .
+:Exactag-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Exactag GmbH" ;
+    rdfs:seeAlso <www.exactag.com/en/data-privacy/> .
+:Exponential-Interactive-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Exponential Interactive, Inc" ;
+    rdfs:seeAlso <exponential.com/privacy> .
+:Eyeota-Ptd-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Eyeota Ptd Ltd" ;
+    rdfs:seeAlso <www.eyeota.com/privacy-policy/> .
+:Ezoic-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ezoic Inc." ;
+    rdfs:seeAlso <www.ezoic.com/terms/> .
+:Fidzup a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Fidzup" ;
+    rdfs:seeAlso <www.fidzup.com/en/privacy/> .
+:Fifty-Technology-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Fifty Technology Limited" ;
+    rdfs:seeAlso <fifty.io/privacy-policy.php> .
+:Flashtalking-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Flashtalking, Inc." ;
+    rdfs:seeAlso <www.flashtalking.com/privacypolicy/> .
+:Flexoffers-Com-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "FlexOffers.com, LLC" ;
+    rdfs:seeAlso <www.flexoffers.com/privacy-policy/> .
+:Fm-Labs-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "FM Labs LLC" ;
+    rdfs:seeAlso <fidelity-media.com/privacy-policy/> .
+:Forensiq-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Forensiq LLC" ;
+    rdfs:seeAlso <impact.com/privacy-policy/> .
+:Fortvision a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "FORTVISION" ;
+    rdfs:seeAlso <fortvision.com/POC/index.html> .
+:Free-Stream-Media-Corp-Dba-Samba-Tv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Free Stream Media Corp. dba Samba TV" ;
+    rdfs:seeAlso <samba.tv/legal/privacy-policy/> .
+:Fyber a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Fyber " ;
+    rdfs:seeAlso <www.fyber.com/legal/privacy-policy/> .
+:Gamned a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Gamned" ;
+    rdfs:seeAlso <www.gamned.com/privacy-policy/> .
+:Gdmservices-Inc-D-B-A-Fiksudsp a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "GDMServices, Inc. d/b/a FiksuDSP" ;
+    rdfs:seeAlso <fiksu.com/privacy-policy/> .
+:Gemius-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Gemius SA" ;
+    rdfs:seeAlso <www.gemius.com/cookie-policy.html> .
+:Genius-Sports-Media-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Genius Sports Media Limited" ;
+    rdfs:seeAlso <www.geniussports.com/privacy-policy/> .
+:Getintent-Usa-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Getintent USA, inc." ;
+    rdfs:seeAlso <getintent.com/privacy/> .
+:Globalwebindex a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "GlobalWebIndex" ;
+    rdfs:seeAlso <legal.trendstream.net/non-panellist_privacy_policy> .
+:Goldbach-Group-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Goldbach Group AG" ;
+    rdfs:seeAlso <goldbach.com/ch/de/datenschutz> .
+:Golden-Bees a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Golden Bees" ;
+    rdfs:seeAlso <goldenbees.fr/notre-politique-de-confidentialite/> .
+:Goodway-Group-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Goodway Group, Inc." ;
+    rdfs:seeAlso <goodwaygroup.com/privacy-policy/> .
+:Greenhouse-Group-Bv-With-Its-Trademark-Lemonpi a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Greenhouse Group BV (with its trademark LemonPI)" ;
+    rdfs:seeAlso <www.lemonpi.io/privacy-policy/> .
+:Groupm a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "GroupM" ;
+    rdfs:seeAlso <www.groupm.com/privacy-policy> .
+:Gumgum-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "GumGum, Inc." ;
+    rdfs:seeAlso <gumgum.com/privacy-policy> .
+:Haensel-Ams-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Haensel AMS GmbH" ;
+    rdfs:seeAlso <haensel-ams.com/data-privacy/> .
+:Happydemics a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Happydemics" ;
+    rdfs:seeAlso <www.iubenda.com/privacy-policy/69056167/full-legal> .
+:Hbfstech a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "hbfsTech" ;
+    rdfs:seeAlso <www.hbfstech.com/fr/privacy.html> .
+:Hiro-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "HIRO Media Ltd" ;
+    rdfs:seeAlso <hiro-media.com/privacy.php> .
+:Hottraffic-Bv-Dma-Institute a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Hottraffic BV (DMA Institute)" ;
+    rdfs:seeAlso <www.dma-institute.com/privacy-compliancy/> .
+:Hybrid-Adtech-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Hybrid Adtech GmbH" ;
+    rdfs:seeAlso <hybrid.ai/data_protection_policy> .
+:Id5-Technology-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ID5 Technology SAS" ;
+    rdfs:seeAlso <www.id5.io/privacy> .
+:Ignitionai-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "IgnitionAi Ltd" ;
+    rdfs:seeAlso <www.isitelab.io/default.aspx> .
+:Ignitionone a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "IgnitionOne" ;
+    rdfs:seeAlso <www.ignitionone.com/privacy-policy/> .
+:Illuma-Technology-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Illuma Technology Limited" ;
+    rdfs:seeAlso <www.weareilluma.com/endddd> .
+:Impactify a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Impactify " ;
+    rdfs:seeAlso <impactify.io/privacy-policy/> .
+:Impression-Desk-Technologies-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Impression Desk Technologies Limited" ;
+    rdfs:seeAlso <impressiondesk.com/privacy-policy/> .
+:Improve-Digital-International-Bv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Improve Digital International BV" ;
+    rdfs:seeAlso <www.improvedigital.com/platform-privacy-policy> .
+:Index-Exchange-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Index Exchange, Inc. " ;
+    rdfs:seeAlso <www.indexexchange.com/privacy> .
+:Infinia-Mobile-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "INFINIA MOBILE S.L." ;
+    rdfs:seeAlso <www.infiniamobile.com/privacy_policy> .
+:Inmobi-Pte-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "InMobi Pte Ltd" ;
+    rdfs:seeAlso <www.inmobi.com/privacy-policy-for-eea> .
+:Innity a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "INNITY" ;
+    rdfs:seeAlso <www.innity.com/privacy-policy.php> .
+:Innovid-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Innovid Inc." ;
+    rdfs:seeAlso <www.innovid.com/privacy-policy> .
+:Inskin-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Inskin Media LTD" ;
+    rdfs:seeAlso <www.inskinmedia.com/privacy-policy.html> .
+:Instinctive-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Instinctive, Inc." ;
+    rdfs:seeAlso <instinctive.io/privacy> .
+:Insurads-Technologies-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "InsurAds Technologies SA." ;
+    rdfs:seeAlso <www.insurads.com/privacy.html> .
+:Integral-Ad-Science-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Integral Ad Science, Inc." ;
+    rdfs:seeAlso <integralads.com/privacy-policy/> .
+:Intent-Media-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Intent Media, Inc." ;
+    rdfs:seeAlso <intentmedia.com/privacy-policy/> .
+:Internet-Billboard-A-S a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Internet BillBoard a.s." ;
+    rdfs:seeAlso <www.ibillboard.com/en/privacy-information/> .
+:Intowow-Innovation-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Intowow Innovation Ltd." ;
+    rdfs:seeAlso <www.intowow.com/privacy/> .
+:Invibes-Group a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "INVIBES GROUP" ;
+    rdfs:seeAlso <www.invibes.com/terms> .
+:Iotec-Global-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "iotec global Ltd." ;
+    rdfs:seeAlso <www.iotecglobal.com/privacy-policy/> .
+:Iponweb-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "IPONWEB GmbH" ;
+    rdfs:seeAlso <www.iponweb.com/privacy-policy/> .
+:Jaduda-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Jaduda GmbH" ;
+    rdfs:seeAlso <www.jadudamobile.com/datenschutzerklaerung/> .
+:Jampp-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Jampp LTD" ;
+    rdfs:seeAlso <jampp.com/privacy-policy/> .
+:Jivox-Corporation a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Jivox Corporation" ;
+    rdfs:seeAlso <www.jivox.com/privacy> .
+:Join a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Join" ;
+    rdfs:seeAlso <www.teamjoin.fr/privacy.html> .
+:Jointag-S-R-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Jointag S.r.l." ;
+    rdfs:seeAlso <www.jointag.com/privacy/kariboo/publisher/third/> .
+:Justpremium-Bv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Justpremium BV" ;
+    rdfs:seeAlso <justpremium.com/privacy-policy/> .
+:Kairos-Fire a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Kairos Fire" ;
+    rdfs:seeAlso <kairosfire.com> .
+:Keymantics a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Keymantics" ;
+    rdfs:seeAlso <www.keymantics.com/assets/privacy-policy.pdf> .
+:Knorex-Pte-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Knorex Pte Ltd" ;
+    rdfs:seeAlso <www.knorex.com/privacy> .
+:Kochava-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Kochava Inc." ;
+    rdfs:seeAlso <www.kochava.com/support-privacy/> .
+:Kupona-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "KUPONA GmbH" ;
+    rdfs:seeAlso <www.kupona.de/dsgvo/> .
+:Lbc-France a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LBC France" ;
+    rdfs:seeAlso <www.leboncoin.fr/dc/cookies> .
+:Leadplace-Temelio a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Leadplace - Temelio" ;
+    rdfs:seeAlso <temelio.com/vie-privee> .
+:Leftsnright-Inc-Dba-Liqwid a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LeftsnRight, Inc. dba LIQWID" ;
+    rdfs:seeAlso <liqwid.solutions/privacy-policy> .
+:Leiki-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Leiki Ltd." ;
+    rdfs:seeAlso <www.leiki.com/privacy> .
+:Lemo-Media-Group-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LEMO MEDIA GROUP LIMITED" ;
+    rdfs:seeAlso <www.lemomedia.com/terms.pdf> .
+:Lifestreet-Corporation a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LifeStreet Corporation" ;
+    rdfs:seeAlso <www.lifestreet.com/privacy/> .
+:Ligatus-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ligatus GmbH" ;
+    rdfs:seeAlso <www.ligatus.com/en/privacy-policy> .
+:Linicom a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Linicom" ;
+    rdfs:seeAlso <www.linicom.com/privacy/> .
+:Liquidm-Technology-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LiquidM Technology GmbH" ;
+    rdfs:seeAlso <liquidm.com/privacy-policy/> .
+:Little-Big-Data-Sp-Z-O-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Little Big Data sp.z.o.o." ;
+    rdfs:seeAlso <dtxngr.com/legal/> .
+:Liveintent-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Liveintent Inc." ;
+    rdfs:seeAlso <liveintent.com/services-privacy-policy/> .
+:Liveramp-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LiveRamp, Inc." ;
+    rdfs:seeAlso <www.liveramp.com/service-privacy-policy/> .
+:Lkqd-A-Division-Of-Nexstar-Digital-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LKQD, a division of Nexstar Digital, LLC." ;
+    rdfs:seeAlso <www.lkqd.com/privacy-policy/> .
+:Localsensor-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Localsensor B.V." ;
+    rdfs:seeAlso <www.localsensor.com/privacy.html> .
+:Location-Sciences-Ai-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Location Sciences AI Ltd" ;
+    rdfs:seeAlso <www.locationsciences.ai/privacy-policy/> .
+:Loopme-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LoopMe Ltd" ;
+    rdfs:seeAlso <loopme.com/privacy/> .
+:Lotadata-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "LotaData, Inc." ;
+    rdfs:seeAlso <lotadata.com/privacy_policy> .
+:Lucid-Holdings-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Lucid Holdings, LLC" ;
+    rdfs:seeAlso <luc.id/gdpr> .
+:M32-Media-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "M32 Media Inc" ;
+    rdfs:seeAlso <m32.media/privacy-cookie-policy/> .
+:Madington a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Madington" ;
+    rdfs:seeAlso <delivered-by-madington.com/dat-privacy-policy/> .
+:Madison-Logic-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Madison Logic, Inc." ;
+    rdfs:seeAlso <www.madisonlogic.com/privacy/> .
+:Madvertise-Media a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "MADVERTISE MEDIA" ;
+    rdfs:seeAlso <madvertise.com/en/gdpr/> .
+:Mainadv-Srl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "mainADV Srl" ;
+    rdfs:seeAlso <www.mainad.com/privacy-policy/> .
+:Mairdumont-Netletix-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "MAIRDUMONT NETLETIX GmbH&amp;Co. KG" ;
+    rdfs:seeAlso <mairdumont-netletix.com/datenschutz> .
+:Marfeel-Solutions-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Marfeel Solutions S.L" ;
+    rdfs:seeAlso <www.marfeel.com/privacy-policy/> .
+:Market-Resource-Partners-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Market Resource Partners LLC" ;
+    rdfs:seeAlso <www.mrpfd.com/privacy-policy/> .
+:Maximus-Live-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Maximus Live LLC" ;
+    rdfs:seeAlso <maximusx.com/privacy-policy/> .
+:Maytrics-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Maytrics GmbH" ;
+    rdfs:seeAlso <maytrics.com/node/2> .
+:Mbr-Targeting-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "mbr targeting GmbH" ;
+    rdfs:seeAlso <privacy.mbr-targeting.com/?optedIn=true> .
+:Mccann-Discipline-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "McCann Discipline LTD" ;
+    rdfs:seeAlso <www.primis.tech/wp-content/uploads/2018/02/primisPrivacyPolicy2018.pdf> .
+:Media-Net-Advertising-Fz-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Media.net Advertising FZ-LLC" ;
+    rdfs:seeAlso <www.media.net/en/privacy-policy> .
+:Mediamath-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "MediaMath, Inc." ;
+    rdfs:seeAlso <www.mediamath.com/privacy-policy/> .
+:Mediarithmics-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "mediarithmics SAS" ;
+    rdfs:seeAlso <www.mediarithmics.com/en-us/content/privacy-policy> .
+:Mediasmart-Mobile-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mediasmart Mobile S.L." ;
+    rdfs:seeAlso <mediasmart.io/privacy/> .
+:Meetrics-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Meetrics GmbH" ;
+    rdfs:seeAlso <www.meetrics.com/en/data-privacy/> .
+:Mgid-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "MGID Inc." ;
+    rdfs:seeAlso <www.mgid.com/privacy-policy> .
+:Mindlytix-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mindlytix SAS" ;
+    rdfs:seeAlso <mindlytix.com/privacy/> .
+:Miq a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "MiQ" ;
+    rdfs:seeAlso <wearemiq.com/privacy-policy/> .
+:Mirando-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mirando GmbH &amp; Co KG" ;
+    rdfs:seeAlso <wwwmirando.de/datenschutz/> .
+:Mobalo-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "mobalo GmbH" ;
+    rdfs:seeAlso <www.mobalo.com/datenschutz/> .
+:Mobfox-Us-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mobfox US LLC" ;
+    rdfs:seeAlso <www.mobfox.com/privacy-policy/> .
+:Mobile-Journey-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mobile Journey B.V." ;
+    rdfs:seeAlso <mobilejourney.com/Privacy-Policy> .
+:Mobile-Professionals-Bv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mobile Professionals BV" ;
+    rdfs:seeAlso <mobpro.com/privacy.html> .
+:Mobilewalla-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mobilewalla, Inc." ;
+    rdfs:seeAlso <www.mobilewalla.com/business-services-privacy-policy> .
+:Mobusi-Mobile-Advertising-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Mobusi Mobile Advertising S.L." ;
+    rdfs:seeAlso <www.mobusi.com/privacy.en.html> .
+:My6Sense-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "My6sense Inc." ;
+    rdfs:seeAlso <my6sense.com/privacy-policy/> .
+:Myntelligence-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Myntelligence Limited" ;
+    rdfs:seeAlso <www.myntelligence.com/privacy-page/> .
+:N-Technologies-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "N Technologies Inc." ;
+    rdfs:seeAlso <n.rich/privacy-notice> .
+:Nano-Interactive-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Nano Interactive GmbH" ;
+    rdfs:seeAlso <www.nanointeractive.com/privacy> .
+:Nativo-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Nativo, Inc." ;
+    rdfs:seeAlso <www.nativo.com/interest-based-ads> .
+:Near-Pte-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Near Pte Ltd" ;
+    rdfs:seeAlso <near.co/privacy> .
+:Neodata-Group-Srl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Neodata Group srl" ;
+    rdfs:seeAlso <www.neodatagroup.com/en/security-policy> .
+:Neory-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "NEORY GmbH" ;
+    rdfs:seeAlso <www.neory.com/privacy.html> .
+:Netsprint-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Netsprint SA" ;
+    rdfs:seeAlso <spoldzielnia.nsaudience.pl/opt-out/> .
+:Netsuccess-S-R-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "NetSuccess, s.r.o." ;
+    rdfs:seeAlso <www.inres.sk/pp/> .
+:Netzeffekt-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "netzeffekt GmbH" ;
+    rdfs:seeAlso <www.netzeffekt.de/en/imprint> .
+:Neural-One a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "NEURAL.ONE" ;
+    rdfs:seeAlso <web.neural.one/privacy-policy/> .
+:Neustar-On-Behalf-Of-The-Procter-Gamble-Company a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Neustar on behalf of The Procter &amp; Gamble Company " ;
+    rdfs:seeAlso <www.pg.com/privacy/english/privacy_statement.shtml> .
+:Neustar-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Neustar, Inc." ;
+    rdfs:seeAlso <www.home.neustar/privacy> .
+:News-And-Media-Holding-A-S a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "News and Media Holding, a.s." ;
+    rdfs:seeAlso <www.newsandmedia.sk/gdpr/> .
+:Nexd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "NEXD" ;
+    rdfs:seeAlso <nexd.com/privacy-policy> .
+:Nielsen-Marketing-Cloud a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Nielsen Marketing Cloud" ;
+    rdfs:seeAlso <www.nielsen.com/us/en/privacy-statement/exelate-privacy-policy.html> .
+:Nugg-Ad-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "nugg.ad GmbH" ;
+    rdfs:seeAlso <www.nugg.ad/en/privacy/general-information.html> .
+:Numberly a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "numberly" ;
+    rdfs:seeAlso <ads.1000mercis.com/fr.html> .
+:Oath-Emea-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Oath (EMEA) Limited" ;
+    rdfs:seeAlso <policies.oath.com/ie/en/oath/privacy/index.html> .
+:Ogury-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ogury Ltd." ;
+    rdfs:seeAlso <www.ogury.com/privacy/> .
+:On-Device-Research-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "On Device Research Limited" ;
+    rdfs:seeAlso <s.on-device.com/privacyPolicy> .
+:One-Person-Health-Inc-Dba-Adacado a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "One Person Health, Inc. (DBA Adacado)" ;
+    rdfs:seeAlso <www.adacado.com/privacy-policy-april-25-2018/> .
+:Onetag-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "OneTag Ltd" ;
+    rdfs:seeAlso <www.onetag.net/privacy/> .
+:Online-Solution-Int-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Online Solution Int Limited" ;
+    rdfs:seeAlso <adsafety.net/privacy.html/> .
+:Onnetwork-Sp-Z-O-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Onnetwork Sp. z o.o." ;
+    rdfs:seeAlso <www.onnetwork.tv/pp_services.php> .
+:Ooyala-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ooyala Inc" ;
+    rdfs:seeAlso <ooyala.com/privacy> .
+:Openx a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "OpenX" ;
+    rdfs:seeAlso <www.openx.com/legal/privacy-policy/> .
+:Opinary-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Opinary GmbH" ;
+    rdfs:seeAlso <opinary.com/privacy-policy/> .
+:Optomaton-Ug a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Optomaton UG" ;
+    rdfs:seeAlso <optomaton.com/privacy.html> .
+:Oracle a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Oracle" ;
+    rdfs:seeAlso <www.oracle.com/legal/privacy/marketing-cloud-data-cloud-privacy-policy.html> .
+:Oracle-Addthis a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Oracle AddThis" ;
+    rdfs:seeAlso <www.addthis.com/privacy/privacy-policy/> .
+:Orion-Semantics a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Orion Semantics" ;
+    rdfs:seeAlso <static.orion-semantics.com/privacy.html> .
+:Ortec-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ORTEC B.V." ;
+    rdfs:seeAlso <www.ortecadscience.com/privacy-policy/> .
+:Otto-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Otto (GmbH &amp; Co KG)" ;
+    rdfs:seeAlso <www.otto.de/shoppages/service/datenschutz> .
+:Outbrain-Uk-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Outbrain UK Ltd" ;
+    rdfs:seeAlso <www.outbrain.com/legal/> .
+:Paperg-Inc-Dba-Thunder-Industries a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PaperG, Inc. dba Thunder Industries" ;
+    rdfs:seeAlso <www.makethunder.com/privacy> .
+:Parsec-Media-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Parsec Media Inc." ;
+    rdfs:seeAlso <www.parsec.media/privacy-policy> .
+:Perform-Media-Services-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Perform Media Services Ltd" ;
+    rdfs:seeAlso <www.performgroup.com/media-privacy-notice> .
+:Permodo-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Permodo GmbH" ;
+    rdfs:seeAlso <permodo.com/de/privacy.html> .
+:Permutive-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Permutive Ltd." ;
+    rdfs:seeAlso <permutive.com/privacy> .
+:Permutive-Technologies-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Permutive Technologies, Inc." ;
+    rdfs:seeAlso <permutive.com/privacy> .
+:Pexi-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Pexi B.V." ;
+    rdfs:seeAlso <pexi.nl/privacy-policy/> .
+:Pilotx-Tv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "pilotx.tv" ;
+    rdfs:seeAlso <pilotx.tv/privacy/> .
+:Pixalate-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Pixalate, Inc." ;
+    rdfs:seeAlso <pixalate.com/privacypolicy/> .
+:Piximedia-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PIXIMEDIA SAS" ;
+    rdfs:seeAlso <piximedia.com/privacy/> .
+:Platform161 a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Platform161" ;
+    rdfs:seeAlso <platform161.com/cookie-and-privacy-policy/> .
+:Playbuzz-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Playbuzz Ltd. " ;
+    rdfs:seeAlso <www.playbuzz.com/PrivacyPolicy> .
+:Playground-Xyz-Emea-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PLAYGROUND XYZ EMEA LTD" ;
+    rdfs:seeAlso <playground.xyz/privacy/privacy-policy.pdf> .
+:Plista-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "plista GmbH" ;
+    rdfs:seeAlso <www.plista.com/about/privacy/> .
+:Pocketmath-Pte-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Pocketmath Pte Ltd" ;
+    rdfs:seeAlso <www.pocketmath.com/privacy-policy> .
+:Polar-Mobile-Group-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Polar Mobile Group Inc." ;
+    rdfs:seeAlso <privacy.polar.me> .
+:Powerlinks-Media-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PowerLinks Media Limited" ;
+    rdfs:seeAlso <www.powerlinks.com/privacy-policy/> .
+:Predicio a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Predicio" ;
+    rdfs:seeAlso <www.predic.io/privacy> .
+:Prex-Programmatic-Exchange-Gmbh-Co-Kg a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PREX Programmatic Exchange GmbH&amp;Co KG" ;
+    rdfs:seeAlso <www.programmatic-exchange.com/privacy> .
+:Programatica-De-Publicidad-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Programatica de publicidad S.L." ;
+    rdfs:seeAlso <datmean.com/politica-privacidad/> .
+:Proxi-Cloud-Sp-Z-O-O a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Proxi.cloud Sp. z o.o." ;
+    rdfs:seeAlso <proxi.cloud/info/privacy-policy/> .
+:Proxistore a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PROXISTORE" ;
+    rdfs:seeAlso <www.proxistore.com/common/en/cgv> .
+:Pub-Ocean-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PUB OCEAN LIMITED" ;
+    rdfs:seeAlso <rta.pubocean.com/privacy-policy/> .
+:Publicis-Media-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Publicis Media GmbH" ;
+    rdfs:seeAlso <www.publicismedia.de/datenschutz/> .
+:Publishers-Internationale-Pty-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Publishers Internationale Pty Ltd" ;
+    rdfs:seeAlso <www.pi-rate.com.au/privacy.html> .
+:Pubmatic-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PubMatic, Inc." ;
+    rdfs:seeAlso <pubmatic.com/privacy-policy/> .
+:Pubnative-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PubNative GmbH" ;
+    rdfs:seeAlso <pubnative.net/privacy-notice/> .
+:Pulsepoint-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PulsePoint, Inc." ;
+    rdfs:seeAlso <www.pulsepoint.com/privacy-policy> .
+:Purch-Group-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Purch Group, Inc." ;
+    rdfs:seeAlso <www.purch.com/privacy-policy/> .
+:Purposelab-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "PurposeLab, LLC" ;
+    rdfs:seeAlso <purposelab.com/privacy/> .
+:Qriously a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Qriously" ;
+    rdfs:seeAlso <www.qriously.com/privacy> .
+:Quantcast-International-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Quantcast International Limited" ;
+    rdfs:seeAlso <www.quantcast.com/privacy/> .
+:Qwertize a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Qwertize" ;
+    rdfs:seeAlso <www.qwertize.com/en/privacy> .
+:R-Advertising a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "R-Advertising" ;
+    rdfs:seeAlso <www.tradedoubler.com/en/privacy-policy/> .
+:R-Target a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "R-TARGET" ;
+    rdfs:seeAlso <www.r-target.com/privacy> .
+:Rakuten-Marketing-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Rakuten Marketing LLC" ;
+    rdfs:seeAlso <rakutenmarketing.com/legal-notices/services-privacy-policy> .
+:Readpeak-Oy a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Readpeak Oy" ;
+    rdfs:seeAlso <readpeak.com/privacy-policy/> .
+:Realeyes-Oaoe a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Realeyes OÃœ" ;
+    rdfs:seeAlso <www.realeyesit.com/privacy> .
+:Realzeit-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "realzeit GmbH" ;
+    rdfs:seeAlso <realzeitmedia.com/privacy.html> .
+:Reignn-Platform-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ReigNN Platform Ltd." ;
+    rdfs:seeAlso <www.reignn.com/user-privacy-policy/> .
+:Remerge-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "remerge GmbH" ;
+    rdfs:seeAlso <remerge.io/privacy-policy.html> .
+:Research-Now-Group-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Research Now Group, Inc" ;
+    rdfs:seeAlso <www.valuedopinions.co.uk/privacy> .
+:Revcontent-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Revcontent, LLC" ;
+    rdfs:seeAlso <faq.revcontent.com/customer/en/portal/articles/2703838-revcontent-s-privacy-and-cookie-policy> .
+:Reveal-Mobile-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Reveal Mobile, Inc" ;
+    rdfs:seeAlso <revealmobile.com/privacy> .
+:Revlifter-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RevLifter Ltd" ;
+    rdfs:seeAlso <www.revlifter.com/privacy-policy> .
+:Revx-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RevX Inc." ;
+    rdfs:seeAlso <www.revx.io/privacy-policy> .
+:Rezonence-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Rezonence Limited" ;
+    rdfs:seeAlso <rezonence.com/privacy-policy/> .
+:Rhythmone-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RhythmOne, LLC" ;
+    rdfs:seeAlso <www.rhythmone.com/privacy-policy> .
+:Rich-Audience a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Rich Audience" ;
+    rdfs:seeAlso <richaudience.com/privacy/> .
+:Rmsi-Radio-Marketing-Service-Interactive-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RMSi Radio Marketing Service interactive GmbH" ;
+    rdfs:seeAlso <www.rms.de/datenschutz/> .
+:Rockabox-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Rockabox Media Ltd" ;
+    rdfs:seeAlso <scoota.com/privacy-policy> .
+:Rockerbox-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Rockerbox, Inc" ;
+    rdfs:seeAlso <rockerbox.com/privacy> .
+:Rockyou-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RockYou, Inc." ;
+    rdfs:seeAlso <rockyou.com/privacy-policy/> .
+:Roq-Ad-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Roq.ad GmbH" ;
+    rdfs:seeAlso <www.roq.ad/privacy-policy> .
+:Rtb-House-S-A a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RTB House S.A." ;
+    rdfs:seeAlso <www.rtbhouse.com/privacy/> .
+:Rtk-Io-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RTK.IO, Inc" ;
+    rdfs:seeAlso <www.rtk.io/privacy.html> .
+:Run-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "RUN, Inc." ;
+    rdfs:seeAlso <www.runads.com/privacy-policy> .
+:S4M a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "S4M" ;
+    rdfs:seeAlso <www.s4m.io/privacy-policy/> .
+:Salesforce-Com-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "salesforce.com, inc." ;
+    rdfs:seeAlso <www.salesforce.com/company/privacy/> .
+:Samba-Tv-Uk-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Samba TV UK Limited" ;
+    rdfs:seeAlso <samba.tv/legal/privacy-policy/> .
+:Sanoma-Media-Finland a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sanoma Media Finland" ;
+    rdfs:seeAlso <sanoma.fi/tietoa-meista/tietosuoja/> .
+:Scene-Stealer-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Scene Stealer Limited" ;
+    rdfs:seeAlso <scenestealer.tv/privacy-policy/> .
+:Schibsted-Classified-Media-Spain-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Schibsted Classified Media Spain, S.L." ;
+    rdfs:seeAlso <www.vibbo.com/privacidad.htm?ca=0_s> .
+:Schibsted-Product-And-Tech-Uk a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Schibsted Product and Tech UK" ;
+    rdfs:seeAlso <www.schibsted.com/> .
+:Seeding-Alliance-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Seeding Alliance GmbH" ;
+    rdfs:seeAlso <seeding-alliance.de/datenschutz> .
+:Seedtag-Advertising-S-L a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Seedtag Advertising S.L" ;
+    rdfs:seeAlso <www.seedtag.com/en/privacy-policy/> .
+:Seenthis-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Seenthis AB" ;
+    rdfs:seeAlso <seenthis.co/privacy-notice-2018-04-18.pdf> .
+:Sellpoints-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sellpoints Inc." ;
+    rdfs:seeAlso <retargeter.com/service-privacy-policy/> .
+:Semasio-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Semasio GmbH" ;
+    rdfs:seeAlso <www.semasio.com/privacy-policy/> .
+:Sharethis-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ShareThis, Inc." ;
+    rdfs:seeAlso <www.sharethis.com/privacy/> .
+:Sharethrough-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sharethrough, Inc" ;
+    rdfs:seeAlso <platform-cdn.sharethrough.com/privacy-policy> .
+:Shemedia-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SheMedia, LLC" ;
+    rdfs:seeAlso <corporate.shemedia.com/faq/ad-services-privacy-policy> .
+:Shopalyst-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Shopalyst Inc" ;
+    rdfs:seeAlso <www.shortlyst.com/eu/privacy_terms.html> .
+:Shopstyle a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Shopstyle" ;
+    rdfs:seeAlso <www.shopstyle.co.uk/privacy> .
+:Showheroes-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ShowHeroes GmbH" ;
+    rdfs:seeAlso <showheroes.com/privacy> .
+:Sift-Media-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sift Media, Inc" ;
+    rdfs:seeAlso <www.sift.co/privacy> .
+:Signal-Digital-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Signal Digital Inc." ;
+    rdfs:seeAlso <www.signal.co/privacy-policy/> .
+:Signals a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Signals" ;
+    rdfs:seeAlso <signalsdata.com/platform-cookie-policy/> .
+:Simplifi-Holdings-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Simplifi Holdings Inc." ;
+    rdfs:seeAlso <www.simpli.fi/site-privacy-policy2/> .
+:Singlespot-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SINGLESPOT SAS " ;
+    rdfs:seeAlso <www.singlespot.com/privacy_policy?locale=fr> .
+:Sirdata a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sirdata" ;
+    rdfs:seeAlso <www.sirdata.com/privacy/> .
+:Sizmek-Technologies-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sizmek Technologies, Inc. " ;
+    rdfs:seeAlso <www.sizmek.com/privacy-policy/> .
+:Skimbit-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Skimbit Ltd" ;
+    rdfs:seeAlso <skimlinks.com/pages/privacy-policy> .
+:Slimcut-Media-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SlimCut Media SAS" ;
+    rdfs:seeAlso <www.slimcutmedia.com/privacy-policy/> .
+:Smaato-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smaato, Inc." ;
+    rdfs:seeAlso <www.smaato.com/privacy/> .
+:Smadex-Sl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smadex SL" ;
+    rdfs:seeAlso <smadex.com/end-user-privacy-policy/> .
+:Smart-Adserver a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smart Adserver" ;
+    rdfs:seeAlso <smartadserver.com/end-user-privacy-policy/> .
+:Smart-Traffik a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smart Traffik" ;
+    rdfs:seeAlso <smart-traffik.io/politique-de-confidentialite> .
+:Smartclip-Hispania-Sl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smartclip Hispania SL" ;
+    rdfs:seeAlso <rgpd-smartclip.com/> .
+:Smartclip-Holding-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "smartclip Holding AG" ;
+    rdfs:seeAlso <privacy-portal.smartclip.net/> .
+:Smartology-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Smartology Limited" ;
+    rdfs:seeAlso <www.smartology.net/privacy-policy/> .
+:Smartstream-Tv-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SMARTSTREAM.TV GmbH" ;
+    rdfs:seeAlso <www.smartstream.tv/en/privacy> .
+:Smartyads-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SmartyAds Inc." ;
+    rdfs:seeAlso <smartyads.com/privacy-policy> .
+:Snapsort-Inc-Operating-As-Sortable a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Snapsort Inc., operating as Sortable" ;
+    rdfs:seeAlso <sortable.com/privacy> .
+:Social-Tokens-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Social Tokens Ltd. " ;
+    rdfs:seeAlso <woobi.com/privacy/> .
+:Sojern-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sojern, Inc." ;
+    rdfs:seeAlso <www.sojern.com/privacy/product-privacy-policy/> .
+:Somo-Audience-Corp a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Somo Audience Corp" ;
+    rdfs:seeAlso <somoaudience.com/legal/> .
+:Sonobi-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sonobi, Inc" ;
+    rdfs:seeAlso <sonobi.com/privacy-policy/> .
+:Sourcepoint-Technologies-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sourcepoint Technologies, Inc." ;
+    rdfs:seeAlso <www.sourcepoint.com/privacy-policy> .
+:Sovrn-Holdings-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sovrn Holdings Inc" ;
+    rdfs:seeAlso <www.sovrn.com/sovrn-privacy/> .
+:Spolecznosci-Sp-Z-O-O-Sp-K a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Spolecznosci Sp. z o.o. Sp. k." ;
+    rdfs:seeAlso <www.spolecznosci.pl/polityka-prywatnosci> .
+:Spot-Im-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Spot.IM Ltd." ;
+    rdfs:seeAlso <spot.im/privacy> .
+:Spotad a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Spotad" ;
+    rdfs:seeAlso <www.spotad.co/privacy-policy/> .
+:Spotx a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SpotX" ;
+    rdfs:seeAlso <www.spotx.tv/privacy-policy/> .
+:Stackadapt a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "StackAdapt" ;
+    rdfs:seeAlso <www.stackadapt.com/privacy> .
+:Startapp-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "StartApp Inc." ;
+    rdfs:seeAlso <www.startapp.com/policy/privacy-policy/> .
+:Steel-House-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Steel House, Inc." ;
+    rdfs:seeAlso <steelhouse.com/privacy-policy/> .
+:Straper-Mobile-Performance-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "StrÃ¶er Mobile Performance GmbH" ;
+    rdfs:seeAlso <stroeermobileperformance.com/?dl=privacy> .
+:Straper-Ssp-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "StrÃ¶er SSP GmbH" ;
+    rdfs:seeAlso <www.stroeer.de/fileadmin/user_upload/Datenschutz.pdf> .
+:Sub2-Technologies-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sub2 Technologies Ltd" ;
+    rdfs:seeAlso <www.sub2tech.com/privacy-policy/> .
+:Sublime a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Sublime" ;
+    rdfs:seeAlso <ayads.co/privacy.php> .
+:Sunmedia a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SunMedia " ;
+    rdfs:seeAlso <www.sunmedia.tv/en/cookies> .
+:Switch-Concepts-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Switch Concepts Limited" ;
+    rdfs:seeAlso <www.switchconcepts.com/privacy-policy> .
+:Sync a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "SYNC" ;
+    rdfs:seeAlso <redirect.sync.tv/privacy/> .
+:Tabmo-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TabMo SAS" ;
+    rdfs:seeAlso <static.tabmo.io.s3.amazonaws.com/privacy-policy/index.html> .
+:Taboola-Europe-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Taboola Europe Limited" ;
+    rdfs:seeAlso <www.taboola.com/privacy-policy> .
+:Tactica-C-Real-Time-Marketing-As a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TACTICâ„¢ Real-Time Marketing AS" ;
+    rdfs:seeAlso <tacticrealtime.com/privacy/> .
+:Tapad-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tapad, Inc. " ;
+    rdfs:seeAlso <www.tapad.com/privacy> .
+:Tapjoy-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tapjoy, Inc." ;
+    rdfs:seeAlso <www.tapjoy.com/legal/#privacy-policy> .
+:Taptap-Networks-Sl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TAPTAP Networks SL" ;
+    rdfs:seeAlso <www.taptapnetworks.com/privacy_policy/> .
+:Targetspot-Belgium-Sprl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TARGETSPOT BELGIUM SPRL" ;
+    rdfs:seeAlso <marketing.targetspot.com/Targetspot/Legal/TargetSpot%20Privacy%20Policy%20-%20June%202018.pdf> .
+:Teads a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Teads " ;
+    rdfs:seeAlso <teads.tv/privacy-policy/> .
+:Tealium-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tealium Inc" ;
+    rdfs:seeAlso <tealium.com/privacy/> .
+:Teemo-Sa a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Teemo SA" ;
+    rdfs:seeAlso <teemo.co/fr/confidentialite/> .
+:Telaria-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Telaria, Inc" ;
+    rdfs:seeAlso <telaria.com/privacy-policy/> .
+:Telecoming-S-A a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Telecoming S.A." ;
+    rdfs:seeAlso <www.telecoming.com/privacy-policy/> .
+:Teroa-S-A a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Teroa S.A." ;
+    rdfs:seeAlso <www.e-planning.net/en/privacy.html> .
+:The-Adex-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The ADEX GmbH" ;
+    rdfs:seeAlso <www.theadex.com/privacy-opt-out/> .
+:The-Kantar-Group-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The Kantar Group Limited" ;
+    rdfs:seeAlso <www.kantar.com/cookies-policies> .
+:The-Ozone-Project-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The Ozone Project Limited" ;
+    rdfs:seeAlso <ozoneproject.com/privacy-policy> .
+:The-Reach-Group-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The Reach Group GmbH" ;
+    rdfs:seeAlso <www.reachgroup.com/en/privacy-statement/> .
+:The-Rubicon-Project-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The Rubicon Project, Inc. " ;
+    rdfs:seeAlso <www.rubiconproject.com/rubicon-project-yield-optimization-privacy-policy/> .
+:The-Trade-Desk a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "The Trade Desk" ;
+    rdfs:seeAlso <www.thetradedesk.com/general/privacy-policy> .
+:Thirdpresence-Oy a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Thirdpresence Oy" ;
+    rdfs:seeAlso <www.thirdpresence.com/privacy> .
+:Timeone a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TimeOne" ;
+    rdfs:seeAlso <privacy.timeonegroup.com/en/> .
+:Totaljobs-Group-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Totaljobs Group Ltd " ;
+    rdfs:seeAlso <www.totaljobs.com/privacy-policy> .
+:Tradedoubler-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tradedoubler AB" ;
+    rdfs:seeAlso <www.tradedoubler.com/en/privacy-policy/> .
+:Tradelab-Sas a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tradelab, SAS" ;
+    rdfs:seeAlso <tradelab.com/en/privacy/> .
+:Tradetracker a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TradeTracker" ;
+    rdfs:seeAlso <tradetracker.com/privacy-policy/> .
+:Travel-Audience-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "travel audience GmbH" ;
+    rdfs:seeAlso <travelaudience.com/product-privacy-policy/> .
+:Tresensa-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TreSensa, Inc." ;
+    rdfs:seeAlso <www.tresensa.com/eu-privacy> .
+:Triapodi-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Triapodi Ltd." ;
+    rdfs:seeAlso <appreciate.mobi/page.html#/end-user-privacy-policy> .
+:Triboo-Data-Analytics a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Triboo Data Analytics" ;
+    rdfs:seeAlso <www.shinystat.com/it/informativa_sito.html> .
+:Triplelift-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "TripleLift, Inc." ;
+    rdfs:seeAlso <triplelift.com/privacy/> .
+:Triton-Digital-Canada-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Triton Digital Canada Inc." ;
+    rdfs:seeAlso <www.tritondigital.com/privacy-policies> .
+:Tunnl-Bv a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Tunnl BV" ;
+    rdfs:seeAlso <tunnl.com/privacy.html> .
+:Turbo a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Turbo" ;
+    rdfs:seeAlso <www.turboadv.com/white-rabbit-privacy-policy/> .
+:Twiago-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "twiago GmbH" ;
+    rdfs:seeAlso <www.twiago.com/datenschutz/> .
+:Ubermedia-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "UberMedia, Inc." ;
+    rdfs:seeAlso <ubermedia.com/company/products-privacy-policy/#ADDITIONAL_NOTICE> .
+:Ucfunnel-Co-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ucfunnel Co., Ltd." ;
+    rdfs:seeAlso <www.ucfunnel.com/privacy-policy> .
+:Underdog-Media-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Underdog Media LLC " ;
+    rdfs:seeAlso <underdogmedia.com/privacy-policy/> .
+:Unruly-Group-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Unruly Group Ltd" ;
+    rdfs:seeAlso <unruly.co/privacy/> .
+:Uppr-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "uppr GmbH" ;
+    rdfs:seeAlso <netzwerk.uppr.de/privacy-policy.do> .
+:Uprival-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Uprival LLC" ;
+    rdfs:seeAlso <uprival.com/privacy-policy/> .
+:Usemax-Advertisement-Emego-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "usemax advertisement (Emego GmbH)" ;
+    rdfs:seeAlso <www.usemax.de/?l=privacy> .
+:Vdopia-Dba-Chocolate-Platform a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Vdopia DBA Chocolate Platform" ;
+    rdfs:seeAlso <chocolateplatform.com/privacy-policy/> .
+:Vectaury a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "VECTAURY" ;
+    rdfs:seeAlso <www.vectaury.io/en/personal-data> .
+:Venatus-Media-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Venatus Media Limited" ;
+    rdfs:seeAlso <www.venatusmedia.com/privacy/> .
+:Vibrant-Media-Limited a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Vibrant Media Limited" ;
+    rdfs:seeAlso <www.vibrantmedia.com/en/privacy-policy/> .
+:Video-Intelligence-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "video intelligence AG" ;
+    rdfs:seeAlso <www.vi.ai/privacy-policy/> .
+:Video-Media-Groep-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Video Media Groep B.V." ;
+    rdfs:seeAlso <www.videomediagroup.com/wp-content/uploads/2016/01/Privacy-policy-VMG.pdf> .
+:Video-Reach a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Video Reach" ;
+    rdfs:seeAlso <www.videoreach.de/about/privacy-policy/> .
+:Videology-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Videology Ltd." ;
+    rdfs:seeAlso <videologygroup.com/en/privacy-policy> .
+:Vidoomy-Media-Sl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Vidoomy Media SL" ;
+    rdfs:seeAlso <vidoomy.com/privacy-policy.html> .
+:Viewpay a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ViewPay" ;
+    rdfs:seeAlso <viewpay.tv/mentions-legales/> .
+:Viralize-Srl a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Viralize SRL" ;
+    rdfs:seeAlso <viralize.com/privacy-policy> .
+:Visarity-Technologies-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Visarity Technologies GmbH" ;
+    rdfs:seeAlso <primo.design/docs/PrivacyPolicyPrimo.html> .
+:Vuble a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Vuble" ;
+    rdfs:seeAlso <www.vuble.tv/us/privacy> .
+:Webads-B-V a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "WebAds B.V" ;
+    rdfs:seeAlso <privacy.webads.eu/> .
+:Webedia a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Webedia" ;
+    rdfs:seeAlso <www.webedia-group.com/site/privacy-policy> .
+:Weborama a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "WEBORAMA" ;
+    rdfs:seeAlso <weborama.com/privacy_en/> .
+:Welect-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Welect GmbH" ;
+    rdfs:seeAlso <www.welect.de/datenschutz> .
+:Whenever-Media-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Whenever Media Ltd" ;
+    rdfs:seeAlso <www.whenevermedia.com/privacy-policy> .
+:White-Ops-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "White Ops, Inc." ;
+    rdfs:seeAlso <www.whiteops.com/privacy> .
+:Widespace-Ab a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Widespace AB" ;
+    rdfs:seeAlso <www.widespace.com/legal/privacy-policy-notice/> .
+:Wizaly a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Wizaly" ;
+    rdfs:seeAlso <www.wizaly.com/terms-of-use#privacy-policy> .
+:X-Mode-Social-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "X-Mode Social, Inc." ;
+    rdfs:seeAlso <xmode.io/privacy-policy.html> .
+:Xad-Inc-Dba-Groundtruth a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "xAd, Inc. dba GroundTruth" ;
+    rdfs:seeAlso <www.groundtruth.com/privacy-policy/> .
+:Yellowhammer-Media-Group a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "YellowHammer Media Group" ;
+    rdfs:seeAlso <www.yhmg.com/privacy-policy/> .
+:Yieldlab-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Yieldlab AG" ;
+    rdfs:seeAlso <www.yieldlab.de/meta-navigation/datenschutz/> .
+:Yieldlove-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Yieldlove GmbH" ;
+    rdfs:seeAlso <www.yieldlove.com/cookie-policy> .
+:Yieldmo-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Yieldmo, Inc." ;
+    rdfs:seeAlso <www.yieldmo.com/privacy/> .
+:Yieldr-Uk a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Yieldr UK" ;
+    rdfs:seeAlso <www.yieldr.com/privacy> .
+:Yoc-Ag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "YOC AG" ;
+    rdfs:seeAlso <yoc.com/privacy/> .
+:Yormedia-Solutions-Ltd a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Yormedia Solutions Ltd" ;
+    rdfs:seeAlso <www.yormedia.com/privacy-and-cookies-notice/> .
+:Zebestof a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Zebestof" ;
+    rdfs:seeAlso <www.zebestof.com/en/about-us-2/privacy-en/> .
+:Zemanta-Inc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Zemanta, Inc." ;
+    rdfs:seeAlso <www.zemanta.com/legal/privacy> .
+:Zeotap-Gmbh a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "zeotap GmbH" ;
+    rdfs:seeAlso <www.zeotap.com/privacy_policy/> .
+:Zeta-Global a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Zeta Global" ;
+    rdfs:seeAlso <zetaglobal.com/privacy-policy/> .
+:Ziff-Davis-Llc a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Ziff Davis LLC" ;
+    rdfs:seeAlso <www.ziffdavis.com/privacy-policy> .
+:Zighzag a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "ZighZag" ;
+    rdfs:seeAlso <zighzag.com/privacy> .
+:Google  a gdprov:ThirdParty, gc:ThirdParty ;
+    rdfs:label "Google" .
+
+#### GOOGLE PARTNERS
+
+:2Kdirect-Inc a gdprov:ThirdParty ;
+    rdfs:label "2KDirect Inc." ;
+    rdfs:seeAlso <https://www.ipromote.com/privacy-policy/> .
+:Amazon a gdprov:ThirdParty ;
+    rdfs:label "Amazon" ;
+    rdfs:seeAlso <https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=201909010> .
+:Acuityads a gdprov:ThirdParty ;
+    rdfs:label "Acuityads" ;
+    rdfs:seeAlso <https://www.acuityads.com/privacy-policy/> .
+:Liveramp a gdprov:ThirdParty ;
+    rdfs:label "LiveRamp" ;
+    rdfs:seeAlso <https://liveramp.com/service-privacy-policy/> .
+:Adara-Media a gdprov:ThirdParty ;
+    rdfs:label "Adara Media" ;
+    rdfs:seeAlso <https://adara.com/2018/04/10/adara-gdpr-faq/> .
+:Eacnur a gdprov:ThirdParty ;
+    rdfs:label "Eacnur" ;
+    rdfs:seeAlso <https://eacnur.org/es/politica-privacidad> .
+:Adform a gdprov:ThirdParty ;
+    rdfs:label "Adform" ;
+    rdfs:seeAlso <https://site.adform.com/uncategorized/product-and-services-privacy-policy/> .
+:Adloox a gdprov:ThirdParty ;
+    rdfs:label "Adloox" ;
+    rdfs:seeAlso <http://adloox.com/disclaimer> .
+:Digilant a gdprov:ThirdParty ;
+    rdfs:label "Digilant" ;
+    rdfs:seeAlso <https://www.digilant.com/privacy-policy/> .
+:Adpredictive a gdprov:ThirdParty ;
+    rdfs:label "AdPredictive" ;
+    rdfs:seeAlso <http://adpredictive.com/optout/> .
+:Adriver a gdprov:ThirdParty ;
+    rdfs:label "Adriver" ;
+    rdfs:seeAlso <https://www.adriver.ru/about/privacy-en/> .
+:Integral-Ad-Science a gdprov:ThirdParty ;
+    rdfs:label "Integral Ad Science" ;
+    rdfs:seeAlso <http://www.integralads.com/privacy-policy> .
+:Adtelligence a gdprov:ThirdParty ;
+    rdfs:label "Adtelligence" ;
+    rdfs:seeAlso <https://adtelligence.com/en/data-privacy/> .
+:Artsai a gdprov:ThirdParty ;
+    rdfs:label "Artsai" ;
+    rdfs:seeAlso <http://www.artsai.com/home/privacy/> .
+:Comscore a gdprov:ThirdParty ;
+    rdfs:label "comScore" ;
+    rdfs:seeAlso <https://www.comscore.com/About-comScore/Privacy-Policy> .
+:Akamai a gdprov:ThirdParty ;
+    rdfs:label "Akamai" ;
+    rdfs:seeAlso <http://www.akamai.com/compliance/privacy> .
+:Appnexus a gdprov:ThirdParty ;
+    rdfs:label "AppNexus" ;
+    rdfs:seeAlso <https://www.appnexus.com/en/company/platform-privacy-policy> .
+:Arbigo-Inc a gdprov:ThirdParty ;
+    rdfs:label "Arbigo Inc." ;
+    rdfs:seeAlso <http://www.arbigo.com/terms--policy.html> .
+:Adspirit-Adserver a gdprov:ThirdParty ;
+    rdfs:label "AdSpirit AdServer" ;
+    rdfs:seeAlso <https://www.adspirit.de/datenschutz00.0.html> .
+:Taboola a gdprov:ThirdParty ;
+    rdfs:label "Taboola" ;
+    rdfs:seeAlso <https://www.taboola.com/privacy-policy> .
+:Facebook a gdprov:ThirdParty ;
+    rdfs:label "Facebook" ;
+    rdfs:seeAlso <https://www.facebook.com/about/privacy/update> .
+:Aunica a gdprov:ThirdParty ;
+    rdfs:label "Aunica" ;
+    rdfs:seeAlso <https://www.aunica.com.br/privacy/privacy.html> .
+:Booking-Com a gdprov:ThirdParty ;
+    rdfs:label "Booking.com" ;
+    rdfs:seeAlso <https://www.booking.com/content/privacy.en-gb.html> .
+:Direct-Interactive a gdprov:ThirdParty ;
+    rdfs:label "direct interactive" ;
+    rdfs:seeAlso <https://www.apartena.net/datenschutzerklaerung.html> .
+:C3-Metrics a gdprov:ThirdParty ;
+    rdfs:label "C3 Metrics" ;
+    rdfs:seeAlso <https://c3metrics.com/privacy> .
+:Capitaldata a gdprov:ThirdParty ;
+    rdfs:label "CapitalData" ;
+    rdfs:seeAlso <https://www.capitaldata.fr/charte-vie-privee-display-personnalise/> .
+:E-Planning a gdprov:ThirdParty ;
+    rdfs:label "E-Planning" ;
+    rdfs:seeAlso <https://www.e-planning.net/en/privacy.html> .
+:Index-Exchange a gdprov:ThirdParty ;
+    rdfs:label "Index Exchange" ;
+    rdfs:seeAlso <http://www.indexexchange.com/privacy/> .
+:Chitika a gdprov:ThirdParty ;
+    rdfs:label "Chitika" ;
+    rdfs:seeAlso <https://chitika.com/privacy-policy/> .
+:Clickforce a gdprov:ThirdParty ;
+    rdfs:label "ClickForce" ;
+    rdfs:seeAlso <http://www.clickforce.com.tw/site/privacyPolicy> .
+:Clickpoint a gdprov:ThirdParty ;
+    rdfs:label "Clickpoint" ;
+    rdfs:seeAlso <http://site.clickpoint.com/privacy> .
+:Connexity a gdprov:ThirdParty ;
+    rdfs:label "Connexity" ;
+    rdfs:seeAlso <http://connexity.com/gb/privacy-policy/> .
+:Constant-Contact a gdprov:ThirdParty ;
+    rdfs:label "Constant Contact" ;
+    rdfs:seeAlso <https://www.constantcontact.com/legal/privacy-statement> .
+:Conversive a gdprov:ThirdParty ;
+    rdfs:label "Conversive" ;
+    rdfs:seeAlso <https://conversive.nl/privacy/> .
+:Ibm a gdprov:ThirdParty ;
+    rdfs:label "IBM" ;
+    rdfs:seeAlso <https://www.ibm.com/customer-engagement/digital-marketing/gdpr> .
+:Crimtan a gdprov:ThirdParty ;
+    rdfs:label "Crimtan" ;
+    rdfs:seeAlso <https://crimtan.com/privacy-ctl/> .
+:Criteo a gdprov:ThirdParty ;
+    rdfs:label "Criteo" ;
+    rdfs:seeAlso <https://www.criteo.com/privacy> .
+:Dac a gdprov:ThirdParty ;
+    rdfs:label "DAC" ;
+    rdfs:seeAlso <http://www.dac.co.jp/english/utility/rule> .
+:Dataxu a gdprov:ThirdParty ;
+    rdfs:label "DataXu" ;
+    rdfs:seeAlso <https://www.dataxu.com/gdpr/> .
+:Pulsepoint a gdprov:ThirdParty ;
+    rdfs:label "PulsePoint" ;
+    rdfs:seeAlso <https://www.pulsepoint.com/privacy-policy> .
+:Delta-Projects a gdprov:ThirdParty ;
+    rdfs:label "Delta Projects" ;
+    rdfs:seeAlso <http://www.deltaprojects.com/data-collection-policy/> .
+:Demandbase a gdprov:ThirdParty ;
+    rdfs:label "Demandbase" ;
+    rdfs:seeAlso <https://www.demandbase.com/privacy-policy/> .
+:Digitize a gdprov:ThirdParty ;
+    rdfs:label "Digitize" ;
+    rdfs:seeAlso <http://www.digitize.ie/online-privacy/> .
+:Doubleverify a gdprov:ThirdParty ;
+    rdfs:label "DoubleVerify" ;
+    rdfs:seeAlso <https://www.doubleverify.com/privacy/> .
+:Ebay a gdprov:ThirdParty ;
+    rdfs:label "eBay" ;
+    rdfs:seeAlso <https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260#section12> .
+:Effinity a gdprov:ThirdParty ;
+    rdfs:label "Effinity" ;
+    rdfs:seeAlso <https://www.effiliation.com/politique-confidentialite.html> .
+:Engagebdr a gdprov:ThirdParty ;
+    rdfs:label "engageBDR" ;
+    rdfs:seeAlso <http://engagebdr.com/terms/EngageBDR_Buyer_Addendum_December_2015.pdf> .
+:Evidon a gdprov:ThirdParty ;
+    rdfs:label "Evidon" ;
+    rdfs:seeAlso <https://www.evidon.com/resources/privacy-statement/> .
+:Eyereturn-Marketing a gdprov:ThirdParty ;
+    rdfs:label "Eyereturn Marketing" ;
+    rdfs:seeAlso <https://eyereturnmarketing.com/privacy/> .
+:Flashtalking a gdprov:ThirdParty ;
+    rdfs:label "Flashtalking" ;
+    rdfs:seeAlso <http://www.flashtalking.com/first-party-ad-serving/> .
+:Forbes a gdprov:ThirdParty ;
+    rdfs:label "Forbes" ;
+    rdfs:seeAlso <https://www.forbes.com/fdc/privacy.html> .
+:Freewheel a gdprov:ThirdParty ;
+    rdfs:label "FreeWheel" ;
+    rdfs:seeAlso <http://www.freewheel.tv/privacy> .
+:Fringe81 a gdprov:ThirdParty ;
+    rdfs:label "Fringe81" ;
+    rdfs:seeAlso <http://www.fringe81.com/privacy/> .
+:Gemius a gdprov:ThirdParty ;
+    rdfs:label "Gemius" ;
+    rdfs:seeAlso <https://www.gemius.com/cookie-policy.html> .
+:Goodway-Group a gdprov:ThirdParty ;
+    rdfs:label "Goodway Group" ;
+    rdfs:seeAlso <https://goodwaygroup.com/privacy-policy/> .
+:Google a gdprov:ThirdParty ;
+    rdfs:label "Google" ;
+    rdfs:seeAlso <https://www.google.com/policies/technologies/partner-sites/> .
+:Groovinads a gdprov:ThirdParty ;
+    rdfs:label "GroovinAds" ;
+    rdfs:seeAlso <http://www.groovinads.com/en#privacy_modal> .
+:Adacado a gdprov:ThirdParty ;
+    rdfs:label "Adacado" ;
+    rdfs:seeAlso <https://www.adacado.com/privacy-policy-april-25-2018/> .
+:Hq-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "HQ GmbH" ;
+    rdfs:seeAlso <https://www.hqgmbh.eu/datenschutz.html> .
+:Hurra-Com a gdprov:ThirdParty ;
+    rdfs:label "hurra.com" ;
+    rdfs:seeAlso <http://www.hurra.com/impressum> .
+:Infectious-Media a gdprov:ThirdParty ;
+    rdfs:label "Infectious Media" ;
+    rdfs:seeAlso <https://impressiondesk.com/> .
+:Innity a gdprov:ThirdParty ;
+    rdfs:label "Innity" ;
+    rdfs:seeAlso <https://www.innity.com/privacy-policy.php> .
+:Intelliad a gdprov:ThirdParty ;
+    rdfs:label "intelliAd" ;
+    rdfs:seeAlso <https://www.intelliad.de/datenschutz> .
+:Interpolls a gdprov:ThirdParty ;
+    rdfs:label "Interpolls" ;
+    rdfs:seeAlso <https://www.interpolls.com/privacy> .
+:Iponweb a gdprov:ThirdParty ;
+    rdfs:label "IPONWEB" ;
+    rdfs:seeAlso <http://www.bidswitch.com/privacy-policy/> .
+:Iprospect a gdprov:ThirdParty ;
+    rdfs:label "iProspect" ;
+    rdfs:seeAlso <https://www.iprospect.com/en/ph/privacy-policy/> .
+:Jivox a gdprov:ThirdParty ;
+    rdfs:label "Jivox" ;
+    rdfs:seeAlso <http://www.jivox.com/privacy/> .
+:Kwanzoo a gdprov:ThirdParty ;
+    rdfs:label "Kwanzoo" ;
+    rdfs:seeAlso <http://www.kwanzoo.com/cms/gdpr-privacy-addendum/> .
+:Linkstorm a gdprov:ThirdParty ;
+    rdfs:label "Linkstorm" ;
+    rdfs:seeAlso <https://www.linkstorm.net/privacy/> .
+:Lotame a gdprov:ThirdParty ;
+    rdfs:label "Lotame" ;
+    rdfs:seeAlso <https://www.lotame.com/about-lotame/privacy/> .
+:Mobfox a gdprov:ThirdParty ;
+    rdfs:label "Mobfox" ;
+    rdfs:seeAlso <https://www.mobfox.com/privacy-policy/> .
+:Media-Force a gdprov:ThirdParty ;
+    rdfs:label "Media Force" ;
+    rdfs:seeAlso <http://www.mediaforce.com/privacy.html> .
+:Dstillery a gdprov:ThirdParty ;
+    rdfs:label "Dstillery" ;
+    rdfs:seeAlso <https://dstillery.com/privacy-policy/> .
+:Mediamath a gdprov:ThirdParty ;
+    rdfs:label "MediaMath" ;
+    rdfs:seeAlso <http://www.mediamath.com/privacy-policy/> .
+:Sizmek a gdprov:ThirdParty ;
+    rdfs:label "Sizmek" ;
+    rdfs:seeAlso <https://www.sizmek.com/privacy-policy/> .
+:Conversant-Cj-Affiliate a gdprov:ThirdParty ;
+    rdfs:label "Conversant/CJ Affiliate" ;
+    rdfs:seeAlso <https://www.conversantmedia.eu/legal/privacy-policy> .
+:Dma-Institute a gdprov:ThirdParty ;
+    rdfs:label "DMA Institute" ;
+    rdfs:seeAlso <https://www.dma-institute.com/privacy-compliancy/> .
+:Metalyzer a gdprov:ThirdParty ;
+    rdfs:label "Metalyzer" ;
+    rdfs:seeAlso <https://metapeople.com/datenschutz/> .
+:Zms a gdprov:ThirdParty ;
+    rdfs:label "ZMS" ;
+    rdfs:seeAlso <https://zms.zalando.com/#> .
+:Microsoft a gdprov:ThirdParty ;
+    rdfs:label "Microsoft" ;
+    rdfs:seeAlso <https://privacy.microsoft.com/en-us/privacystatement> .
+:Mixpo a gdprov:ThirdParty ;
+    rdfs:label "Mixpo" ;
+    rdfs:seeAlso <http://www.netsertive.com/privacy-policy/> .
+:Neodata-Group a gdprov:ThirdParty ;
+    rdfs:label "Neodata Group" ;
+    rdfs:seeAlso <https://www.neodatagroup.com/en/security-policy> .
+:Ignition-One a gdprov:ThirdParty ;
+    rdfs:label "Ignition One" ;
+    rdfs:seeAlso <https://www.ignitionone.com/privacy-policy/gdpr-subject-access-requests/> .
+:Relay42 a gdprov:ThirdParty ;
+    rdfs:label "Relay42" ;
+    rdfs:seeAlso <https://relay42.com/privacy> .
+:Nielsen a gdprov:ThirdParty ;
+    rdfs:label "Nielsen" ;
+    rdfs:seeAlso <http://www.nielsen.com/us/en/privacy-statement/digital-measurement.html> .
+:Gfk a gdprov:ThirdParty ;
+    rdfs:label "GfK" ;
+    rdfs:seeAlso <https://sensic.net/> .
+:Omnicom-Media-Group a gdprov:ThirdParty ;
+    rdfs:label "Omnicom Media Group" ;
+    rdfs:seeAlso <https://www.omnicommediagroup.com/disclaimer.htm> .
+:Openx-Technologies a gdprov:ThirdParty ;
+    rdfs:label "OpenX Technologies" ;
+    rdfs:seeAlso <https://www.openx.com/legal/privacy-policy/> .
+:Openslate a gdprov:ThirdParty ;
+    rdfs:label "OpenSlate" ;
+    rdfs:seeAlso <https://www.openslate.com/general-data-protection-regulation-gdpr-compliance-statement/> .
+:Thunder a gdprov:ThirdParty ;
+    rdfs:label "Thunder" ;
+    rdfs:seeAlso <https://makethunder.com/privacy> .
+:Parship a gdprov:ThirdParty ;
+    rdfs:label "Parship" ;
+    rdfs:seeAlso <https://www.parship.de/privacypolicy/> .
+:Piximedia a gdprov:ThirdParty ;
+    rdfs:label "Piximedia" ;
+    rdfs:seeAlso <https://piximedia.com/privacy/> .
+:Platformone a gdprov:ThirdParty ;
+    rdfs:label "PlatformOne" ;
+    rdfs:seeAlso <https://www.platform-one.co.jp/data/> .
+:Poprule a gdprov:ThirdParty ;
+    rdfs:label "PopRule" ;
+    rdfs:seeAlso <http://purposelab.com/privacy/> .
+:Pulpo-An-Entravision-Company a gdprov:ThirdParty ;
+    rdfs:label "Pulpo (An Entravision Company)" ;
+    rdfs:seeAlso <https://www.pulpo.com/en/privacy-policy/> .
+:Viewbix a gdprov:ThirdParty ;
+    rdfs:label "Viewbix" ;
+    rdfs:seeAlso <http://corp.viewbix.com/cookie-policy/> .
+:Quantcast a gdprov:ThirdParty ;
+    rdfs:label "Quantcast" ;
+    rdfs:seeAlso <https://www.quantcast.com/privacy/> .
+:Recruit-Jp a gdprov:ThirdParty ;
+    rdfs:label "Recruit JP" ;
+    rdfs:seeAlso <https://www.r-ad.ne.jp/optout/> .
+:Rn-Ssi-Group a gdprov:ThirdParty ;
+    rdfs:label "RN SSI Group" ;
+    rdfs:seeAlso <https://www.valuedopinions.co.uk/privacy> .
+:Resonate a gdprov:ThirdParty ;
+    rdfs:label "Resonate" ;
+    rdfs:seeAlso <https://www.resonate.com/privacy-policy/> .
+:Suite-66 a gdprov:ThirdParty ;
+    rdfs:label "SUITE 66" ;
+    rdfs:seeAlso <http://www.suite66.com/privacy-policy/> .
+:Adnanny-Com a gdprov:ThirdParty ;
+    rdfs:label "adnanny.com" ;
+    rdfs:seeAlso <http://adserver01.de/> .
+:Scigineer a gdprov:ThirdParty ;
+    rdfs:label "Scigineer" ;
+    rdfs:seeAlso <https://www.scigineer.co.jp/privacy/> .
+:Adroll a gdprov:ThirdParty ;
+    rdfs:label "AdRoll" ;
+    rdfs:seeAlso <https://www.adrollgroup.com/privacy> .
+:Mediahead a gdprov:ThirdParty ;
+    rdfs:label "Mediahead" ;
+    rdfs:seeAlso <http://mediahead.com> .
+:Simpli-Fi a gdprov:ThirdParty ;
+    rdfs:label "Simpli.fi" ;
+    rdfs:seeAlso <https://www.simpli.fi/site-privacy-policy2/> .
+:Centro a gdprov:ThirdParty ;
+    rdfs:label "Centro" ;
+    rdfs:seeAlso <https://www.centro.net/privacy-policy/> .
+:Smart a gdprov:ThirdParty ;
+    rdfs:label "Smart" ;
+    rdfs:seeAlso <http://smartadserver.com/company/privacy-policy/> .
+:So-Net-Media-Networks a gdprov:ThirdParty ;
+    rdfs:label "So-net Media Networks" ;
+    rdfs:seeAlso <http://www.so-netmedia.jp/cookie/index.html> .
+:Sociomantic a gdprov:ThirdParty ;
+    rdfs:label "Sociomantic" ;
+    rdfs:seeAlso <https://www.sociomantic.com/privacy/en/> .
+:Sojern a gdprov:ThirdParty ;
+    rdfs:label "Sojern" ;
+    rdfs:seeAlso <https://www.sojern.com/privacy/product-privacy-policy/> .
+:Spartoo a gdprov:ThirdParty ;
+    rdfs:label "Spartoo" ;
+    rdfs:seeAlso <https://www.spartoo.co.uk/data_protection.php> .
+:Videology a gdprov:ThirdParty ;
+    rdfs:label "Videology" ;
+    rdfs:seeAlso <https://videologygroup.com/en/privacy-policy/> .
+:Travelclick a gdprov:ThirdParty ;
+    rdfs:label "TravelClick" ;
+    rdfs:seeAlso <https://www.travelclick.com/privacy-policy.html> .
+:Exponential a gdprov:ThirdParty ;
+    rdfs:label "Exponential" ;
+    rdfs:seeAlso <http://exponential.com/privacy/> .
+:Trustarc a gdprov:ThirdParty ;
+    rdfs:label "TrustArc" ;
+    rdfs:seeAlso <https://www.trustarc.com/privacy-policy/> .
+:Trueffect a gdprov:ThirdParty ;
+    rdfs:label "TruEffect" ;
+    rdfs:seeAlso <https://trueffect.com/privacy-policy/> .
+:Underdog-Media a gdprov:ThirdParty ;
+    rdfs:label "Underdog Media" ;
+    rdfs:seeAlso <https://underdogmedia.com/privacy-policy/gdpr> .
+:Undertone a gdprov:ThirdParty ;
+    rdfs:label "Undertone" ;
+    rdfs:seeAlso <https://www.undertone.com/privacy/> .
+:Unruly-Group-Limited a gdprov:ThirdParty ;
+    rdfs:label "Unruly Group Limited" ;
+    rdfs:seeAlso <https://unruly.co/privacy> .
+:Vizury a gdprov:ThirdParty ;
+    rdfs:label "Vizury" ;
+    rdfs:seeAlso <https://www1.vizury.com/legal/privacy-policy> .
+:Markit a gdprov:ThirdParty ;
+    rdfs:label "Markit" ;
+    rdfs:seeAlso <https://www.markitdigital.com/products/ads/privacy-policy/> .
+:Weborama a gdprov:ThirdParty ;
+    rdfs:label "Weborama" ;
+    rdfs:seeAlso <https://weborama.com/e-privacy/> .
+:Emetriq a gdprov:ThirdParty ;
+    rdfs:label "emetriq" ;
+    rdfs:seeAlso <https://www.emetriq.com/datenschutz/> .
+:Yieldr a gdprov:ThirdParty ;
+    rdfs:label "Yieldr" ;
+    rdfs:seeAlso <https://www.yieldr.com/privacy/> .
+:Cyberagent a gdprov:ThirdParty ;
+    rdfs:label "CyberAgent" ;
+    rdfs:seeAlso <https://adtech.cyberagent.io/privacy> .
+:Davinci11 a gdprov:ThirdParty ;
+    rdfs:label "DaVinci11" ;
+    rdfs:seeAlso <http://www.adsfactor.com/gdpr.html> .
+:Ding-Xin a gdprov:ThirdParty ;
+    rdfs:label "顶新" ;
+    rdfs:seeAlso <http://www.360.cn/privacy/v3/bpsxy.html> .
+:Mashero a gdprov:ThirdParty ;
+    rdfs:label "Mashero" ;
+    rdfs:seeAlso <http://www.mashero.com/en/privacy-protection> .
+:Betgenius a gdprov:ThirdParty ;
+    rdfs:label "Betgenius" ;
+    rdfs:seeAlso <http://betting.geniussports.com/connextra-service-terms-conditions/> .
+:Advolution-Control a gdprov:ThirdParty ;
+    rdfs:label "advolution.control" ;
+    rdfs:seeAlso <http://advolution.de/privacy.php> .
+:Exactag a gdprov:ThirdParty ;
+    rdfs:label "Exactag" ;
+    rdfs:seeAlso <https://www.exactag.com/en/data-privacy> .
+:Microad a gdprov:ThirdParty ;
+    rdfs:label "MicroAd" ;
+    rdfs:seeAlso <https://www.microad.co.jp/privacy/> .
+:Webgains a gdprov:ThirdParty ;
+    rdfs:label "Webgains" ;
+    rdfs:seeAlso <http://www.webgains.com/public/en/privacy/> .
+:Zanox a gdprov:ThirdParty ;
+    rdfs:label "Zanox" ;
+    rdfs:seeAlso <https://www.awin.com/de/rechtliches/privacy-policy> .
+:At-Internet a gdprov:ThirdParty ;
+    rdfs:label "AT Internet" ;
+    rdfs:seeAlso <https://www.atinternet.com/en/company/data-protection/> .
+:Innovid a gdprov:ThirdParty ;
+    rdfs:label "Innovid" ;
+    rdfs:seeAlso <http://www.innovid.com/privacy-policy> .
+:Meetrics a gdprov:ThirdParty ;
+    rdfs:label "Meetrics" ;
+    rdfs:seeAlso <https://www.meetrics.com/en/data-privacy/> .
+:Miaozhen-Systems a gdprov:ThirdParty ;
+    rdfs:label "Miaozhen Systems" ;
+    rdfs:seeAlso <http://www.miaozhen.com/index.php/EN/Index/articontent/articleid/202.html> .
+:Nugg-Ad a gdprov:ThirdParty ;
+    rdfs:label "nugg.ad" ;
+    rdfs:seeAlso <https://nugg.ad/de/datenschutz/allgemeine-informationen.html> .
+:Lifestreet a gdprov:ThirdParty ;
+    rdfs:label "LifeStreet" ;
+    rdfs:seeAlso <http://www.lifestreet.com/privacy> .
+:Tradelab a gdprov:ThirdParty ;
+    rdfs:label "Tradelab" ;
+    rdfs:seeAlso <http://tradelab.com/en/privacy/> .
+:Adledge a gdprov:ThirdParty ;
+    rdfs:label "AdLedge" ;
+    rdfs:seeAlso <https://adledge.com/data-privacy/> .
+:Mainadv a gdprov:ThirdParty ;
+    rdfs:label "MainADV" ;
+    rdfs:seeAlso <http://www.mainad.com/privacy-policy> .
+:Mediarithmics a gdprov:ThirdParty ;
+    rdfs:label "Mediarithmics" ;
+    rdfs:seeAlso <https://www.mediarithmics.com/en/data-privacy.html> .
+:Adadyn a gdprov:ThirdParty ;
+    rdfs:label "Adadyn" ;
+    rdfs:seeAlso <http://www.adadyn.com/privacypolicy.html> .
+:Revenuemantra a gdprov:ThirdParty ;
+    rdfs:label "RevenueMantra" ;
+    rdfs:seeAlso <http://www.revenuemantra.com/privacy.html> .
+:Easymedia a gdprov:ThirdParty ;
+    rdfs:label "EASYmedia" ;
+    rdfs:seeAlso <https://www.rvty.net/gdpr> .
+:Liveintent a gdprov:ThirdParty ;
+    rdfs:label "LiveIntent" ;
+    rdfs:seeAlso <https://liveintent.com/services-privacy-policy/> .
+:Rakuten-Marketing a gdprov:ThirdParty ;
+    rdfs:label "Rakuten Marketing" ;
+    rdfs:seeAlso <https://rakutenmarketing.com/legal-notices/services-privacy-policy> .
+:Reamp a gdprov:ThirdParty ;
+    rdfs:label "Reamp" ;
+    rdfs:seeAlso <https://rmemx.reamp.com.br/2015/privacy-policy/privacy.html> .
+:Emerse a gdprov:ThirdParty ;
+    rdfs:label "Emerse" ;
+    rdfs:seeAlso <https://www.emerse.com/privacy-policy/> .
+:Admaster-Lndata a gdprov:ThirdParty ;
+    rdfs:label "AdMaster/LnData" ;
+    rdfs:seeAlso <http://www.admaster.com.cn/eng/index.php?c=abouts&amp;a=content&amp;code=useterms_en> .
+:Trend-Research a gdprov:ThirdParty ;
+    rdfs:label "Trend Research" ;
+    rdfs:seeAlso <https://trendfrage.de/?ID=135> .
+:The-Reach-Group a gdprov:ThirdParty ;
+    rdfs:label "The Reach Group" ;
+    rdfs:seeAlso <https://www.reachgroup.com/en/privacy-statement/> .
+:Ensighten a gdprov:ThirdParty ;
+    rdfs:label "Ensighten" ;
+    rdfs:seeAlso <https://www.ensighten.com/privacy-policy/> .
+:Econda-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "econda GmbH" ;
+    rdfs:seeAlso <https://www.econda.de/service/datenschutz/> .
+:Yusp a gdprov:ThirdParty ;
+    rdfs:label "Yusp" ;
+    rdfs:seeAlso <http://www.yusp.com/yusp-privacy-policy/> .
+:Admaxim a gdprov:ThirdParty ;
+    rdfs:label "AdMaxim" ;
+    rdfs:seeAlso <http://www.admaxim.com/admaxim-privacy-policy/> .
+:D3Media a gdprov:ThirdParty ;
+    rdfs:label "d3media" ;
+    rdfs:seeAlso <http://www.d3sv.net/privacy/> .
+:Livelyimpact a gdprov:ThirdParty ;
+    rdfs:label "LivelyImpact" ;
+    rdfs:seeAlso <http://www.livelyimpact.com/privacy-policy.html> .
+:Verve a gdprov:ThirdParty ;
+    rdfs:label "Verve" ;
+    rdfs:seeAlso <https://www.verve.com/privacy-policy/> .
+:Batch-Media a gdprov:ThirdParty ;
+    rdfs:label "Batch Media" ;
+    rdfs:seeAlso <http://batch.ba/datenschutzerklarung/> .
+:Adelement a gdprov:ThirdParty ;
+    rdfs:label "AdElement" ;
+    rdfs:seeAlso <http://adelement.com/privacy-policy.html> .
+:Belboon a gdprov:ThirdParty ;
+    rdfs:label "Belboon" ;
+    rdfs:seeAlso <https://www.belboon.com/en/about-us/datenschutz/> .
+:Quarticon a gdprov:ThirdParty ;
+    rdfs:label "QuarticON" ;
+    rdfs:seeAlso <http://quarticon.com/privacy-statement/> .
+:Tracead a gdprov:ThirdParty ;
+    rdfs:label "TraceAd" ;
+    rdfs:seeAlso <http://influenceaudience.com/about/gdpr-privacy-policy-business-partners.html> .
+:Novem a gdprov:ThirdParty ;
+    rdfs:label "Novem" ;
+    rdfs:seeAlso <http://www.novem.pl/doc/Novem_polityka_prywatnosci.pdf> .
+:Net-Metrix-Ag a gdprov:ThirdParty ;
+    rdfs:label "NET-Metrix AG" ;
+    rdfs:seeAlso <https://www.net-metrix.ch/ueber-uns/datenschutzerklaerung> .
+:Adtarget-Me a gdprov:ThirdParty ;
+    rdfs:label "adTarget.me" ;
+    rdfs:seeAlso <https://adtarget.me/privacy.html> .
+:Advanced-Store-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "advanced STORE GmbH" ;
+    rdfs:seeAlso <https://www.ad4mat.com/en/privacy/> .
+:Triplelift a gdprov:ThirdParty ;
+    rdfs:label "TripleLift" ;
+    rdfs:seeAlso <https://triplelift.com/privacy/> .
+:Adzerk a gdprov:ThirdParty ;
+    rdfs:label "Adzerk" ;
+    rdfs:seeAlso <https://dev.adzerk.com/docs/privacy-policy-customers> .
+:Gdm-Services a gdprov:ThirdParty ;
+    rdfs:label "GDM Services" .
+:Reklam-Store a gdprov:ThirdParty ;
+    rdfs:label "Reklam Store" ;
+    rdfs:seeAlso <https://dsp.reklamstore.com/privacy-policy/> .
+:Silver-Egg-Technology a gdprov:ThirdParty ;
+    rdfs:label "Silver Egg Technology" ;
+    rdfs:seeAlso <http://www.silveregg.co.jp/GDPR> .
+:Vodafone-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Vodafone GmbH" ;
+    rdfs:seeAlso <https://www.vodafone.de/unternehmen/datenschutz-privatsphaere.html> .
+:Tinkoff-Ru a gdprov:ThirdParty ;
+    rdfs:label "Tinkoff.ru" ;
+    rdfs:seeAlso <https://static.tinkoff.ru/documents/docs/processing-personal-data.pdf> .
+:Celtra a gdprov:ThirdParty ;
+    rdfs:label "Celtra" ;
+    rdfs:seeAlso <https://www.celtra.com/privacy-policy/> .
+:Audienceproject a gdprov:ThirdParty ;
+    rdfs:label "AudienceProject" ;
+    rdfs:seeAlso <http://privacy.audienceproject.com/for-users/> .
+:Kpi-Solutions a gdprov:ThirdParty ;
+    rdfs:label "KPI Solutions" ;
+    rdfs:seeAlso <https://www.adv.admeme.net/en/privacy/optout.html> .
+:Polldaddy a gdprov:ThirdParty ;
+    rdfs:label "Polldaddy" ;
+    rdfs:seeAlso <https://automattic.com/privacy/> .
+:Outbrain-Inc a gdprov:ThirdParty ;
+    rdfs:label "Outbrain Inc." ;
+    rdfs:seeAlso <https://www.outbrain.com/legal/amplify-terms#privacy-policy> .
+:Maxcdn a gdprov:ThirdParty ;
+    rdfs:label "MaxCDN" ;
+    rdfs:seeAlso <https://www.maxcdn.com/gdpr/> .
+:Pubmatic a gdprov:ThirdParty ;
+    rdfs:label "PubMatic" ;
+    rdfs:seeAlso <https://pubmatic.com/legal/privacy-policy/> .
+:Rubicon-Project a gdprov:ThirdParty ;
+    rdfs:label "Rubicon Project" ;
+    rdfs:seeAlso <http://rubiconproject.com/rubicon-project-yield-optimization-privacy-policy/> .
+:Yandex a gdprov:ThirdParty ;
+    rdfs:label "Yandex" ;
+    rdfs:seeAlso <https://yandex.ru/legal/confidential/> .
+:Rutarget a gdprov:ThirdParty ;
+    rdfs:label "Rutarget" ;
+    rdfs:seeAlso <https://segmento.ru/en/gdpr> .
+:Adblade a gdprov:ThirdParty ;
+    rdfs:label "Adblade" ;
+    rdfs:seeAlso <https://www.adblade.com/doc/privacy> .
+:Singular-Labs-Inc a gdprov:ThirdParty ;
+    rdfs:label "Singular Labs Inc." ;
+    rdfs:seeAlso <https://www.singular.net/resource-center/gdpr-frequently-asked-questions/> .
+:Neustar a gdprov:ThirdParty ;
+    rdfs:label "Neustar" ;
+    rdfs:seeAlso <https://www.home.neustar/privacy> .
+:Scenestealer a gdprov:ThirdParty ;
+    rdfs:label "Scenestealer" ;
+    rdfs:seeAlso <http://www.scenestealer.tv/privacy-policy> .
+:Netquest a gdprov:ThirdParty ;
+    rdfs:label "Netquest" ;
+    rdfs:seeAlso <https://www.nicequest.com/us/privacy> .
+:Mediasmart a gdprov:ThirdParty ;
+    rdfs:label "mediasmart" ;
+    rdfs:seeAlso <https://mediasmart.io/privacy/> .
+:Mixmarket-Affiliate-Network a gdprov:ThirdParty ;
+    rdfs:label "Mixmarket Affiliate Network" ;
+    rdfs:seeAlso <http://mixmarket.biz/confidential/> .
+:Turbobytes a gdprov:ThirdParty ;
+    rdfs:label "Turbobytes" ;
+    rdfs:seeAlso <https://www.turbobytes.com/gdpr/> .
+:Ortec-Adscience a gdprov:ThirdParty ;
+    rdfs:label "ORTEC | adscience" ;
+    rdfs:seeAlso <https://www.ortecadscience.com/privacy-policy/> .
+:Blismedia a gdprov:ThirdParty ;
+    rdfs:label "Blismedia" ;
+    rdfs:seeAlso <http://www.blis.com/privacy/> .
+:Mail-Ru a gdprov:ThirdParty ;
+    rdfs:label "Mail.ru" ;
+    rdfs:seeAlso <https://help.mail.ru/mail-help/UA> .
+:Smartstream a gdprov:ThirdParty ;
+    rdfs:label "SMARTSTREAM" ;
+    rdfs:seeAlso <https://www.smartstream.tv/de/datenschutz> .
+:Activecore a gdprov:ThirdParty ;
+    rdfs:label "activecore" ;
+    rdfs:seeAlso <https://www.activecore.jp/privacy-policy/> .
+:Walmart a gdprov:ThirdParty ;
+    rdfs:label "Walmart" ;
+    rdfs:seeAlso <https://corporate.walmart.com/privacy-security/walmart-privacy-policy> .
+:Manage-Com a gdprov:ThirdParty ;
+    rdfs:label "Manage.com" ;
+    rdfs:seeAlso <https://www.manage.com/privacy-policy/> .
+:Cloudflare a gdprov:ThirdParty ;
+    rdfs:label "Cloudflare" ;
+    rdfs:seeAlso <https://www.cloudflare.com/security-policy/> .
+:Brainworkz a gdprov:ThirdParty ;
+    rdfs:label "Brainworkz" ;
+    rdfs:seeAlso <http://brainworkz.eu> .
+:Fusio-By-S4M a gdprov:ThirdParty ;
+    rdfs:label "FUSIO BY S4M" ;
+    rdfs:seeAlso <http://www.s4m.io/privacy-policy/> .
+:Trovit a gdprov:ThirdParty ;
+    rdfs:label "TROVIT" ;
+    rdfs:seeAlso <https://corporate.trovit.com/politica-de-privacidad> .
+:Salesforce-Dmp a gdprov:ThirdParty ;
+    rdfs:label "Salesforce DMP" ;
+    rdfs:seeAlso <https://www.salesforce.com/company/privacy/> .
+:Scoota a gdprov:ThirdParty ;
+    rdfs:label "Scoota" ;
+    rdfs:seeAlso <http://scoota.com/privacy-policy/> .
+:Lendgo-Innovative-Metrics a gdprov:ThirdParty ;
+    rdfs:label "LendGo &amp; Innovative Metrics" ;
+    rdfs:seeAlso <https://ads.innovativeadserver.com/gdrp> .
+:Audience2Media a gdprov:ThirdParty ;
+    rdfs:label "Audience2Media" ;
+    rdfs:seeAlso <https://www.audience2media.com/privacy> .
+:Tagtoo a gdprov:ThirdParty ;
+    rdfs:label "Tagtoo" ;
+    rdfs:seeAlso <https://www.tagtoo.com.tw/privacy_en.html> .
+:Addroid a gdprov:ThirdParty ;
+    rdfs:label "Addroid" ;
+    rdfs:seeAlso <https://addroid.com/terms.html> .
+:Inmind a gdprov:ThirdParty ;
+    rdfs:label "Inmind" ;
+    rdfs:seeAlso <https://opinion.com.ua/Default.aspx?p=confidential&amp;l=1> .
+:Bridgewell a gdprov:ThirdParty ;
+    rdfs:label "Bridgewell" ;
+    rdfs:seeAlso <http://www.bridgewell.com.tw/privacy/> .
+:Bidtheatre a gdprov:ThirdParty ;
+    rdfs:label "Bidtheatre" ;
+    rdfs:seeAlso <https://www.bidtheatre.com/privacy-policy> .
+:Udg a gdprov:ThirdParty ;
+    rdfs:label "UDG" ;
+    rdfs:seeAlso <https://www.udg.de/wp-content/uploads/2018/04/privacy_policy_EN.pdf> .
+:Pixalate a gdprov:ThirdParty ;
+    rdfs:label "Pixalate" ;
+    rdfs:seeAlso <http://www.pixalate.com/privacypolicy/> .
+:Inmobi a gdprov:ThirdParty ;
+    rdfs:label "InMobi" ;
+    rdfs:seeAlso <https://www.inmobi.com/privacy-policy-for-eea> .
+:Orange-Advertising a gdprov:ThirdParty ;
+    rdfs:label "Orange Advertising" ;
+    rdfs:seeAlso <https://www.orangeadvertising.fr/confidentialite-et-cookies/> .
+:Advanse a gdprov:ThirdParty ;
+    rdfs:label "Advanse" ;
+    rdfs:seeAlso <http://advanseads.com/privacy-policy/> .
+:Audiencevalue a gdprov:ThirdParty ;
+    rdfs:label "Audiencevalue" ;
+    rdfs:seeAlso <https://www.audiencevalue.com/legal.php> .
+:Media-Net a gdprov:ThirdParty ;
+    rdfs:label "Media.net" ;
+    rdfs:seeAlso <https://www.media.net/en/privacy-policy> .
+:Havas-Media-France-Dbi a gdprov:ThirdParty ;
+    rdfs:label "Havas Media France - DBi" ;
+    rdfs:seeAlso <http://www.centraltag.com/commercial/policy/index.action> .
+:Extreme-Reach a gdprov:ThirdParty ;
+    rdfs:label "Extreme Reach" ;
+    rdfs:seeAlso <https://extremereach.com/privacy-policy/> .
+:Netflix a gdprov:ThirdParty ;
+    rdfs:label "Netflix" ;
+    rdfs:seeAlso <http://www.netflix.com/google-3PAS-info> .
+:Macromill-Group a gdprov:ThirdParty ;
+    rdfs:label "Macromill group" ;
+    rdfs:seeAlso <https://www.metrixlab.com/privacy-statement/> .
+:Getintent a gdprov:ThirdParty ;
+    rdfs:label "GetIntent" ;
+    rdfs:seeAlso <https://getintent.com/privacy/> .
+:Goldspot-Media a gdprov:ThirdParty ;
+    rdfs:label "GoldSpot Media" ;
+    rdfs:seeAlso <https://corp.fluct.jp/privacy/gsm/> .
+:Dynadmic a gdprov:ThirdParty ;
+    rdfs:label "DYNADMIC" ;
+    rdfs:seeAlso <http://eu.dynadmic.com/privacy-policy/> .
+:Lockon a gdprov:ThirdParty ;
+    rdfs:label "Lockon" ;
+    rdfs:seeAlso <https://www.ebis.ne.jp/gdpr_e/> .
+:Trafmag a gdprov:ThirdParty ;
+    rdfs:label "Trafmag" ;
+    rdfs:seeAlso <http://trafmag.com/policy#gdpr> .
+:Ligatus a gdprov:ThirdParty ;
+    rdfs:label "Ligatus" ;
+    rdfs:seeAlso <https://www.ligatus.com/en/privacy-policy> .
+:Adclear a gdprov:ThirdParty ;
+    rdfs:label "AdClear" ;
+    rdfs:seeAlso <https://www.adclear.de/datenschutzerklaerung/> .
+:Kantar a gdprov:ThirdParty ;
+    rdfs:label "Kantar" ;
+    rdfs:seeAlso <https://www.kantarmedia.com/global/privacy-statement> .
+:Travel-Audience-An-Amadeus-Company a gdprov:ThirdParty ;
+    rdfs:label "travel audience &ndash; An Amadeus Company" ;
+    rdfs:seeAlso <https://travelaudience.com/product-privacy-policy/> .
+:Adventori a gdprov:ThirdParty ;
+    rdfs:label "Adventori" ;
+    rdfs:seeAlso <https://www.adventori.com/fr/avec-nous/mentions-legales/> .
+:Mindtake-Research a gdprov:ThirdParty ;
+    rdfs:label "MindTake Research" ;
+    rdfs:seeAlso <https://www.mindtake.com/en/reppublika-privacy-policy> .
+:Coadvertise a gdprov:ThirdParty ;
+    rdfs:label "CoAdvertise" ;
+    rdfs:seeAlso <http://www.coadvertise.com/en/gdpr/> .
+:Adcash a gdprov:ThirdParty ;
+    rdfs:label "Adcash" ;
+    rdfs:seeAlso <https://adcash.com/legal/> .
+:Hybrid-Ai a gdprov:ThirdParty ;
+    rdfs:label "hybrid.ai" ;
+    rdfs:seeAlso <https://hybrid.ai/data_protection_policy> .
+:Ebuilders a gdprov:ThirdParty ;
+    rdfs:label "ebuilders" ;
+    rdfs:seeAlso <http://ebuilders.nl/privacy> .
+:Adgibbon-Bv a gdprov:ThirdParty ;
+    rdfs:label "AdGibbon BV" ;
+    rdfs:seeAlso <http://www.agcs.works/legal/> .
+:Wider-Planet a gdprov:ThirdParty ;
+    rdfs:label "Wider Planet" ;
+    rdfs:seeAlso <http://info.jp.widerplanet.com/policy/privacy?lang=en> .
+:Adtoox a gdprov:ThirdParty ;
+    rdfs:label "Adtoox" ;
+    rdfs:seeAlso <https://www.adtoox.com/en/privacy-policy> .
+:Go-Pl a gdprov:ThirdParty ;
+    rdfs:label "GO.PL" ;
+    rdfs:seeAlso <https://go.pl/polityka-bezpieczenstwa-danych-osobowych/> .
+:Applovin-Corp a gdprov:ThirdParty ;
+    rdfs:label "AppLovin Corp." ;
+    rdfs:seeAlso <https://www.applovin.com/privacy> .
+:Sourceknowledge a gdprov:ThirdParty ;
+    rdfs:label "SourceKnowledge" ;
+    rdfs:seeAlso <http://www.sourceknowledge.com/privacy> .
+:M a gdprov:ThirdParty ;
+    rdfs:label "M" ;
+    rdfs:seeAlso <P> .
+:Mbr-Targeting-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "MBR Targeting Gmbh" ;
+    rdfs:seeAlso <https://privacy.mbr-targeting.com> .
+:Awin a gdprov:ThirdParty ;
+    rdfs:label "Awin" ;
+    rdfs:seeAlso <https://www.awin.com/gb/legal/privacy-policy-gb> .
+:Emx-Digital a gdprov:ThirdParty ;
+    rdfs:label "EMX Digital" ;
+    rdfs:seeAlso <https://emxdigital.com/privacy> .
+:Adman-Media a gdprov:ThirdParty ;
+    rdfs:label "ADman Media" ;
+    rdfs:seeAlso <https://admanmedia.com/politica> .
+:Nano-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Nano Interactive" ;
+    rdfs:seeAlso <http://www.nanointeractive.com/privacy> .
+:Crossinstall a gdprov:ThirdParty ;
+    rdfs:label "CrossInstall" .
+:Ovc-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "OVC GmbH" ;
+    rdfs:seeAlso <https://www.kissnofrog.com/legal/privacy> .
+:Mobpro a gdprov:ThirdParty ;
+    rdfs:label "Mobpro" ;
+    rdfs:seeAlso <http://mobpro.com/privacy.html> .
+:Fractional-Media a gdprov:ThirdParty ;
+    rdfs:label "Fractional Media" ;
+    rdfs:seeAlso <https://www.fractionalmedia.com/privacy-policy> .
+:Adsniper a gdprov:ThirdParty ;
+    rdfs:label "Adsniper" ;
+    rdfs:seeAlso <http://ad-sniper.com/docs/privacy-en.pdf> .
+:Link-Institut a gdprov:ThirdParty ;
+    rdfs:label "LINK Institut" ;
+    rdfs:seeAlso <http://www.link.ch/privacy> .
+:Appier a gdprov:ThirdParty ;
+    rdfs:label "Appier" ;
+    rdfs:seeAlso <https://www.appier.com/privacy_policy/latest/privacy_policy.html> .
+:Sparks47 a gdprov:ThirdParty ;
+    rdfs:label "Sparks47" ;
+    rdfs:seeAlso <http://www.sparks47.com/privacy/> .
+:Rackspace a gdprov:ThirdParty ;
+    rdfs:label "Rackspace" ;
+    rdfs:seeAlso <http://www.rackspace.com/gdpr> .
+:Mediawallah a gdprov:ThirdParty ;
+    rdfs:label "MediaWallah" ;
+    rdfs:seeAlso <http://mediawallah.com/privacy-policy/> .
+:Signal a gdprov:ThirdParty ;
+    rdfs:label "Signal" ;
+    rdfs:seeAlso <https://www.signal.co/privacy-policy/> .
+:Liftoff a gdprov:ThirdParty ;
+    rdfs:label "Liftoff" ;
+    rdfs:seeAlso <https://liftoff.io/privacy-policy/> .
+:Ydigital-Media a gdprov:ThirdParty ;
+    rdfs:label "YDigital Media" ;
+    rdfs:seeAlso <http://ydigitalmedia.com/pt/privacy-policy> .
+:Zentrick a gdprov:ThirdParty ;
+    rdfs:label "Zentrick" ;
+    rdfs:seeAlso <http://www.zentrick.com/platform-privacy-policy> .
+:Msi-Aci a gdprov:ThirdParty ;
+    rdfs:label "MSI-ACI" ;
+    rdfs:seeAlso <http://site.msi-aci.com/Home/FlexTrackPrivacy> .
+:Arrivalist a gdprov:ThirdParty ;
+    rdfs:label "Arrivalist" ;
+    rdfs:seeAlso <https://www.arrivalist.com/privacy#gdpr> .
+:Kimia-Group a gdprov:ThirdParty ;
+    rdfs:label "Kimia Group" ;
+    rdfs:seeAlso <https://kimiagroup.com/privacy-policy.html> .
+:Zypmedia a gdprov:ThirdParty ;
+    rdfs:label "ZypMedia" ;
+    rdfs:seeAlso <http://www.zypmedia.com/privacy-policy> .
+:Rockerbox a gdprov:ThirdParty ;
+    rdfs:label "Rockerbox" ;
+    rdfs:seeAlso <https://www.rockerbox.com/privacy-shield> .
+:Sharethrough a gdprov:ThirdParty ;
+    rdfs:label "Sharethrough" .
+:Firststars a gdprov:ThirdParty ;
+    rdfs:label "firststars" ;
+    rdfs:seeAlso <https://firststars.de/datenschutzeinstellungen> .
+:Adhood a gdprov:ThirdParty ;
+    rdfs:label "adhood" ;
+    rdfs:seeAlso <https://www.theadx.com/en/privacy.php> .
+:Localsensor a gdprov:ThirdParty ;
+    rdfs:label "Localsensor" ;
+    rdfs:seeAlso <https://www.localsensor.com/privacy.html> .
+:White-Ops a gdprov:ThirdParty ;
+    rdfs:label "White Ops" ;
+    rdfs:seeAlso <https://www.whiteops.com/privacy> .
+:Vserv a gdprov:ThirdParty ;
+    rdfs:label "Vserv" ;
+    rdfs:seeAlso <https://www.vserv.com/privacy-policy/> .
+:Admetrics a gdprov:ThirdParty ;
+    rdfs:label "Admetrics" ;
+    rdfs:seeAlso <https://admetrics.io/en/privacy_policy/> .
+:Amobee a gdprov:ThirdParty ;
+    rdfs:label "Amobee" ;
+    rdfs:seeAlso <https://www.amobee.com/trust/privacy-guidelines> .
+:Rtb-House a gdprov:ThirdParty ;
+    rdfs:label "RTB House" ;
+    rdfs:seeAlso <https://www.rtbhouse.com/gdpr/> .
+:Datalicious a gdprov:ThirdParty ;
+    rdfs:label "Datalicious" ;
+    rdfs:seeAlso <https://www.datalicious.com/privacy/> .
+:Kupona a gdprov:ThirdParty ;
+    rdfs:label "Kupona" ;
+    rdfs:seeAlso <https://www.kupona.de/datenschutz> .
+:Bannerflow a gdprov:ThirdParty ;
+    rdfs:label "Bannerflow" ;
+    rdfs:seeAlso <https://www.bannerflow.com/privacy> .
+:Exposebox a gdprov:ThirdParty ;
+    rdfs:label "Exposebox" ;
+    rdfs:seeAlso <http://www.exposebox.com/policy.html> .
+:Yoose a gdprov:ThirdParty ;
+    rdfs:label "YOOSE" ;
+    rdfs:seeAlso <https://www.yoose.com/privacy-policy> .
+:Tripadvisor a gdprov:ThirdParty ;
+    rdfs:label "TripAdvisor" ;
+    rdfs:seeAlso <https://tripadvisor.mediaroom.com/us-privacy-policy> .
+:Dataexchanger a gdprov:ThirdParty ;
+    rdfs:label "DataExchanger" ;
+    rdfs:seeAlso <https://www.dataexchanger.pl/privacy-policy> .
+:Navegg a gdprov:ThirdParty ;
+    rdfs:label "Navegg" ;
+    rdfs:seeAlso <https://www.navegg.com/en/privacy-policy/> .
+:Infonline a gdprov:ThirdParty ;
+    rdfs:label "INFOnline" ;
+    rdfs:seeAlso <https://www.infonline.de/datenschutz/> .
+:Admedo a gdprov:ThirdParty ;
+    rdfs:label "Admedo" ;
+    rdfs:seeAlso <https://www.admedo.com/privacy-policy> .
+:Taptica a gdprov:ThirdParty ;
+    rdfs:label "Taptica" ;
+    rdfs:seeAlso <https://www.taptica.com/privacy/> .
+:Joystick-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Joystick Interactive" ;
+    rdfs:seeAlso <http://joystickinteractive.com/privacy.html> .
+:24-7-Ai-Successor-To-Engageclick a gdprov:ThirdParty ;
+    rdfs:label "[24]7.ai (successor to EngageClick)" ;
+    rdfs:seeAlso <https://www.247.ai/privacy-policy#gdpr_compliance> .
+:Simplaex-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Simplaex GmBH" ;
+    rdfs:seeAlso <https://simplaex.com/advertising-privacy-policy/> .
+:Kochava a gdprov:ThirdParty ;
+    rdfs:label "Kochava" ;
+    rdfs:seeAlso <https://www.kochava.com/support-privacy/> .
+:Maverick a gdprov:ThirdParty ;
+    rdfs:label "Maverick" ;
+    rdfs:seeAlso <https://www.mvrck.co.jp/privacy/about-targeting-ad/> .
+:Appreciate a gdprov:ThirdParty ;
+    rdfs:label "Appreciate" ;
+    rdfs:seeAlso <https://appreciate.mobi/page.html#/end-user-privacy-policy> .
+:Fuelx a gdprov:ThirdParty ;
+    rdfs:label "FuelX" ;
+    rdfs:seeAlso <http://www.fuelx.com/privacy> .
+:Leadbolt a gdprov:ThirdParty ;
+    rdfs:label "LeadBolt" ;
+    rdfs:seeAlso <https://www.leadbolt.com/privacy> .
+:Ucfunnel a gdprov:ThirdParty ;
+    rdfs:label "ucfunnel" ;
+    rdfs:seeAlso <https://www.ucfunnel.com/privacy-policy> .
+:Interpublic-Group a gdprov:ThirdParty ;
+    rdfs:label "Interpublic Group" ;
+    rdfs:seeAlso <https://www.interpublic.com/privacy-notice> .
+:Abilicom a gdprov:ThirdParty ;
+    rdfs:label "abilicom" ;
+    rdfs:seeAlso <https://contactimpact.de/datenschutz> .
+:Tapsense a gdprov:ThirdParty ;
+    rdfs:label "TapSense" ;
+    rdfs:seeAlso <https://www.tapsense.com/company/privacy-policy> .
+:Admixer a gdprov:ThirdParty ;
+    rdfs:label "Admixer" ;
+    rdfs:seeAlso <https://admixer.net/privacy> .
+:Placecast a gdprov:ThirdParty ;
+    rdfs:label "Placecast" ;
+    rdfs:seeAlso <http://placecast.net/privacy_policy.html> .
+:Mobitrans a gdprov:ThirdParty ;
+    rdfs:label "Mobitrans" ;
+    rdfs:seeAlso <http://www.mobitrans.net/privacy-policy/> .
+:Smadex a gdprov:ThirdParty ;
+    rdfs:label "Smadex" ;
+    rdfs:seeAlso <http://smadex.com/end-user-privacy-policy/> .
+:Mobusi a gdprov:ThirdParty ;
+    rdfs:label "Mobusi" ;
+    rdfs:seeAlso <https://www.mobusi.com/privacy.en.html> .
+:Orbis-Video a gdprov:ThirdParty ;
+    rdfs:label "Orbis Video" ;
+    rdfs:seeAlso <http://www.orbisvideo.com/privacy-policy/> .
+:Suzumuchi a gdprov:ThirdParty ;
+    rdfs:label "Suzumuchi" ;
+    rdfs:seeAlso <http://suzuserver.dk/GDPR/> .
+:Loka-Research a gdprov:ThirdParty ;
+    rdfs:label "LOKA Research" ;
+    rdfs:seeAlso <https://lokaplatform.com/privacy/> .
+:Cloud-Technologies a gdprov:ThirdParty ;
+    rdfs:label "Cloud Technologies" ;
+    rdfs:seeAlso <http://green.erne.co/assets/PolicyCT.pdf> .
+:Addictive-Mobility a gdprov:ThirdParty ;
+    rdfs:label "Addictive Mobility" ;
+    rdfs:seeAlso <https://addictivemobility.com/privacy.html> .
+:Kayzen a gdprov:ThirdParty ;
+    rdfs:label "Kayzen" ;
+    rdfs:seeAlso <https://docs.google.com/document/d/1fdKB858jH_rrs2rwhaS0lzQwvB-JP-uMjfhONgzlZz4/edit> .
+:Igaworks a gdprov:ThirdParty ;
+    rdfs:label "IGAWorks" ;
+    rdfs:seeAlso <http://www.igaworks.com/en/rule_user.html> .
+:Aidata a gdprov:ThirdParty ;
+    rdfs:label "Aidata" ;
+    rdfs:seeAlso <https://my.aidata.me/data/uploads/aidata.me-privacy-policy.pdf> .
+:Onedigitalad-Technologies a gdprov:ThirdParty ;
+    rdfs:label "OneDigitalAd Technologies" ;
+    rdfs:seeAlso <https://www.onedigitalad.com/privacy/privacyPolicy.html> .
+:Teads a gdprov:ThirdParty ;
+    rdfs:label "Teads" ;
+    rdfs:seeAlso <https://teads.tv/privacy-policy/> .
+:Unitymedia a gdprov:ThirdParty ;
+    rdfs:label "Unitymedia" ;
+    rdfs:seeAlso <https://www.unitymedia.de/privatkunden/datenschutz/> .
+:Perfect-Audience a gdprov:ThirdParty ;
+    rdfs:label "Perfect Audience" ;
+    rdfs:seeAlso <https://www.perfectaudience.com/privacy/> .
+:Clickagy a gdprov:ThirdParty ;
+    rdfs:label "Clickagy" ;
+    rdfs:seeAlso <https://www.clickagy.com/privacy/> .
+:Adex a gdprov:ThirdParty ;
+    rdfs:label "ADEX" ;
+    rdfs:seeAlso <http://theadex.com> .
+:Groundtruth a gdprov:ThirdParty ;
+    rdfs:label "GroundTruth" ;
+    rdfs:seeAlso <https://www.groundtruth.com/privacy-policy/> .
+:Rontar a gdprov:ThirdParty ;
+    rdfs:label "Rontar" ;
+    rdfs:seeAlso <https://www.rontar.com/content/content-324> .
+:Yoptima a gdprov:ThirdParty ;
+    rdfs:label "YOptima" ;
+    rdfs:seeAlso <http://www.yoptima.com/privacy-policy> .
+:Placed a gdprov:ThirdParty ;
+    rdfs:label "Placed" ;
+    rdfs:seeAlso <https://www.placed.com/privacy-policy> .
+:Answer-Media a gdprov:ThirdParty ;
+    rdfs:label "Answer Media" ;
+    rdfs:seeAlso <http://www.answermedia.com/privacy> .
+:Loopme a gdprov:ThirdParty ;
+    rdfs:label "LoopMe" ;
+    rdfs:seeAlso <https://loopme.com/privacy/> .
+:Impact a gdprov:ThirdParty ;
+    rdfs:label "Impact" ;
+    rdfs:seeAlso <https://impact.com/privacy-policy/> .
+:Kwanko a gdprov:ThirdParty ;
+    rdfs:label "Kwanko" ;
+    rdfs:seeAlso <http://www.kwanko.com/gdpr> .
+:Bidtellect a gdprov:ThirdParty ;
+    rdfs:label "Bidtellect" ;
+    rdfs:seeAlso <https://www.bidtellect.com/gdpr-user-information> .
+:Gruvi a gdprov:ThirdParty ;
+    rdfs:label "Gruvi" ;
+    rdfs:seeAlso <http://www.gruvi.tv/gdpr> .
+:Apnic a gdprov:ThirdParty ;
+    rdfs:label "APNIC" ;
+    rdfs:seeAlso <https://labs.apnic.net/privacy.shtml> .
+:Jampp a gdprov:ThirdParty ;
+    rdfs:label "Jampp" ;
+    rdfs:seeAlso <https://jampp.com/privacy-policy/> .
+:Aarki a gdprov:ThirdParty ;
+    rdfs:label "Aarki" ;
+    rdfs:seeAlso <http://corp.aarki.com/privacy> .
+:Takoomi a gdprov:ThirdParty ;
+    rdfs:label "Takoomi" ;
+    rdfs:seeAlso <https://www.takoomi.com/privacy-policy> .
+:Bilendi a gdprov:ThirdParty ;
+    rdfs:label "Bilendi" ;
+    rdfs:seeAlso <https://www.maximiles.com/charte-de-confidentialite> .
+:Mgid a gdprov:ThirdParty ;
+    rdfs:label "MGID" ;
+    rdfs:seeAlso <https://www.mgid.com/privacy-policy> .
+:F-N-Communications a gdprov:ThirdParty ;
+    rdfs:label "F@N communications" ;
+    rdfs:seeAlso <http://www.fancs.com/privacypolicy> .
+:Universo-Online a gdprov:ThirdParty ;
+    rdfs:label "Universo Online" ;
+    rdfs:seeAlso <http://www.dynad.net/> .
+:Remerge a gdprov:ThirdParty ;
+    rdfs:label "Remerge" ;
+    rdfs:seeAlso <http://remerge.io/privacy-policy.html> .
+:Telecoming a gdprov:ThirdParty ;
+    rdfs:label "Telecoming" ;
+    rdfs:seeAlso <http://www.telecoming.com/privacy-policy/> .
+:Linkedin a gdprov:ThirdParty ;
+    rdfs:label "LinkedIn" ;
+    rdfs:seeAlso <https://www.linkedin.com/legal/privacy-policy> .
+:Vivalu a gdprov:ThirdParty ;
+    rdfs:label "VIVALU" ;
+    rdfs:seeAlso <http://www.vivalu.com/downloads/de_DE/VIVALU_Datenschutz_2018.pdf> .
+:Foursquare a gdprov:ThirdParty ;
+    rdfs:label "Foursquare" ;
+    rdfs:seeAlso <https://foursquare.com/legal/privacy> .
+:Mozoo a gdprov:ThirdParty ;
+    rdfs:label "Mozoo" ;
+    rdfs:seeAlso <https://www.mozoo.com/privacy-policy> .
+:Momentum a gdprov:ThirdParty ;
+    rdfs:label "Momentum" ;
+    rdfs:seeAlso <http://www.m0mentum.co.jp/privacy.html> .
+:Usemax-Emego-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "usemax (Emego GmbH)" ;
+    rdfs:seeAlso <http://www.usemax.de/?l=privacy> .
+:Housing-Com a gdprov:ThirdParty ;
+    rdfs:label "Housing.com" ;
+    rdfs:seeAlso <https://housing.com/terms.html> .
+:Avocet a gdprov:ThirdParty ;
+    rdfs:label "Avocet" ;
+    rdfs:seeAlso <http://avocet.io/privacy-portal> .
+:Interrogare-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Interrogare GmbH" ;
+    rdfs:seeAlso <https://www.interrogare.de/en/contact/data-protection/> .
+:Channeladvisor a gdprov:ThirdParty ;
+    rdfs:label "ChannelAdvisor" ;
+    rdfs:seeAlso <https://www.channeladvisor.com/privacy-policy/> .
+:The-Bridge a gdprov:ThirdParty ;
+    rdfs:label "The Bridge" ;
+    rdfs:seeAlso <https://bridgecdi.com/privacy.php> .
+:Tf1-Fr a gdprov:ThirdParty ;
+    rdfs:label "TF1 - FR" ;
+    rdfs:seeAlso <https://www.tf1.fr/politique-de-confidentialite/> .
+:Bonzai a gdprov:ThirdParty ;
+    rdfs:label "Bonzai" ;
+    rdfs:seeAlso <https://www.bonzai.co/privacy2018.html> .
+:Clickonometrics a gdprov:ThirdParty ;
+    rdfs:label "Clickonometrics" ;
+    rdfs:seeAlso <https://www.clickonometrics.com/optout/> .
+:Adventive a gdprov:ThirdParty ;
+    rdfs:label "Adventive" ;
+    rdfs:seeAlso <https://www.adventive.com/privacy-policy/> .
+:Beeswax a gdprov:ThirdParty ;
+    rdfs:label "Beeswax" ;
+    rdfs:seeAlso <https://www.beeswax.com/privacy.html> .
+:Optimise a gdprov:ThirdParty ;
+    rdfs:label "Optimise" ;
+    rdfs:seeAlso <https://www.optimisemedia.com/privacy_policy/> .
+:Aktyvus-Sektorius a gdprov:ThirdParty ;
+    rdfs:label "AKTYVUS SEKTORIUS" ;
+    rdfs:seeAlso <http://business.eskimi.com/datacontrol> .
+:Demand-Side-Science a gdprov:ThirdParty ;
+    rdfs:label "Demand Side Science" .
+:Sfr a gdprov:ThirdParty ;
+    rdfs:label "SFR" ;
+    rdfs:seeAlso <http://www.sfr.fr/securite-confidentialite.html> .
+:Taptap a gdprov:ThirdParty ;
+    rdfs:label "TAPTAP" ;
+    rdfs:seeAlso <http://www.taptapnetworks.com/privacy_policy/> .
+:Cablato a gdprov:ThirdParty ;
+    rdfs:label "Cablato" ;
+    rdfs:seeAlso <http://cablato.com/privacy> .
+:Erate a gdprov:ThirdParty ;
+    rdfs:label "Erate" ;
+    rdfs:seeAlso <http://www.eratead.com/privacy_policy.pdf> .
+:Norstat a gdprov:ThirdParty ;
+    rdfs:label "Norstat" ;
+    rdfs:seeAlso <https://opinion-people.com/dataprotection> .
+:Knorex a gdprov:ThirdParty ;
+    rdfs:label "Knorex" ;
+    rdfs:seeAlso <https://www.knorex.com/privacy> .
+:Waystack a gdprov:ThirdParty ;
+    rdfs:label "Waystack" ;
+    rdfs:seeAlso <https://www.wayfair.com/customerservice/general_info.php#privacy> .
+:Permodo a gdprov:ThirdParty ;
+    rdfs:label "PERMODO" ;
+    rdfs:seeAlso <http://permodo.com/de/privacy.html> .
+:Clinch a gdprov:ThirdParty ;
+    rdfs:label "Clinch" ;
+    rdfs:seeAlso <https://clinch.co/pages/privacy.html> .
+:Mobile-Innovations a gdprov:ThirdParty ;
+    rdfs:label "Mobile Innovations" ;
+    rdfs:seeAlso <http://paypersale.ru/index/optout> .
+:Epic-Combo a gdprov:ThirdParty ;
+    rdfs:label "Epic Combo" ;
+    rdfs:seeAlso <http://adagnit.io/privacy-policy/> .
+:Revjet a gdprov:ThirdParty ;
+    rdfs:label "RevJet" ;
+    rdfs:seeAlso <https://www.revjet.com/privacy> .
+:Lucid a gdprov:ThirdParty ;
+    rdfs:label "Lucid" ;
+    rdfs:seeAlso <https://luc.id/gdpr> .
+:Tealium a gdprov:ThirdParty ;
+    rdfs:label "Tealium" ;
+    rdfs:seeAlso <https://tealium.com/protecting-your-privacy-and-your-data/> .
+:Moloco-Ads a gdprov:ThirdParty ;
+    rdfs:label "Moloco Ads" ;
+    rdfs:seeAlso <http://www.molocoads.com/private-policy.html> .
+:Realzeit a gdprov:ThirdParty ;
+    rdfs:label "Realzeit" ;
+    rdfs:seeAlso <https://realzeit.io/privacy.html> .
+:Alkemics a gdprov:ThirdParty ;
+    rdfs:label "Alkemics" ;
+    rdfs:seeAlso <https://www.alkemics.com/privacy/> .
+:Sodel-Software-Solutions-Pvt-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Sodel Software Solutions Pvt. Ltd." ;
+    rdfs:seeAlso <http://www.audience73.com/privacy.html> .
+:Ninthdecimal a gdprov:ThirdParty ;
+    rdfs:label "NinthDecimal" ;
+    rdfs:seeAlso <http://www.ninthdecimal.com/privacy-policy-terms-of-service/> .
+:Richmedia-Studio a gdprov:ThirdParty ;
+    rdfs:label "RichMedia Studio" ;
+    rdfs:seeAlso <http://www.richmediastudio.com/privacy_policy/> .
+:Tenmax a gdprov:ThirdParty ;
+    rdfs:label "TenMax" ;
+    rdfs:seeAlso <https://www.tenmax.io/gdpr-privacy-policy> .
+:Twiago a gdprov:ThirdParty ;
+    rdfs:label "twiago" ;
+    rdfs:seeAlso <https://www.twiago.com/datenschutz/> .
+:Tresensa a gdprov:ThirdParty ;
+    rdfs:label "TreSensa" ;
+    rdfs:seeAlso <http://tresensa.com/eu-privacy/index.html> .
+:Adludio a gdprov:ThirdParty ;
+    rdfs:label "Adludio" ;
+    rdfs:seeAlso <https://adludio.com/termsandconditions> .
+:Lotlinx a gdprov:ThirdParty ;
+    rdfs:label "LotLinx&reg;" ;
+    rdfs:seeAlso <https://www.lotlinx.com/privacy-statement/> .
+:F-Sharp a gdprov:ThirdParty ;
+    rdfs:label "F Sharp" ;
+    rdfs:seeAlso <https://fsharp.co/privacy-policy> .
+:A1Platform a gdprov:ThirdParty ;
+    rdfs:label "A1platform" ;
+    rdfs:seeAlso <https://www.a1platform.co.kr/privacy> .
+:Qantas a gdprov:ThirdParty ;
+    rdfs:label "Qantas" ;
+    rdfs:seeAlso <http://www.qantas.com/au/en/support/privacy-and-security.html#our-contact-details> .
+:Keen a gdprov:ThirdParty ;
+    rdfs:label "KEEN" ;
+    rdfs:seeAlso <http://www.ingenio.com/documents/help/privacypolicy.asp> .
+:Gridsum a gdprov:ThirdParty ;
+    rdfs:label "Gridsum" ;
+    rdfs:seeAlso <https://ad2.gridsumdissector.com/about-googleadwords-privacy?lang=en> .
+:Tapjoy a gdprov:ThirdParty ;
+    rdfs:label "Tapjoy" ;
+    rdfs:seeAlso <https://www.tapjoy.com/legal/#privacy-policy> .
+:Adotmob a gdprov:ThirdParty ;
+    rdfs:label "AdotMob" ;
+    rdfs:seeAlso <https://adotmob.com/privacy.html> .
+:Bigabid a gdprov:ThirdParty ;
+    rdfs:label "Bigabid" ;
+    rdfs:seeAlso <http://www.bigabid.com/data-protection/gdpr> .
+:Fraudlogix a gdprov:ThirdParty ;
+    rdfs:label "Fraudlogix" ;
+    rdfs:seeAlso <http://www.fraudlogix.com/privacy-policy/> .
+:Azameo a gdprov:ThirdParty ;
+    rdfs:label "Azameo" ;
+    rdfs:seeAlso <http://www.azameo.fr/en/privacy-policy-notice/> .
+:Fospha a gdprov:ThirdParty ;
+    rdfs:label "Fospha" ;
+    rdfs:seeAlso <https://fospha.com/privacy-policy/> .
+:Dts a gdprov:ThirdParty ;
+    rdfs:label "DTS" ;
+    rdfs:seeAlso <https://client.adhslx.com/privacy.html> .
+:Ingenious-Technologies a gdprov:ThirdParty ;
+    rdfs:label "Ingenious Technologies" ;
+    rdfs:seeAlso <https://www.ingenioustechnologies.com/privacy-policy/> .
+:Gamned a gdprov:ThirdParty ;
+    rdfs:label "GAMNED" ;
+    rdfs:seeAlso <https://www.gamned.com/privacy-policy/> .
+:Localstars a gdprov:ThirdParty ;
+    rdfs:label "Localstars" ;
+    rdfs:seeAlso <https://www.localstars.com/localstars-privacy-policy> .
+:Roy-Morgan-Research a gdprov:ThirdParty ;
+    rdfs:label "Roy Morgan Research" ;
+    rdfs:seeAlso <http://www.roymorgan.com/digital-privacy> .
+:Market-Points a gdprov:ThirdParty ;
+    rdfs:label "Market Points" .
+:Kadam a gdprov:ThirdParty ;
+    rdfs:label "Kadam" ;
+    rdfs:seeAlso <https://www.kadam.net/ru/privacy-policy> .
+:Adbalancer a gdprov:ThirdParty ;
+    rdfs:label "Adbalancer" ;
+    rdfs:seeAlso <https://www.adbalancer.com/datenschutz/> .
+:Enbritely a gdprov:ThirdParty ;
+    rdfs:label "Enbritely" ;
+    rdfs:seeAlso <http://enbrite.ly/privacy-policy-2/> .
+:Streamrail a gdprov:ThirdParty ;
+    rdfs:label "StreamRail" ;
+    rdfs:seeAlso <https://www.ironsrc.com/wp-content/uploads/2016/11/ironSourceDisplayPrivacyPolicy.pdf> .
+:Treepodia a gdprov:ThirdParty ;
+    rdfs:label "Treepodia" ;
+    rdfs:seeAlso <https://www.treepodia.com/En/docroot/Documents/Treepodia_Website_and_Platform_Privacy_Policy.pdf> .
+:Rhythmone-Llc a gdprov:ThirdParty ;
+    rdfs:label "RhythmOne LLC" ;
+    rdfs:seeAlso <https://www.rhythmone.com/landing/gdpr> .
+:Bucksense a gdprov:ThirdParty ;
+    rdfs:label "Bucksense" ;
+    rdfs:seeAlso <https://www.bucksense.com/platform-privacy-policy/> .
+:Bluecore a gdprov:ThirdParty ;
+    rdfs:label "Bluecore" .
+:Optimize-Lcc-D-B-A-Genius-Monkey a gdprov:ThirdParty ;
+    rdfs:label "Optimize LCC D.B.A Genius Monkey" ;
+    rdfs:seeAlso <https://www.geniusmonkey.com/gdpr.php> .
+:Ubimo a gdprov:ThirdParty ;
+    rdfs:label "Ubimo" ;
+    rdfs:seeAlso <http://www.ubimo.com/privacy/> .
+:Gskinner a gdprov:ThirdParty ;
+    rdfs:label "gskinner" ;
+    rdfs:seeAlso <https://createjs.com/legal/privacy.html> .
+:Teemo a gdprov:ThirdParty ;
+    rdfs:label "TEEMO" ;
+    rdfs:seeAlso <https://teemo.co/fr/confidentialite/> .
+:Otto a gdprov:ThirdParty ;
+    rdfs:label "OTTO" ;
+    rdfs:seeAlso <https://www.otto.de/shoppages/service/datenschutz> .
+:Evc a gdprov:ThirdParty ;
+    rdfs:label "EVC" ;
+    rdfs:seeAlso <http://morequalifiedleads.co.uk/privacy.html> .
+:Tapcliq a gdprov:ThirdParty ;
+    rdfs:label "tapCLIQ" ;
+    rdfs:seeAlso <https://www.tapcliq.com/privacy> .
+:Adbox a gdprov:ThirdParty ;
+    rdfs:label "ADBOX" ;
+    rdfs:seeAlso <http://www.adboxdigital.uk/privacy> .
+:Herolens a gdprov:ThirdParty ;
+    rdfs:label "Herolens" ;
+    rdfs:seeAlso <https://herolens.com/privacy.html> .
+:Splicky a gdprov:ThirdParty ;
+    rdfs:label "Splicky" ;
+    rdfs:seeAlso <https://www.splicky.com/de/web/privacy> .
+:Crutchfield a gdprov:ThirdParty ;
+    rdfs:label "Crutchfield" ;
+    rdfs:seeAlso <https://www.crutchfield.com/support/privacy.aspx> .
+:Chalk-Digital a gdprov:ThirdParty ;
+    rdfs:label "Chalk Digital" ;
+    rdfs:seeAlso <http://www.chalkdigital.com/privacy-policy-2/> .
+:Bizible a gdprov:ThirdParty ;
+    rdfs:label "Bizible" ;
+    rdfs:seeAlso <https://www.bizible.com/gdpr> .
+:Vidazoo a gdprov:ThirdParty ;
+    rdfs:label "Vidazoo" ;
+    rdfs:seeAlso <http://www.vidazoo.com/privacy> .
+:Oxford-Biochronometrics a gdprov:ThirdParty ;
+    rdfs:label "Oxford BioChronometrics" ;
+    rdfs:seeAlso <https://oxford-biochron.com/privacy-policy/> .
+:Neuralone a gdprov:ThirdParty ;
+    rdfs:label "Neuralone" ;
+    rdfs:seeAlso <https://web.neural.one/privacy-policy/> .
+:Adtile a gdprov:ThirdParty ;
+    rdfs:label "AdTile" ;
+    rdfs:seeAlso <https://www.adtile.me/privacy-policy/> .
+:Protected-Media a gdprov:ThirdParty ;
+    rdfs:label "Protected Media" ;
+    rdfs:seeAlso <http://www.protected.media/privacy-policy/> .
+:Crucial-Interactive-Inc a gdprov:ThirdParty ;
+    rdfs:label "Crucial Interactive Inc." ;
+    rdfs:seeAlso <https://www.crucialinteractive.com/privacy-policy/> .
+:Deltax a gdprov:ThirdParty ;
+    rdfs:label "DeltaX" ;
+    rdfs:seeAlso <http://www.deltax.com/gdpr.html> .
+:Somo-Audience a gdprov:ThirdParty ;
+    rdfs:label "Somo Audience" ;
+    rdfs:seeAlso <https://somoaudience.com/legal/> .
+:Art-Of-Click a gdprov:ThirdParty ;
+    rdfs:label "Art of Click" ;
+    rdfs:seeAlso <http://www.artofclick.com/privacy-policy/> .
+:Adways-Sas a gdprov:ThirdParty ;
+    rdfs:label "Adways SAS" ;
+    rdfs:seeAlso <http://www.adways.com/privacy/> .
+:Quantasy a gdprov:ThirdParty ;
+    rdfs:label "Quantasy" ;
+    rdfs:seeAlso <http://planqk.com> .
+:Envisionx-Ltd a gdprov:ThirdParty ;
+    rdfs:label "ENVISIONX LTD" ;
+    rdfs:seeAlso <http://envisionx.co/privacy> .
+:Wavenet a gdprov:ThirdParty ;
+    rdfs:label "Wavenet" ;
+    rdfs:seeAlso <https://www.wavenet.com.tw/privacy/> .
+:Twyn a gdprov:ThirdParty ;
+    rdfs:label "twyn" ;
+    rdfs:seeAlso <http://www.twyn.com/datenschutz.html> .
+:Happyfication-Inc a gdprov:ThirdParty ;
+    rdfs:label "Happyfication inc" ;
+    rdfs:seeAlso <https://happyfication.com/privacy-policy/> .
+:Roq-Ad a gdprov:ThirdParty ;
+    rdfs:label "Roq.ad" ;
+    rdfs:seeAlso <https://www.roq.ad/privacy-policy> .
+:Wap-Co-Uk a gdprov:ThirdParty ;
+    rdfs:label "WAP.CO.UK" ;
+    rdfs:seeAlso <http://www.wap.co.uk/privacy.html> .
+:Adkernel a gdprov:ThirdParty ;
+    rdfs:label "AdKernel" ;
+    rdfs:seeAlso <https://adkernel.com/privacy-policy/> .
+:Adello a gdprov:ThirdParty ;
+    rdfs:label "Adello" ;
+    rdfs:seeAlso <http://www.adello.com/privacy-policy> .
+:Sled a gdprov:ThirdParty ;
+    rdfs:label "Sled" .
+:Tribes-Research a gdprov:ThirdParty ;
+    rdfs:label "Tribes Research" ;
+    rdfs:seeAlso <https://www.tribesresearch.co.uk/terms-conditions-cookie-and-privacy-policy/> .
+:Keycdn a gdprov:ThirdParty ;
+    rdfs:label "KeyCDN" ;
+    rdfs:seeAlso <https://www.keycdn.com/gdpr> .
+:Tactictm-Real-Time-Marketing a gdprov:ThirdParty ;
+    rdfs:label "TACTIC&trade; Real-Time Marketing" ;
+    rdfs:seeAlso <http://tacticrealtime.com/privacy/> .
+:A1-Media-Group a gdprov:ThirdParty ;
+    rdfs:label "A1 Media Group" ;
+    rdfs:seeAlso <http://www.a1mediagroup.jp/privacy-policy> .
+:Adtriba a gdprov:ThirdParty ;
+    rdfs:label "AdTriba" ;
+    rdfs:seeAlso <https://privacy.adtriba.com/> .
+:Median a gdprov:ThirdParty ;
+    rdfs:label "MEDIAN" ;
+    rdfs:seeAlso <http://www.median.eu/en/privacy-policy/> .
+:Adssets a gdprov:ThirdParty ;
+    rdfs:label "Adssets" ;
+    rdfs:seeAlso <http://adssets.com/policy> .
+:Sellpoints a gdprov:ThirdParty ;
+    rdfs:label "Sellpoints" ;
+    rdfs:seeAlso <https://retargeter.com/legal-privacy/> .
+:Hockeycurve a gdprov:ThirdParty ;
+    rdfs:label "HockeyCurve" ;
+    rdfs:seeAlso <http://hockeycurve.com/optout.html> .
+:Umeng-Plus-Beijing-Technology-Limited-Company a gdprov:ThirdParty ;
+    rdfs:label "Umeng Plus Beijing Technology Limited Company" ;
+    rdfs:seeAlso <https://dip.umeng.com/opt_out.html?spm=a211g2.181323.0.0.5c633604LjuRQc> .
+:Adtrader a gdprov:ThirdParty ;
+    rdfs:label "AdTrader" ;
+    rdfs:seeAlso <https://adtrader.com/privacy.html> .
+:Survata a gdprov:ThirdParty ;
+    rdfs:label "Survata" ;
+    rdfs:seeAlso <https://www.survata.com/respondent-privacy-policy/> .
+:Iqm a gdprov:ThirdParty ;
+    rdfs:label "IQM" ;
+    rdfs:seeAlso <https://iqm.com/privacy-policy> .
+:Justwatch a gdprov:ThirdParty ;
+    rdfs:label "JustWatch" ;
+    rdfs:seeAlso <https://www.justwatch.com/uk/imprint> .
+:Video-Research-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Video Research Interactive" ;
+    rdfs:seeAlso <https://www.videoi.co.jp/privacy/> .
+:Softcube a gdprov:ThirdParty ;
+    rdfs:label "Softcube" ;
+    rdfs:seeAlso <http://softcube.com/privacy-policy> .
+:Aniview-Inc a gdprov:ThirdParty ;
+    rdfs:label "Aniview Inc." ;
+    rdfs:seeAlso <https://www.aniview.com/privacy-policy/> .
+:Inspired-Mobile a gdprov:ThirdParty ;
+    rdfs:label "Inspired Mobile" ;
+    rdfs:seeAlso <https://www.inspired-mobile.com/GDPR-how/> .
+:Cubed a gdprov:ThirdParty ;
+    rdfs:label "CUBED" ;
+    rdfs:seeAlso <http://cubed.ai/privacy-policy/gdpr/> .
+:Distroscale a gdprov:ThirdParty ;
+    rdfs:label "DistroScale" ;
+    rdfs:seeAlso <http://www.distroscale.com/about/privacy-policy/> .
+:Cheq a gdprov:ThirdParty ;
+    rdfs:label "Cheq" ;
+    rdfs:seeAlso <https://www.cheq.ai/privacy> .
+:Aerserv a gdprov:ThirdParty ;
+    rdfs:label "AerServ" ;
+    rdfs:seeAlso <https://www.aerserv.com/privacy-policy/> .
+:Springserve a gdprov:ThirdParty ;
+    rdfs:label "SpringServe" ;
+    rdfs:seeAlso <https://springserve.com/consumer-privacy> .
+:Intimate-Merger a gdprov:ThirdParty ;
+    rdfs:label "Intimate Merger" ;
+    rdfs:seeAlso <https://corp.intimatemerger.com/privacypolicy-en/> .
+:Incubiq a gdprov:ThirdParty ;
+    rdfs:label "INCUBIQ" ;
+    rdfs:seeAlso <https://www.wootled.com/privacy> .
+:On-Device-Research a gdprov:ThirdParty ;
+    rdfs:label "On Device Research" ;
+    rdfs:seeAlso <https://ondeviceresearch.com/GDPR> .
+:1Trn a gdprov:ThirdParty ;
+    rdfs:label "1trn" ;
+    rdfs:seeAlso <https://1trn.com/privacy.php> .
+:Ibillboard a gdprov:ThirdParty ;
+    rdfs:label "iBILLBOARD" ;
+    rdfs:seeAlso <http://www.ibillboard.com/privacymanagement/> .
+:Optomaton a gdprov:ThirdParty ;
+    rdfs:label "Optomaton" ;
+    rdfs:seeAlso <http://optomaton.com/privacy.html> .
+:E-Contenta a gdprov:ThirdParty ;
+    rdfs:label "E-Contenta" ;
+    rdfs:seeAlso <https://e-contenta.com/en/privacy/> .
+:Naoplay a gdprov:ThirdParty ;
+    rdfs:label "Naoplay" ;
+    rdfs:seeAlso <http://www.digigladd.com/privacy.php> .
+:Cint a gdprov:ThirdParty ;
+    rdfs:label "Cint" ;
+    rdfs:seeAlso <https://www.cint.com/participant-privacy-notice/> .
+:Sift-Media a gdprov:ThirdParty ;
+    rdfs:label "Sift Media" ;
+    rdfs:seeAlso <https://www.sift.co/privacy> .
+:Startapp a gdprov:ThirdParty ;
+    rdfs:label "StartApp" ;
+    rdfs:seeAlso <https://www.startapp.com/policy/privacy-policy/> .
+:Adzymic a gdprov:ThirdParty ;
+    rdfs:label "Adzymic" ;
+    rdfs:seeAlso <http://www.adzymic.co/privacy> .
+:Expedia a gdprov:ThirdParty ;
+    rdfs:label "Expedia" .
+:Deepintent a gdprov:ThirdParty ;
+    rdfs:label "DeepIntent" ;
+    rdfs:seeAlso <https://www.deepintent.com/datapolicy/> .
+:Omnivirt a gdprov:ThirdParty ;
+    rdfs:label "OmniVirt" ;
+    rdfs:seeAlso <https://www.omnivirt.com/tos/privacy/> .
+:Fluct a gdprov:ThirdParty ;
+    rdfs:label "fluct" ;
+    rdfs:seeAlso <https://corp.fluct.jp/privacy/> .
+:Zucks a gdprov:ThirdParty ;
+    rdfs:label "Zucks" ;
+    rdfs:seeAlso <http://zucks.co.jp/en/privacy/> .
+:Conversion-Logic a gdprov:ThirdParty ;
+    rdfs:label "Conversion Logic" ;
+    rdfs:seeAlso <http://www.conversionlogic.com/privacy-policy-overview/> .
+:Collegehumor a gdprov:ThirdParty ;
+    rdfs:label "CollegeHumor" ;
+    rdfs:seeAlso <http://www.collegehumor.com/static/privacy> .
+:Louder a gdprov:ThirdParty ;
+    rdfs:label "Louder" ;
+    rdfs:seeAlso <http://louder.com.au/privacy/> .
+:Zuuvi a gdprov:ThirdParty ;
+    rdfs:label "Zuuvi" ;
+    rdfs:seeAlso <http://zuuvi.com/en/privacy.php> .
+:Viant a gdprov:ThirdParty ;
+    rdfs:label "Viant" ;
+    rdfs:seeAlso <https://viantinc.com/privacy-policy/> .
+:Tabmo a gdprov:ThirdParty ;
+    rdfs:label "TabMo" ;
+    rdfs:seeAlso <http://static.tabmo.io.s3.amazonaws.com/privacy-policy/index.html> .
+:Snitcher-Com a gdprov:ThirdParty ;
+    rdfs:label "Snitcher.com" ;
+    rdfs:seeAlso <http://help.snitcher.com/general-information/does-snitcher-conform-to-the-gdpr> .
+:Analights a gdprov:ThirdParty ;
+    rdfs:label "Analights" ;
+    rdfs:seeAlso <https://analights.com/docs/analights-consent-to-the-processing-of-personal-data-en.pdf> .
+:Romir a gdprov:ThirdParty ;
+    rdfs:label "ROMIR" ;
+    rdfs:seeAlso <http://ssp.rmh.ru/files/privacy_policy_eng.pdf> .
+:Pi-Rate-Pubintl a gdprov:ThirdParty ;
+    rdfs:label "Pi-rate / pubintl" ;
+    rdfs:seeAlso <https://pi-rate.com.au/privacy.html> .
+:Addition-Plus a gdprov:ThirdParty ;
+    rdfs:label "Addition Plus" ;
+    rdfs:seeAlso <http://additionplus.com/privacy-policy/> .
+:Cauly a gdprov:ThirdParty ;
+    rdfs:label "Cauly" ;
+    rdfs:seeAlso <https://www.cauly.net/index.html#/home/privacy4> .
+:Dentsu-Aegis-Network a gdprov:ThirdParty ;
+    rdfs:label "Dentsu Aegis Network" ;
+    rdfs:seeAlso <http://www.dentsu.com/termsofuse/data_policy.html> .
+:Millemedia a gdprov:ThirdParty ;
+    rdfs:label "Millemedia" ;
+    rdfs:seeAlso <https://www.millemedia.de/datenschutz/> .
+:Prodata-Media a gdprov:ThirdParty ;
+    rdfs:label "ProData Media" ;
+    rdfs:seeAlso <http://prodata.media/gdpr.html> .
+:Smartology a gdprov:ThirdParty ;
+    rdfs:label "Smartology" ;
+    rdfs:seeAlso <https://www.smartology.net/privacy-policy/> .
+:Bidease a gdprov:ThirdParty ;
+    rdfs:label "Bidease" ;
+    rdfs:seeAlso <https://bidease.com/terms-of-use> .
+:Quadas a gdprov:ThirdParty ;
+    rdfs:label "Quadas" ;
+    rdfs:seeAlso <http://www.quadas.com/ys.php?gid=0> .
+:22-Visions a gdprov:ThirdParty ;
+    rdfs:label "22-Visions" ;
+    rdfs:seeAlso <http://www.universalmediasolutions.net/DataPrivacy> .
+:Quple a gdprov:ThirdParty ;
+    rdfs:label "Quple" ;
+    rdfs:seeAlso <http://quple.io/privacy.html> .
+:Stratio-Big-Data a gdprov:ThirdParty ;
+    rdfs:label "Stratio Big Data" ;
+    rdfs:seeAlso <https://www.mutua.es/politica-cookies/> .
+:Scibids-Technology a gdprov:ThirdParty ;
+    rdfs:label "SCIBIDS TECHNOLOGY" ;
+    rdfs:seeAlso <http://scibids.com/privacy> .
+:Cortex a gdprov:ThirdParty ;
+    rdfs:label "Cortex" ;
+    rdfs:seeAlso <http://www.heraldweekly.com/privacy-policy/> .
+:Apptv a gdprov:ThirdParty ;
+    rdfs:label "appTV" ;
+    rdfs:seeAlso <https://www.apptv.com/privacy-policy> .
+:Progsol-Cz a gdprov:ThirdParty ;
+    rdfs:label "ProgSol.cz" ;
+    rdfs:seeAlso <http://www.impressionmedia.cz/files/Zasady-ochrany-a-zpracovani-osobnich-udaju-IM.pdf> .
+:Rezonence a gdprov:ThirdParty ;
+    rdfs:label "Rezonence" ;
+    rdfs:seeAlso <https://rezonence.com/privacy-policy/> .
+:Lkqd a gdprov:ThirdParty ;
+    rdfs:label "LKQD" ;
+    rdfs:seeAlso <http://www.lkqd.com/privacy-policy/> .
+:Madgic a gdprov:ThirdParty ;
+    rdfs:label "MADGIC" ;
+    rdfs:seeAlso <https://www.madgic.com/privacy-and-protection-policy/> .
+:Digiseg a gdprov:ThirdParty ;
+    rdfs:label "Digiseg" ;
+    rdfs:seeAlso <http://www.digiseg.io/GDPR/> .
+:Unicorn a gdprov:ThirdParty ;
+    rdfs:label "UNICORN" ;
+    rdfs:seeAlso <https://uncn.jp/cup?lan=en> .
+:Wonderbly a gdprov:ThirdParty ;
+    rdfs:label "Wonderbly" ;
+    rdfs:seeAlso <https://wonderbly.com/pages/privacy-policy> .
+:Yougov a gdprov:ThirdParty ;
+    rdfs:label "YouGov" ;
+    rdfs:seeAlso <https://yougov.co.uk/about/terms-combined/#/terms> .
+:Double-Check a gdprov:ThirdParty ;
+    rdfs:label "Double Check" ;
+    rdfs:seeAlso <https://adchex.com> .
+:Smart-Bid-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Smart.bid ltd" ;
+    rdfs:seeAlso <http://www.smart.bid/privacy/> .
+:Ram a gdprov:ThirdParty ;
+    rdfs:label "RAM" ;
+    rdfs:seeAlso <http://www.rampanel.com/ram_privacy_policy.html> .
+:Onetag a gdprov:ThirdParty ;
+    rdfs:label "OneTag" ;
+    rdfs:seeAlso <https://www.onetag.net/privacy/> .
+:Fiverr a gdprov:ThirdParty ;
+    rdfs:label "Fiverr" ;
+    rdfs:seeAlso <https://www.fiverr.com/privacy-policy> .
+:Adikteev a gdprov:ThirdParty ;
+    rdfs:label "Adikteev" ;
+    rdfs:seeAlso <https://www.adikteev.com/eu/privacy/> .
+:Pure-Cobalt a gdprov:ThirdParty ;
+    rdfs:label "Pure Cobalt" ;
+    rdfs:seeAlso <https://www.purecobalt.com/policy/> .
+:Cedato a gdprov:ThirdParty ;
+    rdfs:label "Cedato" ;
+    rdfs:seeAlso <https://www.cedato.com/privacy-policy/> .
+:Realytics a gdprov:ThirdParty ;
+    rdfs:label "Realytics" ;
+    rdfs:seeAlso <https://www.realytics.io/gdpr-and-how-realytics-is-getting-ready/> .
+:Twinpine a gdprov:ThirdParty ;
+    rdfs:label "Twinpine" ;
+    rdfs:seeAlso <http://twinpinenetwork.com/privacy-policy/> .
+:Mopedo a gdprov:ThirdParty ;
+    rdfs:label "Mopedo" ;
+    rdfs:seeAlso <http://mopedo.com/privacy-terms/> .
+:Phaistos-Networks a gdprov:ThirdParty ;
+    rdfs:label "Phaistos Networks" ;
+    rdfs:seeAlso <http://adman.gr/gdpr> .
+:Maelico-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Maelico LTD" ;
+    rdfs:seeAlso <http://hyperadx.com/privacy_policy.html> .
+:Groundhogtech a gdprov:ThirdParty ;
+    rdfs:label "GroundhogTech" ;
+    rdfs:seeAlso <http://www.ghtinc.com/mi-dsp/privacy-policies/> .
+:Netscore a gdprov:ThirdParty ;
+    rdfs:label "Netscore" ;
+    rdfs:seeAlso <http://netscore.pl/polityka-prywatnosci/> .
+:Ve-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Ve Interactive" ;
+    rdfs:seeAlso <https://www.ve.com/privacy-policy> .
+:Openledger-Aps a gdprov:ThirdParty ;
+    rdfs:label "OpenLedger ApS" ;
+    rdfs:seeAlso <https://hubdsp.com/assets_new/files/privacy_policy.pdf> .
+:Whichit-Uk-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Whichit UK Ltd" ;
+    rdfs:seeAlso <https://www.getwhichit.com/dataprotection> .
+:Atedra a gdprov:ThirdParty ;
+    rdfs:label "Atedra" ;
+    rdfs:seeAlso <https://www.atedra.com/privacy-policy/> .
+:Adlocal-Net a gdprov:ThirdParty ;
+    rdfs:label "adlocal.net" ;
+    rdfs:seeAlso <http://adlocal.net/privacy.php> .
+:Dserve a gdprov:ThirdParty ;
+    rdfs:label "DServe" ;
+    rdfs:seeAlso <http://dserve.dentsu360th.com/privacy-policy> .
+:Freckle-Iot a gdprov:ThirdParty ;
+    rdfs:label "Freckle IoT" ;
+    rdfs:seeAlso <https://freckleiot.com/privacy-policy/> .
+:Rees46 a gdprov:ThirdParty ;
+    rdfs:label "REES46" ;
+    rdfs:seeAlso <https://docs.rees46.com/display/en/Legal> .
+:Thoughtleadr a gdprov:ThirdParty ;
+    rdfs:label "ThoughtLeadr" ;
+    rdfs:seeAlso <http://www.thoughtleadr.com/privacy-policy/> .
+:Cuebiq a gdprov:ThirdParty ;
+    rdfs:label "Cuebiq" ;
+    rdfs:seeAlso <https://www.cuebiq.com/privacypolicy/> .
+:Haensel-Ams a gdprov:ThirdParty ;
+    rdfs:label "Haensel AMS" ;
+    rdfs:seeAlso <https://haensel-ams.com/data-privacy/> .
+:Kayak a gdprov:ThirdParty ;
+    rdfs:label "KAYAK" ;
+    rdfs:seeAlso <https://www.kayak.com/privacy> .
+:Advmaker a gdprov:ThirdParty ;
+    rdfs:label "Advmaker" ;
+    rdfs:seeAlso <https://advmaker.net/policy/> .
+:Vrtcal a gdprov:ThirdParty ;
+    rdfs:label "VRTCAL" ;
+    rdfs:seeAlso <https://vrtcal.com/docs/Terms.pdf> .
+:Nativeads-Com a gdprov:ThirdParty ;
+    rdfs:label "NativeAds.com" ;
+    rdfs:seeAlso <https://nativeads.com/privacy-policy.php> .
+:Bdsk-Handels-Gmbh-Co-Kg a gdprov:ThirdParty ;
+    rdfs:label "BDSK Handels GmbH &amp; Co. KG" ;
+    rdfs:seeAlso <https://www.xxxlutz.de/ocms/privacy> .
+:Riesenia-Com a gdprov:ThirdParty ;
+    rdfs:label "RIESENIA.com" ;
+    rdfs:seeAlso <https://www.adboost.sk/gdpr.html> .
+:Objective-Partners a gdprov:ThirdParty ;
+    rdfs:label "Objective Partners" ;
+    rdfs:seeAlso <https://www.objectivepartners.com/cookie-policy-and-privacy-statement/> .
+:Airtory a gdprov:ThirdParty ;
+    rdfs:label "Airtory" ;
+    rdfs:seeAlso <https://airtory.com/privacy_policy.html> .
+:Space-Adserver a gdprov:ThirdParty ;
+    rdfs:label "SPACE ADSERVER" ;
+    rdfs:seeAlso <https://adx.space/policy.html> .
+:Cheetah-Mobile a gdprov:ThirdParty ;
+    rdfs:label "Cheetah Mobile" ;
+    rdfs:seeAlso <http://ads.cmcm.com/privacy> .
+:Spring-Venture-Group a gdprov:ThirdParty ;
+    rdfs:label "Spring Venture Group" ;
+    rdfs:seeAlso <http://www.springventuregroup.com/privacy-policy/> .
+:Platform360 a gdprov:ThirdParty ;
+    rdfs:label "Platform360" ;
+    rdfs:seeAlso <http://platform360.co/privacy.html> .
+:Onseo a gdprov:ThirdParty ;
+    rdfs:label "Onseo" ;
+    rdfs:seeAlso <http://onseo.biz/privacy.html> .
+:Mobvista-Mintegral a gdprov:ThirdParty ;
+    rdfs:label "Mobvista/Mintegral" ;
+    rdfs:seeAlso <https://www.mintegral.com/en/privacy> .
+:Dynadmic-Corporation a gdprov:ThirdParty ;
+    rdfs:label "DynAdmic Corporation" ;
+    rdfs:seeAlso <http://us.dynadmic.com/privacy-policy/> .
+:Credebat a gdprov:ThirdParty ;
+    rdfs:label "Credebat" ;
+    rdfs:seeAlso <https://www.credebat.com/privacy-policy> .
+:Gruuv-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Gruuv Interactive" ;
+    rdfs:seeAlso <https://www.gruuvinteractive.com/privacy-policy/> .
+:Supership a gdprov:ThirdParty ;
+    rdfs:label "Supership" ;
+    rdfs:seeAlso <https://supership.jp/optout/> .
+:Marketing-Science-Consulting-Group a gdprov:ThirdParty ;
+    rdfs:label "Marketing Science Consulting Group" .
+:Reactive a gdprov:ThirdParty ;
+    rdfs:label "Reactive" ;
+    rdfs:seeAlso <http://reactive-agency.ru/> .
+:Dentsu a gdprov:ThirdParty ;
+    rdfs:label "DENTSU" ;
+    rdfs:seeAlso <http://www.dentsu.co.jp/terms/data_policy.html> .
+:Downstream-Ai a gdprov:ThirdParty ;
+    rdfs:label "Downstream.ai" ;
+    rdfs:seeAlso <http://www.downstream.ai/privacy.html> .
+:Bidmotion a gdprov:ThirdParty ;
+    rdfs:label "BidMotion" ;
+    rdfs:seeAlso <http://www.bidmotion.com/gdpr> .
+:Essens a gdprov:ThirdParty ;
+    rdfs:label "Essens" ;
+    rdfs:seeAlso <https://essens.no/privacy-policy/> .
+:Appsflyer a gdprov:ThirdParty ;
+    rdfs:label "AppsFlyer" ;
+    rdfs:seeAlso <https://www.appsflyer.com/privacy-policy/> .
+:Netsuccess a gdprov:ThirdParty ;
+    rdfs:label "NetSuccess" ;
+    rdfs:seeAlso <https://www.inres.sk/optout/index_sk.html> .
+:Nexus-Soft a gdprov:ThirdParty ;
+    rdfs:label "Nexus Soft" ;
+    rdfs:seeAlso <https://www.nexus-soft.org/index/privacy> .
+:Giantmedia a gdprov:ThirdParty ;
+    rdfs:label "Giantmedia" ;
+    rdfs:seeAlso <http://giantmedia.com/about-giant/privacy-policy/> .
+:Gp-One a gdprov:ThirdParty ;
+    rdfs:label "GP One" ;
+    rdfs:seeAlso <http://www.gsi-one.org/templates/gsi/en/files/privacy_policy.pdf> .
+:Ignitionai a gdprov:ThirdParty ;
+    rdfs:label "IgnitionAI" ;
+    rdfs:seeAlso <http://www.ignition.ai/privacy-policy> .
+:Parrable a gdprov:ThirdParty ;
+    rdfs:label "Parrable" ;
+    rdfs:seeAlso <https://www.parrable.com/privacy> .
+:Bannerbuilder a gdprov:ThirdParty ;
+    rdfs:label "BannerBuilder" ;
+    rdfs:seeAlso <http://bannerbuilder.co.nz/privacy-policy/> .
+:Instinctive a gdprov:ThirdParty ;
+    rdfs:label "Instinctive" ;
+    rdfs:seeAlso <https://instinctive.io/privacy> .
+:Emarketingsolutions a gdprov:ThirdParty ;
+    rdfs:label "eMarketingSolutions" ;
+    rdfs:seeAlso <https://emarketingsolutions.es/privacy-policy> .
+:Native-Touch a gdprov:ThirdParty ;
+    rdfs:label "Native Touch" ;
+    rdfs:seeAlso <https://nativetouch.com/privacy-policy/> .
+:Branch a gdprov:ThirdParty ;
+    rdfs:label "Branch" ;
+    rdfs:seeAlso <https://branch.io/policies/> .
+:Bannerwise a gdprov:ThirdParty ;
+    rdfs:label "Bannerwise" ;
+    rdfs:seeAlso <https://bannerwise.io/privacy-policy/> .
+:Pathmatics a gdprov:ThirdParty ;
+    rdfs:label "Pathmatics" ;
+    rdfs:seeAlso <https://www.pathmatics.com/privacy#advertising> .
+:N2 a gdprov:ThirdParty ;
+    rdfs:label "N2" ;
+    rdfs:seeAlso <https://n2.fi/privacy-policy/> .
+:Net-Info a gdprov:ThirdParty ;
+    rdfs:label "Net Info" ;
+    rdfs:seeAlso <https://www.netinfocompany.bg/privacy.php> .
+:Adnetic a gdprov:ThirdParty ;
+    rdfs:label "Adnetic" ;
+    rdfs:seeAlso <https://adnetic.ru/policies/privacy> .
+:Opinionads a gdprov:ThirdParty ;
+    rdfs:label "OpinionAds" ;
+    rdfs:seeAlso <https://opinionads.com/privacy> .
+:Connatix a gdprov:ThirdParty ;
+    rdfs:label "Connatix" ;
+    rdfs:seeAlso <https://connatix.com/privacy-policy/> .
+:Widespace a gdprov:ThirdParty ;
+    rdfs:label "Widespace" ;
+    rdfs:seeAlso <https://www.widespace.com/legal/privacy-policy-notice/> .
+:Qualtrics a gdprov:ThirdParty ;
+    rdfs:label "Qualtrics" ;
+    rdfs:seeAlso <https://www.qualtrics.com/uk/platform/gdpr/> .
+:Advertserve a gdprov:ThirdParty ;
+    rdfs:label "Advertserve" ;
+    rdfs:seeAlso <https://privacy.advertserve.com/> .
+:Adrule a gdprov:ThirdParty ;
+    rdfs:label "adrule" ;
+    rdfs:seeAlso <https://www.adrule.net/de/datenschutz/> .
+:Touch-Ads a gdprov:ThirdParty ;
+    rdfs:label "Touch Ads" ;
+    rdfs:seeAlso <https://touchads.com/company-index.html#privacy-policy> .
+:Softcrylic a gdprov:ThirdParty ;
+    rdfs:label "Softcrylic" ;
+    rdfs:seeAlso <https://softcrylic.com/privacy-policy/> .
+:Infinia a gdprov:ThirdParty ;
+    rdfs:label "INFINIA" ;
+    rdfs:seeAlso <https://www.infiniamobile.com/politica-de-privacidad/> .
+:Sape a gdprov:ThirdParty ;
+    rdfs:label "Sape" ;
+    rdfs:seeAlso <https://traffic.sape.ru/policy.html> .
+:Adplay a gdprov:ThirdParty ;
+    rdfs:label "AdPlay" ;
+    rdfs:seeAlso <https://rtb.adplay-mobile.com/privacy-policy> .
+:Appgrowth-Inc a gdprov:ThirdParty ;
+    rdfs:label "AppGrowth Inc." ;
+    rdfs:seeAlso <https://s3.amazonaws.com/appgrowth-cloud/legal/Privacy-Policy-Appgrowth.pdf> .
+:Blueworks a gdprov:ThirdParty ;
+    rdfs:label "Blueworks" ;
+    rdfs:seeAlso <https://hleb.agency/policy/eng/index.html> .
+:Seenthis a gdprov:ThirdParty ;
+    rdfs:label "Seenthis" ;
+    rdfs:seeAlso <https://seenthis.co/privacy-notice-2018-04-18.pdf> .
+:Tapklik a gdprov:ThirdParty ;
+    rdfs:label "Tapklik" ;
+    rdfs:seeAlso <https://www.tapklik.com/gdpr> .
+:Vertoz a gdprov:ThirdParty ;
+    rdfs:label "Vertoz" ;
+    rdfs:seeAlso <https://www.vertoz.com/gdpr> .
+:Sketchfab a gdprov:ThirdParty ;
+    rdfs:label "Sketchfab" .
+:Taiwan-Mobile-Co-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Taiwan Mobile Co Ltd" ;
+    rdfs:seeAlso <http://www.ghtinc.com/mi-dsp/privacy-policies/> .
+:Qualia a gdprov:ThirdParty ;
+    rdfs:label "Qualia" ;
+    rdfs:seeAlso <https://bluecava.com/privacy-policy> .
+:Alooma a gdprov:ThirdParty ;
+    rdfs:label "Alooma" ;
+    rdfs:seeAlso <http://alooma.tv/privacypolicy.htm> .
+:Bei-Jing-Fan-Wei-Xin-Xi-Ke-Ji-You-Xian-Gong-Si a gdprov:ThirdParty ;
+    rdfs:label "北京泛为信息科技有限公司" ;
+    rdfs:seeAlso <http://www.fancydigital.com.cn/html/privacy_GDRP.html> .
+:Listenloop a gdprov:ThirdParty ;
+    rdfs:label "ListenLoop" ;
+    rdfs:seeAlso <https://listenloop.com/user-consent-policy> .
+:Bombora a gdprov:ThirdParty ;
+    rdfs:label "Bombora" ;
+    rdfs:seeAlso <http://bombora.com/privacy> .
+:Adclouds a gdprov:ThirdParty ;
+    rdfs:label "Adclouds" ;
+    rdfs:seeAlso <https://adclouds.io/data-gdpr/> .
+:Display-Direct a gdprov:ThirdParty ;
+    rdfs:label "Display.direct" ;
+    rdfs:seeAlso <https://display.direct/wp-content/uploads/2018/04/Privacy-Policy.pdf> .
+:Amino-Payments a gdprov:ThirdParty ;
+    rdfs:label "Amino Payments" .
+:Interplus a gdprov:ThirdParty ;
+    rdfs:label "Interplus" ;
+    rdfs:seeAlso <https://www.now-tracking.com/privacy.html> .
+:Stage-Flag a gdprov:ThirdParty ;
+    rdfs:label "Stage Flag" ;
+    rdfs:seeAlso <http://stageflag.com/privacy/> .
+:Vimeo a gdprov:ThirdParty ;
+    rdfs:label "Vimeo" ;
+    rdfs:seeAlso <https://vimeo.com/cookie_policy> .
+:Ae-Media a gdprov:ThirdParty ;
+    rdfs:label "AE Media" ;
+    rdfs:seeAlso <http://www.aemedia.sg/privacy-policy/> .
+:Adretarget a gdprov:ThirdParty ;
+    rdfs:label "AdRetarget" ;
+    rdfs:seeAlso <https://adretarget.me/privacy-policy/> .
+:Etu-Corporation a gdprov:ThirdParty ;
+    rdfs:label "Etu Corporation" ;
+    rdfs:seeAlso <https://www.etusolution.com/index.php/en/about/gdpr> .
+:Lands-End a gdprov:ThirdParty ;
+    rdfs:label "LANDS' END" ;
+    rdfs:seeAlso <https://www.landsend.com/customerservice/legal_policies/privacy/> .
+:Digitec-Galaxus-Ag a gdprov:ThirdParty ;
+    rdfs:label "Digitec Galaxus AG" ;
+    rdfs:seeAlso <https://www.digitec.ch/de/Wiki/2791> .
+:Persona-Ly a gdprov:ThirdParty ;
+    rdfs:label "Persona.ly" ;
+    rdfs:seeAlso <http://persona.ly/privacy_policy> .
+:Lifesight a gdprov:ThirdParty ;
+    rdfs:label "Lifesight" ;
+    rdfs:seeAlso <https://www.lifesight.io/privacy> .
+:Vertriebswerk a gdprov:ThirdParty ;
+    rdfs:label "Vertriebswerk" ;
+    rdfs:seeAlso <https://eazy.de/agb> .
+:Somplo a gdprov:ThirdParty ;
+    rdfs:label "Somplo" ;
+    rdfs:seeAlso <http://somplo.com/privacy-policy/> .
+:Tvadsync a gdprov:ThirdParty ;
+    rdfs:label "TVadSync" ;
+    rdfs:seeAlso <https://www.tvadsync.com/privacy-policy/> .
+:X-Social a gdprov:ThirdParty ;
+    rdfs:label "X-Social" ;
+    rdfs:seeAlso <http://www.xsocialgroup.com/PrivacyPolicy.html> .
+:Blue a gdprov:ThirdParty ;
+    rdfs:label "Blue" ;
+    rdfs:seeAlso <http://getblue.io/privacy> .
+:Adnami-Aps a gdprov:ThirdParty ;
+    rdfs:label "Adnami ApS" ;
+    rdfs:seeAlso <https://adnami.io/privacy-policy.html> .
+:Ogury-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Ogury Ltd" ;
+    rdfs:seeAlso <https://www.ogury.com/privacy> .
+:Improve-Digital a gdprov:ThirdParty ;
+    rdfs:label "Improve Digital" ;
+    rdfs:seeAlso <https://www.improvedigital.com/privacy-policy/> .
+:Sovrn a gdprov:ThirdParty ;
+    rdfs:label "Sovrn" ;
+    rdfs:seeAlso <https://www.sovrn.com/privacy-policy/> .
+:Vungle a gdprov:ThirdParty ;
+    rdfs:label "Vungle" ;
+    rdfs:seeAlso <https://vungle.com/gdpr-faq/> .
+:Smaato a gdprov:ThirdParty ;
+    rdfs:label "Smaato" ;
+    rdfs:seeAlso <https://www.smaato.com/privacy/> .
+:Adcolony a gdprov:ThirdParty ;
+    rdfs:label "AdColony" ;
+    rdfs:seeAlso <https://www.adcolony.com/gdpr/> .
+:Fresh8-Gaming a gdprov:ThirdParty ;
+    rdfs:label "Fresh8 Gaming" ;
+    rdfs:seeAlso <http://fresh8gaming.com/privacy-policy.html> .
+:Tail a gdprov:ThirdParty ;
+    rdfs:label "Tail" ;
+    rdfs:seeAlso <https://www.tail.digital/#privacy> .
+:Bannernow a gdprov:ThirdParty ;
+    rdfs:label "BannerNow" ;
+    rdfs:seeAlso <https://bannernow.com/privacy> .
+:Fyber a gdprov:ThirdParty ;
+    rdfs:label "Fyber" ;
+    rdfs:seeAlso <https://www.fyber.com/legal/gdpr-faqs/> .
+:Totaljobs-Group-Ltd a gdprov:ThirdParty ;
+    rdfs:label "TotalJobs Group Ltd" ;
+    rdfs:seeAlso <https://www.totaljobs.com/privacy-policy> .
+:Iotec a gdprov:ThirdParty ;
+    rdfs:label "IOTEC" ;
+    rdfs:seeAlso <https://www.iotecglobal.com/privacy-policy/> .
+:Yieldmo a gdprov:ThirdParty ;
+    rdfs:label "YieldMo" ;
+    rdfs:seeAlso <https://www.yieldmo.com/privacy/> .
+:Dochase a gdprov:ThirdParty ;
+    rdfs:label "Dochase" ;
+    rdfs:seeAlso <http://www.dochase.com/privacy.html> .
+:Hotels-Com-L-P a gdprov:ThirdParty ;
+    rdfs:label "Hotels.com L. P." ;
+    rdfs:seeAlso <https://uk.hotels.com/customer_care/privacy.html> .
+:Overstock a gdprov:ThirdParty ;
+    rdfs:label "Overstock" ;
+    rdfs:seeAlso <https://help.overstock.com/help/s/article/PRIVACY-AND-SECURITY-POLICY> .
+:Thomann-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Thomann GmbH" ;
+    rdfs:seeAlso <https://www.thomann.de/de/compinfo_privacy.html> .
+:Aedge-Performance-S-L a gdprov:ThirdParty ;
+    rdfs:label "Aedge Performance S.L." ;
+    rdfs:seeAlso <https://www.peakadx.com/privacy.php> .
+:Combell a gdprov:ThirdParty ;
+    rdfs:label "Combell" ;
+    rdfs:seeAlso <https://www.combell.com/nl/over-combell/privacy-policy> .
+:Virtual-Minds a gdprov:ThirdParty ;
+    rdfs:label "Virtual Minds" ;
+    rdfs:seeAlso <https://virtualminds.de/datenschutz/> .
+:Oath a gdprov:ThirdParty ;
+    rdfs:label "Oath" ;
+    rdfs:seeAlso <https://policies.oath.com/xw/en/oath/privacy/enterprise/b2bprivacypolicy/> .
+:Oracle-Data-Cloud a gdprov:ThirdParty ;
+    rdfs:label "Oracle Data Cloud" ;
+    rdfs:seeAlso <https://www.oracle.com/legal/privacy/marketing-cloud-data-cloud-privacy-policy.html> .
+:Publicis-Media a gdprov:ThirdParty ;
+    rdfs:label "Publicis Media" ;
+    rdfs:seeAlso <https://www.publicismedia.de/datenschutz/> .
+:Pmg a gdprov:ThirdParty ;
+    rdfs:label "PMG" ;
+    rdfs:seeAlso <https://www.pmg.com/privacy-policy/> .
+:Yabbi a gdprov:ThirdParty ;
+    rdfs:label "Yabbi" ;
+    rdfs:seeAlso <http://dsp.yabbi.me/#popup-privacy> .
+:Captify a gdprov:ThirdParty ;
+    rdfs:label "Captify" ;
+    rdfs:seeAlso <http://www.captify.co.uk/technologies/brand-safety> .
+:Datafy a gdprov:ThirdParty ;
+    rdfs:label "Datafy" ;
+    rdfs:seeAlso <http://www.datafy-software.com/cookie-policy/> .
+:Swaven a gdprov:ThirdParty ;
+    rdfs:label "Swaven" ;
+    rdfs:seeAlso <http://www.swaven.com/cookie-policy/> .
+:Hashtag-D a gdprov:ThirdParty ;
+    rdfs:label "Hashtag'd" ;
+    rdfs:seeAlso <https://hashtagd.net/about/privacy> .
+:Sas-One-Planet-Only a gdprov:ThirdParty ;
+    rdfs:label "SAS One Planet Only" ;
+    rdfs:seeAlso <https://oneplanetonly.com/files/PRIVACY_POLICY.pdf> .
+:Better-Banners a gdprov:ThirdParty ;
+    rdfs:label "Better Banners" ;
+    rdfs:seeAlso <https://betterbanners.com/en/privacy> .
+:True-Wave-Technologies-Limited a gdprov:ThirdParty ;
+    rdfs:label "True Wave Technologies Limited" ;
+    rdfs:seeAlso <http://truewave.io/gdpr.html> .
+:Alion a gdprov:ThirdParty ;
+    rdfs:label "Alion" ;
+    rdfs:seeAlso <https://www.alion.nl/privacy/> .
+:Sublime-Skinz a gdprov:ThirdParty ;
+    rdfs:label "Sublime Skinz" ;
+    rdfs:seeAlso <http://sublimeskinz.com/Creative-Agency-CDN-Privacy-en> .
+:Artworx-As a gdprov:ThirdParty ;
+    rdfs:label "Artworx AS" ;
+    rdfs:seeAlso <http://adserve.zone/adserveprivacypolicy.html> .
+:Dumarca-Gaming-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Dumarca Gaming Ltd" ;
+    rdfs:seeAlso <https://www.verajohn.com/about/privacy-policy> .
+:Justpremium a gdprov:ThirdParty ;
+    rdfs:label "Justpremium" ;
+    rdfs:seeAlso <https://justpremium.com/terms-conditions/?section=privacy_policy> .
+:Media-Lab-Limited a gdprov:ThirdParty ;
+    rdfs:label "Media Lab Limited" ;
+    rdfs:seeAlso <http://www.medialab.group/index.html#privacycenter> .
+:Seedtag a gdprov:ThirdParty ;
+    rdfs:label "Seedtag" ;
+    rdfs:seeAlso <https://www.seedtag.com/en/cookie-policy/> .
+:Waardex a gdprov:ThirdParty ;
+    rdfs:label "WaardeX" ;
+    rdfs:seeAlso <https://waardex.com/privacy-policy> .
+:Eficiens a gdprov:ThirdParty ;
+    rdfs:label "EFICIENS" ;
+    rdfs:seeAlso <https://www.eficiens.com/privacy/> .
+:Barometric a gdprov:ThirdParty ;
+    rdfs:label "Barometric" ;
+    rdfs:seeAlso <https://barometric.com/privacy> .
+:Rippll-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Rippll Ltd" ;
+    rdfs:seeAlso <http://www.rippll.com/privacy> .
+:Affiliate-Future a gdprov:ThirdParty ;
+    rdfs:label "Affiliate Future" ;
+    rdfs:seeAlso <http://affiliatefuture.co.uk/Legal/privacy> .
+:Lead-Alliance-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "lead alliance GmbH" ;
+    rdfs:seeAlso <https://www.lead-alliance.net/dataprotection> .
+:Hasoffer-Tune a gdprov:ThirdParty ;
+    rdfs:label "HasOffer - Tune" .
+:Lucidity a gdprov:ThirdParty ;
+    rdfs:label "Lucidity" ;
+    rdfs:seeAlso <https://3hdyii5456535a15cj8q93z9-wpengine.netdna-ssl.com/wp-content/uploads/2018/04/Lucidity.tech-Privacy-Policy.docx.pdf> .
+:Grabit-Interactive a gdprov:ThirdParty ;
+    rdfs:label "Grabit Interactive" ;
+    rdfs:seeAlso <https://grabit.media/privacy/> .
+:Journey-By-Cake a gdprov:ThirdParty ;
+    rdfs:label "Journey by CAKE" ;
+    rdfs:seeAlso <http://getcake.com/privacy-policy/#rights> .
+:Zeotap a gdprov:ThirdParty ;
+    rdfs:label "zeotap" ;
+    rdfs:seeAlso <https://www.zeotap.com/privacy_policy/> .
+:Livepartners a gdprov:ThirdParty ;
+    rdfs:label "LivePartners" ;
+    rdfs:seeAlso <https://www.livepartners.com/confidentiality.html> .
+:Coastal-Digital-Group a gdprov:ThirdParty ;
+    rdfs:label "Coastal Digital Group" ;
+    rdfs:seeAlso <https://coastaldigitalgroup.com/cdg_privacypolicy.html> .
+:Qriously-Inc a gdprov:ThirdParty ;
+    rdfs:label "Qriously Inc" ;
+    rdfs:seeAlso <https://www.qriously.com/privacy> .
+:Fxcm-Com a gdprov:ThirdParty ;
+    rdfs:label "FXCM.com" ;
+    rdfs:seeAlso <https://www.fxcm.com/uk/legal/data-protection-rights/> .
+:Instant-Ads a gdprov:ThirdParty ;
+    rdfs:label "Instant Ads" ;
+    rdfs:seeAlso <https://instantads.telefonica.com/privacy-policy.html> .
+:Rambla a gdprov:ThirdParty ;
+    rdfs:label "Rambla" ;
+    rdfs:seeAlso <https://www.rambla.be/privacy-policy/> .
+:Digital-Ad-Systems a gdprov:ThirdParty ;
+    rdfs:label "Digital Ad Systems" .
+:Tramplin-Media a gdprov:ThirdParty ;
+    rdfs:label "Tramplin Media" ;
+    rdfs:seeAlso <https://trmpln.ru/docs/privacy-policy.pdf> .
+:Easy-Marketing-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "EASY Marketing GmbH" ;
+    rdfs:seeAlso <https://metrics.apartena.net/privacy-optout.do> .
+:R-O-Eye-Limited a gdprov:ThirdParty ;
+    rdfs:label "R.O.EYE Limited" ;
+    rdfs:seeAlso <https://www.roeye.com/privacy> .
+:Milanoo a gdprov:ThirdParty ;
+    rdfs:label "Milanoo" ;
+    rdfs:seeAlso <https://www.milanoo.com/help/index-id-1459-childcat-2043.html> .
+:Dapp-Global-Limited a gdprov:ThirdParty ;
+    rdfs:label "DAPP GLOBAL LIMITED" ;
+    rdfs:seeAlso <http://ad.duapps.com/gdpr/> .
+:Hargreaves-Lansdown a gdprov:ThirdParty ;
+    rdfs:label "Hargreaves Lansdown" ;
+    rdfs:seeAlso <https://www.hl.co.uk/privacy-policy> .
+:Zoekhelden a gdprov:ThirdParty ;
+    rdfs:label "Zoekhelden" ;
+    rdfs:seeAlso <http://zoekhelden.nl/privacy-statement/> .
+:Bauhof-Group-As a gdprov:ThirdParty ;
+    rdfs:label "Bauhof Group AS" ;
+    rdfs:seeAlso <https://www.bauhof.ee/kliendiandmete-kasutamise-pohimotted> .
+:Retail-Rocket-Llc a gdprov:ThirdParty ;
+    rdfs:label "Retail Rocket LLC" ;
+    rdfs:seeAlso <https://my.retailrocket.ru/dsp/privacy> .
+:Jysk-Linnen-N-Furniture-Ou a gdprov:ThirdParty ;
+    rdfs:label "JYSK LINNEN'N FURNITURE O&Uuml;" ;
+    rdfs:seeAlso <https://www.jysk.ee/cookies> .
+:Bluesummit a gdprov:ThirdParty ;
+    rdfs:label "Bluesummit" ;
+    rdfs:seeAlso <https://www.bluesummit.de/datenschutz/> .
+:Xcheck a gdprov:ThirdParty ;
+    rdfs:label "xCheck" ;
+    rdfs:seeAlso <http://www.xcheck.co/privacy> .
+:Butlers-Gmbh-Co-Kg a gdprov:ThirdParty ;
+    rdfs:label "Butlers GmbH &amp; Co. KG" ;
+    rdfs:seeAlso <https://trck.butlers.com/privacy-mydata.do> .
+:Adcell a gdprov:ThirdParty ;
+    rdfs:label "ADCELL" ;
+    rdfs:seeAlso <https://www.adcell.de/agb#sector_6> .
+:Bose a gdprov:ThirdParty ;
+    rdfs:label "Bose" ;
+    rdfs:seeAlso <https://www.bose.co.uk/en_gb/legal/cookie_policy.html> .
+:Playground-Xyz a gdprov:ThirdParty ;
+    rdfs:label "PLAYGROUND XYZ" ;
+    rdfs:seeAlso <https://playground.xyz/privacy/privacy-policy.pdf> .
+:Throtle a gdprov:ThirdParty ;
+    rdfs:label "Throtle" ;
+    rdfs:seeAlso <https://throtle.io/privacy/> .
+:Snapupp-Technologies-Sl a gdprov:ThirdParty ;
+    rdfs:label "Snapupp Technologies SL" ;
+    rdfs:seeAlso <https://www.enterprise.noddus.com/privacy-policy> .
+:Red-Cubes-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Red Cubes Ltd" ;
+    rdfs:seeAlso <https://www.redcubes.biz/privacy-policy> .
+:Tchibo-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Tchibo GmbH" ;
+    rdfs:seeAlso <https://www.tchibo.de/cookies-tracking-re-targeting-s400092901.html> .
+:Astromotion a gdprov:ThirdParty ;
+    rdfs:label "Astromotion" ;
+    rdfs:seeAlso <https://astromotiongames.com/privacy-policy> .
+:Spoooky a gdprov:ThirdParty ;
+    rdfs:label "Spoooky" ;
+    rdfs:seeAlso <https://spooo.ky/privacy-policy> .
+:Ironsource-Mobile a gdprov:ThirdParty ;
+    rdfs:label "ironSource Mobile" ;
+    rdfs:seeAlso <https://developers.ironsrc.com/ironsource-mobile/air/ironsource-mobile-privacy-policy> .
+:Togetherdata a gdprov:ThirdParty ;
+    rdfs:label "TogetherData" ;
+    rdfs:seeAlso <http://tgdaudience.com/Privacy_Policy_TGDA.pdf> .
+:Netbet a gdprov:ThirdParty ;
+    rdfs:label "NETBET" ;
+    rdfs:seeAlso <https://affiliates.netbet.gr/en/terms-conditions.html> .
+:Eterna a gdprov:ThirdParty ;
+    rdfs:label "ETERNA" ;
+    rdfs:seeAlso <https://www.eterna.de/datenschutz> .
+:Shi-Ji-Fu-Xuan-Ke-Ji-Fa-Zhan-Bei-Jing-You-Xian-Gong-Si a gdprov:ThirdParty ;
+    rdfs:label "世纪富轩科技发展（北京）有限公司" ;
+    rdfs:seeAlso <http://help.dhgate.com/help/buyer_about_usen.php?catpid=g9> .
+:Amp-Ai-By-Scaled-Inference a gdprov:ThirdParty ;
+    rdfs:label "Amp.ai by Scaled Inference" ;
+    rdfs:seeAlso <https://scaledinference.com/privacy-policy> .
+:Octaive-Com a gdprov:ThirdParty ;
+    rdfs:label "Octaive.com" ;
+    rdfs:seeAlso <https://www.octaive.com/privacy> .
+:Calzedonia a gdprov:ThirdParty ;
+    rdfs:label "Calzedonia" ;
+    rdfs:seeAlso <https://world.calzedonia.com/custserv/custserv.jsp?pageName=faq-legal-information#tab1> .
+:Modellbau-Universe-Gbr a gdprov:ThirdParty ;
+    rdfs:label "modellbau universe GbR" ;
+    rdfs:seeAlso <https://www.modellbau-universe.de/datenschutz.htm> .
+:Medialabs a gdprov:ThirdParty ;
+    rdfs:label "Medialabs" ;
+    rdfs:seeAlso <http://www.medialabs.com/privacy-policy> .
+:Nordisk-Film-A-S a gdprov:ThirdParty ;
+    rdfs:label "Nordisk Film A/S" ;
+    rdfs:seeAlso <http://adnordic.eu/privacypolicy.html> .
+:Advrtas a gdprov:ThirdParty ;
+    rdfs:label "Advrtas" ;
+    rdfs:seeAlso <https://advrtas.com/privacy-policy/> .
+:Viewst a gdprov:ThirdParty ;
+    rdfs:label "Viewst" ;
+    rdfs:seeAlso <https://viewst.com/privacy_policy> .
+:Clickwise a gdprov:ThirdParty ;
+    rdfs:label "Clickwise" ;
+    rdfs:seeAlso <https://clickwise.net/section/terms> .
+:Critical-Mix a gdprov:ThirdParty ;
+    rdfs:label "Critical Mix" .
+:Coupling-Media a gdprov:ThirdParty ;
+    rdfs:label "coupling media" ;
+    rdfs:seeAlso <https://www.coupling-media.de/datenschutz.html> .
+:Chartboost a gdprov:ThirdParty ;
+    rdfs:label "Chartboost" ;
+    rdfs:seeAlso <https://answers.chartboost.com/en-us/articles/200780269> .
+:Admost a gdprov:ThirdParty ;
+    rdfs:label "Admost" ;
+    rdfs:seeAlso <http://adserver.admost.com/privacypolicy.html> .
+:Squeezely a gdprov:ThirdParty ;
+    rdfs:label "Squeezely" ;
+    rdfs:seeAlso <https://squeezely.tech/privacy> .
+:Good-Loop a gdprov:ThirdParty ;
+    rdfs:label "Good-Loop" ;
+    rdfs:seeAlso <https://doc.good-loop.com/policy/privacy-policy.html> .
+:Visarity a gdprov:ThirdParty ;
+    rdfs:label "Visarity" ;
+    rdfs:seeAlso <https://primo.design/docs/PrivacyPolicyPrimo.html> .
+:Mediapal a gdprov:ThirdParty ;
+    rdfs:label "MediaPal" ;
+    rdfs:seeAlso <http://mediapal.net/gdpr-compliance> .
+:Marketing-Town a gdprov:ThirdParty ;
+    rdfs:label "Marketing Town" ;
+    rdfs:seeAlso <https://www.m-t.io/privacy-policy> .
+:Communicationads a gdprov:ThirdParty ;
+    rdfs:label "communicationAds" ;
+    rdfs:seeAlso <https://www.communicationads.net/aboutus/privacy/> .
+:Bsmartdata a gdprov:ThirdParty ;
+    rdfs:label "BSmartData" ;
+    rdfs:seeAlso <https://ad.bsmartdata.com/privacy.php?lang=en> .
+:Dianomi a gdprov:ThirdParty ;
+    rdfs:label "Dianomi" ;
+    rdfs:seeAlso <https://www.dianomi.com/legal/privacy.epl> .
+:Adapt-Retail-Advertising-Platform a gdprov:ThirdParty ;
+    rdfs:label "Adapt Retail - Advertising Platform" ;
+    rdfs:seeAlso <https://www.adaptretail.com/privacy/application/> .
+:Fastbooking-Sas a gdprov:ThirdParty ;
+    rdfs:label "Fastbooking SAS" ;
+    rdfs:seeAlso <https://www.fastbooking.com/privacy-policy/> .
+:Movable-Ink a gdprov:ThirdParty ;
+    rdfs:label "Movable Ink" ;
+    rdfs:seeAlso <https://movableink.com/legal/privacy> .
+:Flexitive a gdprov:ThirdParty ;
+    rdfs:label "Flexitive" ;
+    rdfs:seeAlso <https://app.flexitive.com/signup/privacy> .
+:Divvit-Ab a gdprov:ThirdParty ;
+    rdfs:label "Divvit AB" ;
+    rdfs:seeAlso <https://help.divvit.com/frequently-asked-questions/taking-data-privacy-seriously-how-divvit-complies-with-gdpr> .
+:Tuky-Data a gdprov:ThirdParty ;
+    rdfs:label "Tuky Data" ;
+    rdfs:seeAlso <https://tuky.net/privacy.html> .
+:Glassdoor a gdprov:ThirdParty ;
+    rdfs:label "Glassdoor" .
+:Adunity-Ltd a gdprov:ThirdParty ;
+    rdfs:label "AdUnity LTD" ;
+    rdfs:seeAlso <https://www.adunity.com/privacy-policy.html> .
+:Yousee a gdprov:ThirdParty ;
+    rdfs:label "YouSee" ;
+    rdfs:seeAlso <https://kundeservice.yousee.dk/abonnement/privatlivspolitik/privatliv> .
+:Oscaro-Com a gdprov:ThirdParty ;
+    rdfs:label "OSCARO COM" ;
+    rdfs:seeAlso <https://info.oscaro.com/politique-de-securite-et-de-confidentialite.html#cookies> .
+:Sonobi a gdprov:ThirdParty ;
+    rdfs:label "Sonobi" .
+:Adlib-Digital-Limited a gdprov:ThirdParty ;
+    rdfs:label "AdLib Digital Limited" ;
+    rdfs:seeAlso <https://ad-lib.io/data-protection> .
+:Systemina a gdprov:ThirdParty ;
+    rdfs:label "Systemina" ;
+    rdfs:seeAlso <https://www.systemina.dk/persondatapolitik> .
+:Banterx-Inc a gdprov:ThirdParty ;
+    rdfs:label "BanterX Inc" ;
+    rdfs:seeAlso <https://www.banterx.com/privacy-policy.html> .
+:Stream-Eye a gdprov:ThirdParty ;
+    rdfs:label "Stream Eye" ;
+    rdfs:seeAlso <https://app.streameye.com/policy/net> .
+:Signals-Data a gdprov:ThirdParty ;
+    rdfs:label "Signals Data" ;
+    rdfs:seeAlso <https://www.signalsdata.com/platform-cookie-policy/> .
+:Clipcentric a gdprov:ThirdParty ;
+    rdfs:label "Clipcentric" .
+:Edge-Npd a gdprov:ThirdParty ;
+    rdfs:label "Edge NPD" ;
+    rdfs:seeAlso <http://edgenpd.com/privacy-policy/> .
+:Reas-Travel-Group a gdprov:ThirdParty ;
+    rdfs:label "Reas Travel Group" ;
+    rdfs:seeAlso <https://www.tjingo.nl/privacy-beleid> .
+:Conrad a gdprov:ThirdParty ;
+    rdfs:label "Conrad" ;
+    rdfs:seeAlso <https://www.conrad.de/de/ueber-conrad/rechtliches/datenschutz> .
+:Mintegral a gdprov:ThirdParty ;
+    rdfs:label "Mintegral" ;
+    rdfs:seeAlso <https://www.mintegral.com/en/privacy> .
+:Geolad-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "geolad GmbH" ;
+    rdfs:seeAlso <https://geolad.com/privacy/> .
+:Shutterstock a gdprov:ThirdParty ;
+    rdfs:label "Shutterstock" .
+:Adspot a gdprov:ThirdParty ;
+    rdfs:label "AdSpot" ;
+    rdfs:seeAlso <https://www.adspot.ch/j/cookies/policy> .
+:6Sense-Insights a gdprov:ThirdParty ;
+    rdfs:label "6Sense Insights" .
+:Bouncex a gdprov:ThirdParty ;
+    rdfs:label "BounceX" ;
+    rdfs:seeAlso <https://bouncex.com/privacy/> .
+:Maytrics a gdprov:ThirdParty ;
+    rdfs:label "Maytrics" ;
+    rdfs:seeAlso <https://www.maytrics.com/privacy.php> .
+:Blue-Billywig a gdprov:ThirdParty ;
+    rdfs:label "Blue Billywig" ;
+    rdfs:seeAlso <https://www.bluebillywig.com/en/privacy-statement> .
+:Plan-Net-Performance a gdprov:ThirdParty ;
+    rdfs:label "Plan.Net Performance" ;
+    rdfs:seeAlso <https://www.plan-net.com/en/privacy-policy.html> .
+:Alphalyr-Sas a gdprov:ThirdParty ;
+    rdfs:label "Alphalyr SAS" ;
+    rdfs:seeAlso <https://alphalyr.fr/marketing-studio-traitements-donnees-personnelles/> .
+:Contxtful a gdprov:ThirdParty ;
+    rdfs:label "CONTXTFUL" ;
+    rdfs:seeAlso <https://www.contxtful.com/Privacy/> .
+:Digital-Hub-Hannover-Gmbh a gdprov:ThirdParty ;
+    rdfs:label "Digital Hub Hannover GmbH" ;
+    rdfs:seeAlso <https://www.digitalhub-h.de/datenschutz/> .
+:Ad-Experiments a gdprov:ThirdParty ;
+    rdfs:label "Ad Experiments" ;
+    rdfs:seeAlso <https://surveymachine.io/#privacy> .
+:Retency a gdprov:ThirdParty ;
+    rdfs:label "RETENCY" ;
+    rdfs:seeAlso <http://www.retency.com/privacy/> .
+:Mhu a gdprov:ThirdParty ;
+    rdfs:label "MHU" ;
+    rdfs:seeAlso <http://adprov.io/privacy-policy/> .
+:Vidstart-Ltd a gdprov:ThirdParty ;
+    rdfs:label "Vidstart LTD" ;
+    rdfs:seeAlso <https://www.vidstart.com/wp-content/uploads/2018/09/DPA_PDF-Vidstart.pdf> .
+:Adbutler a gdprov:ThirdParty ;
+    rdfs:label "AdButler" ;
+    rdfs:seeAlso <https://adbutler.com/gdpr.spark> .
+:Brand-Metrics a gdprov:ThirdParty ;
+    rdfs:label "Brand Metrics" ;
+    rdfs:seeAlso <https://collector.brandmetrics.com/brandmetrics_privacypolicy.pdf> .
+:Location-Sciences a gdprov:ThirdParty ;
+    rdfs:label "Location Sciences" ;
+    rdfs:seeAlso <https://www.locationsciences.ai/privacy-policy/> .
+:Carrefour a gdprov:ThirdParty ;
+    rdfs:label "Carrefour" ;
+    rdfs:seeAlso <https://www.carrefour.es/politica-de-privacidad/mas-info/> .
+:Mobilcom-Debitel a gdprov:ThirdParty ;
+    rdfs:label "mobilcom-debitel" ;
+    rdfs:seeAlso <https://www.mobilcom-debitel.de/legal/datenschutz/> .
+:Nurofy-As a gdprov:ThirdParty ;
+    rdfs:label "NUROFY AS" ;
+    rdfs:seeAlso <https://nurofy.com/privacy-policy/> .
+:Flywheel a gdprov:ThirdParty ;
+    rdfs:label "FLYWHEEL" ;
+    rdfs:seeAlso <https://www.flywheel.jp/privacy-policy/> .
+:Data2Decisions a gdprov:ThirdParty ;
+    rdfs:label "Data2Decisions" ;
+    rdfs:seeAlso <http://data2decisions.com/privacy-and-cookie-policy/> .

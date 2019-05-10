@@ -1,0 +1,29 @@
+@prefix :      <http://example.com/Quantcast#> .
+@prefix data:  <http://example.com/Quantcast/data#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix m:     <http://example.com/Quantcast/data/manualtests#> .
+@prefix gdpr:  <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@prefix ex:    <http://example.com/> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix gc:    <https://w3id.org/GConsent#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  []  ;
+                 sh:resultMessage              "Consent Model should be compliant for given consent to be valid" ;
+                 sh:resultPath                 sh:conforms ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:HasValueConstraintComponent ;
+                 sh:sourceShape                <http://example.com/Quantcast/shapes#ValidationReportConforms>
+               ]
+] .

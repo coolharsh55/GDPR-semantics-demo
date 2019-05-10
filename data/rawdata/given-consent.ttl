@@ -1,0 +1,43 @@
+@prefix : <http://example.com/Quantcast#> .
+@prefix ex: <http://example.com/> .
+@prefix gc: <https://w3id.org/GConsent#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gdpr: <https://w3id.org/GDPRtEXT/gdpr#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gdprov: <https://w3id.org/GDPRov#> .
+@prefix gdprtext: <https://w3id.org/GDPRtEXT#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+:DS1 a gdprov:DataSubject, gc:DataSubject ;
+	rdfs:label "John Doe" .
+:DS2 a gdprov:DataSubject, gc:DataSubject ;
+	rdfs:label "Jane Doe" .
+
+:Consent20190415120753 a gc:Consent ;
+	gc:isConsentForDataSubject :DS1 ;
+	gc:isProvidedBy :DS1 ;
+	gc:forPurpose q:InformationStorageAccess ;
+    gc:forProcessing q:StoreIdentifiers, q:UseIdentifiers ;
+    gc:forPersonalData q:Cookie, q:AdIdentifier, q:DeviceIdentifier ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+    gc:hasStatus gc:ConsentStatusGiven .
+
+:Consent20190415140000 a gc:Consent ;
+	gc:isUpdatedConsentFor :Consent20190415120753 ;
+	gc:isConsentForDataSubject :DS1 ;
+	gc:isProvidedBy :DS1 ;
+	gc:forPurpose q:InformationStorageAccess ;
+    gc:forProcessing q:StoreIdentifiers, q:UseIdentifiers ;
+    gc:forPersonalData q:Cookie, q:AdIdentifier, q:DeviceIdentifier ;
+    gc:hasLocation <https://quantcast.com/> ;
+    gc:withdrawBy <https://www.quantcast.com/#displayConsentUI> ;
+    gc:inMedium "dialog box on website" ;
+	gc:hasStatus gc:Withdrawn .
+
