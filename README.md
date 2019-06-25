@@ -6,3 +6,5 @@ An organisation using personal data should document its data governance processe
 See [https://w3id.org/GDPRep/semantic-tests](https://w3id.org/GDPRep/semantic-tests) for more information.
 
 This repository holds the test data to demo this approach. See the accompanying [paper](docs/paper/paper.html) for more information.
+
+> Paper accepted for publication at [SEMANTiCS 2019](https://2019.semantics.cc/)
